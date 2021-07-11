@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1BB4F4733617C0E4A81548 /* Pods_ironman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
 		8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046B269B4652008B5E4C /* SceneDelegate.swift */; };
 		8081046E269B4652008B5E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046D269B4652008B5E4C /* ViewController.swift */; };
-		80810471269B4652008B5E4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8081046F269B4652008B5E4C /* Main.storyboard */; };
 		80810473269B4653008B5E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80810472269B4653008B5E4C /* Assets.xcassets */; };
 		80810476269B4653008B5E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80810474269B4653008B5E4C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0065F497E898A726B0A5093C /* Pods-ironman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ironman.debug.xcconfig"; path = "Target Support Files/Pods-ironman/Pods-ironman.debug.xcconfig"; sourceTree = "<group>"; };
+		40B09AA02563D2B6FAAAE034 /* Pods-ironman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ironman.release.xcconfig"; path = "Target Support Files/Pods-ironman/Pods-ironman.release.xcconfig"; sourceTree = "<group>"; };
+		5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ironman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80810469269B4652008B5E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8081046B269B4652008B5E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8081046D269B4652008B5E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		80810470269B4652008B5E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80810472269B4653008B5E4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80810475269B4653008B5E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80810477269B4653008B5E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B1BB4F4733617C0E4A81548 /* Pods_ironman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AD801612837D86E375E6E1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0065F497E898A726B0A5093C /* Pods-ironman.debug.xcconfig */,
+				40B09AA02563D2B6FAAAE034 /* Pods-ironman.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		804952E6695FF01701346E54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8081045D269B4651008B5E4C = {
 			isa = PBXGroup;
 			children = (
 				80810468269B4652008B5E4C /* ironman */,
 				80810467269B4652008B5E4C /* Products */,
+				1AD801612837D86E375E6E1F /* Pods */,
+				804952E6695FF01701346E54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +79,94 @@
 		80810468269B4652008B5E4C /* ironman */ = {
 			isa = PBXGroup;
 			children = (
-				80810469269B4652008B5E4C /* AppDelegate.swift */,
-				8081046B269B4652008B5E4C /* SceneDelegate.swift */,
-				8081046D269B4652008B5E4C /* ViewController.swift */,
-				8081046F269B4652008B5E4C /* Main.storyboard */,
-				80810472269B4653008B5E4C /* Assets.xcassets */,
-				80810474269B4653008B5E4C /* LaunchScreen.storyboard */,
+				80810486269B5035008B5E4C /* storyboard */,
+				80810485269B4FF0008B5E4C /* managers */,
+				80810484269B4FDF008B5E4C /* resources */,
+				80810483269B4FB2008B5E4C /* extensions */,
+				80810482269B4FA5008B5E4C /* viewcontrollers */,
+				80810481269B4F91008B5E4C /* models */,
+				80810480269B4F86008B5E4C /* cells */,
+				8081047F269B4F7F008B5E4C /* enums */,
+				8081047E269B4F71008B5E4C /* utils */,
+				8081047D269B4EAB008B5E4C /* delegates */,
 				80810477269B4653008B5E4C /* Info.plist */,
 			);
 			path = ironman;
+			sourceTree = "<group>";
+		};
+		8081047D269B4EAB008B5E4C /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				80810469269B4652008B5E4C /* AppDelegate.swift */,
+				8081046B269B4652008B5E4C /* SceneDelegate.swift */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		8081047E269B4F71008B5E4C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		8081047F269B4F7F008B5E4C /* enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		80810480269B4F86008B5E4C /* cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		80810481269B4F91008B5E4C /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		80810482269B4FA5008B5E4C /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				8081046D269B4652008B5E4C /* ViewController.swift */,
+			);
+			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		80810483269B4FB2008B5E4C /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		80810484269B4FDF008B5E4C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				80810472269B4653008B5E4C /* Assets.xcassets */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		80810485269B4FF0008B5E4C /* managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		80810486269B5035008B5E4C /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				80810474269B4653008B5E4C /* LaunchScreen.storyboard */,
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8081047A269B4653008B5E4C /* Build configuration list for PBXNativeTarget "ironman" */;
 			buildPhases = (
+				74DD3CD944CD9FFFEE67DDE5 /* [CP] Check Pods Manifest.lock */,
 				80810462269B4651008B5E4C /* Sources */,
 				80810463269B4651008B5E4C /* Frameworks */,
 				80810464269B4651008B5E4C /* Resources */,
+				F645AC65117494057A00C915 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,11 +230,52 @@
 			files = (
 				80810476269B4653008B5E4C /* LaunchScreen.storyboard in Resources */,
 				80810473269B4653008B5E4C /* Assets.xcassets in Resources */,
-				80810471269B4652008B5E4C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74DD3CD944CD9FFFEE67DDE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ironman-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F645AC65117494057A00C915 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ironman/Pods-ironman-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ironman/Pods-ironman-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ironman/Pods-ironman-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		80810462269B4651008B5E4C /* Sources */ = {
@@ -146,14 +291,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8081046F269B4652008B5E4C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80810470269B4652008B5E4C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		80810474269B4653008B5E4C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +420,7 @@
 		};
 		8081047B269B4653008B5E4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0065F497E898A726B0A5093C /* Pods-ironman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +439,7 @@
 		};
 		8081047C269B4653008B5E4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40B09AA02563D2B6FAAAE034 /* Pods-ironman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
