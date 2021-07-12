@@ -7,10 +7,10 @@ target 'ironman' do
 
   # Pods for ironman
   
-  #autolayout
+  # autolayout
   pod 'SnapKit'
   
-  #networking & parsing
+  # networking & parsing
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
@@ -20,5 +20,8 @@ target 'ironman' do
   
   # lottie animation
   pod 'lottie-ios'
+  
+  # font sizing
+  pod 'Swash'
 
 end
