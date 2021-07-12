@@ -30,6 +30,8 @@
 		809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA856269C9551005B51F7 /* ElNavigato.swift */; };
 		809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA858269CA7CF005B51F7 /* FontUtil.swift */; };
 		809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA85B269CB05F005B51F7 /* GradientCard.swift */; };
+		809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA85D269CB4D9005B51F7 /* WelcomeCVCell.swift */; };
+		809BA860269CCB96005B51F7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA85F269CCB96005B51F7 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		809BA856269C9551005B51F7 /* ElNavigato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElNavigato.swift; sourceTree = "<group>"; };
 		809BA858269CA7CF005B51F7 /* FontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
 		809BA85B269CB05F005B51F7 /* GradientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCard.swift; sourceTree = "<group>"; };
+		809BA85D269CB4D9005B51F7 /* WelcomeCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCVCell.swift; sourceTree = "<group>"; };
+		809BA85F269CCB96005B51F7 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 		80810480269B4F86008B5E4C /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				809BA85D269CB4D9005B51F7 /* WelcomeCVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			children = (
 				809BA84D269C8DCE005B51F7 /* UIWindow.swift */,
 				809BA852269C9126005B51F7 /* UIColor.swift */,
+				809BA85F269CCB96005B51F7 /* UIButton.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8081046E269B4652008B5E4C /* SplashVC.swift in Sources */,
+				809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */,
 				809BA853269C9126005B51F7 /* UIColor.swift in Sources */,
 				8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
@@ -384,6 +391,7 @@
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
+				809BA860269CCB96005B51F7 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

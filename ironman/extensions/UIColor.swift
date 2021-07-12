@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIColor {
     
-    static let primary: UIColor = .color(fromHexString: "4285F4") //4285F4 //splash title
+    static let primary: UIColor = .color(fromHexString: "00C2CB")
     
     static func color(fromHexString: String, alpha:CGFloat? = 1.0) -> UIColor {
         // Convert hex string to an integer

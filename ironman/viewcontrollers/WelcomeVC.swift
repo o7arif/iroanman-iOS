@@ -10,17 +10,125 @@ import SnapKit
 
 class WelcomeVC: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .primary
         
         setupViews()
     }
     
     private func setupViews() {
+        let container = UIView()
+        self.view.addSubview(container)
+        container.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
+        // logo
+        container.addSubview(ivLogo)
+        ivLogo.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(12)
+        }
+        
+        // collection view
+        container.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(ivLogo.snp.bottom).offset(40)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(view.bounds.width)
+        }
+        
+        // label
+        container.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(60)
+        }
+        
+        // button
+        container.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(25)
+            make.left.right.equalToSuperview().inset(60)
+            make.height.equalTo(50)
+        }
     }
     
+    
+    // MARK: Attribute Initialization
+    
+    private let ivLogo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ic_logo")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.itemSize = CGSize(width: view.bounds.width-100, height: view.bounds.width)
+        layout.minimumLineSpacing = 20
+        
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(WelcomeCVCell.self, forCellWithReuseIdentifier: WelcomeCVCell.identifier)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        // for horizontal scrolling
+        collectionView.isPagingEnabled = false
+        collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        return collectionView
+    }()
+    
+    private let label: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.text = "Ready to Make Your Life Easier with Laundry Service?"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .white
+        return label
+    }()
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.setTitle("Let`s Get Started", for: .normal)
+        button.isUserInteractionEnabled = true
+        button.setTitleColor(.primary, for: .normal)
+        button.backgroundColor = .white
+        button.titleLabel?.font = OpenSans.bold.of(size: 15)
+        button.clipsToBounds = true
+        button.addRightIcon(image: UIImage(named: "ic_arrow_right")!)
+        button.layer.cornerRadius = 25
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        button.layer.shadowColor = UIColor.color(fromHexString: "000000").cgColor
+        button.layer.shadowOffset = CGSize(width: 4, height: 2)
+        button.layer.shadowOpacity = 10
+        return button
+    }()
+    
+}
+
+
+
+// MARK: COLLECTION VIEW SETUP
+
+extension WelcomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WelcomeCVCell.identifier, for: indexPath) as! WelcomeCVCell
+        return cell
+    }
     
 }
