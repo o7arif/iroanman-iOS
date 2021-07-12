@@ -29,6 +29,7 @@
 		809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA854269C94EE005B51F7 /* NavigationController.swift */; };
 		809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA856269C9551005B51F7 /* ElNavigato.swift */; };
 		809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA858269CA7CF005B51F7 /* FontUtil.swift */; };
+		809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BA85B269CB05F005B51F7 /* GradientCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		809BA854269C94EE005B51F7 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		809BA856269C9551005B51F7 /* ElNavigato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElNavigato.swift; sourceTree = "<group>"; };
 		809BA858269CA7CF005B51F7 /* FontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
+		809BA85B269CB05F005B51F7 /* GradientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		80810468269B4652008B5E4C /* ironman */ = {
 			isa = PBXGroup;
 			children = (
+				809BA85A269CB04A005B51F7 /* views */,
 				809BA84F269C90AC005B51F7 /* navigation */,
 				80810486269B5035008B5E4C /* storyboard */,
 				80810485269B4FF0008B5E4C /* managers */,
@@ -238,6 +241,14 @@
 				809BA856269C9551005B51F7 /* ElNavigato.swift */,
 			);
 			path = navigation;
+			sourceTree = "<group>";
+		};
+		809BA85A269CB04A005B51F7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				809BA85B269CB05F005B51F7 /* GradientCard.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
+				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
