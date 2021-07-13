@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import AdvancedPageControl
 
 class WelcomeVC: UIViewController {
+    
+    private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +42,25 @@ class WelcomeVC: UIViewController {
             make.height.equalTo(view.bounds.width)
         }
         
+        // page indicator
+        pageControl.drawer = ExtendedDotDrawer(numberOfPages: 3,
+                                               space: 16.0,
+                                               indicatorColor: .white,
+                                               dotsColor: .white,
+                                               isBordered: false,
+                                               borderWidth: 0.0,
+                                               indicatorBorderColor: .clear,
+                                               indicatorBorderWidth: 0.0)
+        container.addSubview(pageControl)
+        pageControl.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+        }
+        
         // label
         container.addSubview(label)
         label.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(20)
+            make.top.equalTo(pageControl.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(60)
         }
         
@@ -80,7 +98,7 @@ class WelcomeVC: UIViewController {
         collectionView.delegate = self
         
         // for horizontal scrolling
-        collectionView.isPagingEnabled = false
+        collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
         
@@ -120,7 +138,10 @@ class WelcomeVC: UIViewController {
 
 // MARK: COLLECTION VIEW SETUP
 
-extension WelcomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension WelcomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -129,6 +150,12 @@ extension WelcomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WelcomeCVCell.identifier, for: indexPath) as! WelcomeCVCell
         return cell
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        
+        pageControl.setPageOffset(offSet / width)
     }
     
 }

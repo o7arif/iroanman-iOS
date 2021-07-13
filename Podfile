@@ -23,5 +23,8 @@ target 'ironman' do
   
   # font sizing
   pod 'Swash'
-
+  
+  #  page control indicator
+  pod 'AdvancedPageControl'
+  
 end
