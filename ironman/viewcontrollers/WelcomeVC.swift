@@ -9,15 +9,22 @@ import UIKit
 import SnapKit
 import AdvancedPageControl
 
+struct WelcomeAssest {
+    var title: String
+    var image: UIImage
+}
+
 class WelcomeVC: UIViewController {
     
     private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
+    private var welcomeAssets = [WelcomeAssest]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .primary
         
         setupViews()
+        setupData()
     }
     
     private func setupViews() {
@@ -73,8 +80,14 @@ class WelcomeVC: UIViewController {
         }
     }
     
+    private func setupData() {
+        welcomeAssets.append(WelcomeAssest(title: "Get Stuff Washed", image: UIImage(named: "img_welcome")!))
+        welcomeAssets.append(WelcomeAssest(title: "Premium Washing", image: UIImage(named: "img_welcome")!))
+        welcomeAssets.append(WelcomeAssest(title: "Dry Cleaning", image: UIImage(named: "img_welcome")!))
+    }
     
-    // MARK: Attribute Initialization
+    
+    // MARK: ATTRIBUTE INITIALIZATION
     
     private let ivLogo: UIImageView = {
         let imageView = UIImageView()
@@ -144,13 +157,15 @@ extension WelcomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return welcomeAssets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WelcomeCVCell.identifier, for: indexPath) as! WelcomeCVCell
+        cell.configure(with: welcomeAssets[indexPath.row])
         return cell
     }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width
