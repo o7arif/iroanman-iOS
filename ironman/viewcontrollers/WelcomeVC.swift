@@ -46,7 +46,7 @@ class WelcomeVC: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(ivLogo.snp.bottom).offset(40)
             make.left.right.equalToSuperview()
-            make.height.equalTo(view.bounds.width)
+            make.height.equalTo(view.bounds.width-50)
         }
         
         // page indicator
@@ -100,7 +100,7 @@ class WelcomeVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        layout.itemSize = CGSize(width: view.bounds.width-100, height: view.bounds.width)
+        layout.itemSize = CGSize(width: view.bounds.width-100, height: view.bounds.width-50)
         layout.minimumLineSpacing = 20
         
         
