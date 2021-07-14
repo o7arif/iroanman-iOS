@@ -66,9 +66,11 @@ class WelcomeCVCell: UICollectionViewCell {
         view.clipsToBounds = true
         view.layer.cornerRadius = 25
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        view.layer.shadowColor = UIColor.color(fromHexString: "000000").cgColor
-        view.layer.shadowOffset = CGSize(width: 4, height: 2)
-        view.layer.shadowOpacity = 10
+        view.layer.shadowColor = UIColor.color(fromHexString: "D5D7D8").cgColor
+        view.layer.shadowOffset = CGSize(width: 1, height: 2)
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowRadius = 10
+        view.layer.masksToBounds = false
         return view
     }()
     
