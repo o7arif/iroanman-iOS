@@ -19,8 +19,8 @@ class HomeVC: UIViewController {
     }
     
     private func setupViews() {
-        self.view.backgroundColor = .white
         self.view.addSubview(container)
+        container.backgroundColor = .color(fromHexString: "FAFAFA")
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -92,6 +92,22 @@ class HomeVC: UIViewController {
         pageControl.snp.makeConstraints { make in
             make.top.equalTo(cvPromotion.snp.bottom)
             make.left.right.equalToSuperview()
+        }
+
+        
+        // services
+        
+        container.addSubview(labelService)
+        labelService.snp.makeConstraints { make in
+            make.top.equalTo(pageControl.snp.bottom).offset(50)
+            make.left.right.equalToSuperview().inset(20)
+        }
+        
+        container.addSubview(cvService)
+        cvService.snp.makeConstraints { make in
+            make.top.equalTo(labelService.snp.bottom).offset(15)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(165)
         }
         
     }
@@ -185,6 +201,41 @@ class HomeVC: UIViewController {
         return collectionView
     }()
     
+    
+    // services
+    
+    private let labelService: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 24)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Our Services"
+        return label
+    }()
+    
+    private lazy var cvService: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.itemSize = CGSize(width: 100, height: 160)
+        layout.minimumLineSpacing = 20
+        
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(ServiceCVCell.self, forCellWithReuseIdentifier: ServiceCVCell.identifier)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        // for horizontal scrolling
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        return collectionView
+    }()
+    
 }
 
 
@@ -196,12 +247,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if collectionView == cvPromotion {
+            return 5
+        } else if collectionView == cvService {
+            return 12
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromotionCVCell.identifier, for: indexPath) as! PromotionCVCell
-        return cell
+        if collectionView == cvPromotion {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromotionCVCell.identifier, for: indexPath) as! PromotionCVCell
+            return cell
+        } else if collectionView == cvService {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

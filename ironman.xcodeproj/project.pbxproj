@@ -10,6 +10,8 @@
 		5B1BB4F4733617C0E4A81548 /* Pods_ironman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */; };
 		802B6364269F71E5002A996E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6363269F71E5002A996E /* HomeVC.swift */; };
 		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
+		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
+		802B636A269F9256002A996E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6369269F9256002A996E /* Service.swift */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
 		8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046B269B4652008B5E4C /* SceneDelegate.swift */; };
 		8081046E269B4652008B5E4C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046D269B4652008B5E4C /* SplashVC.swift */; };
@@ -42,6 +44,8 @@
 		5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ironman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		802B6363269F71E5002A996E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
+		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
+		802B6369269F9256002A996E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80810469269B4652008B5E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8081046B269B4652008B5E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				809BA85D269CB4D9005B51F7 /* WelcomeCVCell.swift */,
 				802B6365269F8169002A996E /* PromotionCVCell.swift */,
+				802B6367269F8EE0002A996E /* ServiceCVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 		80810481269B4F91008B5E4C /* models */ = {
 			isa = PBXGroup;
 			children = (
+				802B6369269F9256002A996E /* Service.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -395,11 +401,13 @@
 				8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */,
 				809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */,
 				802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */,
+				802B636A269F9256002A996E /* Service.swift in Sources */,
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
 				809BA860269CCB96005B51F7 /* UIButton.swift in Sources */,
+				802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
