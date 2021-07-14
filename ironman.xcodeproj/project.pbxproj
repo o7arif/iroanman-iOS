@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B1BB4F4733617C0E4A81548 /* Pods_ironman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */; };
+		802B6364269F71E5002A996E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6363269F71E5002A996E /* HomeVC.swift */; };
+		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
 		8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046B269B4652008B5E4C /* SceneDelegate.swift */; };
 		8081046E269B4652008B5E4C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046D269B4652008B5E4C /* SplashVC.swift */; };
@@ -38,6 +40,8 @@
 		0065F497E898A726B0A5093C /* Pods-ironman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ironman.debug.xcconfig"; path = "Target Support Files/Pods-ironman/Pods-ironman.debug.xcconfig"; sourceTree = "<group>"; };
 		40B09AA02563D2B6FAAAE034 /* Pods-ironman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ironman.release.xcconfig"; path = "Target Support Files/Pods-ironman/Pods-ironman.release.xcconfig"; sourceTree = "<group>"; };
 		5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ironman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		802B6363269F71E5002A996E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80810469269B4652008B5E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8081046B269B4652008B5E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				809BA85D269CB4D9005B51F7 /* WelcomeCVCell.swift */,
+				802B6365269F8169002A996E /* PromotionCVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			children = (
 				8081046D269B4652008B5E4C /* SplashVC.swift */,
 				809BA84B269C882C005B51F7 /* WelcomeVC.swift */,
+				802B6363269F71E5002A996E /* HomeVC.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -384,9 +390,11 @@
 				809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */,
 				809BA853269C9126005B51F7 /* UIColor.swift in Sources */,
 				8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */,
+				802B6364269F71E5002A996E /* HomeVC.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
 				8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */,
 				809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */,
+				802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */,
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,

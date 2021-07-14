@@ -128,7 +128,7 @@ class WelcomeVC: UIViewController {
         return label
     }()
     
-    private let button: UIButton = {
+    private lazy var button: UIButton = {
         let button = UIButton()
         button.setTitle("Let`s Get Started", for: .normal)
         button.isUserInteractionEnabled = true
@@ -139,11 +139,28 @@ class WelcomeVC: UIViewController {
         button.addRightIcon(image: UIImage(named: "ic_arrow_right")!)
         button.layer.cornerRadius = 25
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        button.layer.shadowColor = UIColor.color(fromHexString: "000000").cgColor
-        button.layer.shadowOffset = CGSize(width: 4, height: 2)
-        button.layer.shadowOpacity = 10
+        button.layer.shadowColor = UIColor.color(fromHexString: "808082").cgColor
+        button.layer.shadowOffset = CGSize(width: 1, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 25
+        button.layer.masksToBounds = false
+        
+        // click action
+        button.addTarget(self, action: #selector(getStartedTapped), for: .touchUpInside)
         return button
     }()
+    
+}
+
+
+// MARK: TAP ACTIONS
+
+extension WelcomeVC {
+    
+    @objc private func getStartedTapped() {
+        let vc = HomeVC()
+        ElNavigato.instance.replaceWIndowByViewController(viewController: vc)   // it will be change later
+    }
     
 }
 
