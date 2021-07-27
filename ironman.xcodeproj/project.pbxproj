@@ -12,6 +12,7 @@
 		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
 		802B636A269F9256002A996E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6369269F9256002A996E /* Service.swift */; };
+		8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080E79926B06E6F00818768 /* NotificationVC.swift */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
 		8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046B269B4652008B5E4C /* SceneDelegate.swift */; };
 		8081046E269B4652008B5E4C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046D269B4652008B5E4C /* SplashVC.swift */; };
@@ -46,6 +47,7 @@
 		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
 		802B6369269F9256002A996E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		8080E79926B06E6F00818768 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80810469269B4652008B5E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8081046B269B4652008B5E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				8081046D269B4652008B5E4C /* SplashVC.swift */,
 				809BA84B269C882C005B51F7 /* WelcomeVC.swift */,
 				802B6363269F71E5002A996E /* HomeVC.swift */,
+				8080E79926B06E6F00818768 /* NotificationVC.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				809BA853269C9126005B51F7 /* UIColor.swift in Sources */,
 				8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */,
 				802B6364269F71E5002A996E /* HomeVC.swift in Sources */,
+				8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
 				8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */,
 				809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */,
