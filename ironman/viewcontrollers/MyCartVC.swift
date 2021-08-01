@@ -75,6 +75,10 @@ class MyCartVC: UIViewController {
     
     // MARK: CLICK ACTIONS
     
+    @objc private func backTapped(_ sender: Any) {
+        print("back in tapped")
+    }
+    
     @objc private func signInTapped(_ sender: Any) {
         print("sign in tapped")
     }
@@ -83,11 +87,16 @@ class MyCartVC: UIViewController {
     
     // MARK: ATTRIBUTE INITIALIZATION
     
-    private let ivBack: UIImageView = {
+    private lazy var ivBack: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "ic_back")
         imageView.contentMode = .scaleAspectFit
+        
+        // click action
         imageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(backTapped(_:)))
+        imageView.addGestureRecognizer(tap)
+        
         return imageView
     }()
     
