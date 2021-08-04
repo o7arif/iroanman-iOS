@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashVC: UIViewController {
+class SplashVC: BaseVC {
     
     private var timer = Timer()
 

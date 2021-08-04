@@ -1,10 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
-
 target 'ironman' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for ironman
   
   # autolayout
@@ -23,6 +21,18 @@ target 'ironman' do
   
   # font sizing
   pod 'Swash'
+  
+  #tool-tip
+  pod 'EasyTipView', '~> 2.0.4'
+  pod 'UITextView+Placeholder'
+
+  #popup
+  pod 'SwiftPopup'
+  pod 'SwiftyPickerPopover'
+  pod 'PopupDialog', '~> 1.1'
+  
+  #Keyboard
+  pod 'IQKeyboardManagerSwift'
   
   #  page control indicator
   pod 'AdvancedPageControl'

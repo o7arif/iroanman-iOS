@@ -7,9 +7,12 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: BaseVC {
     
-    private let container = UIView()
+    private let wrapperView = UIView()
+    
+    var emailOrPhoneField : SmartTextField?
+
     
     override func viewDidLoad() {
         setupViews()
@@ -17,50 +20,65 @@ class LoginVC: UIViewController {
     
     private func setupViews() {
         
-        self.view.addSubview(container)
-        container.backgroundColor = .color(fromHexString: "FAFAFA")
-        container.snp.makeConstraints { make in
+        self.view.addSubview(wrapperView)
+        wrapperView.backgroundColor = .color(fromHexString: "E4E4E4")
+        wrapperView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+       
         
-        container.addSubview(viewHeaderBack)
-        viewHeaderBack.snp.makeConstraints { make in
-            make.left.top.right.equalToSuperview()
-            make.height.equalTo(230)
+        
+//        wrapperView.addSubview(viewHeaderBack)
+//        viewHeaderBack.addSubview(ivBack)
+//        ivBack.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(20)
+//            make.top.equalTo(view.safeAreaLayoutGuide).inset(16)
+//        }
+//
+//        viewHeaderBack.addSubview(labelHeaderTitle)
+//        labelHeaderTitle.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(20)
+//            make.top.equalTo(ivBack.snp.bottom).offset(18)
+//        }
+//
+//        viewHeaderBack.addSubview(labelHeaderSubTitle)
+//        labelHeaderSubTitle.snp.makeConstraints { make in
+//            make.left.equalToSuperview().inset(20)
+//            make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
+//        }
+//
+        
+        
+        emailOrPhoneField = SmartTextField.init(placeholder: "User Name", dataType: .name, validationType: .required,shouldAddMargin: true, leftIcon: "ic_phone")
+        wrapperView.addSubview(emailOrPhoneField!)
+        emailOrPhoneField!.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalToSuperview().inset(100)
         }
+
         
-        viewHeaderBack.addSubview(ivBack)
-        ivBack.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(20)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(16)
-        }
+
+//        container.addSubview(tvPhoneNumber)
+//        tvPhoneNumber.snp.makeConstraints { make in
+//            make.left.right.equalToSuperview().inset(20)
+//            make.centerY.equalToSuperview()
+//            make.height.equalTo(50)
+//        }
+//
+//        container.addSubview(btnSendOTP)
+//        btnSendOTP.snp.makeConstraints { make in
+//            make.left.right.equalToSuperview().inset(30)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-35)
+//            make.height.equalTo(50)
+//        }
+//
         
-        viewHeaderBack.addSubview(labelHeaderTitle)
-        labelHeaderTitle.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(20)
-            make.top.equalTo(ivBack.snp.bottom).offset(18)
-        }
         
-        viewHeaderBack.addSubview(labelHeaderSubTitle)
-        labelHeaderSubTitle.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(20)
-            make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
-        }
         
-        container.addSubview(tvPhoneNumber)
-        tvPhoneNumber.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(20)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(50)
-        }
         
-        container.addSubview(btnSendOTP)
-        btnSendOTP.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(30)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-35)
-            make.height.equalTo(50)
-        }
         
+        
+
     }
     
     

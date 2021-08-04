@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,12 +15,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.windowScene = windowScene
-        window.overrideUserInterfaceStyle = .light
-        window.rootViewController = MyOrderVC()
-        window.makeKeyAndVisible()
-        self.window = window
+        IQKeyboardManager.shared.enable = true
+        
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = UINavigationController(rootViewController: LoginVC())
+        window?.makeKeyAndVisible()
+    
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
