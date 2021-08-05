@@ -11,7 +11,8 @@ class LoginVC: BaseVC {
     
     private let wrapperView = UIView()
     
-    var emailOrPhoneField : SmartTextField?
+    var phoneField : SmartTextField?
+    var passwordField : SmartTextField?
 
     
     override func viewDidLoad() {
@@ -21,65 +22,69 @@ class LoginVC: BaseVC {
     private func setupViews() {
         
         self.view.addSubview(wrapperView)
-        wrapperView.backgroundColor = .color(fromHexString: "E4E4E4")
+        wrapperView.backgroundColor = .color(fromHexString: "EFEFEF")
         wrapperView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
        
+        wrapperView.addSubview(viewHeaderBack)
+        viewHeaderBack.snp.makeConstraints { make in
+            make.left.top.right.equalToSuperview()
+            make.height.equalTo(230)
+        }
         
-        
-//        wrapperView.addSubview(viewHeaderBack)
-//        viewHeaderBack.addSubview(ivBack)
-//        ivBack.snp.makeConstraints { make in
-//            make.left.equalToSuperview().inset(20)
-//            make.top.equalTo(view.safeAreaLayoutGuide).inset(16)
-//        }
-//
-//        viewHeaderBack.addSubview(labelHeaderTitle)
-//        labelHeaderTitle.snp.makeConstraints { make in
-//            make.left.equalToSuperview().inset(20)
-//            make.top.equalTo(ivBack.snp.bottom).offset(18)
-//        }
-//
-//        viewHeaderBack.addSubview(labelHeaderSubTitle)
-//        labelHeaderSubTitle.snp.makeConstraints { make in
-//            make.left.equalToSuperview().inset(20)
-//            make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
-//        }
-//
-        
-        
-        emailOrPhoneField = SmartTextField.init(placeholder: "User Name", dataType: .name, validationType: .required,shouldAddMargin: true, leftIcon: "ic_phone")
-        wrapperView.addSubview(emailOrPhoneField!)
-        emailOrPhoneField!.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalToSuperview().inset(100)
+        viewHeaderBack.addSubview(ivBack)
+        ivBack.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
 
-        
+        viewHeaderBack.addSubview(labelHeaderTitle)
+        labelHeaderTitle.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(20)
+            make.top.equalTo(ivBack.snp.bottom).offset(18)
+        }
 
-//        container.addSubview(tvPhoneNumber)
-//        tvPhoneNumber.snp.makeConstraints { make in
-//            make.left.right.equalToSuperview().inset(20)
-//            make.centerY.equalToSuperview()
-//            make.height.equalTo(50)
-//        }
-//
-//        container.addSubview(btnSendOTP)
-//        btnSendOTP.snp.makeConstraints { make in
-//            make.left.right.equalToSuperview().inset(30)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-35)
-//            make.height.equalTo(50)
-//        }
-//
+        viewHeaderBack.addSubview(labelHeaderSubTitle)
+        labelHeaderSubTitle.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(20)
+            make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
+        }
         
+        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
+        wrapperView.addSubview(phoneField!)
+        phoneField!.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(viewHeaderBack.snp.bottom).offset(35)
+        }
         
+        passwordField = SmartTextField.init(placeholder: "Enter your password", dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
+        wrapperView.addSubview(passwordField!)
+        passwordField!.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(phoneField!.snp.bottom)
+        }
         
+        wrapperView.addSubview(labelForgotPassword)
+        labelForgotPassword.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.top.equalTo(passwordField!.snp.bottom).offset(20)
+        }
         
+        wrapperView.addSubview(btnLogin)
+        btnLogin.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(30)
+            make.top.equalTo(labelForgotPassword.snp.bottom).offset(41)
+            make.height.equalTo(50)
+        }
         
-        
-
+        wrapperView.addSubview(labelSignup)
+        labelSignup.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            make.left.right.equalToSuperview().inset(30)
+        }
     }
+    
     
     
     // MARK: CLICK ACTIONS
@@ -88,8 +93,8 @@ class LoginVC: BaseVC {
         print("back in tapped")
     }
     
-    @objc private func sendOtpTapped(_ sender: Any) {
-        print("send otp tapped")
+    @objc private func loginTapped(_ sender: Any) {
+        print("login tapped")
     }
     
     
@@ -138,38 +143,19 @@ class LoginVC: BaseVC {
         return label
     }()
     
-    private let tvPhoneNumber: UITextField = {
-        let textField = UITextField(frame: .zero)
-        textField.placeholder = "Enter Phone Number"
-        textField.backgroundColor = .white
-        textField.keyboardType = UIKeyboardType.phonePad
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.autocorrectionType = .default
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.font = OpenSans.regular.of(size: 14)
-        textField.clearButtonMode = .whileEditing
-        textField.contentVerticalAlignment = .center
-        textField.layer.cornerRadius = 10
-        
-        textField.layer.shadowColor = UIColor.color(fromHexString: "A7A8A9").cgColor
-        textField.layer.shadowOffset = CGSize(width: 1, height: 2)
-        textField.layer.shadowOpacity = 0.2
-        textField.layer.shadowRadius = 10
-        textField.layer.masksToBounds = false
-        
-        let image = UIImage(systemName: "phone.fill")
-        
-        
-        
-        textField.leftView?.addSubview(UIImageView(image: image))
-        textField.leftView?.tintColor = .black
-                
-        return textField
+    private let labelForgotPassword: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 12)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Forgot password?"
+        return label
     }()
     
-    private let btnSendOTP: UIView = {
+    private let btnLogin: UIView = {
         let button = UIButton()
-        button.setTitle("Send OTP", for: .normal)
+        button.setTitle("Login", for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -184,7 +170,17 @@ class LoginVC: BaseVC {
         button.layer.masksToBounds = false
         
         // click action
-        button.addTarget(self, action: #selector(sendOtpTapped(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(loginTapped(_:)), for: .touchUpInside)
         return button
+    }()
+    
+    private let labelSignup: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 12)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.textColor = .textBlack
+        label.text = "Don't have an Account? Sign up"
+        return label
     }()
 }
