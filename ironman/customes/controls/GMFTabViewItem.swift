@@ -26,6 +26,13 @@ class GMFTabViewItem: UIView {
         super.init(frame: frame)
     }
     
+    public var isHiddenAction: Bool = false {
+        didSet {
+            iconImageView.isHidden = true
+            tabTitle.isHidden = true
+        }
+    }
+    
     public convenience init(icon: String, title: String, onClick: @escaping () -> ()) {
         self.init(frame: .zero)
         self.onClick = onClick
@@ -56,8 +63,8 @@ class GMFTabViewItem: UIView {
             tabTitle.textColor = .primary
         } else {
             iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
-            iconImageView.tintColor = .color(fromHexString: "ic_show_password")
-            tabTitle.textColor = .color(fromHexString: "ic_show_password")
+            iconImageView.tintColor = .color(fromHexString: "294366")
+            tabTitle.textColor = .color(fromHexString: "294366")
         }
     }
     

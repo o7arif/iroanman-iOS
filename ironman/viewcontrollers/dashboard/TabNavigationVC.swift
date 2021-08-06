@@ -92,7 +92,7 @@ class TabNavigationVC: UIViewController {
         tabHome = GMFTabViewItem.init(icon: "ic_order_deactive", title: "Home") {
             self.didPressTab(selectedIndex: 0)
         }
-        
+        tabHome?.isHiddenAction = false
         transactionView.addSubview(tabHome!)
         tabHome!.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
@@ -131,6 +131,23 @@ class TabNavigationVC: UIViewController {
             make.right.equalTo(tabProfile!.snp.left)
             make.width.equalToSuperview().dividedBy(4)
         }
+        didPressTab(selectedIndex: 0)
+        
+        
+        // Home custom view
+        let homeView = UIImageView()
+        homeView.image = UIImage(named: "ic_home")
+        homeView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(homeTapped(_:)))
+        homeView.addGestureRecognizer(tap)
+        view.addSubview(homeView)
+        homeView.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+    
+    @objc private func homeTapped(_ sender: Any) {
         didPressTab(selectedIndex: 0)
     }
     
