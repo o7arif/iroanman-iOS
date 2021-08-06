@@ -158,7 +158,7 @@ class WelcomeVC: UIViewController {
 extension WelcomeVC {
     
     @objc private func getStartedTapped() {
-        let vc = HomeVC()
+        let vc = TabNavigationVC()
         ElNavigato.instance.replaceWIndowByViewController(viewController: vc)   // it will be change later
     }
     

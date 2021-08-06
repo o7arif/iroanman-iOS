@@ -17,14 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         IQKeyboardManager.shared.enable = true
         
-        
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = UINavigationController(rootViewController: LoginVC())
+        self.window?.rootViewController = UINavigationController(rootViewController: SplashVC())
         window?.makeKeyAndVisible()
-    
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

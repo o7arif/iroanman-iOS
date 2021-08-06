@@ -48,6 +48,10 @@
 		809D8B1B26B1C26A004B3FA2 /* OnGoingOrderSegmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D8B1A26B1C26A004B3FA2 /* OnGoingOrderSegmentVC.swift */; };
 		809D8B1D26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D8B1C26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift */; };
 		80BFD74D26BAF6CF003ADAF1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */; };
+		80F0541426BDA55200149164 /* GMFTabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541326BDA55200149164 /* GMFTabViewItem.swift */; };
+		80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541526BDA8A600149164 /* TabNavigationVC.swift */; };
+		80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541726BDA96100149164 /* DeviceInfoHelper.swift */; };
+		80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541926BDAD5300149164 /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +100,10 @@
 		809D8B1A26B1C26A004B3FA2 /* OnGoingOrderSegmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnGoingOrderSegmentVC.swift; sourceTree = "<group>"; };
 		809D8B1C26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrderSegmentVC.swift; sourceTree = "<group>"; };
 		80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		80F0541326BDA55200149164 /* GMFTabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMFTabViewItem.swift; sourceTree = "<group>"; };
+		80F0541526BDA8A600149164 /* TabNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationVC.swift; sourceTree = "<group>"; };
+		80F0541726BDA96100149164 /* DeviceInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoHelper.swift; sourceTree = "<group>"; };
+		80F0541926BDAD5300149164 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,8 @@
 				8080E79926B06E6F00818768 /* NotificationVC.swift */,
 				809D8B1326B1B35B004B3FA2 /* ManageAddressVC.swift */,
 				809D8B1526B1B9D3004B3FA2 /* MyCartVC.swift */,
+				80F0541526BDA8A600149164 /* TabNavigationVC.swift */,
+				80F0541926BDAD5300149164 /* ProfileVC.swift */,
 			);
 			path = dashboard;
 			sourceTree = "<group>";
@@ -160,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				273EE13526BB076900753E2A /* SmartTextField.swift */,
+				80F0541326BDA55200149164 /* GMFTabViewItem.swift */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 			children = (
 				809BA858269CA7CF005B51F7 /* FontUtil.swift */,
 				273EE13826BB098000753E2A /* AppConst.swift */,
+				80F0541726BDA96100149164 /* DeviceInfoHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -452,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */,
 				8081046E269B4652008B5E4C /* SplashVC.swift in Sources */,
 				809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */,
 				80BFD74D26BAF6CF003ADAF1 /* LoginVC.swift in Sources */,
@@ -469,7 +482,9 @@
 				802B636A269F9256002A996E /* Service.swift in Sources */,
 				809D8B1426B1B35B004B3FA2 /* ManageAddressVC.swift in Sources */,
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
+				80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
+				80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
 				809D8B1D26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift in Sources */,
@@ -478,6 +493,7 @@
 				273EE13626BB076900753E2A /* SmartTextField.swift in Sources */,
 				273EE13B26BB1AB700753E2A /* UIView.swift in Sources */,
 				802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */,
+				80F0541426BDA55200149164 /* GMFTabViewItem.swift in Sources */,
 				809D8B1626B1B9D3004B3FA2 /* MyCartVC.swift in Sources */,
 				809D8B1B26B1C26A004B3FA2 /* OnGoingOrderSegmentVC.swift in Sources */,
 			);

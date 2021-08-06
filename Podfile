@@ -34,6 +34,9 @@ target 'ironman' do
   #Keyboard
   pod 'IQKeyboardManagerSwift'
   
+  #material Desing widgets
+  pod 'MaterialDesignWidgets'
+  
   #  page control indicator
   pod 'AdvancedPageControl'
   
