@@ -51,6 +51,7 @@
 		80D3772826BFDE1600FD3D01 /* splash_animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 80D3772726BFDE1600FD3D01 /* splash_animation.gif */; };
 		80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772926BFE1D500FD3D01 /* SignupVC.swift */; };
 		80D3772C26BFE51900FD3D01 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772B26BFE51900FD3D01 /* ForgotPasswordVC.swift */; };
+		80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772D26BFE69800FD3D01 /* NewPasswordVC.swift */; };
 		80F0541426BDA55200149164 /* GMFTabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541326BDA55200149164 /* GMFTabViewItem.swift */; };
 		80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541526BDA8A600149164 /* TabNavigationVC.swift */; };
 		80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541726BDA96100149164 /* DeviceInfoHelper.swift */; };
@@ -106,6 +107,7 @@
 		80D3772726BFDE1600FD3D01 /* splash_animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash_animation.gif; sourceTree = "<group>"; };
 		80D3772926BFE1D500FD3D01 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		80D3772B26BFE51900FD3D01 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		80D3772D26BFE69800FD3D01 /* NewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordVC.swift; sourceTree = "<group>"; };
 		80F0541326BDA55200149164 /* GMFTabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMFTabViewItem.swift; sourceTree = "<group>"; };
 		80F0541526BDA8A600149164 /* TabNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationVC.swift; sourceTree = "<group>"; };
 		80F0541726BDA96100149164 /* DeviceInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoHelper.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */,
 				80D3772926BFE1D500FD3D01 /* SignupVC.swift */,
 				80D3772B26BFE51900FD3D01 /* ForgotPasswordVC.swift */,
+				80D3772D26BFE69800FD3D01 /* NewPasswordVC.swift */,
 			);
 			path = "auth ";
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
 				80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
+				80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */,
 				80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
