@@ -111,7 +111,7 @@ class TabNavigationVC: UIViewController {
         }
         
         //MARK:TAB ITEM: profile
-        tabProfile = GMFTabViewItem.init(icon: "ic_profile_deactive", title: "Notification") {
+        tabProfile = GMFTabViewItem.init(icon: "ic_profile_deactive", title: "Profile") {
             self.didPressTab(selectedIndex: 3)
         }
         transactionView.addSubview(tabProfile!)
@@ -122,7 +122,7 @@ class TabNavigationVC: UIViewController {
         }
        
         //MARK: TAB ITEM: notification
-        tabNotifcation = GMFTabViewItem.init(icon: "ic_notification_deactive", title: "Profile") {
+        tabNotifcation = GMFTabViewItem.init(icon: "ic_notification_deactive", title: "Notification") {
             self.didPressTab(selectedIndex: 2)
         }
         transactionView.addSubview(tabNotifcation!)
