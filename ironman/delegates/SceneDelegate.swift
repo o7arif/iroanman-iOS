@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = UINavigationController(rootViewController: SplashVC())
+        self.window?.rootViewController = UINavigationController(rootViewController: SignupVC())
         window?.makeKeyAndVisible()
     }
 
