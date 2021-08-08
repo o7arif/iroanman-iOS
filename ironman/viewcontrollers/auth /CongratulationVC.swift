@@ -54,7 +54,8 @@ class CongratulationVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func finishTapped(_ sender: Any) {
-        print("finish tapped")
+        CacheData.instance.setLoggedIn()
+        ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
     }
     
     

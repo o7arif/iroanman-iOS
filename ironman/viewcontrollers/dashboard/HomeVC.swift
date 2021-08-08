@@ -114,6 +114,14 @@ class HomeVC: UIViewController {
     
     
     
+    // MARK: CLICK ACTIONS
+    
+    @objc private func cartTapped(_ sender: Any) {
+        self.navigationController?.pushViewController(MyCartVC(), animated: true)
+    }
+    
+    
+    
     // MARK: ATTRIBUTE INITIALIZATION
     
     private let viewHeaderBack: UIView = {
@@ -159,10 +167,17 @@ class HomeVC: UIViewController {
         return label
     }()
     
-    private let ivCart: UIImageView = {
+    private lazy var ivCart: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "ic_cart")
         imageView.contentMode = .scaleAspectFit
+        
+        // click event
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cartTapped(_:)))
+        tap.numberOfTapsRequired = 1
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tap)
+        
         return imageView
     }()
     

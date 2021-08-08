@@ -69,11 +69,11 @@ class ForgotPasswordVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        print("back in tapped")
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func sendOtpTapped(_ sender: Any) {
-        print("login tapped")
+        self.navigationController?.pushViewController(NewPasswordVC(), animated: true)
     }
     
     

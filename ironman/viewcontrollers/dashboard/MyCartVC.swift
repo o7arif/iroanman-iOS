@@ -40,7 +40,11 @@ class MyCartVC: UIViewController {
             make.left.right.equalToSuperview()
         }
         
-        authentionRequiredMessage()
+        if CacheData.instance.isLoggedIn() {
+            emptyListMessage()
+        } else {
+            authentionRequiredMessage()
+        }
     }
     
     
@@ -73,14 +77,38 @@ class MyCartVC: UIViewController {
     }
     
     
+    
+    // MARK: EMPTY CART LIST
+    
+    private func emptyListMessage() {
+        let emptyListContainer = UIView()
+        container.addSubview(emptyListContainer)
+        emptyListContainer.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.right.equalToSuperview().inset(46)
+        }
+        
+        emptyListContainer.addSubview(ivBox)
+        ivBox.snp.makeConstraints { make in
+            make.left.top.right.equalToSuperview()
+        }
+        
+        emptyListContainer.addSubview(labelEmptyCartList)
+        labelEmptyCartList.snp.makeConstraints { make in
+            make.top.equalTo(ivBox.snp.bottom).offset(24)
+            make.left.right.bottom.equalToSuperview()
+        }
+    }
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        print("back in tapped")
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func signInTapped(_ sender: Any) {
-        print("sign in tapped")
+        self.navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
     
@@ -155,5 +183,18 @@ class MyCartVC: UIViewController {
         // click action
         button.addTarget(self, action: #selector(signInTapped(_:)), for: .touchUpInside)
         return button
+    }()
+    
+    
+    // empty cart list
+    
+    private let labelEmptyCartList: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 30)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .textBlack
+        label.text = "Your Cart is Empty."
+        return label
     }()
 }

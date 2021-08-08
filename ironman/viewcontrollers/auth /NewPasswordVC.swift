@@ -77,11 +77,12 @@ class NewPasswordVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        print("back in tapped")
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func confirmTapped(_ sender: Any) {
-        print("confirm tapped")
+        // TODO: clear all viewcontroller except welcome vc from stack and then redirect to login vc
+        self.navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
     
@@ -132,7 +133,7 @@ class NewPasswordVC: BaseVC {
     
     private let btnConfirm: UIView = {
         let button = UIButton()
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Confirm", for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

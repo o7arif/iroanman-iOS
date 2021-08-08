@@ -100,11 +100,15 @@ class SignupVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        print("back in tapped")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func loginTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func signupTapped(_ sender: Any) {
-        print("signup tapped")
+        self.navigationController?.pushViewController(ProfilePhotoUploadVC(), animated: true)
     }
     
     
@@ -174,13 +178,18 @@ class SignupVC: BaseVC {
         return button
     }()
     
-    private let labelLogin: UILabel = {
+    private lazy var labelLogin: UILabel = {
         let label = UILabel()
         label.font = OpenSans.regular.of(size: 12)
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
         label.text = "Already have an Account? Login Now"
+        
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(loginTapped(_:)))
+        label.addGestureRecognizer(tap)
+        
         return label
     }()
 }

@@ -26,7 +26,11 @@ class SplashVC: BaseVC {
     // MARK: ACTIONS
     
     @objc private func redirectToNextScreen() {
-        ElNavigato.instance.replaceWIndowByViewController(viewController: WelcomeVC())
+        if CacheData.instance.isLoggedIn() {
+            ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+        } else {
+            ElNavigato.instance.replaceWIndowByViewController(viewController: WelcomeVC())
+        }
         timer.invalidate()
     }
     

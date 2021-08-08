@@ -12,6 +12,7 @@
 		273EE13926BB098000753E2A /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE13826BB098000753E2A /* AppConst.swift */; };
 		273EE13B26BB1AB700753E2A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE13A26BB1AB700753E2A /* UIView.swift */; };
 		5B1BB4F4733617C0E4A81548 /* Pods_ironman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */; };
+		8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017149426C0448C00FD9CE7 /* CacheData.swift */; };
 		802B6364269F71E5002A996E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6363269F71E5002A996E /* HomeVC.swift */; };
 		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
@@ -68,6 +69,7 @@
 		273EE13A26BB1AB700753E2A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		40B09AA02563D2B6FAAAE034 /* Pods-ironman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ironman.release.xcconfig"; path = "Target Support Files/Pods-ironman/Pods-ironman.release.xcconfig"; sourceTree = "<group>"; };
 		5F256058C515E8D0ABF9B11A /* Pods_ironman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ironman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8017149426C0448C00FD9CE7 /* CacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheData.swift; sourceTree = "<group>"; };
 		802B6363269F71E5002A996E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				809BA858269CA7CF005B51F7 /* FontUtil.swift */,
 				273EE13826BB098000753E2A /* AppConst.swift */,
 				80F0541726BDA96100149164 /* DeviceInfoHelper.swift */,
+				8017149426C0448C00FD9CE7 /* CacheData.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */,
 				80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */,
 				8081046E269B4652008B5E4C /* SplashVC.swift in Sources */,
 				809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */,

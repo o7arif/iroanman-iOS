@@ -71,7 +71,8 @@ class ProfilePhotoUploadVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func skipTapped(_ sender: Any) {
-        print("skip in tapped")
+        CacheData.instance.setLoggedIn()
+        ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
     }
     
     @objc private func cameraTapped(_ sender: Any) {
@@ -79,7 +80,7 @@ class ProfilePhotoUploadVC: BaseVC {
     }
     
     @objc private func confirmTapped(_ sender: Any) {
-        print("confirm tapped")
+        self.navigationController?.pushViewController(CongratulationVC(), animated: true)
     }
     
     

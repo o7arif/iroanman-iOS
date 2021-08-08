@@ -90,11 +90,20 @@ class LoginVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        print("back in tapped")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func signupTapped(_ sender: Any) {
+        self.navigationController?.pushViewController(SignupVC(), animated: true)
+    }
+    
+    @objc private func forgotPasswordTapped(_ sender: Any) {
+        self.navigationController?.pushViewController(ForgotPasswordVC(), animated: true)
     }
     
     @objc private func loginTapped(_ sender: Any) {
-        print("login tapped")
+        CacheData.instance.setLoggedIn()
+        ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
     }
     
     
@@ -143,13 +152,18 @@ class LoginVC: BaseVC {
         return label
     }()
     
-    private let labelForgotPassword: UILabel = {
+    private lazy var labelForgotPassword: UILabel = {
         let label = UILabel()
         label.font = OpenSans.regular.of(size: 12)
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
         label.text = "Forgot password?"
+        
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordTapped(_:)))
+        label.addGestureRecognizer(tap)
+        
         return label
     }()
     
@@ -174,13 +188,18 @@ class LoginVC: BaseVC {
         return button
     }()
     
-    private let labelSignup: UILabel = {
+    private lazy var labelSignup: UILabel = {
         let label = UILabel()
         label.font = OpenSans.regular.of(size: 12)
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
         label.text = "Don't have an Account? Sign up"
+        
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(signupTapped(_:)))
+        label.addGestureRecognizer(tap)
+        
         return label
     }()
 }
