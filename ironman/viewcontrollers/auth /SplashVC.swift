@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Gifu
 
 class SplashVC: BaseVC {
     
@@ -13,21 +14,34 @@ class SplashVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
         
-        startTimer()
+        self.view.addSubview(ivSplash)
+        ivSplash.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
-
-    private func startTimer() {
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(redirectToNextScreen), userInfo: nil, repeats: false)
-    }
+    
+    
+    
+    // MARK: ACTIONS
     
     @objc private func redirectToNextScreen() {
         ElNavigato.instance.replaceWIndowByViewController(viewController: WelcomeVC())
         timer.invalidate()
     }
+    
+    
+    
+    // MARK: ATTRIBUTE INITIALIZATION
+    
+    private lazy var ivSplash: GIFImageView = {
+        let imageView = GIFImageView()
+        imageView.animate(withGIFNamed: "splash_animation", loopCount: 1, animationBlock:  {
+            self.redirectToNextScreen()
+        })
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
 
 }
 

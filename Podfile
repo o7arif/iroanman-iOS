@@ -37,7 +37,10 @@ target 'ironman' do
   #material Desing widgets
   pod 'MaterialDesignWidgets'
   
-  #  page control indicator
+  # page control indicator
   pod 'AdvancedPageControl'
+  
+  # gif
+  pod 'Gifu'
   
 end

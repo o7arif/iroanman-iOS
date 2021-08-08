@@ -3,6 +3,7 @@ PODS:
   - Alamofire (5.4.3)
   - DynamicBlurView (4.1.0)
   - EasyTipView (2.0.4)
+  - Gifu (3.3)
   - IQKeyboardManagerSwift (6.5.6)
   - Kingfisher (6.3.0)
   - lottie-ios (3.2.3)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - AdvancedPageControl
   - Alamofire
   - EasyTipView (~> 2.0.4)
+  - Gifu
   - IQKeyboardManagerSwift
   - Kingfisher
   - lottie-ios
@@ -41,6 +43,7 @@ SPEC REPOS:
     - Alamofire
     - DynamicBlurView
     - EasyTipView
+    - Gifu
     - IQKeyboardManagerSwift
     - Kingfisher
     - lottie-ios
@@ -59,6 +62,7 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   EasyTipView: 4f8beae0a82db2ca4a9b5fd658785fc5f61d296b
+  Gifu: 97c2a3c3865fbc834ab13f797e2e8e7729a1853c
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   SwiftyPickerPopover: a402960a6687c911ffcb4e9fb282a1bc61186ab4
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 81b2cbd6add2e741291d555ec283a0ef14a78671
+PODFILE CHECKSUM: aa8037809303be8197d2e371e9fca059db283a1f
 
 COCOAPODS: 1.10.1
