@@ -89,6 +89,16 @@ class ProfileVC: UIViewController {
             make.height.width.equalTo(20)
         }
         
+        cardView.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(MenuTVCell.self, forCellReuseIdentifier: MenuTVCell.identifier)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(viewBallLeft.snp.bottom).offset(45)
+            make.left.right.bottom.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
     }
     
     
@@ -198,4 +208,33 @@ class ProfileVC: UIViewController {
         view.backgroundColor = .color(fromHexString: "EFEFEF")
        return view
     }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        return tableView
+    }()
+}
+
+
+extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTVCell.identifier) as! MenuTVCell
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
 }
