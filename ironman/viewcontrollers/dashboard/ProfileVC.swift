@@ -10,7 +10,9 @@ import UIKit
 class ProfileVC: UIViewController {
     
     private let wrapperView = UIView()
-    private let dashLine = LineView()
+    private let lvDash = LineView()
+    
+    private var menus: [Menu] = MenuHelper.getMenus()
     
     override func viewDidLoad() {
         setupViews()
@@ -68,23 +70,23 @@ class ProfileVC: UIViewController {
             make.top.equalTo(labelName.snp.bottom).offset(5)
         }
         
-        cardView.addSubview(dashLine)
-        dashLine.config.color = .color(fromHexString: "F2F2F2")
-        dashLine.snp.makeConstraints { make in
+        cardView.addSubview(lvDash)
+        lvDash.config.color = .color(fromHexString: "F2F2F2")
+        lvDash.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(labelAddress.snp.bottom).offset(10)
         }
         
         cardView.addSubview(viewBallLeft)
         viewBallLeft.snp.makeConstraints { make in
-            make.top.equalTo(dashLine.snp.bottom)
+            make.top.equalTo(lvDash.snp.bottom)
             make.centerX.equalTo(cardView.snp.left)
             make.height.width.equalTo(20)
         }
         
         cardView.addSubview(viewBallRight)
         viewBallRight.snp.makeConstraints { make in
-            make.top.equalTo(dashLine.snp.bottom)
+            make.top.equalTo(lvDash.snp.bottom)
             make.centerX.equalTo(cardView.snp.right)
             make.height.width.equalTo(20)
         }
@@ -221,13 +223,15 @@ class ProfileVC: UIViewController {
 
 
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return menus.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTVCell.identifier) as! MenuTVCell
         cell.selectionStyle = .none
+        cell.configure(with: menus[indexPath.row])
         return cell
     }
     
@@ -236,5 +240,29 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        handleTableItemClick(menus[indexPath.row])
+    }
+    
+    private func handleTableItemClick(_ menu: Menu) {
+        switch menu.name {
+        case MenuEnum.MANAGE_ADDRESS.rawValue:
+            self.navigationController?.pushViewController(ManageAddressVC(), animated: true)
+            break
+        case MenuEnum.PRIVACY_POLICY.rawValue:
+            print("\(menu.name) clicked")
+            break
+        case MenuEnum.TERMS_OF_SERVICE.rawValue:
+            print("\(menu.name) clicked")
+            break
+        case MenuEnum.CONTACT.rawValue:
+            print("\(menu.name) clicked")
+            break
+        case MenuEnum.ABOUT.rawValue:
+            print("\(menu.name) clicked")
+            break
+        default:
+            print("default clicked")
+            break
+        }
     }
 }

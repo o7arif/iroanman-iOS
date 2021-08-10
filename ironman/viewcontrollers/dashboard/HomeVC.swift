@@ -175,8 +175,8 @@ class HomeVC: UIViewController {
         // click event
         let tap = UITapGestureRecognizer(target: self, action: #selector(cartTapped(_:)))
         tap.numberOfTapsRequired = 1
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(tap)
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
         
         return imageView
     }()

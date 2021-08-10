@@ -76,7 +76,7 @@ class ManageAddressVC: UIViewController {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        print("back in tapped")
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func signInTapped(_ sender: Any) {
