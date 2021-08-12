@@ -12,7 +12,7 @@ class ProfileVC: UIViewController {
     private let wrapperView = UIView()
     private let lvDash = LineView()
     
-    private var menus: [Menu] = MenuHelper.getMenus()
+    private var menus: [Menu] = MenuHelper.getMenus(CacheData.instance.isLoggedIn())
     
     override func viewDidLoad() {
         setupViews()
@@ -52,16 +52,29 @@ class ProfileVC: UIViewController {
             make.height.width.equalTo(100)
         }
         
-        cardView.addSubview(labelLogin)
-        labelLogin.snp.makeConstraints { make in
+        let topRightView = UIView()
+        cardView.addSubview(topRightView)
+        topRightView.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(13)
             make.top.equalToSuperview().inset(21)
+        }
+        
+        if CacheData.instance.isLoggedIn() {
+            topRightView.addSubview(ivEdit)
+            ivEdit.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        } else {
+            topRightView.addSubview(labelLogin)
+            labelLogin.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
         }
         
         cardView.addSubview(labelName)
         labelName.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
-            make.top.equalTo(labelLogin.snp.bottom).offset(30)
+            make.top.equalTo(topRightView.snp.bottom).offset(30)
         }
         
         cardView.addSubview(labelAddress)
@@ -95,6 +108,7 @@ class ProfileVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MenuTVCell.self, forCellReuseIdentifier: MenuTVCell.identifier)
+        tableView.register(MenuLogoutTVCell.self, forCellReuseIdentifier: MenuLogoutTVCell.identifier)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(viewBallLeft.snp.bottom).offset(45)
             make.left.right.bottom.equalToSuperview()
@@ -109,6 +123,10 @@ class ProfileVC: UIViewController {
     
     @objc private func loginTapped(_ sender: Any) {
         print("Login tapped")
+    }
+    
+    @objc private func editTapped(_ sender: Any) {
+        print("Edit tapped")
     }
     
     
@@ -156,6 +174,17 @@ class ProfileVC: UIViewController {
         imageView.layer.shadowOpacity = 0.4
         imageView.layer.shadowRadius = 20
         imageView.layer.masksToBounds = false
+        return imageView
+    }()
+    
+    private lazy var ivEdit: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "ic_edit")
+        
+        imageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(editTapped(_:)))
+        imageView.addGestureRecognizer(tap)
         return imageView
     }()
     
@@ -229,10 +258,18 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTVCell.identifier) as! MenuTVCell
-        cell.selectionStyle = .none
-        cell.configure(with: menus[indexPath.row])
-        return cell
+        let menu = menus[indexPath.row]
+        if menu.name == MenuEnum.LOGOUT.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MenuLogoutTVCell.identifier) as! MenuLogoutTVCell
+            cell.selectionStyle = .none
+            cell.configure(with: menu)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MenuTVCell.identifier) as! MenuTVCell
+            cell.selectionStyle = .none
+            cell.configure(with: menu)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -258,6 +295,9 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             print("\(menu.name) clicked")
             break
         case MenuEnum.ABOUT.rawValue:
+            print("\(menu.name) clicked")
+            break
+        case MenuEnum.LOGOUT.rawValue:
             print("\(menu.name) clicked")
             break
         default:

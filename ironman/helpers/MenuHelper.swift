@@ -9,7 +9,7 @@ import UIKit
 
 class MenuHelper {
     
-    static func getMenus() -> [Menu] {
+    static func getMenus(_ isLogged: Bool = false) -> [Menu] {
         var menus: [Menu] = []
         
         menus.append(Menu(name: MenuEnum.MANAGE_ADDRESS.rawValue, icon: UIImage(named: "ic_menu_address")!))
@@ -21,6 +21,10 @@ class MenuHelper {
         menus.append(Menu(name: MenuEnum.CONTACT.rawValue, icon: UIImage(named: "ic_menu_contact")!))
         
         menus.append(Menu(name: MenuEnum.ABOUT.rawValue, icon: UIImage(named: "ic_menu_about")!))
+        
+        if isLogged {
+            menus.append(Menu(name: MenuEnum.LOGOUT.rawValue, icon: UIImage(named: "ic_menu_logout")!))
+        }
         
         return menus
     }

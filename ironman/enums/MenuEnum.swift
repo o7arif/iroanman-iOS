@@ -13,4 +13,5 @@ public enum MenuEnum: String {
     case TERMS_OF_SERVICE = "Terms of Service"
     case CONTACT = "Contact us"
     case ABOUT = "About"
+    case LOGOUT = "Log out"
 }
