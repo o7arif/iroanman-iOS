@@ -82,6 +82,10 @@ open class SmartTextField: UIView {
         super.init(coder: aDecoder)
     }
     
+    public convenience init (placeholder: String, dataType: DataType, validationType: ValidationType, shouldAddMargin: Bool? = true) {
+        self.init (placeholder: placeholder, dataType: dataType, validationType: validationType, shouldAddMargin: shouldAddMargin, leftIcon: "")
+    }
+    
     public convenience init (placeholder: String, dataType: DataType, validationType: ValidationType, shouldAddMargin: Bool? = true, leftIcon:String){
         self.init(frame: .zero)
         self.caption = placeholder
@@ -125,15 +129,16 @@ open class SmartTextField: UIView {
             make.height.equalTo(AppConst.inputField)
         }
         
-
         var leftIconImageView = UIImageView()
-        leftIconImageView.contentMode = .scaleAspectFit
-        leftIconImageView = UIImageView.init(image: UIImage.init(named: leftIcon ?? ""))
-        wrapperView.addSubview(leftIconImageView)
-        leftIconImageView.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().inset(12)
+        if !leftIcon!.isEmpty {
+            leftIconImageView.contentMode = .scaleAspectFit
+            leftIconImageView = UIImageView.init(image: UIImage.init(named: leftIcon ?? ""))
+            wrapperView.addSubview(leftIconImageView)
+            leftIconImageView.snp.makeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.left.equalToSuperview().inset(12)
 
+            }
         }
         
 
@@ -142,18 +147,27 @@ open class SmartTextField: UIView {
         textField.textAlignment = .left
         textField.font = OpenSans.regular.of(size: AppConst.fontSize16)
         textField.textColor = .black
-        textField.attributedPlaceholder =  NSAttributedString(string: placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.textBlack])
+        textField.attributedPlaceholder =  NSAttributedString(string: placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.color(fromHexString: "788493")])
         
         
       
         
         
         wrapperView.addSubview(textField)
-        textField.snp.makeConstraints { (make) in
-            make.top.right.bottom.equalToSuperview()
-            make.height.equalTo(AppConst.inputField)
-            make.left.equalTo(leftIconImageView.snp.right).offset(10)
-            
+        if !leftIcon!.isEmpty {
+            textField.snp.makeConstraints { (make) in
+                make.top.right.bottom.equalToSuperview()
+                make.height.equalTo(AppConst.inputField)
+                make.left.equalTo(leftIconImageView.snp.right).offset(10)
+                
+            }
+        } else {
+            textField.snp.makeConstraints { (make) in
+                make.top.right.bottom.equalToSuperview()
+                make.height.equalTo(AppConst.inputField)
+                make.left.equalToSuperview().inset(10)
+                
+            }
         }
         
         

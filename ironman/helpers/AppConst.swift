@@ -10,7 +10,7 @@ import UIKit
 struct AppConst {
     static let horizontalMargin = 24
     static let verticalMargin = 8
-    static let buttonHeight = 56
+    static let buttonHeight = 50
     static let bottomMarginFactor = 60
     static let basicControlHeight = 60
     static let auctionRowHeight = 50

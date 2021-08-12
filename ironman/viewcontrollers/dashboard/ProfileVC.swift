@@ -126,7 +126,7 @@ class ProfileVC: UIViewController {
     }
     
     @objc private func editTapped(_ sender: Any) {
-        print("Edit tapped")
+        self.navigationController?.pushViewController(EditProfileVC(), animated: true)
     }
     
     

@@ -33,7 +33,7 @@ class BaseVC: UIViewController {
     func viewSetup(){
     
         self.view.addSubview(container)
-        container.backgroundColor = .white
+        container.backgroundColor = .color(fromHexString: "EFEFEF")
         container.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
