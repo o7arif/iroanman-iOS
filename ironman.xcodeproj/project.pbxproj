@@ -181,7 +181,6 @@
 			children = (
 				802B6363269F71E5002A996E /* HomeVC.swift */,
 				8080E79926B06E6F00818768 /* NotificationVC.swift */,
-				809D8B1326B1B35B004B3FA2 /* ManageAddressVC.swift */,
 				809D8B1526B1B9D3004B3FA2 /* MyCartVC.swift */,
 				80F0541526BDA8A600149164 /* TabNavigationVC.swift */,
 				80F0541926BDAD5300149164 /* ProfileVC.swift */,
@@ -204,6 +203,14 @@
 				80F0541326BDA55200149164 /* GMFTabViewItem.swift */,
 			);
 			path = controls;
+			sourceTree = "<group>";
+		};
+		800EBB6626C5AB040052CAA3 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				809D8B1326B1B35B004B3FA2 /* ManageAddressVC.swift */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 		804952E6695FF01701346E54 /* Frameworks */ = {
@@ -298,6 +305,7 @@
 		80810482269B4FA5008B5E4C /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				800EBB6626C5AB040052CAA3 /* profile */,
 				273EE13126BB061700753E2A /* auth  */,
 				273EE12E26BB05B900753E2A /* base  */,
 				273EE13226BB063100753E2A /* dashboard */,
