@@ -9,11 +9,11 @@ import UIKit
 
 class EditProfileVC: BaseVC {
     
-    var nameField : SmartTextField?
-    var genderDownPicker: SmartDownPicker?
-    var emailField : SmartTextField?
-    var phoneField : SmartTextField?
-    var altPhoneField : SmartTextField?
+    private var nameField : SmartTextField?
+    private var genderDownPicker: SmartDownPicker?
+    private var emailField : SmartTextField?
+    private var phoneField : SmartTextField?
+    private var altPhoneField : SmartTextField?
     
     override func viewDidLoad() {
         viewSetup()
@@ -143,7 +143,7 @@ class EditProfileVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Edit Profile "
+        label.text = "Edit Profile"
         return label
     }()
     
@@ -182,7 +182,7 @@ class EditProfileVC: BaseVC {
         return imageView
     }()
     
-    private let btnUpdateProfile: UIView = {
+    private let btnUpdateProfile: UIButton = {
         let button = UIButton()
         button.setTitle("Update Profile", for: .normal)
         button.isUserInteractionEnabled = true

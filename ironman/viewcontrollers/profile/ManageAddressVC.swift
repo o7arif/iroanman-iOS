@@ -130,7 +130,7 @@ class ManageAddressVC: BaseVC {
     }
     
     @objc private func addNewAddressTapped(_ sender: Any) {
-        print("add new address tapped")
+        self.navigationController?.pushViewController(NewAddressVC(), animated: true)
     }
     
     
@@ -251,7 +251,7 @@ class ManageAddressVC: BaseVC {
 
 
 
-extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource {
+extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource, AddressDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -260,6 +260,7 @@ extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressTVCell.identifier) as! AddressTVCell
         cell.selectionStyle = .none
+        cell.listener = self
         return cell
     }
     
@@ -267,7 +268,15 @@ extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource {
         return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func addressEditTapped() {
+        let vc = NewAddressVC()
+        vc.isForEdit = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func addressDeleteTapped() {
+        print("address delete tapped")
+    }
+    
 
 }

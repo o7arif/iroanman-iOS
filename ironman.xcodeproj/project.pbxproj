@@ -24,6 +24,7 @@
 		803CE01826C80273007807E0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01726C80273007807E0 /* Address.swift */; };
 		803CE01A26C80321007807E0 /* AddressTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01926C80321007807E0 /* AddressTVCell.swift */; };
 		803CE01C26C81294007807E0 /* OrderConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01B26C81294007807E0 /* OrderConfirmationVC.swift */; };
+		803CE01E26C8377D007807E0 /* NewAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01D26C8377D007807E0 /* NewAddressVC.swift */; };
 		803D646B26B65F9B0020D223 /* LegacySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */; };
 		8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080E79926B06E6F00818768 /* NotificationVC.swift */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
@@ -93,6 +94,7 @@
 		803CE01726C80273007807E0 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		803CE01926C80321007807E0 /* AddressTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTVCell.swift; sourceTree = "<group>"; };
 		803CE01B26C81294007807E0 /* OrderConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationVC.swift; sourceTree = "<group>"; };
+		803CE01D26C8377D007807E0 /* NewAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddressVC.swift; sourceTree = "<group>"; };
 		803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySegmentedControl.swift; sourceTree = "<group>"; };
 		8080E79926B06E6F00818768 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 			children = (
 				809D8B1326B1B35B004B3FA2 /* ManageAddressVC.swift */,
 				800EBB6726C5AB580052CAA3 /* EditProfileVC.swift */,
+				803CE01D26C8377D007807E0 /* NewAddressVC.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				803CE01C26C81294007807E0 /* OrderConfirmationVC.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
+				803CE01E26C8377D007807E0 /* NewAddressVC.swift in Sources */,
 				803CE01626C7F4FB007807E0 /* FakeDataHelper.swift in Sources */,
 				809D8B1D26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift in Sources */,
 				809BA860269CCB96005B51F7 /* UIButton.swift in Sources */,

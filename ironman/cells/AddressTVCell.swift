@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol AddressDelegate {
+    func addressEditTapped()
+    func addressDeleteTapped()
+}
+
 class AddressTVCell: UITableViewCell {
     
     static let identifier = "AddressTVCell"
+    
+    var listener: AddressDelegate?
     
     private let container = UIView()
     
@@ -87,11 +94,11 @@ class AddressTVCell: UITableViewCell {
     // MARK: CLICK ACTIONS
     
     @objc private func editTapped(_ sender: Any) {
-        print("edit tapped")
+        listener?.addressEditTapped()
     }
     
     @objc private func deleteTapped(_ sender: Any) {
-        print("delete tapped")
+        listener?.addressDeleteTapped()
     }
     
     
