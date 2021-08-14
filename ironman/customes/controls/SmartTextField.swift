@@ -125,7 +125,7 @@ open class SmartTextField: UIView {
         self.addSubview(wrapperView)
         wrapperView.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview().inset(10)
-            make.left.right.equalToSuperview().inset(AppConst.horizontalMargin)
+            make.left.right.equalToSuperview().inset(shouldAddMargin ? AppConst.horizontalMargin:0)
             make.height.equalTo(AppConst.inputField)
         }
         

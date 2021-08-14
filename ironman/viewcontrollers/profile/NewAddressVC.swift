@@ -47,14 +47,14 @@ class NewAddressVC: BaseVC {
             make.left.right.equalToSuperview()
         }
         
-        nameField = SmartTextField.init(placeholder: "Address Name (Ex. Office/Home/etc)", dataType: .name, validationType: .required, shouldAddMargin: true)
+        nameField = SmartTextField.init(placeholder: "Address Name (Ex. Office/Home/etc)", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_address_home")
         container.addSubview(nameField!)
         nameField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom).offset(35)
         }
         
-        areaDownPicker = SmartDownPicker.init(placeholder: "Area (Ex. Bashundhara)", dataSource: .gender, validationType: .required, shouldAddMargin: true)
+        areaDownPicker = SmartDownPicker.init(placeholder: "Area (Ex. Bashundhara)", dataSource: .area, validationType: .required, shouldAddMargin: true, leftIcon: "ic_map_pin")
         container.addSubview(areaDownPicker!)
         areaDownPicker!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -70,7 +70,6 @@ class NewAddressVC: BaseVC {
         
         let line25 = UIView()
         flatToRoadContainer.addSubview(line25)
-        line25.backgroundColor = .red
         line25.snp.makeConstraints { make in
             make.width.equalTo(1)
             make.top.bottom.equalToSuperview()
@@ -79,7 +78,6 @@ class NewAddressVC: BaseVC {
         
         let line50 = UIView()
         flatToRoadContainer.addSubview(line50)
-        line50.backgroundColor = .red
         line50.snp.makeConstraints { make in
             make.width.equalTo(1)
             make.top.bottom.equalToSuperview()
@@ -88,7 +86,6 @@ class NewAddressVC: BaseVC {
         
         let line75 = UIView()
         flatToRoadContainer.addSubview(line75)
-        line75.backgroundColor = .red
         line75.snp.makeConstraints { make in
             make.width.equalTo(1)
             make.top.bottom.equalToSuperview()
@@ -99,8 +96,8 @@ class NewAddressVC: BaseVC {
         flatField = SmartTextField.init(placeholder: "Flat", dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(flatField!)
         flatField!.snp.makeConstraints { make in
-            make.left.equalToSuperview()
-            make.right.equalTo(line25.snp.left)
+            make.left.equalToSuperview().inset(4)
+            make.right.equalTo(line25.snp.left).offset(-12)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -110,7 +107,7 @@ class NewAddressVC: BaseVC {
         flatToRoadContainer.addSubview(houseField!)
         houseField!.snp.makeConstraints { make in
             make.left.equalTo(line25.snp.right)
-            make.right.equalTo(line50.snp.left)
+            make.right.equalTo(line50.snp.left).offset(-6)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -119,7 +116,7 @@ class NewAddressVC: BaseVC {
         blockField = SmartTextField.init(placeholder: "Block", dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(blockField!)
         blockField!.snp.makeConstraints { make in
-            make.left.equalTo(line50.snp.right)
+            make.left.equalTo(line50.snp.right).offset(6)
             make.right.equalTo(line75.snp.left)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -129,8 +126,8 @@ class NewAddressVC: BaseVC {
         roadField = SmartTextField.init(placeholder: "Road", dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(roadField!)
         roadField!.snp.makeConstraints { make in
-            make.left.equalTo(line75.snp.right)
-            make.right.equalToSuperview()
+            make.left.equalTo(line75.snp.right).offset(12)
+            make.right.equalToSuperview().inset(4)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }

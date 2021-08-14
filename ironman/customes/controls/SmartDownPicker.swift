@@ -11,6 +11,7 @@ import EasyTipView
 
 public enum DataSource: String {
     case gender = "gender"
+    case area = "area"
     case none = "none"
 }
 
@@ -37,6 +38,7 @@ class SmartDownPicker: UIView{
     
     var delegate: SmartDownPickerDelegate?
     
+    var leftIcon:String = ""
     var toolTipView: EasyTipView?
     var toolTipCustomString: String?
     var toolTipDataSource: TTDataSource = TTDataSource.predefined
@@ -62,23 +64,33 @@ class SmartDownPicker: UIView{
     }
     
     public convenience init(placeholder: String, dataSource: DataSource, validationType: ValidationType, shouldAddMargin: Bool? = true, dropDownDidChange: @escaping (String) -> ()) {
+        self.init(placeholder: placeholder, dataSource: dataSource, validationType: validationType, shouldAddMargin: shouldAddMargin, leftIcon: "", dropDownDidChange: dropDownDidChange)
+    }
+    
+    public convenience init(placeholder: String, dataSource: DataSource, validationType: ValidationType, shouldAddMargin: Bool? = true, leftIcon: String, dropDownDidChange: @escaping (String) -> ()) {
         self.init(frame: .zero)
         self.placeholder = placeholder
         self.dataSource = dataSource
         self.validationType = validationType
         self.shouldAddMargin = shouldAddMargin!
+        self.leftIcon = leftIcon
         self.dropDownDidChange = dropDownDidChange
         
         setupComponents()
         setupDataSource()
     }
-
+    
     public convenience init(placeholder: String, dataSource: DataSource, validationType: ValidationType, shouldAddMargin: Bool? = true) {
+        self.init(placeholder: placeholder, dataSource: dataSource, validationType: validationType, shouldAddMargin: shouldAddMargin, leftIcon: "")
+    }
+    
+    public convenience init(placeholder: String, dataSource: DataSource, validationType: ValidationType, shouldAddMargin: Bool? = true, leftIcon: String) {
         self.init(frame: .zero)
         self.placeholder = placeholder
         self.dataSource = dataSource
         self.validationType = validationType
         self.shouldAddMargin = shouldAddMargin!
+        self.leftIcon = leftIcon
         
         setupComponents()
         setupDataSource()
@@ -99,16 +111,37 @@ class SmartDownPicker: UIView{
             make.height.equalTo(AppConst.buttonHeight)
             make.left.right.equalToSuperview().inset(shouldAddMargin ? AppConst.horizontalMargin : -10)
         }
+        
+        var leftIconImageView = UIImageView()
+        if !leftIcon.isEmpty {
+            leftIconImageView.contentMode = .scaleAspectFit
+            leftIconImageView = UIImageView.init(image: UIImage.init(named: leftIcon))
+            wrappingView.addSubview(leftIconImageView)
+            leftIconImageView.snp.makeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.left.equalToSuperview().inset(12)
+
+            }
+        }
 
         //drop down
         button.titleLabel?.font =  OpenSans.regular.of(size: AppConst.fontSize14)
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = .left
         wrappingView.addSubview(button)
-        button.snp.makeConstraints { (make) in
-            make.height.equalTo(30)
-            make.centerY.equalToSuperview()
-            make.left.right.equalToSuperview().inset(18)
+        if leftIcon.isEmpty {
+            button.snp.makeConstraints { (make) in
+                make.height.equalTo(30)
+                make.centerY.equalToSuperview()
+                make.left.right.equalToSuperview().inset(18)
+            }
+        } else {
+            button.snp.makeConstraints { (make) in
+                make.height.equalTo(30)
+                make.centerY.equalToSuperview()
+                make.right.equalToSuperview().inset(18)
+                make.left.equalTo(leftIconImageView.snp.right).offset(10)
+            }
         }
         
         //right-icon
