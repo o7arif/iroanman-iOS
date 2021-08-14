@@ -7,9 +7,8 @@
 
 import UIKit
 
-class ManageAddressVC: UIViewController {
+class ManageAddressVC: BaseVC {
     
-    private let container = UIView()
     private let authRequiredContainer = UIView()
     
     override func viewDidLoad() {
@@ -17,7 +16,7 @@ class ManageAddressVC: UIViewController {
     }
     
     private func setupViews() {
-        self.view.addSubview(container)
+        viewSetup()
         container.backgroundColor = .color(fromHexString: "FAFAFA")
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
