@@ -40,7 +40,8 @@ class ManageAddressVC: UIViewController {
             make.left.right.equalToSuperview()
         }
         
-        authentionRequiredMessage()
+//        authentionRequiredMessage()
+        emptyListMessage()
     }
     
     
@@ -68,6 +69,29 @@ class ManageAddressVC: UIViewController {
             make.left.right.equalToSuperview().inset(30)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
             make.height.equalTo(50)
+        }
+        
+    }
+    
+    
+    private func emptyListMessage() {
+        
+        let authRequiredContainer = UIView()
+        container.addSubview(authRequiredContainer)
+        authRequiredContainer.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.right.equalToSuperview().inset(46)
+        }
+        
+        authRequiredContainer.addSubview(ivAddress)
+        ivAddress.snp.makeConstraints { make in
+            make.left.top.right.equalToSuperview()
+        }
+        
+        authRequiredContainer.addSubview(labelEmptyList)
+        labelEmptyList.snp.makeConstraints { make in
+            make.top.equalTo(ivAddress.snp.bottom).offset(24)
+            make.left.right.bottom.equalToSuperview()
         }
         
     }
@@ -133,6 +157,16 @@ class ManageAddressVC: UIViewController {
         label.textAlignment = .center
         label.textColor = .textBlack
         label.text = "You are not signed in!\nPlease sign in first."
+        return label
+    }()
+    
+    private let labelEmptyList: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 30)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .textBlack
+        label.text = "You address list is empty!"
         return label
     }()
     
