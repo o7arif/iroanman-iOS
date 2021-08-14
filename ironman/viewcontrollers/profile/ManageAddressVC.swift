@@ -243,7 +243,7 @@ class ManageAddressVC: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
