@@ -21,6 +21,8 @@
 		802B636A269F9256002A996E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6369269F9256002A996E /* Service.swift */; };
 		803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01326C7E794007807E0 /* SmartDownPicker.swift */; };
 		803CE01626C7F4FB007807E0 /* FakeDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */; };
+		803CE01826C80273007807E0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01726C80273007807E0 /* Address.swift */; };
+		803CE01A26C80321007807E0 /* AddressTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01926C80321007807E0 /* AddressTVCell.swift */; };
 		803D646B26B65F9B0020D223 /* LegacySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */; };
 		8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080E79926B06E6F00818768 /* NotificationVC.swift */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
@@ -87,6 +89,8 @@
 		802B6369269F9256002A996E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		803CE01326C7E794007807E0 /* SmartDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDownPicker.swift; sourceTree = "<group>"; };
 		803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataHelper.swift; sourceTree = "<group>"; };
+		803CE01726C80273007807E0 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		803CE01926C80321007807E0 /* AddressTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTVCell.swift; sourceTree = "<group>"; };
 		803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySegmentedControl.swift; sourceTree = "<group>"; };
 		8080E79926B06E6F00818768 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +302,7 @@
 				802B6367269F8EE0002A996E /* ServiceCVCell.swift */,
 				80AD6AA626C2FAA700B23CCB /* MenuTVCell.swift */,
 				800EBB6426C5A6CA0052CAA3 /* MenuLogoutTVCell.swift */,
+				803CE01926C80321007807E0 /* AddressTVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 			children = (
 				802B6369269F9256002A996E /* Service.swift */,
 				80AD6AA826C2FF4500B23CCB /* Menu.swift */,
+				803CE01726C80273007807E0 /* Address.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				800EBB6526C5A6CA0052CAA3 /* MenuLogoutTVCell.swift in Sources */,
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
 				80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */,
+				803CE01826C80273007807E0 /* Address.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
 				80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */,
 				80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */,
@@ -582,6 +589,7 @@
 				800EBB6826C5AB580052CAA3 /* EditProfileVC.swift in Sources */,
 				802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */,
 				80F0541426BDA55200149164 /* GMFTabViewItem.swift in Sources */,
+				803CE01A26C80321007807E0 /* AddressTVCell.swift in Sources */,
 				809D8B1626B1B9D3004B3FA2 /* MyCartVC.swift in Sources */,
 				809D8B1B26B1C26A004B3FA2 /* OnGoingOrderSegmentVC.swift in Sources */,
 			);

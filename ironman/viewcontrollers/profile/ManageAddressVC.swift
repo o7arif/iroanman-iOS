@@ -8,7 +8,9 @@
 import UIKit
 
 class ManageAddressVC: UIViewController {
+    
     private let container = UIView()
+    private let authRequiredContainer = UIView()
     
     override func viewDidLoad() {
         setupViews()
@@ -40,13 +42,32 @@ class ManageAddressVC: UIViewController {
             make.left.right.equalToSuperview()
         }
         
+        container.addSubview(btnAddAddress)
+        btnAddAddress.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(30)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            make.height.equalTo(50)
+        }
+        
+        container.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(AddressTVCell.self, forCellReuseIdentifier: AddressTVCell.identifier)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(viewHeaderBack.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(20)
+            make.bottom.equalTo(btnAddAddress.snp.top)
+        }
+        
 //        authentionRequiredMessage()
-        emptyListMessage()
+//        emptyListMessage()
     }
     
     
     private func authentionRequiredMessage() {
-        let authRequiredContainer = UIView()
+        // not logged in so user are not allowed to add new address
+        btnAddAddress.isHidden = true
+        
         container.addSubview(authRequiredContainer)
         authRequiredContainer.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -70,25 +91,27 @@ class ManageAddressVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
             make.height.equalTo(50)
         }
-        
     }
-    
     
     private func emptyListMessage() {
         
-        let authRequiredContainer = UIView()
-        container.addSubview(authRequiredContainer)
-        authRequiredContainer.snp.makeConstraints { make in
+        btnAddAddress.isHidden = false
+        btnSignIn.removeFromSuperview()
+        authRequiredContainer.removeFromSuperview()
+        
+        let emptyContainer = UIView()
+        container.addSubview(emptyContainer)
+        emptyContainer.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.right.equalToSuperview().inset(46)
         }
         
-        authRequiredContainer.addSubview(ivAddress)
+        emptyContainer.addSubview(ivAddress)
         ivAddress.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
         }
         
-        authRequiredContainer.addSubview(labelEmptyList)
+        emptyContainer.addSubview(labelEmptyList)
         labelEmptyList.snp.makeConstraints { make in
             make.top.equalTo(ivAddress.snp.bottom).offset(24)
             make.left.right.bottom.equalToSuperview()
@@ -105,6 +128,10 @@ class ManageAddressVC: UIViewController {
     
     @objc private func signInTapped(_ sender: Any) {
         print("sign in tapped")
+    }
+    
+    @objc private func addNewAddressTapped(_ sender: Any) {
+        print("add new address tapped")
     }
     
     
@@ -170,7 +197,7 @@ class ManageAddressVC: UIViewController {
         return label
     }()
     
-    private let btnSignIn: UIView = {
+    private let btnSignIn: UIButton = {
         let button = UIButton()
         button.setTitle("Sign in", for: .normal)
         button.isUserInteractionEnabled = true
@@ -190,4 +217,58 @@ class ManageAddressVC: UIViewController {
         button.addTarget(self, action: #selector(signInTapped(_:)), for: .touchUpInside)
         return button
     }()
+    
+    private let btnAddAddress: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add New Address", for: .normal)
+        button.isUserInteractionEnabled = true
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .primary
+        button.titleLabel?.font = OpenSans.bold.of(size: 15)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 25
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        button.layer.shadowColor = UIColor.color(fromHexString: "808082").cgColor
+        button.layer.shadowOffset = CGSize(width: 1, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 10
+        button.layer.masksToBounds = false
+        
+        // click action
+        button.addTarget(self, action: #selector(addNewAddressTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        return tableView
+    }()
+}
+
+
+
+
+extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddressTVCell.identifier) as! AddressTVCell
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+
 }
