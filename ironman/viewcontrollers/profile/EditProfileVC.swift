@@ -10,6 +10,7 @@ import UIKit
 class EditProfileVC: BaseVC {
     
     var nameField : SmartTextField?
+    var genderDownPicker: SmartDownPicker?
     var emailField : SmartTextField?
     var phoneField : SmartTextField?
     var altPhoneField : SmartTextField?
@@ -60,11 +61,18 @@ class EditProfileVC: BaseVC {
             make.top.equalTo(ivProfile.snp.bottom).offset(35)
         }
         
+        genderDownPicker = SmartDownPicker.init(placeholder: "Your Gender", dataSource: .gender, validationType: .required, shouldAddMargin: true)
+        container.addSubview(genderDownPicker!)
+        genderDownPicker!.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(nameField!.snp.bottom)
+        }
+        
         emailField = SmartTextField.init(placeholder: "Email Address (Optional)", dataType: .email, validationType: .optional, shouldAddMargin: true)
         container.addSubview(emailField!)
         emailField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(nameField!.snp.bottom)
+            make.top.equalTo(genderDownPicker!.snp.bottom)
         }
         
         phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .mobile, validationType: .required, shouldAddMargin: true)

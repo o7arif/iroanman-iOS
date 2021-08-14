@@ -22,19 +22,19 @@ target 'ironman' do
   # font sizing
   pod 'Swash'
   
-  #tool-tip
+  # tool-tip
   pod 'EasyTipView', '~> 2.0.4'
   pod 'UITextView+Placeholder'
 
-  #popup
+  # popup
   pod 'SwiftPopup'
   pod 'SwiftyPickerPopover'
   pod 'PopupDialog', '~> 1.1'
   
-  #Keyboard
+  # Keyboard
   pod 'IQKeyboardManagerSwift'
   
-  #material Desing widgets
+  # material Desing widgets
   pod 'MaterialDesignWidgets'
   
   # page control indicator
@@ -42,5 +42,8 @@ target 'ironman' do
   
   # gif
   pod 'Gifu'
+  
+  # dropdown
+  pod 'DropDown'
   
 end

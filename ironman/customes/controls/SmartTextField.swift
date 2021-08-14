@@ -145,7 +145,7 @@ open class SmartTextField: UIView {
         textField.delegate = self
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.font = OpenSans.regular.of(size: AppConst.fontSize16)
+        textField.font = OpenSans.regular.of(size: AppConst.fontSize14)
         textField.textColor = .black
         textField.attributedPlaceholder =  NSAttributedString(string: placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.color(fromHexString: "788493")])
         

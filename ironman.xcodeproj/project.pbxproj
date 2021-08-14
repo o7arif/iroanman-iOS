@@ -19,6 +19,8 @@
 		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
 		802B636A269F9256002A996E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6369269F9256002A996E /* Service.swift */; };
+		803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01326C7E794007807E0 /* SmartDownPicker.swift */; };
+		803CE01626C7F4FB007807E0 /* FakeDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */; };
 		803D646B26B65F9B0020D223 /* LegacySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */; };
 		8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080E79926B06E6F00818768 /* NotificationVC.swift */; };
 		8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80810469269B4652008B5E4C /* AppDelegate.swift */; };
@@ -83,6 +85,8 @@
 		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
 		802B6369269F9256002A996E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		803CE01326C7E794007807E0 /* SmartDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDownPicker.swift; sourceTree = "<group>"; };
+		803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataHelper.swift; sourceTree = "<group>"; };
 		803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacySegmentedControl.swift; sourceTree = "<group>"; };
 		8080E79926B06E6F00818768 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		80810466269B4652008B5E4C /* ironman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ironman.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +207,7 @@
 			children = (
 				273EE13526BB076900753E2A /* SmartTextField.swift */,
 				80F0541326BDA55200149164 /* GMFTabViewItem.swift */,
+				803CE01326C7E794007807E0 /* SmartDownPicker.swift */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				80F0541726BDA96100149164 /* DeviceInfoHelper.swift */,
 				8017149426C0448C00FD9CE7 /* CacheData.swift */,
 				80AD6AAA26C300EA00B23CCB /* MenuHelper.swift */,
+				803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				802B6364269F71E5002A996E /* HomeVC.swift in Sources */,
 				809D8B1926B1BECA004B3FA2 /* MyOrderVC.swift in Sources */,
 				8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */,
+				803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */,
 				80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
 				273EE13926BB098000753E2A /* AppConst.swift in Sources */,
@@ -565,6 +572,7 @@
 				80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
+				803CE01626C7F4FB007807E0 /* FakeDataHelper.swift in Sources */,
 				809D8B1D26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift in Sources */,
 				809BA860269CCB96005B51F7 /* UIButton.swift in Sources */,
 				803D646B26B65F9B0020D223 /* LegacySegmentedControl.swift in Sources */,
