@@ -31,7 +31,7 @@ class NotesTextView: UITextView {
         
         // Update UITextView font size and colour
         font = OpenSans.regular.of(size: AppConst.fontSize12)
-        textColor = .black
+        textColor = .textGrey
         
         // Make UITextView corners rounded
         layer.cornerRadius = 10

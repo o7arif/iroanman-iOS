@@ -11,13 +11,13 @@ class NewAddressVC: BaseVC {
     
     var isForEdit: Bool = false
     
-    private var nameField : SmartTextField?
+    private var nameField: SmartTextField?
     private var areaDownPicker: SmartDownPicker?
-    private var flatField : SmartTextField?
-    private var houseField : SmartTextField?
-    private var blockField : SmartTextField?
-    private var roadField : SmartTextField?
-    private var noteField : SmartTextField?
+    private var flatField: SmartTextField?
+    private var houseField: SmartTextField?
+    private var blockField: SmartTextField?
+    private var roadField: SmartTextField?
+    private var noteField = NotesTextView()
     
     override func viewDidLoad() {
         viewSetup()
@@ -133,11 +133,13 @@ class NewAddressVC: BaseVC {
         }
         
         // additional note
-        noteField = SmartTextField.init(placeholder: "Additional Note", dataType: .name, validationType: .optional, shouldAddMargin: true)
-        container.addSubview(noteField!)
-        noteField!.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(flatToRoadContainer.snp.bottom)
+        noteField.placeholder = "Additional Note"
+        noteField.backgroundColor = .white
+        noteField.font = OpenSans.regular.of(size: AppConst.fontSize14)
+        container.addSubview(noteField)
+        noteField.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(AppConst.horizontalMargin)
+            make.top.equalTo(flatToRoadContainer.snp.bottom).offset(10)
             make.height.equalTo(130)
         }
         
