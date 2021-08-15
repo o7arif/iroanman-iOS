@@ -295,7 +295,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(ContactUsVC(), animated: true)
             break
         case MenuEnum.ABOUT.rawValue:
-            print("\(menu.name) clicked")
+            self.navigationController?.pushViewController(AboutUsVC(), animated: true)
             break
         case MenuEnum.LOGOUT.rawValue:
             print("\(menu.name) clicked")

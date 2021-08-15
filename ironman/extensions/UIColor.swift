@@ -11,6 +11,8 @@ public extension UIColor {
     
     static let primary: UIColor = .color(fromHexString: "00C2CB")
     static let textBlack: UIColor = .color(fromHexString: "001733")
+    static let textBlackDark: UIColor = .color(fromHexString: "0E1C43")
+    static let textBlackLight: UIColor = .color(fromHexString: "294366")
     static let textGrey: UIColor = .color(fromHexString: "788493")
     
     static func color(fromHexString: String, alpha:CGFloat? = 1.0) -> UIColor {
