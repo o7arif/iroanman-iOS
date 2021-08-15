@@ -19,6 +19,8 @@
 		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
 		802B636A269F9256002A996E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6369269F9256002A996E /* Service.swift */; };
+		80354D9326C97D7100BAACF3 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354D9226C97D7100BAACF3 /* ContactUsVC.swift */; };
+		80354D9526C9843A00BAACF3 /* NotesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354D9426C9843A00BAACF3 /* NotesTextView.swift */; };
 		803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01326C7E794007807E0 /* SmartDownPicker.swift */; };
 		803CE01626C7F4FB007807E0 /* FakeDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */; };
 		803CE01826C80273007807E0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CE01726C80273007807E0 /* Address.swift */; };
@@ -89,6 +91,8 @@
 		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
 		802B6369269F9256002A996E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		80354D9226C97D7100BAACF3 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
+		80354D9426C9843A00BAACF3 /* NotesTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTextView.swift; sourceTree = "<group>"; };
 		803CE01326C7E794007807E0 /* SmartDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDownPicker.swift; sourceTree = "<group>"; };
 		803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataHelper.swift; sourceTree = "<group>"; };
 		803CE01726C80273007807E0 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				809D8B1326B1B35B004B3FA2 /* ManageAddressVC.swift */,
 				800EBB6726C5AB580052CAA3 /* EditProfileVC.swift */,
 				803CE01D26C8377D007807E0 /* NewAddressVC.swift */,
+				80354D9226C97D7100BAACF3 /* ContactUsVC.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				809BA85B269CB05F005B51F7 /* GradientCard.swift */,
 				803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */,
 				80AD6AA426C2F33700B23CCB /* LineView.swift */,
+				80354D9426C9843A00BAACF3 /* NotesTextView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 				80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
 				273EE13926BB098000753E2A /* AppConst.swift in Sources */,
+				80354D9326C97D7100BAACF3 /* ContactUsVC.swift in Sources */,
 				80AD6AAF26C30AB900B23CCB /* MenuEnum.swift in Sources */,
 				273EE13026BB05B900753E2A /* BaseVC.swift in Sources */,
 				80AD6AA926C2FF4500B23CCB /* Menu.swift in Sources */,
@@ -579,6 +586,7 @@
 				800EBB6526C5A6CA0052CAA3 /* MenuLogoutTVCell.swift in Sources */,
 				809BA857269C9551005B51F7 /* ElNavigato.swift in Sources */,
 				80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */,
+				80354D9526C9843A00BAACF3 /* NotesTextView.swift in Sources */,
 				803CE01826C80273007807E0 /* Address.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
 				80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */,

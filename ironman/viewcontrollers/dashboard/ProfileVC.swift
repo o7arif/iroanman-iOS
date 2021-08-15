@@ -157,7 +157,7 @@ class ProfileVC: UIViewController {
         view.backgroundColor = .white
         view.clipsToBounds = true
         view.layer.cornerRadius = 15
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return view
     }()
     
@@ -292,7 +292,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             print("\(menu.name) clicked")
             break
         case MenuEnum.CONTACT.rawValue:
-            print("\(menu.name) clicked")
+            self.navigationController?.pushViewController(ContactUsVC(), animated: true)
             break
         case MenuEnum.ABOUT.rawValue:
             print("\(menu.name) clicked")
