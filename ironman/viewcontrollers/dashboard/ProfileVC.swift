@@ -286,10 +286,14 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(ManageAddressVC(), animated: true)
             break
         case MenuEnum.PRIVACY_POLICY.rawValue:
-            print("\(menu.name) clicked")
+            let vc = HtmlViewVC()
+            vc.htmlType = .PRIVACY_POLICY
+            self.navigationController?.pushViewController(vc, animated: true)
             break
         case MenuEnum.TERMS_OF_SERVICE.rawValue:
-            print("\(menu.name) clicked")
+            let vc = HtmlViewVC()
+            vc.htmlType = .TERMS_OF_SERVICE
+            self.navigationController?.pushViewController(vc, animated: true)
             break
         case MenuEnum.CONTACT.rawValue:
             self.navigationController?.pushViewController(ContactUsVC(), animated: true)
