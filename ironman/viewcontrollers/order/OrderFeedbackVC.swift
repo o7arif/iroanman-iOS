@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class OrderFeedbackVC: UIViewController {
     
@@ -45,12 +46,18 @@ class OrderFeedbackVC: UIViewController {
             make.top.equalTo(labelQuestion.snp.bottom).offset(15)
         }
         
+        container.addSubview(ratingView)
+        ratingView.snp.makeConstraints { make in
+            make.top.equalTo(labelMessage.snp.bottom).offset(15)
+            make.centerX.equalToSuperview()
+        }
+        
         // comment
         tvComment.placeholder = "Write us your valuable comments...."
         container.addSubview(tvComment)
         tvComment.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
-            make.top.equalTo(labelMessage.snp.bottom).offset(15)
+            make.top.equalTo(ratingView.snp.bottom).offset(15)
             make.height.equalTo(90)
         }
         
@@ -98,6 +105,17 @@ class OrderFeedbackVC: UIViewController {
         label.textColor = .textBlack
         label.text = "Your feedback will help us to improve the Laundry Service Experience."
         return label
+    }()
+    
+    private lazy var ratingView: CosmosView = {
+        let cosmos = CosmosView()
+        cosmos.settings.updateOnTouch = true
+        cosmos.settings.starSize = 22
+        cosmos.settings.starMargin = 10
+        cosmos.settings.filledImage = UIImage.init(named: "ic_star_fill")
+        cosmos.settings.emptyImage = UIImage.init(named: "ic_star_empty")
+        cosmos.rating = 5
+        return cosmos
     }()
     
     private let btnSubmit: UIButton = {

@@ -46,4 +46,7 @@ target 'ironman' do
   # dropdown
   pod 'DropDown'
   
+  # rating view
+  pod 'Cosmos'
+  
 end
