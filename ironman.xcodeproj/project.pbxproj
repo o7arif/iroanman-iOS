@@ -37,6 +37,7 @@
 		8081046E269B4652008B5E4C /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081046D269B4652008B5E4C /* SplashVC.swift */; };
 		80810473269B4653008B5E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80810472269B4653008B5E4C /* Assets.xcassets */; };
 		80810476269B4653008B5E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80810474269B4653008B5E4C /* LaunchScreen.storyboard */; };
+		808FEC2E26D813510097DA61 /* ChooseItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FEC2D26D813510097DA61 /* ChooseItemVC.swift */; };
 		809BA841269C8760005B51F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 809BA837269C875F005B51F7 /* OpenSans-ExtraBoldItalic.ttf */; };
 		809BA842269C8760005B51F7 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 809BA838269C875F005B51F7 /* OpenSans-ExtraBold.ttf */; };
 		809BA843269C8760005B51F7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 809BA839269C8760005B51F7 /* OpenSans-Regular.ttf */; };
@@ -73,6 +74,8 @@
 		80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772D26BFE69800FD3D01 /* NewPasswordVC.swift */; };
 		80D3773026BFE86C00FD3D01 /* ProfilePhotoUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772F26BFE86C00FD3D01 /* ProfilePhotoUploadVC.swift */; };
 		80D3773226BFECB600FD3D01 /* CongratulationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3773126BFECB600FD3D01 /* CongratulationVC.swift */; };
+		80D658F126DAB77E00800275 /* ItemTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D658F026DAB77E00800275 /* ItemTVCell.swift */; };
+		80D658F326DACD6A00800275 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D658F226DACD6A00800275 /* ResourceUtil.swift */; };
 		80F0541426BDA55200149164 /* GMFTabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541326BDA55200149164 /* GMFTabViewItem.swift */; };
 		80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541526BDA8A600149164 /* TabNavigationVC.swift */; };
 		80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541726BDA96100149164 /* DeviceInfoHelper.swift */; };
@@ -114,6 +117,7 @@
 		80810472269B4653008B5E4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80810475269B4653008B5E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80810477269B4653008B5E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		808FEC2D26D813510097DA61 /* ChooseItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseItemVC.swift; sourceTree = "<group>"; };
 		809BA837269C875F005B51F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		809BA838269C875F005B51F7 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		809BA839269C8760005B51F7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		80D3772D26BFE69800FD3D01 /* NewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordVC.swift; sourceTree = "<group>"; };
 		80D3772F26BFE86C00FD3D01 /* ProfilePhotoUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoUploadVC.swift; sourceTree = "<group>"; };
 		80D3773126BFECB600FD3D01 /* CongratulationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationVC.swift; sourceTree = "<group>"; };
+		80D658F026DAB77E00800275 /* ItemTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTVCell.swift; sourceTree = "<group>"; };
+		80D658F226DACD6A00800275 /* ResourceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceUtil.swift; sourceTree = "<group>"; };
 		80F0541326BDA55200149164 /* GMFTabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMFTabViewItem.swift; sourceTree = "<group>"; };
 		80F0541526BDA8A600149164 /* TabNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationVC.swift; sourceTree = "<group>"; };
 		80F0541726BDA96100149164 /* DeviceInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoHelper.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 				809D8B1526B1B9D3004B3FA2 /* MyCartVC.swift */,
 				80F0541526BDA8A600149164 /* TabNavigationVC.swift */,
 				80F0541926BDAD5300149164 /* ProfileVC.swift */,
+				808FEC2D26D813510097DA61 /* ChooseItemVC.swift */,
 			);
 			path = dashboard;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 				8017149426C0448C00FD9CE7 /* CacheData.swift */,
 				80AD6AAA26C300EA00B23CCB /* MenuHelper.swift */,
 				803CE01526C7F4FB007807E0 /* FakeDataHelper.swift */,
+				80D658F226DACD6A00800275 /* ResourceUtil.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 				80AD6AA626C2FAA700B23CCB /* MenuTVCell.swift */,
 				800EBB6426C5A6CA0052CAA3 /* MenuLogoutTVCell.swift */,
 				803CE01926C80321007807E0 /* AddressTVCell.swift */,
+				80D658F026DAB77E00800275 /* ItemTVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -566,6 +575,7 @@
 			files = (
 				8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */,
 				80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */,
+				808FEC2E26D813510097DA61 /* ChooseItemVC.swift in Sources */,
 				80AD6AA726C2FAA700B23CCB /* MenuTVCell.swift in Sources */,
 				8081046E269B4652008B5E4C /* SplashVC.swift in Sources */,
 				809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */,
@@ -583,10 +593,12 @@
 				273EE13926BB098000753E2A /* AppConst.swift in Sources */,
 				80354D9326C97D7100BAACF3 /* ContactUsVC.swift in Sources */,
 				80AD6AAF26C30AB900B23CCB /* MenuEnum.swift in Sources */,
+				80D658F126DAB77E00800275 /* ItemTVCell.swift in Sources */,
 				273EE13026BB05B900753E2A /* BaseVC.swift in Sources */,
 				80AD6AA926C2FF4500B23CCB /* Menu.swift in Sources */,
 				8081046C269B4652008B5E4C /* SceneDelegate.swift in Sources */,
 				80354D9726C9922C00BAACF3 /* AboutUsVC.swift in Sources */,
+				80D658F326DACD6A00800275 /* ResourceUtil.swift in Sources */,
 				80D3773226BFECB600FD3D01 /* CongratulationVC.swift in Sources */,
 				80AD6AA526C2F33700B23CCB /* LineView.swift in Sources */,
 				809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */,
