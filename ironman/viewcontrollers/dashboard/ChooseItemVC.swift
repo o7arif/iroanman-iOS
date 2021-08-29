@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import Segmentio
 
 class ChooseItemVC: BaseVC {
+    
+    private var sc = Segmentio()
+    private var segmentItems = FakeDataHelper.getSegmentItems()
     
     override func viewDidLoad() {
         viewSetup()
         setupViews()
+        setupSegmentControl()
     }
     
     private func setupViews() {
@@ -62,6 +67,14 @@ class ChooseItemVC: BaseVC {
             //            make.right.equalTo(searchCartContainer.snp.left)
         }
         
+        container.addSubview(sc)
+        sc.backgroundColor = .clear
+        sc.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(viewHeaderBack.snp.bottom)
+            make.height.equalTo(45)
+        }
+        
         
         // botom views
         
@@ -100,16 +113,55 @@ class ChooseItemVC: BaseVC {
             make.bottom.left.right.equalToSuperview()
         }
         
-        
         container.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ItemTVCell.self, forCellReuseIdentifier: ItemTVCell.identifier)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(viewHeaderBack.snp.bottom).offset(20)
+            make.top.equalTo(sc.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(20)
             make.bottom.equalTo(bottomView.snp.top).offset(-20)
         }
+    }
+    
+    private func setupSegmentControl() {
+        
+        // segment items
+        var scItems = [SegmentioItem]()
+        for item in segmentItems {
+            scItems.append(SegmentioItem(title: item, image: nil))
+        }
+        
+        // segment states
+        let scStates = SegmentioStates(
+            defaultState: SegmentioState(
+                backgroundColor: .clear,
+                titleFont: OpenSans.regular.of(size: AppConst.fontSize14),
+                titleTextColor: .textGrey
+            ),
+            selectedState: SegmentioState(
+                backgroundColor: .segmentColor,
+                titleFont: OpenSans.bold.of(size: AppConst.fontSize14),
+                titleTextColor: .segmentColor   // this should be white
+            ),
+            highlightedState: SegmentioState(
+                backgroundColor: .segmentColor,
+                titleFont: OpenSans.bold.of(size: AppConst.fontSize12),
+                titleTextColor: .white
+            )
+        )
+        
+        
+        // segment options
+        let scOptions = SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: nil, horizontalSeparatorOptions: nil, verticalSeparatorOptions: nil, imageContentMode: .scaleAspectFit, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: scStates, animationDuration: .zero)
+        
+        sc.setup(content: scItems, style: .onlyLabel, options: scOptions)
+        sc.selectedSegmentioIndex = 0
+        
+        sc.valueDidChange = { segmentio, segmentIndex in
+            print("\(self.segmentItems[segmentIndex]) clicked")
+        }
+        
     }
     
     
@@ -152,8 +204,6 @@ class ChooseItemVC: BaseVC {
         let view = UIView()
         view.backgroundColor = .primary
         view.clipsToBounds = true
-        view.layer.cornerRadius = 20
-        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return view
     }()
     
@@ -211,7 +261,7 @@ class ChooseItemVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "$70.00"
+        label.text = "৳70.00"
         return label
     }()
     
@@ -234,11 +284,6 @@ class ChooseItemVC: BaseVC {
         button.clipsToBounds = true
         button.layer.cornerRadius = 25
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        button.layer.shadowColor = UIColor.color(fromHexString: "808082").cgColor
-        button.layer.shadowOffset = CGSize(width: 1, height: 2)
-        button.layer.shadowOpacity = 0.4
-        button.layer.shadowRadius = 10
-        button.layer.masksToBounds = false
         
         // click action
         button.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)

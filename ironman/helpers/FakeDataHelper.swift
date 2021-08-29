@@ -139,4 +139,19 @@ class FakeDataHelper {
 
         """
     }
+    
+    static func getSegmentItems() -> [String] {
+        var items: [String] = []
+        
+        items.append("Men")
+        items.append("Women")
+        items.append("Kids")
+        items.append("House Hold")
+        items.append("Abc")
+        items.append("Cba")
+        items.append("Bca")
+        items.append("Others")
+        
+        return items
+    }
 }

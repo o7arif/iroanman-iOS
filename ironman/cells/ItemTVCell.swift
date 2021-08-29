@@ -200,7 +200,7 @@ class ItemTVCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textRed
-        label.text = "$15/item"
+        label.text = "৳15/item"
         return label
     }()
     
@@ -210,7 +210,7 @@ class ItemTVCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .primary
-        label.text = "$10/item"
+        label.text = "৳10/item"
         return label
     }()
     

@@ -49,4 +49,7 @@ target 'ironman' do
   # rating view
   pod 'Cosmos'
   
+  # segment control
+  pod 'Segmentio'
+  
 end
