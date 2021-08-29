@@ -68,7 +68,6 @@ class ChooseItemVC: BaseVC {
         }
         
         container.addSubview(sc)
-        sc.backgroundColor = .clear
         sc.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom)
@@ -132,6 +131,9 @@ class ChooseItemVC: BaseVC {
             scItems.append(SegmentioItem(title: item, image: nil))
         }
         
+        // segment indicator options
+        let indicatorOptions = SegmentioIndicatorOptions(type: .bottom, ratio: 1, height: 2, color: .segmentColor)
+        
         // segment states
         let scStates = SegmentioStates(
             defaultState: SegmentioState(
@@ -146,14 +148,14 @@ class ChooseItemVC: BaseVC {
             ),
             highlightedState: SegmentioState(
                 backgroundColor: .segmentColor,
-                titleFont: OpenSans.bold.of(size: AppConst.fontSize12),
+                titleFont: OpenSans.bold.of(size: AppConst.fontSize14),
                 titleTextColor: .white
             )
         )
         
         
         // segment options
-        let scOptions = SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: nil, horizontalSeparatorOptions: nil, verticalSeparatorOptions: nil, imageContentMode: .scaleAspectFit, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: scStates, animationDuration: .zero)
+        let scOptions = SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: indicatorOptions, horizontalSeparatorOptions: nil, verticalSeparatorOptions: nil, imageContentMode: .scaleAspectFit, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: scStates, animationDuration: .zero)
         
         sc.setup(content: scItems, style: .onlyLabel, options: scOptions)
         sc.selectedSegmentioIndex = 0
@@ -203,7 +205,6 @@ class ChooseItemVC: BaseVC {
     private let viewHeaderBack: UIView = {
         let view = UIView()
         view.backgroundColor = .primary
-        view.clipsToBounds = true
         return view
     }()
     
