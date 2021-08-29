@@ -289,4 +289,16 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         pageControl.setPageOffset(offSet / width)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == cvService {
+            handleServiceTap()
+        }
+    }
+    
+    
+    private func handleServiceTap() {
+        let vc = ChooseItemVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
