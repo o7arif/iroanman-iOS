@@ -175,6 +175,7 @@ class ChooseItemVC: BaseVC {
     
     @objc private func searchTapped(_ sender: Any) {
         print("Search tapped")
+        self.navigationController?.pushViewController(SearchItemVC(), animated: true)
     }
     
     @objc private func cartTapped(_ sender: Any) {
