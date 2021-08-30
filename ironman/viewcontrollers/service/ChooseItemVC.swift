@@ -184,6 +184,7 @@ class ChooseItemVC: BaseVC {
     
     @objc private func checkoutTapped(_ sender: Any) {
         print("Checkout tapped")
+        self.navigationController?.pushViewController(MyCartVC(), animated: true)
     }
     
     

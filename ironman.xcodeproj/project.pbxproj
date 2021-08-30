@@ -68,6 +68,7 @@
 		80AD6AAB26C300EA00B23CCB /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD6AAA26C300EA00B23CCB /* MenuHelper.swift */; };
 		80AD6AAF26C30AB900B23CCB /* MenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD6AAE26C30AB900B23CCB /* MenuEnum.swift */; };
 		80B1467A26DCFE7E0047B363 /* SearchItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1467926DCFE7E0047B363 /* SearchItemVC.swift */; };
+		80B1467C26DD1A3F0047B363 /* CartItemTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */; };
 		80BFD74D26BAF6CF003ADAF1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */; };
 		80D3772826BFDE1600FD3D01 /* splash_animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 80D3772726BFDE1600FD3D01 /* splash_animation.gif */; };
 		80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772926BFE1D500FD3D01 /* SignupVC.swift */; };
@@ -149,6 +150,7 @@
 		80AD6AAA26C300EA00B23CCB /* MenuHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
 		80AD6AAE26C30AB900B23CCB /* MenuEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEnum.swift; sourceTree = "<group>"; };
 		80B1467926DCFE7E0047B363 /* SearchItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemVC.swift; sourceTree = "<group>"; };
+		80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTVCell.swift; sourceTree = "<group>"; };
 		80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		80D3772726BFDE1600FD3D01 /* splash_animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash_animation.gif; sourceTree = "<group>"; };
 		80D3772926BFE1D500FD3D01 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				800EBB6426C5A6CA0052CAA3 /* MenuLogoutTVCell.swift */,
 				803CE01926C80321007807E0 /* AddressTVCell.swift */,
 				80D658F026DAB77E00800275 /* ItemTVCell.swift */,
+				80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */,
 				80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */,
 				803CE01C26C81294007807E0 /* OrderConfirmationVC.swift in Sources */,
+				80B1467C26DD1A3F0047B363 /* CartItemTVCell.swift in Sources */,
 				809BA84C269C882D005B51F7 /* WelcomeVC.swift in Sources */,
 				809BA85C269CB05F005B51F7 /* GradientCard.swift in Sources */,
 				803CE01E26C8377D007807E0 /* NewAddressVC.swift in Sources */,

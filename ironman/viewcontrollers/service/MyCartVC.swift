@@ -7,10 +7,12 @@
 
 import UIKit
 
-class MyCartVC: UIViewController {
-    private let container = UIView()
+class MyCartVC: BaseVC {
+    
+    private let scrollWrapper = UIView()
     
     override func viewDidLoad() {
+        viewSetup()
         setupViews()
     }
     
@@ -40,11 +42,13 @@ class MyCartVC: UIViewController {
             make.left.right.equalToSuperview()
         }
         
-        if CacheData.instance.isLoggedIn() {
-            emptyListMessage()
-        } else {
-            authentionRequiredMessage()
-        }
+//        if CacheData.instance.isLoggedIn() {
+//            emptyListMessage()
+//        } else {
+//            authentionRequiredMessage()
+//        }
+        
+        cartWithItemsUI()
     }
     
     
@@ -101,6 +105,85 @@ class MyCartVC: UIViewController {
     }
     
     
+    
+    // MARK: CART WITH ITEMS
+    
+    private func cartWithItemsUI() {
+        
+        // MARK:- Scroll View
+        
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        self.view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(viewHeaderBack.snp.bottom)
+        }
+        
+        scrollView.addSubview(scrollWrapper)
+        scrollWrapper.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(500)
+        }
+        
+        let wrapperView = UIView()
+        scrollWrapper.addSubview(wrapperView)
+        wrapperView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        wrapperView.addSubview(labelItems)
+        labelItems.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(20)
+            make.top.equalTo(viewHeaderBack.snp.bottom).offset(30)
+        }
+        
+        wrapperView.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CartItemTVCell.self, forCellReuseIdentifier: CartItemTVCell.identifier)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(labelItems.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(20)
+        }
+        
+        
+        // coupon
+        
+        wrapperView.addSubview(labelCouponCode)
+        labelCouponCode.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        let couponContainer = UIView()
+        couponContainer.backgroundColor = .white
+        couponContainer.layer.cornerRadius = 10
+        couponContainer.layer.masksToBounds = true
+        wrapperView.addSubview(couponContainer)
+        couponContainer.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(labelCouponCode.snp.bottom).offset(15)
+            make.height.equalTo(50)
+            make.bottom.equalToSuperview()
+        }
+
+        couponContainer.addSubview(couponField)
+        couponField.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(10)
+            make.right.equalToSuperview().inset(90)
+            make.top.bottom.equalToSuperview()
+        }
+        
+        couponContainer.addSubview(btnApply)
+        btnApply.snp.makeConstraints { make in
+            make.top.right.bottom.equalToSuperview()
+            make.width.equalTo(80)
+        }
+    }
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
@@ -109,6 +192,10 @@ class MyCartVC: UIViewController {
     
     @objc private func signInTapped(_ sender: Any) {
         self.navigationController?.pushViewController(LoginVC(), animated: true)
+    }
+    
+    @objc private func applyTapped(_ sender: Any) {
+        print("apply tapped")
     }
     
     
@@ -197,4 +284,93 @@ class MyCartVC: UIViewController {
         label.text = "Your Cart is Empty."
         return label
     }()
+    
+    
+    // cart with items
+    
+    private let labelItems: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 20)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Items"
+        return label
+    }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 30
+        tableView.rowHeight = UITableView.automaticDimension
+        return tableView
+    }()
+    
+    private let labelCouponCode: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 20)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Coupon Code"
+        return label
+    }()
+    
+    private let couponField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter coupon code here"
+        textField.backgroundColor = .clear
+        textField.keyboardType = .default
+        textField.returnKeyType = .search
+        textField.autocorrectionType = .default
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = OpenSans.regular.of(size: AppConst.fontSize14)
+        textField.textColor = .textBlack
+        textField.clearButtonMode = .never
+        textField.contentVerticalAlignment = .center
+        
+        return textField
+    }()
+    
+    private let btnApply: UIButton = {
+        let button = UIButton()
+        button.setTitle("Apply", for: .normal)
+        button.isUserInteractionEnabled = true
+        button.setTitleColor(.primary.withAlphaComponent(0.5), for: .normal)
+        button.backgroundColor = .primary.withAlphaComponent(0.08)
+        button.titleLabel?.font = OpenSans.bold.of(size: 15)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        
+        // click action
+        button.addTarget(self, action: #selector(applyTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+    
 }
+
+
+
+extension MyCartVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CartItemTVCell.identifier) as! CartItemTVCell
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+}
+
