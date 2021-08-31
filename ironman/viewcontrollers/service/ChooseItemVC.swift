@@ -277,7 +277,7 @@ class ChooseItemVC: BaseVC {
         return tableView
     }()
     
-    private let btnCheckout: UIView = {
+    private let btnCheckout: UIButton = {
         let button = UIButton()
         button.setTitle("Checkout", for: .normal)
         button.isUserInteractionEnabled = true

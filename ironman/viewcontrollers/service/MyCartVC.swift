@@ -110,21 +110,61 @@ class MyCartVC: BaseVC {
     
     private func cartWithItemsUI() {
         
+        
+        // botom views
+        
+        let bottomView = UIView()
+        self.view.addSubview(bottomView)
+        bottomView.backgroundColor = .white
+        bottomView.layer.cornerRadius = 10
+        bottomView.layer.masksToBounds = true
+        bottomView.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
+        }
+        
+        bottomView.addSubview(btnCheckout)
+        btnCheckout.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.top.bottom.equalToSuperview().inset(20)
+            make.height.equalTo(AppConst.buttonHeight)
+            make.width.equalToSuperview().dividedBy(2.3)
+        }
+        
+        let amountView = UIView()
+        bottomView.addSubview(amountView)
+        amountView.snp.makeConstraints { make in
+            make.left.top.bottom.equalToSuperview().inset(20)
+            make.right.equalToSuperview().dividedBy(3)
+        }
+        
+        amountView.addSubview(labelCheckoutTotal)
+        labelCheckoutTotal.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+        }
+        
+        amountView.addSubview(labelCheckoutAmount)
+        labelCheckoutAmount.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview()
+        }
+        
+        
         // MARK:- Scroll View
         
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
         self.view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom)
+            make.bottom.equalTo(bottomView.snp.top)
+            make.left.right.equalToSuperview()
         }
         
         scrollView.addSubview(scrollWrapper)
         scrollWrapper.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(500)
+            make.height.equalTo(820)
         }
         
         let wrapperView = UIView()
@@ -142,6 +182,7 @@ class MyCartVC: BaseVC {
         wrapperView.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.isScrollEnabled = false
         tableView.register(CartItemTVCell.self, forCellReuseIdentifier: CartItemTVCell.identifier)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(labelItems.snp.bottom).offset(20)
@@ -153,7 +194,7 @@ class MyCartVC: BaseVC {
         
         wrapperView.addSubview(labelCouponCode)
         labelCouponCode.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom)
+            make.top.equalTo(tableView.snp.bottom).offset(50)
             make.left.equalToSuperview().inset(20)
         }
         
@@ -166,7 +207,7 @@ class MyCartVC: BaseVC {
             make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(labelCouponCode.snp.bottom).offset(15)
             make.height.equalTo(50)
-            make.bottom.equalToSuperview()
+//            make.bottom.equalToSuperview()
         }
 
         couponContainer.addSubview(couponField)
@@ -181,6 +222,94 @@ class MyCartVC: BaseVC {
             make.top.right.bottom.equalToSuperview()
             make.width.equalTo(80)
         }
+        
+        
+        // order summary
+        
+        wrapperView.addSubview(labelOrderSummary)
+        labelOrderSummary.snp.makeConstraints { make in
+            make.top.equalTo(couponContainer.snp.bottom).offset(30)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        let orderContainer = UIView()
+        orderContainer.backgroundColor = .white
+        orderContainer.layer.cornerRadius = 10
+        orderContainer.layer.masksToBounds = true
+        wrapperView.addSubview(orderContainer)
+        orderContainer.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(labelOrderSummary.snp.bottom).offset(15)
+        }
+        
+        orderContainer.addSubview(labelSubTotal)
+        labelSubTotal.snp.makeConstraints { make in
+            make.left.top.equalToSuperview().inset(20)
+        }
+        
+        orderContainer.addSubview(labelSubTotalAmount)
+        labelSubTotalAmount.snp.makeConstraints { make in
+            make.right.top.equalToSuperview().inset(20)
+        }
+        
+        orderContainer.addSubview(labelVAT)
+        labelVAT.snp.makeConstraints { make in
+            make.top.equalTo(labelSubTotal.snp.bottom).offset(10)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        orderContainer.addSubview(labelVATAmount)
+        labelVATAmount.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.top.equalTo(labelVAT.snp.top)
+        }
+        
+        orderContainer.addSubview(labelDeliveryCost)
+        labelDeliveryCost.snp.makeConstraints { make in
+            make.top.equalTo(labelVAT.snp.bottom).offset(10)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        orderContainer.addSubview(labelDeliveryCostAmount)
+        labelDeliveryCostAmount.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.top.equalTo(labelDeliveryCost.snp.top)
+        }
+        
+        orderContainer.addSubview(labelDiscount)
+        labelDiscount.snp.makeConstraints { make in
+            make.top.equalTo(labelDeliveryCost.snp.bottom).offset(10)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        orderContainer.addSubview(labelDiscountAmount)
+        labelDiscountAmount.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.top.equalTo(labelDiscount.snp.top)
+        }
+        
+        orderContainer.addSubview(labelTotal)
+        labelTotal.snp.makeConstraints { make in
+            make.top.equalTo(labelDiscount.snp.bottom).offset(10)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        orderContainer.addSubview(labelTotalAmount)
+        labelTotalAmount.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(20)
+            make.top.equalTo(labelTotal.snp.top)
+            make.bottom.equalToSuperview().inset(20)
+        }
+        
+        
+        wrapperView.addSubview(labelMessage)
+        labelMessage.snp.makeConstraints { make in
+            make.top.equalTo(orderContainer.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(20)
+        }
+        
+        
     }
     
     
@@ -196,6 +325,10 @@ class MyCartVC: BaseVC {
     
     @objc private func applyTapped(_ sender: Any) {
         print("apply tapped")
+    }
+    
+    @objc private func checkoutTapped(_ sender: Any) {
+        print("checkout tapped")
     }
     
     
@@ -348,6 +481,173 @@ class MyCartVC: BaseVC {
         button.addTarget(self, action: #selector(applyTapped(_:)), for: .touchUpInside)
         return button
     }()
+    
+    private let labelOrderSummary: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 20)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Order Summary"
+        return label
+    }()
+    
+    // sub total
+    private let labelSubTotal: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Sub total"
+        return label
+    }()
+    
+    private let labelSubTotalAmount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        label.textColor = .textBlack
+        label.text = "৳85.00"
+        return label
+    }()
+    
+    // vat
+    private let labelVAT: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "0% VAT"
+        return label
+    }()
+    
+    private let labelVATAmount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        label.textColor = .textBlack
+        label.text = "৳00.00"
+        return label
+    }()
+    
+    // delivery cost
+    private let labelDeliveryCost: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Delivery Cost"
+        return label
+    }()
+    
+    private let labelDeliveryCostAmount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        label.textColor = .textBlack
+        label.text = "৳00.00"
+        return label
+    }()
+    
+    // discount
+    private let labelDiscount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Discount"
+        return label
+    }()
+    
+    private let labelDiscountAmount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        label.textColor = .textRed
+        label.text = "-৳15.00"
+        return label
+    }()
+    
+    // vat
+    private let labelTotal: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Total"
+        return label
+    }()
+    
+    private let labelTotalAmount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 14)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        label.textColor = .textBlack
+        label.text = "৳70.00"
+        return label
+    }()
+    
+    
+    // message
+    private let labelMessage: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 12)
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.textColor = .primary
+        label.text = "*If you order over 100TK, you will get Free Delivery"
+        return label
+    }()
+    
+    
+    // checkout section
+    
+    private let labelCheckoutTotal: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 20)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.textColor = .textBlack
+        label.text = "Total"
+        return label
+    }()
+    
+    private let labelCheckoutAmount: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 20)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.textColor = .textBlack
+        label.text = "৳70.00"
+        return label
+    }()
+    
+    private let btnCheckout: UIButton = {
+        let button = UIButton()
+        button.setTitle("Checkout", for: .normal)
+        button.isUserInteractionEnabled = true
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .primary
+        button.titleLabel?.font = OpenSans.bold.of(size: 15)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 25
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        // click action
+        button.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+
     
 }
 
