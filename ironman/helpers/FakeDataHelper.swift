@@ -154,4 +154,20 @@ class FakeDataHelper {
         
         return items
     }
+    
+    
+    static func getOngoingOrderSteps() -> [OrderStep] {
+        var items: [OrderStep] = []
+        
+        items.append(OrderStep(name: "Order Requested", date: "2 May", time: "3:56 PM", isCompleted: true))
+        items.append(OrderStep(name: "On the way to pick your Oder", date: "3 May", time: "2:15 PM", isCompleted: true))
+        items.append(OrderStep(name: "Picked your order", date: "", time: "", isCompleted: false))
+        items.append(OrderStep(name: "Processing order", date: "", time: "", isCompleted: false))
+        items.append(OrderStep(name: "On the way to deliver your order", date: "", time: "", isCompleted: false))
+        items.append(OrderStep(name: "Order delivered", date: "", time: "", isCompleted: false))
+        
+        return items
+    }
+    
+    
 }
