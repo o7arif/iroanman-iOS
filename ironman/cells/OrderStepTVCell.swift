@@ -12,6 +12,7 @@ class OrderStepTVCell: UITableViewCell {
     static let identifier = "OrderStepTVCell"
     
     private let container = UIView()
+    let line = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -55,7 +56,6 @@ class OrderStepTVCell: UITableViewCell {
             make.top.equalToSuperview()
         }
         
-        let line = UIView()
         line.backgroundColor = .primary
         container.addSubview(line)
         line.snp.makeConstraints { make in
@@ -63,6 +63,7 @@ class OrderStepTVCell: UITableViewCell {
             make.top.equalToSuperview().inset(16)
             make.centerX.equalTo(ivStatus)
             make.bottom.equalToSuperview()
+            make.height.greaterThanOrEqualTo(30)
         }
         
         container.addSubview(labelName)
@@ -78,7 +79,28 @@ class OrderStepTVCell: UITableViewCell {
     
     // MARK: SETUP DATA
     
-    func configure(with model: String) {
+    func configure(with model: OrderStep, isLastStep: Bool, isLastCompletedStep: Bool) {
+        labelDate.text = model.date
+        labelTime.text = model.time
+        labelName.text = model.name
+        
+        if model.isCompleted {
+            ivStatus.image = UIImage(named: "ic_incomplete")
+            if isLastCompletedStep {
+                line.backgroundColor = .color(fromHexString: "93A0B2")
+            } else {
+                line.backgroundColor = .primary
+            }
+        } else {
+            ivStatus.image = UIImage(named: "ic_incomplete")
+            line.backgroundColor = .color(fromHexString: "93A0B2")
+        }
+        
+        if isLastStep {
+            line.isHidden = true
+        } else {
+            line.isHidden = false
+        }
         
     }
     
@@ -89,7 +111,7 @@ class OrderStepTVCell: UITableViewCell {
     private lazy var ivStatus: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "ic_incomplete")
+//        imageView.image = UIImage(named: "ic_incomplete")
         return imageView
     }()
     
@@ -99,7 +121,7 @@ class OrderStepTVCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "2 May"
+        label.text = ""
         return label
     }()
     
@@ -109,7 +131,7 @@ class OrderStepTVCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "3:56 PM"
+        label.text = ""
         return label
     }()
     
@@ -119,7 +141,7 @@ class OrderStepTVCell: UITableViewCell {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Order Requested"
+        label.text = ""
         return label
     }()
     

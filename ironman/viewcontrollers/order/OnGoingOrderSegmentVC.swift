@@ -11,6 +11,7 @@ class OnGoingOrderSegmentVC: UIViewController {
     
     private let container = UIView()
     private let lvDash = LineView()
+    private let orderSteps = FakeDataHelper.getOngoingOrderSteps()
     
     override func viewDidLoad() {
         setupViews()
@@ -208,12 +209,30 @@ class OnGoingOrderSegmentVC: UIViewController {
 extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return orderSteps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderStepTVCell.identifier) as! OrderStepTVCell
         cell.selectionStyle = .none
+        
+        var nextStep: OrderStep?
+        
+        let nextIndex = indexPath.row + 1
+        if nextIndex < orderSteps.count {
+            nextStep = orderSteps[nextIndex]
+        }
+        
+        let currentStep = orderSteps[indexPath.row]
+        
+        var isLastCompletedStep = false
+        if currentStep.isCompleted {
+            if nextStep?.isCompleted == false {
+                isLastCompletedStep = true
+            }
+        }
+        
+        cell.configure(with: currentStep, isLastStep: nextStep == nil, isLastCompletedStep: isLastCompletedStep)
         return cell
     }
     
