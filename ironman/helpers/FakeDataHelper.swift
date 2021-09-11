@@ -170,4 +170,18 @@ class FakeDataHelper {
     }
     
     
+    static func getCompletedOrderSteps() -> [OrderStep] {
+        var items: [OrderStep] = []
+        
+        items.append(OrderStep(name: "Order Requested", date: "2 May", time: "3:56 PM", isCompleted: true))
+        items.append(OrderStep(name: "On the way to pick your Oder", date: "3 May", time: "2:15 PM", isCompleted: true))
+        items.append(OrderStep(name: "Picked your order", date: "4 May", time: "6:43 PM", isCompleted: true))
+        items.append(OrderStep(name: "Processing order", date: "5 May", time: "12:11 PM", isCompleted: true))
+        items.append(OrderStep(name: "On the way to deliver your order", date: "10:20 PM", time: "6 May", isCompleted: true))
+        items.append(OrderStep(name: "Order delivered", date: "6 May", time: "4:07 PM", isCompleted: true))
+        
+        return items
+    }
+    
+    
 }

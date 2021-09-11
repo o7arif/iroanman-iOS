@@ -75,6 +75,7 @@ class OrderFeedbackVC: UIViewController {
     
     @objc private func submitTapped(_ sender: Any) {
         print("submit tapped")
+        dismiss(animated: true, completion: nil)
     }
     
     
