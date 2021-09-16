@@ -328,7 +328,7 @@ class MyCartVC: BaseVC {
     }
     
     @objc private func checkoutTapped(_ sender: Any) {
-        print("checkout tapped")
+        self.navigationController?.pushViewController(ShippingAndPaymentVC(), animated: true)
     }
     
     

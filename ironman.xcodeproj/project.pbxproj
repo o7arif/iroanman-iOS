@@ -71,6 +71,8 @@
 		80B1467C26DD1A3F0047B363 /* CartItemTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */; };
 		80B67E7926EA8C8F001C6FC6 /* OrderStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B67E7826EA8C8F001C6FC6 /* OrderStep.swift */; };
 		80B67E7B26EA8EFC001C6FC6 /* OrderStepTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B67E7A26EA8EFC001C6FC6 /* OrderStepTVCell.swift */; };
+		80BF134B26F3B75700089D2E /* ShippingAndPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BF134A26F3B75700089D2E /* ShippingAndPaymentVC.swift */; };
+		80BF134D26F3C97400089D2E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BF134C26F3C97400089D2E /* DatePickerView.swift */; };
 		80BFD74D26BAF6CF003ADAF1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */; };
 		80D3772826BFDE1600FD3D01 /* splash_animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 80D3772726BFDE1600FD3D01 /* splash_animation.gif */; };
 		80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3772926BFE1D500FD3D01 /* SignupVC.swift */; };
@@ -155,6 +157,8 @@
 		80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTVCell.swift; sourceTree = "<group>"; };
 		80B67E7826EA8C8F001C6FC6 /* OrderStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStep.swift; sourceTree = "<group>"; };
 		80B67E7A26EA8EFC001C6FC6 /* OrderStepTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStepTVCell.swift; sourceTree = "<group>"; };
+		80BF134A26F3B75700089D2E /* ShippingAndPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAndPaymentVC.swift; sourceTree = "<group>"; };
+		80BF134C26F3C97400089D2E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		80D3772726BFDE1600FD3D01 /* splash_animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash_animation.gif; sourceTree = "<group>"; };
 		80D3772926BFE1D500FD3D01 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
@@ -291,10 +295,10 @@
 				809BA84F269C90AC005B51F7 /* navigation */,
 				80810486269B5035008B5E4C /* storyboard */,
 				80810484269B4FDF008B5E4C /* resources */,
+				80810480269B4F86008B5E4C /* cells */,
 				80810483269B4FB2008B5E4C /* extensions */,
 				80810482269B4FA5008B5E4C /* viewcontrollers */,
 				80810481269B4F91008B5E4C /* models */,
-				80810480269B4F86008B5E4C /* cells */,
 				8081047E269B4F71008B5E4C /* helpers */,
 				8081047D269B4EAB008B5E4C /* delegates */,
 				80810477269B4653008B5E4C /* Info.plist */,
@@ -427,6 +431,7 @@
 				803D646A26B65F9B0020D223 /* LegacySegmentedControl.swift */,
 				80AD6AA426C2F33700B23CCB /* LineView.swift */,
 				80354D9426C9843A00BAACF3 /* NotesTextView.swift */,
+				80BF134C26F3C97400089D2E /* DatePickerView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				808FEC2D26D813510097DA61 /* ChooseItemVC.swift */,
 				809D8B1526B1B9D3004B3FA2 /* MyCartVC.swift */,
 				80B1467926DCFE7E0047B363 /* SearchItemVC.swift */,
+				80BF134A26F3B75700089D2E /* ShippingAndPaymentVC.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80B67E7926EA8C8F001C6FC6 /* OrderStep.swift in Sources */,
+				80BF134B26F3B75700089D2E /* ShippingAndPaymentVC.swift in Sources */,
 				8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */,
 				80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */,
 				808FEC2E26D813510097DA61 /* ChooseItemVC.swift in Sources */,
@@ -653,6 +660,7 @@
 				8030621426CED05F0010360D /* OrderFeedbackVC.swift in Sources */,
 				8030620A26CD82570010360D /* HtmlViewVC.swift in Sources */,
 				80F0541426BDA55200149164 /* GMFTabViewItem.swift in Sources */,
+				80BF134D26F3C97400089D2E /* DatePickerView.swift in Sources */,
 				803CE01A26C80321007807E0 /* AddressTVCell.swift in Sources */,
 				809D8B1626B1B9D3004B3FA2 /* MyCartVC.swift in Sources */,
 				809D8B1B26B1C26A004B3FA2 /* OnGoingOrderSegmentVC.swift in Sources */,

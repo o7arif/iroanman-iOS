@@ -15,6 +15,8 @@ class FakeDataHelper {
             return getGenders()
         case .area:
             return getAreas()
+        case .address:
+            return getAddressNames()
         default:
             return []
         }
@@ -44,6 +46,18 @@ class FakeDataHelper {
         areas.append("Kalabagan")
         areas.append("Mohammadpur")
         areas.append("Panthapath")
+        
+        return areas
+    }
+    
+    private static func getAddressNames() -> [String] {
+        var areas: [String] = []
+        
+        areas.append("Home")
+        areas.append("Office")
+        areas.append("Home 2")
+        areas.append("School")
+        areas.append("Hospital")
         
         return areas
     }

@@ -12,6 +12,7 @@ import EasyTipView
 public enum DataSource: String {
     case gender = "gender"
     case area = "area"
+    case address = "address"
     case none = "none"
 }
 
