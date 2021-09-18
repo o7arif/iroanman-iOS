@@ -45,13 +45,6 @@ class ShippingAndPaymentVC: BaseVC {
             make.left.right.equalToSuperview()
         }
         
-        container.addSubview(btnPlaceOrder)
-        btnPlaceOrder.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(30)
-            make.bottom.equalToSuperview().inset(60)
-            make.height.equalTo(AppConst.buttonHeight)
-        }
-        
         
         
         // MARK:- Scroll View
@@ -133,7 +126,12 @@ class ShippingAndPaymentVC: BaseVC {
             make.top.equalTo(labelAddress.snp.bottom).offset(10)
         }
         
-        
+        container.addSubview(btnPlaceOrder)
+        btnPlaceOrder.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(30)
+            make.bottom.equalToSuperview().inset(60)
+            make.height.equalTo(AppConst.buttonHeight)
+        }
     }
     
     private func showDatePicker() {
@@ -170,7 +168,7 @@ class ShippingAndPaymentVC: BaseVC {
     }
     
     @objc private func placeOrderTapped(_ sender: Any) {
-        print("place order tapped")
+        self.navigationController?.pushViewController(OrderConfirmationVC(), animated: true)
     }
     
     @objc private func dateViewTapped(_ sender: Any) {

@@ -54,7 +54,7 @@ class OrderConfirmationVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func seeMyOrderTapped(_ sender: Any) {
-        print("See my order clicked")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     
