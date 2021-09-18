@@ -15,6 +15,7 @@
 		800EBB6526C5A6CA0052CAA3 /* MenuLogoutTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800EBB6426C5A6CA0052CAA3 /* MenuLogoutTVCell.swift */; };
 		800EBB6826C5AB580052CAA3 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800EBB6726C5AB580052CAA3 /* EditProfileVC.swift */; };
 		8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017149426C0448C00FD9CE7 /* CacheData.swift */; };
+		80204D6E26F65FC800493104 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80204D6D26F65FC800493104 /* Date.swift */; };
 		802B6364269F71E5002A996E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6363269F71E5002A996E /* HomeVC.swift */; };
 		802B6366269F8169002A996E /* PromotionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* PromotionCVCell.swift */; };
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
@@ -99,6 +100,7 @@
 		800EBB6426C5A6CA0052CAA3 /* MenuLogoutTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutTVCell.swift; sourceTree = "<group>"; };
 		800EBB6726C5AB580052CAA3 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		8017149426C0448C00FD9CE7 /* CacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheData.swift; sourceTree = "<group>"; };
+		80204D6D26F65FC800493104 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		802B6363269F71E5002A996E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		802B6365269F8169002A996E /* PromotionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCVCell.swift; sourceTree = "<group>"; };
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				809BA852269C9126005B51F7 /* UIColor.swift */,
 				809BA85F269CCB96005B51F7 /* UIButton.swift */,
 				273EE13A26BB1AB700753E2A /* UIView.swift */,
+				80204D6D26F65FC800493104 /* Date.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */,
 				80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
+				80204D6E26F65FC800493104 /* Date.swift in Sources */,
 				273EE13926BB098000753E2A /* AppConst.swift in Sources */,
 				80354D9326C97D7100BAACF3 /* ContactUsVC.swift in Sources */,
 				80AD6AAF26C30AB900B23CCB /* MenuEnum.swift in Sources */,

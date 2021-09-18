@@ -11,6 +11,8 @@ class ShippingAndPaymentVC: BaseVC {
     
     private let scrollWrapper = UIView()
     private var addressDownPicker: SmartDownPicker?
+    private var datePicker: UIDatePicker?
+    private var blurEffectView: UIView!
     
     override func viewDidLoad() {
         viewSetup()
@@ -93,7 +95,10 @@ class ShippingAndPaymentVC: BaseVC {
             make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(labelCollectionDate.snp.bottom).offset(10)
         }
-        viewDatePicker.date = "2 May, 2021"
+        viewDatePicker.date = "Select Date"
+        viewDatePicker.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dateViewTapped))
+        viewDatePicker.addGestureRecognizer(tap)
         
         
         let expectedTimeContainer = UIView()
@@ -131,6 +136,31 @@ class ShippingAndPaymentVC: BaseVC {
         
     }
     
+    private func showDatePicker() {
+        datePicker = UIDatePicker()
+        datePicker?.date = Date()
+        datePicker?.locale = .current
+        datePicker?.preferredDatePickerStyle = .inline
+        datePicker?.addTarget(self, action: #selector(dateSet), for: .valueChanged)
+        addDatePickerToSubview()
+    }
+
+    private func addDatePickerToSubview() {
+        guard let datePicker = datePicker else { return }
+        // Give the background Blur Effect
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView)
+        self.view.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        view.bringSubviewToFront(datePicker)
+    }
+    
     
     
     // MARK: CLICK ACTIONS
@@ -141,6 +171,16 @@ class ShippingAndPaymentVC: BaseVC {
     
     @objc private func placeOrderTapped(_ sender: Any) {
         print("place order tapped")
+    }
+    
+    @objc private func dateViewTapped(_ sender: Any) {
+        showDatePicker()
+    }
+    
+    @objc func dateSet() {
+        viewDatePicker.date = datePicker!.date.stringShort()
+        blurEffectView.removeFromSuperview()
+        datePicker?.removeFromSuperview()
     }
     
     
