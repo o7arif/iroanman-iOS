@@ -54,6 +54,7 @@ class OrderStepTVCell: UITableViewCell {
         ivStatus.snp.makeConstraints { make in
             make.left.equalTo(dateTimeContainer.snp.right)
             make.top.equalToSuperview()
+            make.height.width.equalTo(20)
         }
         
         line.backgroundColor = .primary
@@ -65,6 +66,7 @@ class OrderStepTVCell: UITableViewCell {
             make.bottom.equalToSuperview()
             make.height.greaterThanOrEqualTo(30)
         }
+        container.sendSubviewToBack(line)
         
         container.addSubview(labelName)
         labelName.snp.makeConstraints { make in
@@ -85,7 +87,7 @@ class OrderStepTVCell: UITableViewCell {
         labelName.text = model.name
         
         if model.isCompleted {
-            ivStatus.image = UIImage(named: "ic_incomplete")
+            ivStatus.image = UIImage(named: "ic_complete")
             if isLastCompletedStep {
                 line.backgroundColor = .color(fromHexString: "93A0B2")
             } else {
