@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PromotionCVCell: UICollectionViewCell {
+class BannerCVCell: UICollectionViewCell {
     
-    static let identifier = "PromotionCVCell"
+    static let identifier = "BannerCVCell"
     
     private let container = UIView()
     

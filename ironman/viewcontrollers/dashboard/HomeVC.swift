@@ -8,14 +8,18 @@
 import UIKit
 import SnapKit
 import AdvancedPageControl
+import Alamofire
 
 class HomeVC: UIViewController {
     
     private let container = UIView()
     private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
     
+    private var banners = [Banner]()
+    
     override func viewDidLoad() {
         setupViews()
+        fetchBanners()
     }
     
     private func setupViews() {
@@ -203,7 +207,7 @@ class HomeVC: UIViewController {
         
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(PromotionCVCell.self, forCellWithReuseIdentifier: PromotionCVCell.identifier)
+        collectionView.register(BannerCVCell.self, forCellWithReuseIdentifier: BannerCVCell.identifier)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -263,7 +267,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == cvPromotion {
-            return 5
+            return banners.count
         } else if collectionView == cvService {
             return 12
         }
@@ -272,7 +276,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == cvPromotion {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromotionCVCell.identifier, for: indexPath) as! PromotionCVCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVCell.identifier, for: indexPath) as! BannerCVCell
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
@@ -301,4 +305,52 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+
+
+
+
+
+// MARK: API CALLING
+extension HomeVC {
+    private func fetchBanners() {
+        
+        guard let url = URL(string: AppConst.BASE_URL + "/banners") else {
+            clearAndReloadBanner()
+          return
+        }
+        
+        let request = AF.request(url)
+        
+        request.responseDecodable(of: BannerResponse.self) { (response) in
+            guard let bannerResponse = response.value else {
+                print("Empty Response")
+                self.clearAndReloadBanner()
+                return
+            }
+            
+            guard let bannerData = bannerResponse.bannerData else {
+                print("Empty Banner Data")
+                self.clearAndReloadBanner()
+                return
+            }
+            
+            guard let banners = bannerData.banners else {
+                print("Empty Banners")
+                self.clearAndReloadBanner()
+                return
+            }
+            
+            self.banners.removeAll()
+            self.banners = banners
+            self.cvPromotion.reloadData()
+            
+        }
+    }
+    
+    private func clearAndReloadBanner() {
+        banners.removeAll()
+        cvPromotion.reloadData()
+    }
 }

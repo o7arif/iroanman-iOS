@@ -8,6 +8,9 @@
 import UIKit
 
 struct AppConst {
+    
+    static let BASE_URL = "http://admin.ironmandev.xyz/api"
+    
     static let horizontalMargin = 24
     static let verticalMargin = 8
     static let buttonHeight = 50
