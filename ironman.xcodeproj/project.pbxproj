@@ -19,6 +19,7 @@
 		80273042271492A00036E219 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273041271492A00036E219 /* Banner.swift */; };
 		80273044271493130036E219 /* BannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273043271493130036E219 /* BannerData.swift */; };
 		80273046271493B00036E219 /* BannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273045271493B00036E219 /* BannerResponse.swift */; };
+		802730492714ACE50036E219 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802730482714ACE50036E219 /* UIImageView.swift */; };
 		802B6364269F71E5002A996E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6363269F71E5002A996E /* HomeVC.swift */; };
 		802B6366269F8169002A996E /* BannerCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6365269F8169002A996E /* BannerCVCell.swift */; };
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
@@ -107,6 +108,7 @@
 		80273041271492A00036E219 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		80273043271493130036E219 /* BannerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerData.swift; sourceTree = "<group>"; };
 		80273045271493B00036E219 /* BannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponse.swift; sourceTree = "<group>"; };
+		802730482714ACE50036E219 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		802B6363269F71E5002A996E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		802B6365269F8169002A996E /* BannerCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCVCell.swift; sourceTree = "<group>"; };
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				809BA85F269CCB96005B51F7 /* UIButton.swift */,
 				273EE13A26BB1AB700753E2A /* UIView.swift */,
 				80204D6D26F65FC800493104 /* Date.swift */,
+				802730482714ACE50036E219 /* UIImageView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				80D3772C26BFE51900FD3D01 /* ForgotPasswordVC.swift in Sources */,
 				802B6364269F71E5002A996E /* HomeVC.swift in Sources */,
 				809D8B1926B1BECA004B3FA2 /* MyOrderVC.swift in Sources */,
+				802730492714ACE50036E219 /* UIImageView.swift in Sources */,
 				8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */,
 				803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */,
 				80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */,

@@ -36,6 +36,14 @@ class BannerCVCell: UICollectionViewCell {
     }
     
     
+    // MARK: SETUP DATA
+    
+    func configure(with model: Banner) {
+        // will uncomment later
+//        ivPromotion.load(url: URL(string: model.imagePath ?? "")!)
+    }
+    
+    
     // MARK: ATTRIBUTE INITIALIZATION
     
     private let ivPromotion: UIImageView = {

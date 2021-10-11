@@ -75,8 +75,8 @@ class HomeVC: UIViewController {
             make.left.right.equalToSuperview().inset(20)
         }
         
-        container.addSubview(cvPromotion)
-        cvPromotion.snp.makeConstraints { make in
+        container.addSubview(cvBanner)
+        cvBanner.snp.makeConstraints { make in
             make.top.equalTo(labelPromotion.snp.bottom)
             make.left.right.equalToSuperview()
             make.height.equalTo(175)
@@ -94,7 +94,7 @@ class HomeVC: UIViewController {
                                             indicatorBorderWidth: 0.0)
         container.addSubview(pageControl)
         pageControl.snp.makeConstraints { make in
-            make.top.equalTo(cvPromotion.snp.bottom)
+            make.top.equalTo(cvBanner.snp.bottom)
             make.left.right.equalToSuperview()
         }
 
@@ -198,7 +198,7 @@ class HomeVC: UIViewController {
         return label
     }()
     
-    private lazy var cvPromotion: UICollectionView = {
+    private lazy var cvBanner: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -266,7 +266,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == cvPromotion {
+        if collectionView == cvBanner {
             return banners.count
         } else if collectionView == cvService {
             return 12
@@ -275,8 +275,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == cvPromotion {
+        if collectionView == cvBanner {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVCell.identifier, for: indexPath) as! BannerCVCell
+            if banners.count > indexPath.row {
+                cell.configure(with: banners[indexPath.row])
+            }
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
@@ -344,13 +347,12 @@ extension HomeVC {
             
             self.banners.removeAll()
             self.banners = banners
-            self.cvPromotion.reloadData()
-            
+            self.cvBanner.reloadData()
         }
     }
     
     private func clearAndReloadBanner() {
         banners.removeAll()
-        cvPromotion.reloadData()
+        cvBanner.reloadData()
     }
 }
