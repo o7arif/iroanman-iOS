@@ -16,10 +16,12 @@ class HomeVC: UIViewController {
     private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
     
     private var banners = [Banner]()
+    private var categories = [Category]()
     
     override func viewDidLoad() {
         setupViews()
         fetchBanners()
+        fetchCategories()
     }
     
     private func setupViews() {
@@ -283,6 +285,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+            if categories.count > indexPath.row {
+                cell.configure(with: categories[indexPath.row])
+            }
             return cell
         }
         
@@ -354,5 +359,45 @@ extension HomeVC {
     private func clearAndReloadBanner() {
         banners.removeAll()
         cvBanner.reloadData()
+    }
+    
+    
+    private func fetchCategories() {
+        
+        guard let url = URL(string: AppConst.BASE_URL + "/categories") else {
+            clearAndReloadCategories()
+          return
+        }
+        
+        let request = AF.request(url)
+        
+        request.responseDecodable(of: CategoryResponse.self) { (response) in
+            guard let categoryResponse = response.value else {
+                print("Empty Response")
+                self.clearAndReloadCategories()
+                return
+            }
+            
+            guard let categoryData = categoryResponse.categoryData else {
+                print("Empty Category Data")
+                self.clearAndReloadCategories()
+                return
+            }
+            
+            guard let categories = categoryData.categories else {
+                print("Empty Categories")
+                self.clearAndReloadCategories()
+                return
+            }
+            
+            self.categories.removeAll()
+            self.categories = categories
+            self.cvService.reloadData()
+        }
+    }
+    
+    private func clearAndReloadCategories() {
+        categories.removeAll()
+        cvService.reloadData()
     }
 }

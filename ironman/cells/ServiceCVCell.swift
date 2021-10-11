@@ -52,9 +52,10 @@ class ServiceCVCell: UICollectionViewCell {
     
     // MARK: SETUP DATA
     
-    func configure(with model: Service) {
-        labelService.text = model.name
-        ivService.image = model.image
+    func configure(with model: Category) {
+        // uncomment later
+//        labelService.text = model.name
+//        ivService.load(url: URL(string: model.imagePath ?? "")!)
     }
     
     
