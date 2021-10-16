@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol ServiceTapListener {
+    func serviceTapped(item: Category)
+}
+
 class ServiceCVCell: UICollectionViewCell {
     
     static let identifier = "ServiceCVCell"
+    var listener: ServiceTapListener?
+    private var item: Category?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,6 +51,7 @@ class ServiceCVCell: UICollectionViewCell {
             make.top.equalTo(labelService.snp.bottom).offset(4)
             make.left.right.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(10)
+            make.height.equalTo(20)
         }
         
     }
@@ -53,8 +60,9 @@ class ServiceCVCell: UICollectionViewCell {
     // MARK: SETUP DATA
     
     func configure(with model: Category) {
+        item = model
+        labelService.text = model.name
         // uncomment later
-//        labelService.text = model.name
 //        ivService.load(url: URL(string: model.imagePath ?? "")!)
     }
     
@@ -121,7 +129,11 @@ class ServiceCVCell: UICollectionViewCell {
 extension ServiceCVCell {
     
     @objc private func getServiceTapped() {
-        print("Get Service Tapped")
+        if item != nil {
+            listener?.serviceTapped(item: item!)
+        } else {
+            print("Get Service Tapped but item nil")
+        }
     }
     
 }

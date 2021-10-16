@@ -10,7 +10,7 @@ import SnapKit
 import AdvancedPageControl
 import Alamofire
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController & ServiceTapListener {
     
     private let container = UIView()
     private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
@@ -285,6 +285,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+            cell.listener = self
             if categories.count > indexPath.row {
                 cell.configure(with: categories[indexPath.row])
             }
@@ -302,13 +303,17 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == cvService {
-            handleServiceTap()
+        if collectionView == cvBanner {
+            handleBannerTap()
         }
     }
     
     
-    private func handleServiceTap() {
+    private func handleBannerTap() {
+        
+    }
+    
+    func serviceTapped(item: Category) {
         let vc = ChooseItemVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
