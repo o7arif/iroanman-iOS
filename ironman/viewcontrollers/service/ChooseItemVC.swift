@@ -14,6 +14,7 @@ class ChooseItemVC: BaseVC {
     var service: Service?
     private var sc = Segmentio()
     private var segmentItems = [Variant]()
+    private var products = [Product]()
     
     override func viewDidLoad() {
         viewSetup()
@@ -24,6 +25,7 @@ class ChooseItemVC: BaseVC {
 //        setupSegmentControl()
         // note: everything is fine if i call above function from here, but not working properly if i call above function after getting data from api
         fetchVariants()
+        fetchProducts(nil)
     }
     
     private func setupViews() {
@@ -305,7 +307,7 @@ class ChooseItemVC: BaseVC {
 extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -358,5 +360,54 @@ extension ChooseItemVC {
                 self.setupSegmentControl()
             }
         }
+    }
+    
+    
+    private func fetchProducts(_ serviceId: Int?) {
+        
+        
+        var urlString = AppConst.BASE_URL + "/products"
+        
+        if serviceId != nil {
+            urlString.append(contentsOf: "?service_id=\(serviceId!)")
+        }
+        
+        guard let url = URL(string: urlString) else {
+            clearAndReloadProducts()
+            return
+        }
+        
+        let request = AF.request(url)
+        
+        request.responseDecodable(of: ProductResponse.self) { (response) in
+            guard let productResponse = response.value else {
+                print("Empty Response")
+                self.clearAndReloadProducts()
+                return
+            }
+            
+            guard let productData = productResponse.productData else {
+                print("Empty Product Data")
+                self.clearAndReloadProducts()
+                return
+            }
+            
+            guard let products = productData.products else {
+                print("Empty Products")
+                self.clearAndReloadProducts()
+                return
+            }
+            
+            self.products.removeAll()
+            self.products = products
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+    
+    private func clearAndReloadProducts() {
+        products.removeAll()
+        tableView.reloadData()
     }
 }
