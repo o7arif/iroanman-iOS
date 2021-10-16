@@ -1,25 +1,25 @@
 //
-//  CategoryResponse.swift
+//  VariantResponse.swift
 //  ironman
 //
-//  Created by Md Nazmul Haque Arif on 10/11/21.
+//  Created by Md Nazmul Haque Arif on 10/17/21.
 //
 
 import Foundation
 
-struct CategoryResponse : Codable {
+struct VariantResponse : Codable {
     let message : String?
-    let categoryData : CategoryData?
+    let variantData : VariantData?
 
     enum CodingKeys: String, CodingKey {
         case message = "message"
-        case categoryData = "data"
+        case variantData = "data"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         message = try values.decodeIfPresent(String.self, forKey: .message)
-        categoryData = try values.decodeIfPresent(CategoryData.self, forKey: .categoryData)
+        variantData = try values.decodeIfPresent(VariantData.self, forKey: .variantData)
     }
 
 }

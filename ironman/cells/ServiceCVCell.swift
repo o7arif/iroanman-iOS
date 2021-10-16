@@ -8,14 +8,14 @@
 import UIKit
 
 protocol ServiceTapListener {
-    func serviceTapped(item: Category)
+    func serviceTapped(item: Service)
 }
 
 class ServiceCVCell: UICollectionViewCell {
     
     static let identifier = "ServiceCVCell"
     var listener: ServiceTapListener?
-    private var item: Category?
+    private var item: Service?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,7 +59,7 @@ class ServiceCVCell: UICollectionViewCell {
     
     // MARK: SETUP DATA
     
-    func configure(with model: Category) {
+    func configure(with model: Service) {
         item = model
         labelService.text = model.name
         // uncomment later

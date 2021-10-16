@@ -7,16 +7,23 @@
 
 import UIKit
 import Segmentio
+import Alamofire
 
 class ChooseItemVC: BaseVC {
     
+    var service: Service?
     private var sc = Segmentio()
-    private var segmentItems = FakeDataHelper.getSegmentItems()
+    private var segmentItems = [Variant]()
     
     override func viewDidLoad() {
         viewSetup()
         setupViews()
-        setupSegmentControl()
+        if service != nil {
+            labelHeaderTitle.text = service!.name
+        }
+//        setupSegmentControl()
+        // note: everything is fine if i call above function from here, but not working properly if i call above function after getting data from api
+        fetchVariants()
     }
     
     private func setupViews() {
@@ -64,7 +71,7 @@ class ChooseItemVC: BaseVC {
             make.bottom.equalTo(ivBack.snp.bottom)
             make.top.equalTo(ivBack.snp.top)
             make.left.equalTo(ivBack.snp.right).offset(24)
-            //            make.right.equalTo(searchCartContainer.snp.left)
+            make.right.equalTo(searchCartContainer.snp.left)
         }
         
         container.addSubview(sc)
@@ -128,7 +135,7 @@ class ChooseItemVC: BaseVC {
         // segment items
         var scItems = [SegmentioItem]()
         for item in segmentItems {
-            scItems.append(SegmentioItem(title: item, image: nil))
+            scItems.append(SegmentioItem(title: item.name, image: nil))
         }
         
         // segment indicator options
@@ -314,4 +321,42 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
+}
+
+
+
+// MARK: API CALLING
+
+extension ChooseItemVC {
+    private func fetchVariants() {
+        
+        guard let url = URL(string: AppConst.BASE_URL + "/variants") else {
+          return
+        }
+        
+        let request = AF.request(url)
+        
+        request.responseDecodable(of: VariantResponse.self) { (response) in
+            guard let variantResponse = response.value else {
+                print("Empty Response")
+                return
+            }
+            
+            guard let variantData = variantResponse.variantData else {
+                print("Empty Variant Data")
+                return
+            }
+            
+            guard let variants = variantData.variants else {
+                print("Empty Variants")
+                return
+            }
+            
+            self.segmentItems.removeAll()
+            self.segmentItems = variants
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.setupSegmentControl()
+            }
+        }
+    }
 }

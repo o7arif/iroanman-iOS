@@ -16,12 +16,12 @@ class HomeVC: UIViewController & ServiceTapListener {
     private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
     
     private var banners = [Banner]()
-    private var categories = [Category]()
+    private var services = [Service]()
     
     override func viewDidLoad() {
         setupViews()
         fetchBanners()
-        fetchCategories()
+        fetchServices()
     }
     
     private func setupViews() {
@@ -271,7 +271,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if collectionView == cvBanner {
             return banners.count
         } else if collectionView == cvService {
-            return 12
+            return services.count
         }
         return 0
     }
@@ -286,8 +286,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
             cell.listener = self
-            if categories.count > indexPath.row {
-                cell.configure(with: categories[indexPath.row])
+            if services.count > indexPath.row {
+                cell.configure(with: services[indexPath.row])
             }
             return cell
         }
@@ -313,8 +313,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
     }
     
-    func serviceTapped(item: Category) {
+    func serviceTapped(item: Service) {
         let vc = ChooseItemVC()
+        vc.service = item
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -367,42 +368,42 @@ extension HomeVC {
     }
     
     
-    private func fetchCategories() {
+    private func fetchServices() {
         
-        guard let url = URL(string: AppConst.BASE_URL + "/categories") else {
-            clearAndReloadCategories()
+        guard let url = URL(string: AppConst.BASE_URL + "/services") else {
+            clearAndReloadServices()
           return
         }
         
         let request = AF.request(url)
         
-        request.responseDecodable(of: CategoryResponse.self) { (response) in
-            guard let categoryResponse = response.value else {
+        request.responseDecodable(of: ServiceResponse.self) { (response) in
+            guard let serviceResponse = response.value else {
                 print("Empty Response")
-                self.clearAndReloadCategories()
+                self.clearAndReloadServices()
                 return
             }
             
-            guard let categoryData = categoryResponse.categoryData else {
-                print("Empty Category Data")
-                self.clearAndReloadCategories()
+            guard let serviceData = serviceResponse.serviceData else {
+                print("Empty Service Data")
+                self.clearAndReloadServices()
                 return
             }
             
-            guard let categories = categoryData.categories else {
-                print("Empty Categories")
-                self.clearAndReloadCategories()
+            guard let services = serviceData.services else {
+                print("Empty Services")
+                self.clearAndReloadServices()
                 return
             }
             
-            self.categories.removeAll()
-            self.categories = categories
+            self.services.removeAll()
+            self.services = services
             self.cvService.reloadData()
         }
     }
     
-    private func clearAndReloadCategories() {
-        categories.removeAll()
+    private func clearAndReloadServices() {
+        services.removeAll()
         cvService.reloadData()
     }
 }
