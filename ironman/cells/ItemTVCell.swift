@@ -42,7 +42,9 @@ class ItemTVCell: UITableViewCell {
         
         container.addSubview(ivItem)
         ivItem.snp.makeConstraints { make in
-            make.left.top.bottom.equalToSuperview().inset(10)
+            make.left.equalToSuperview().inset(10)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(100)
         }
         
         container.addSubview(labelName)
@@ -121,6 +123,19 @@ class ItemTVCell: UITableViewCell {
             make.top.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
         }
+    }
+    
+    
+    
+    // MARK: SETUP DATA
+    
+    func configure(with model: Product) {
+        ivItem.load(url: URL(string: model.imagePath ?? "")!)
+        labelName.text = model.name
+        labelService.text = model.service?.name ?? ""
+        labelPricePrevious.text = "৳" + String(model.oldPrice ?? 0) + "/item"
+        labelPrice.text = "৳" + String(model.currentPrice ?? 0) + "/item"
+        labelDiscountPercent.text = String(model.discountPercentage ?? 0) + "%"
     }
     
     

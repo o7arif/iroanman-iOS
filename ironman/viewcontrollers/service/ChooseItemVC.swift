@@ -312,6 +312,7 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTVCell.identifier) as! ItemTVCell
+        cell.configure(with: products[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
