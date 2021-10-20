@@ -75,6 +75,10 @@
 		80B1467C26DD1A3F0047B363 /* CartItemTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */; };
 		80B67E7926EA8C8F001C6FC6 /* OrderStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B67E7826EA8C8F001C6FC6 /* OrderStep.swift */; };
 		80B67E7B26EA8EFC001C6FC6 /* OrderStepTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B67E7A26EA8EFC001C6FC6 /* OrderStepTVCell.swift */; };
+		80B6E40A272097D600C4C74B /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6E409272097D600C4C74B /* LoginResponse.swift */; };
+		80B6E40C2720982000C4C74B /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6E40B2720982000C4C74B /* LoginData.swift */; };
+		80B6E40E2720984000C4C74B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6E40D2720984000C4C74B /* User.swift */; };
+		80B6E4102720987F00C4C74B /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6E40F2720987F00C4C74B /* Access.swift */; };
 		80BF134B26F3B75700089D2E /* ShippingAndPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BF134A26F3B75700089D2E /* ShippingAndPaymentVC.swift */; };
 		80BF134D26F3C97400089D2E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BF134C26F3C97400089D2E /* DatePickerView.swift */; };
 		80BFD74D26BAF6CF003ADAF1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */; };
@@ -174,6 +178,10 @@
 		80B1467B26DD1A3F0047B363 /* CartItemTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTVCell.swift; sourceTree = "<group>"; };
 		80B67E7826EA8C8F001C6FC6 /* OrderStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStep.swift; sourceTree = "<group>"; };
 		80B67E7A26EA8EFC001C6FC6 /* OrderStepTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStepTVCell.swift; sourceTree = "<group>"; };
+		80B6E409272097D600C4C74B /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		80B6E40B2720982000C4C74B /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		80B6E40D2720984000C4C74B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		80B6E40F2720987F00C4C74B /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 		80BF134A26F3B75700089D2E /* ShippingAndPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAndPaymentVC.swift; sourceTree = "<group>"; };
 		80BF134C26F3C97400089D2E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		80BFD74C26BAF6CF003ADAF1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -385,6 +393,7 @@
 		80810481269B4F91008B5E4C /* models */ = {
 			isa = PBXGroup;
 			children = (
+				80B6E408272097C700C4C74B /* auth */,
 				80FBE62C271B6243001C05E6 /* product */,
 				80FBE625271B4E8A001C05E6 /* variant */,
 				80FBE61E271B44A1001C05E6 /* service */,
@@ -506,6 +515,17 @@
 				80BF134A26F3B75700089D2E /* ShippingAndPaymentVC.swift */,
 			);
 			path = service;
+			sourceTree = "<group>";
+		};
+		80B6E408272097C700C4C74B /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				80B6E409272097D600C4C74B /* LoginResponse.swift */,
+				80B6E40B2720982000C4C74B /* LoginData.swift */,
+				80B6E40D2720984000C4C74B /* User.swift */,
+				80B6E40F2720987F00C4C74B /* Access.swift */,
+			);
+			path = auth;
 			sourceTree = "<group>";
 		};
 		80D3772626BFDE0700FD3D01 /* animation */ = {
@@ -687,11 +707,13 @@
 				809BA853269C9126005B51F7 /* UIColor.swift in Sources */,
 				8081046A269B4652008B5E4C /* AppDelegate.swift in Sources */,
 				80D3772C26BFE51900FD3D01 /* ForgotPasswordVC.swift in Sources */,
+				80B6E4102720987F00C4C74B /* Access.swift in Sources */,
 				80FBE62B271B4ED2001C05E6 /* VariantResponse.swift in Sources */,
 				802B6364269F71E5002A996E /* HomeVC.swift in Sources */,
 				809D8B1926B1BECA004B3FA2 /* MyOrderVC.swift in Sources */,
 				802730492714ACE50036E219 /* UIImageView.swift in Sources */,
 				8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */,
+				80B6E40A272097D600C4C74B /* LoginResponse.swift in Sources */,
 				803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */,
 				80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
@@ -728,8 +750,10 @@
 				80B67E7B26EA8EFC001C6FC6 /* OrderStepTVCell.swift in Sources */,
 				803CE01626C7F4FB007807E0 /* FakeDataHelper.swift in Sources */,
 				80FBE627271B4EB9001C05E6 /* Variant.swift in Sources */,
+				80B6E40E2720984000C4C74B /* User.swift in Sources */,
 				80FBE62E271B626C001C05E6 /* Product.swift in Sources */,
 				809D8B1D26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift in Sources */,
+				80B6E40C2720982000C4C74B /* LoginData.swift in Sources */,
 				80FBE632271B62AB001C05E6 /* ProductResponse.swift in Sources */,
 				809BA860269CCB96005B51F7 /* UIButton.swift in Sources */,
 				803D646B26B65F9B0020D223 /* LegacySegmentedControl.swift in Sources */,

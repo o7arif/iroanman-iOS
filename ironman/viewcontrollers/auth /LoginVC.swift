@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginVC: BaseVC {
     
@@ -102,8 +103,9 @@ class LoginVC: BaseVC {
     }
     
     @objc private func loginTapped(_ sender: Any) {
-        CacheData.instance.setLoggedIn()
-        ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+        if isValid() {
+            submitRequest()
+        }
     }
     
     
@@ -202,4 +204,69 @@ class LoginVC: BaseVC {
         
         return label
     }()
+}
+
+
+
+
+
+// MARK: DATA VALIDATION AND API CALLING
+
+extension LoginVC {
+    
+    private func isValid() -> Bool {
+        var valid = false
+        
+        let isPhoneValid = phoneField?.isValid() ?? false
+        let isPasswordValid = passwordField?.isValid() ?? false
+        
+        if isPhoneValid && isPasswordValid {
+            valid = true
+        }
+        
+        return valid
+    }
+    
+    
+    
+    private func submitRequest() {
+        
+        guard let url = URL(string: AppConst.BASE_URL + "/login") else {
+          return
+        }
+        
+        let parameters: [String: Any] = [
+            "contact": phoneField?.textField.text ?? "",
+            "password": passwordField?.textField.text ?? ""
+        ]
+        
+        let request = AF.request(url, method: .post, parameters: parameters)
+        
+        request.responseDecodable(of: LoginResponse.self) { (response) in
+            guard let loginResponse = response.value else {
+                print("Empty Response")
+                return
+            }
+            
+            guard let loginData = loginResponse.loginData else {
+                print("Empty Login Data")
+                return
+            }
+            
+            guard let user = loginData.user else {
+                print("Empty User")
+                return
+            }
+            
+            guard let access = loginData.access else {
+                print("Empty Access")
+                return
+            }
+            
+            // TODO: save user and access token to UserDefaults/CacheData and redirect to next view
+            
+            CacheData.instance.setLoggedIn()
+            ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+        }
+    }
 }

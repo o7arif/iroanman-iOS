@@ -276,7 +276,8 @@ open class SmartTextField: UIView {
                 if (dataType == DataType.email){
                     return "Invalid email address"
                 }else if (dataType == DataType.password){
-                    return "At least 8 character long and should contain 1 of each - number, upper and lower case"
+//                    return "At least 8 character long and should contain 1 of each - number, upper and lower case"
+                    return "At least 6 character long"
                 }else if (dataType == DataType.mobile){
                     return "Invalid mobile number"
                 }else if ((dataType == DataType.number || dataType == DataType.currency) && (extendedValidationType == ExtendedValidationType.none || extendedValidationType == nil)){
@@ -330,7 +331,11 @@ open class SmartTextField: UIView {
                 let predict = NSPredicate(format:"SELF MATCHES %@", regex)
                 isPassed = predict.evaluate(with: self.textField.text)
             }else if dataType == DataType.password{
-                let regex = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20})"
+//                let regex = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20})"
+                
+                //version 2
+                let regex = "^([a-zA-Z0-9]{6,20})$"
+                
                 let predict = NSPredicate(format:"SELF MATCHES %@", regex)
                 isPassed = predict.evaluate(with: self.textField.text)
             }
