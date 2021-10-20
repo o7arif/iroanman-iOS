@@ -302,7 +302,8 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(AboutUsVC(), animated: true)
             break
         case MenuEnum.LOGOUT.rawValue:
-            print("\(menu.name) clicked")
+            CacheData.instance.destroySession()
+            ElNavigato.instance.replaceWIndowByViewController(viewController: LoginVC())
             break
         default:
             print("default clicked")

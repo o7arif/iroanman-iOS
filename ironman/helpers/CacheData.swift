@@ -23,4 +23,9 @@ class CacheData {
         return logged
     }
     
+    func destroySession() {
+        UserDefaults.standard.set(nil, forKey: "is_logged")
+        UserDefaults.standard.synchronize()
+    }
+    
 }
