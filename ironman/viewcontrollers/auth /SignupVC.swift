@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import Toaster
 
 class SignupVC: BaseVC {
     
@@ -108,7 +110,10 @@ class SignupVC: BaseVC {
     }
     
     @objc private func signupTapped(_ sender: Any) {
-        self.navigationController?.pushViewController(ProfilePhotoUploadVC(), animated: true)
+//        self.navigationController?.pushViewController(ProfilePhotoUploadVC(), animated: true)
+        if isValid() {
+            submitRequest()
+        }
     }
     
     
@@ -193,3 +198,72 @@ class SignupVC: BaseVC {
         return label
     }()
 }
+
+
+
+
+
+// MARK: DATA VALIDATION AND API CALLING
+
+extension SignupVC {
+    
+    private func isValid() -> Bool {
+        var valid = false
+        
+        let isNameValid = nameField?.isValid() ?? false
+        let isPhoneValid = phoneField?.isValid() ?? false
+        let isPasswordValid = passwordField?.isValid() ?? false
+        let isConfirmPasswordValid = confirmPasswordField?.isValid() ?? false
+        
+        if isNameValid && isPhoneValid && isPasswordValid && isConfirmPasswordValid {
+            valid = true
+        }
+        
+        return valid
+    }
+    
+    
+    
+    private func submitRequest() {
+        
+        guard let url = URL(string: AppConst.BASE_URL + "/register") else {
+          return
+        }
+        
+        let parameters: [String: Any] = [
+            "first_name": nameField?.textField.text ?? "",
+            "mobile": phoneField?.textField.text ?? "",
+            "password": passwordField?.textField.text ?? "",
+            "password_confirmation": confirmPasswordField?.textField.text ?? ""
+        ]
+        
+        let request = AF.request(url, method: .post, parameters: parameters)
+        
+        request.responseDecodable(of: LoginResponse.self) { (response) in
+            guard let registerResponse = response.value else {
+                print("Empty Response")
+                Toast(text: response.error?.localizedDescription ?? "Something went wrong. Please try again later.").show()
+                return
+            }
+            
+            guard let registerData = registerResponse.loginData else {
+                Toast(text: registerResponse.message ?? "Something went wrong. Please try again later").show()
+                print("Empty Register Data")
+                return
+            }
+            
+            guard registerData.access != nil else {
+                print("Empty Access")
+                Toast(text: "\(registerResponse.message ?? ""). Login now.", duration: Delay.long).show()
+                DispatchQueue.main.asyncAfter(deadline: .now() + Delay.long) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                return
+            }
+            
+            CacheData.instance.setLoggedIn(loginData: registerData)
+            ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+        }
+    }
+}
+
