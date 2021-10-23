@@ -52,4 +52,8 @@ target 'ironman' do
   # segment control
   pod 'Segmentio'
   
+  # toast message
+  pod 'Toaster'
+
+  
 end

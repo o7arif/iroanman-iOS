@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Toaster
 
 class LoginVC: BaseVC {
     
@@ -245,27 +246,27 @@ extension LoginVC {
         request.responseDecodable(of: LoginResponse.self) { (response) in
             guard let loginResponse = response.value else {
                 print("Empty Response")
+                Toast(text: response.error?.localizedDescription ?? "Something went wrong. Please try again later.").show()
                 return
             }
             
             guard let loginData = loginResponse.loginData else {
+                Toast(text: loginResponse.message ?? "Something went wrong. Please try again later").show()
                 print("Empty Login Data")
                 return
             }
             
-            guard let user = loginData.user else {
-                print("Empty User")
-                return
-            }
+//            guard let user = loginData.user else {
+//                print("Empty User")
+//                return
+//            }
+//
+//            guard let access = loginData.access else {
+//                print("Empty Access")
+//                return
+//            }
             
-            guard let access = loginData.access else {
-                print("Empty Access")
-                return
-            }
-            
-            // TODO: save user and access token to UserDefaults/CacheData and redirect to next view
-            
-            CacheData.instance.setLoggedIn()
+            CacheData.instance.setLoggedIn(loginData: loginData)
             ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
         }
     }

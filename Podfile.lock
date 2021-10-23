@@ -19,6 +19,7 @@ PODS:
     - SnapKit (~> 5.0.0)
   - SwiftyJSON (5.0.1)
   - SwiftyPickerPopover (6.6.6)
+  - Toaster (2.3.0)
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - SwiftPopup
   - SwiftyJSON
   - SwiftyPickerPopover
+  - Toaster
   - "UITextView+Placeholder"
 
 SPEC REPOS:
@@ -61,6 +63,7 @@ SPEC REPOS:
     - SwiftPopup
     - SwiftyJSON
     - SwiftyPickerPopover
+    - Toaster
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
@@ -82,8 +85,9 @@ SPEC CHECKSUMS:
   SwiftPopup: 31874508c0d91788edf71419a5bbeb3ebd498ab9
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyPickerPopover: a402960a6687c911ffcb4e9fb282a1bc61186ab4
+  Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 3abeab91ec583d0634529a0cb2989fef624f3cd0
+PODFILE CHECKSUM: 296e6b83b2f26a7ebbbba52d86cd3024cd312ea2
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

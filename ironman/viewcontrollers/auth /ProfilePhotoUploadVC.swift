@@ -71,7 +71,7 @@ class ProfilePhotoUploadVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func skipTapped(_ sender: Any) {
-        CacheData.instance.setLoggedIn()
+//        CacheData.instance.setLoggedIn()
         ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
     }
     

@@ -16,6 +16,11 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         setupViews()
+        guard let user = CacheData.instance.getLoggedUser() else {
+            print("user is empty")
+            return
+        }
+        setupUserData(user: user)
     }
     
     private func setupViews() {
@@ -115,6 +120,17 @@ class ProfileVC: UIViewController {
             make.bottom.equalToSuperview()
         }
         
+    }
+    
+    
+    
+    // MARK: SETUP USER DATA
+    
+    private func setupUserData(user: User) {
+        labelName.text = user.name
+        if let url = URL(string: user.profilePhoto ?? "") {
+            ivProfile.load(url: url)
+        }
     }
     
     
