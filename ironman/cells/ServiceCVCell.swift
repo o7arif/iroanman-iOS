@@ -63,7 +63,7 @@ class ServiceCVCell: UICollectionViewCell {
         item = model
         labelService.text = model.name
         // uncomment later
-//        ivService.load(url: URL(string: model.imagePath ?? "")!)
+        ivService.load(url: URL(string: model.imagePath ?? "")!)
     }
     
     

@@ -58,6 +58,7 @@ class ItemTVCell: UITableViewCell {
         labelService.snp.makeConstraints { make in
             make.top.equalTo(labelName.snp.bottom).offset(2)
             make.left.equalTo(labelName.snp.left)
+            make.right.equalToSuperview().inset(12)
         }
         
         container.addSubview(labelPricePrevious)
@@ -202,7 +203,7 @@ class ItemTVCell: UITableViewCell {
     private let labelService: UILabel = {
         let label = UILabel()
         label.font = OpenSans.regular.of(size: 12)
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         label.textAlignment = .left
         label.textColor = .textGrey
         label.text = "Iron Service"
