@@ -15,9 +15,7 @@ class SplashVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.navigationController?.pushViewController(ChooseItemVC(), animated: true)
-        
-        self.view.addSubview(ivSplash)
+        container.addSubview(ivSplash)
         ivSplash.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -45,7 +43,7 @@ class SplashVC: BaseVC {
         imageView.animate(withGIFNamed: "splash_animation", loopCount: 1, animationBlock:  {
             self.redirectToNextScreen()
         })
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 

@@ -17,7 +17,9 @@ class ChooseItemVC: BaseVC {
     private var products = [Product]()
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+        container.backgroundColor = .color(fromHexString: "FAFAFA")
+        
         setupViews()
         if service != nil {
             labelHeaderTitle.text = service!.name
@@ -29,11 +31,6 @@ class ChooseItemVC: BaseVC {
     }
     
     private func setupViews() {
-        self.view.addSubview(container)
-        container.backgroundColor = .color(fromHexString: "FAFAFA")
-        container.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
         
         container.addSubview(viewHeaderBack)
         viewHeaderBack.snp.makeConstraints { make in

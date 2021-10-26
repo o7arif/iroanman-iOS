@@ -10,7 +10,8 @@ import UIKit
 class AboutUsVC: BaseVC {
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+        
         setupViews()
     }
     

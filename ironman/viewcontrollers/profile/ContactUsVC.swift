@@ -12,7 +12,8 @@ class ContactUsVC: BaseVC {
     private var tvMessage = NotesTextView()
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+        
         setupViews()
     }
     

@@ -20,7 +20,8 @@ class HtmlViewVC: BaseVC {
     private let webView = WKWebView()
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+    
         setupViews()
         setData()
     }

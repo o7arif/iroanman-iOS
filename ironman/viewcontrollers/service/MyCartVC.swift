@@ -12,16 +12,13 @@ class MyCartVC: BaseVC {
     private let scrollWrapper = UIView()
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+        container.backgroundColor = .color(fromHexString: "FAFAFA")
+        
         setupViews()
     }
     
     private func setupViews() {
-        self.view.addSubview(container)
-        container.backgroundColor = .color(fromHexString: "FAFAFA")
-        container.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
         
         container.addSubview(viewHeaderBack)
         viewHeaderBack.snp.makeConstraints { make in

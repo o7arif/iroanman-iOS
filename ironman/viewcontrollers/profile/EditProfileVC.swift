@@ -16,7 +16,8 @@ class EditProfileVC: BaseVC {
     private var altPhoneField : SmartTextField?
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+        
         setupViews()
     }
     

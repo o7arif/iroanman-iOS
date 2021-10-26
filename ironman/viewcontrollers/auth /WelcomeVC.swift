@@ -14,25 +14,20 @@ struct WelcomeAssest {
     var image: UIImage
 }
 
-class WelcomeVC: UIViewController {
+class WelcomeVC: BaseVC {
     
     private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
     private var welcomeAssets = [WelcomeAssest]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .primary
+        self.container.backgroundColor = .primary
         
         setupViews()
         setupData()
     }
     
     private func setupViews() {
-        let container = UIView()
-        self.view.addSubview(container)
-        container.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
         
         // logo
         container.addSubview(ivLogo)
@@ -46,7 +41,7 @@ class WelcomeVC: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(ivLogo.snp.bottom).offset(40)
             make.left.right.equalToSuperview()
-            make.height.equalTo(view.bounds.width-50)
+            make.height.equalTo(view.bounds.width-100)
         }
         
         // page indicator
@@ -100,7 +95,7 @@ class WelcomeVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        layout.itemSize = CGSize(width: view.bounds.width-100, height: view.bounds.width-50)
+        layout.itemSize = CGSize(width: view.bounds.width-100, height: view.bounds.width-100)
         layout.minimumLineSpacing = 20
         
         

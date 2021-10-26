@@ -20,7 +20,8 @@ class NewAddressVC: BaseVC {
     private var noteField = NotesTextView()
     
     override func viewDidLoad() {
-        viewSetup()
+        super.viewDidLoad()
+        
         setupViews()
     }
     
