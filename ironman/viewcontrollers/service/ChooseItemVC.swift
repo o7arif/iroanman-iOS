@@ -190,7 +190,20 @@ class ChooseItemVC: BaseVC {
     
     @objc private func checkoutTapped(_ sender: Any) {
         print("Checkout tapped")
-        self.navigationController?.pushViewController(MyCartVC(), animated: true)
+        let selectedProducts = getSelectedProducs()
+        let vc = MyCartVC()
+        vc.selectedProducts = selectedProducts
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func getSelectedProducs() -> [Product] {
+        var selectedProducts = [Product]()
+        for product in products {
+            if product.count > 0 {
+                selectedProducts.append(product)
+            }
+        }
+        return selectedProducts
     }
     
     
@@ -301,7 +314,7 @@ class ChooseItemVC: BaseVC {
 }
 
 
-extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource {
+extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource, ItemSelectionDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -309,7 +322,7 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTVCell.identifier) as! ItemTVCell
-        cell.configure(with: products[indexPath.row])
+        cell.configure(with: products[indexPath.row], listener: self)
         cell.selectionStyle = .none
         return cell
     }
@@ -319,6 +332,12 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    func countUpdated(product: Product, currentCount: Int) {
+        if let row = self.products.firstIndex(where: {$0.id == product.id}) {
+            products[row].count = currentCount
+        }
     }
     
 }

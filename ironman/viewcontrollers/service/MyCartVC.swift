@@ -9,12 +9,15 @@ import UIKit
 
 class MyCartVC: BaseVC {
     
+    var selectedProducts = [Product]()
+    
     private let scrollWrapper = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         container.backgroundColor = .color(fromHexString: "FAFAFA")
         
+        print("Selected Products: \(selectedProducts.count)")
         setupViews()
     }
     

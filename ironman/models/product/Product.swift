@@ -17,6 +17,7 @@ struct Product : Codable {
     let discountPercentage : Int?
     let service : Service?
     let variant : Variant?
+    var count: Int = 0
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -28,6 +29,7 @@ struct Product : Codable {
         case discountPercentage = "discount_percentage"
         case service = "service"
         case variant = "variant"
+        case count = "count"
     }
 
     init(from decoder: Decoder) throws {
@@ -41,6 +43,7 @@ struct Product : Codable {
         discountPercentage = try values.decodeIfPresent(Int.self, forKey: .discountPercentage)
         service = try values.decodeIfPresent(Service.self, forKey: .service)
         variant = try values.decodeIfPresent(Variant.self, forKey: .variant)
+        count = try values.decodeIfPresent(Int.self, forKey: .count) ?? 0
     }
 
 }

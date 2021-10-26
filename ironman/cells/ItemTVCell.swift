@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ItemSelectionDelegate {
+    func countUpdated(product: Product, currentCount: Int)
+}
+
 class ItemTVCell: UITableViewCell {
     
     static let identifier = "ItemTVCell"
@@ -14,6 +18,8 @@ class ItemTVCell: UITableViewCell {
     private let container = UIView()
     private let buttonContainer = UIView()
     private var count = 0
+    private var product: Product?
+    private var listener: ItemSelectionDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -130,7 +136,10 @@ class ItemTVCell: UITableViewCell {
     
     // MARK: SETUP DATA
     
-    func configure(with model: Product) {
+    func configure(with model: Product, listener: ItemSelectionDelegate) {
+        self.count = model.count
+        self.product = model
+        self.listener = listener
         ivItem.load(url: URL(string: model.imagePath ?? "")!)
         labelName.text = model.name
         labelService.text = model.service?.name ?? ""
@@ -150,6 +159,7 @@ class ItemTVCell: UITableViewCell {
         
         count = 1
         labelCount.text = ResourceUtil.numberToStringWithZero(number: count)
+        listener?.countUpdated(product: product!, currentCount: count)
     }
     
     @objc private func plusTapped(_ sender: Any) {
@@ -159,6 +169,7 @@ class ItemTVCell: UITableViewCell {
         }
         count += 1
         labelCount.text = ResourceUtil.numberToStringWithZero(number: count)
+        listener?.countUpdated(product: product!, currentCount: count)
     }
     
     @objc private func minusTapped(_ sender: Any) {
@@ -176,6 +187,8 @@ class ItemTVCell: UITableViewCell {
             buttonContainer.removeSubviews()
             setupAddItemButton()
         }
+        
+        listener?.countUpdated(product: product!, currentCount: count)
     }
     
     

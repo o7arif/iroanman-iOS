@@ -21,6 +21,7 @@ class NewAddressVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        container.backgroundColor = .color(fromHexString: "FAFAFA")
         
         setupViews()
     }
