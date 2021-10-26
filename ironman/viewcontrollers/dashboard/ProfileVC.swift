@@ -115,9 +115,9 @@ class ProfileVC: UIViewController {
         tableView.register(MenuTVCell.self, forCellReuseIdentifier: MenuTVCell.identifier)
         tableView.register(MenuLogoutTVCell.self, forCellReuseIdentifier: MenuLogoutTVCell.identifier)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(viewBallLeft.snp.bottom).offset(45)
-            make.left.right.bottom.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.top.equalTo(viewBallLeft.snp.bottom).offset(35)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(100)
         }
         
     }
@@ -138,7 +138,7 @@ class ProfileVC: UIViewController {
     // MARK: CLICK ACTIONS
     
     @objc private func loginTapped(_ sender: Any) {
-        print("Login tapped")
+        self.navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
     @objc private func editTapped(_ sender: Any) {

@@ -153,7 +153,7 @@ class WelcomeVC: BaseVC {
 extension WelcomeVC {
     
     @objc private func getStartedTapped() {
-        self.navigationController?.pushViewController(LoginVC(), animated: true)
+        self.navigationController?.pushViewController(TabNavigationVC(), animated: true)
     }
     
 }
