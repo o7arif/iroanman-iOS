@@ -16,4 +16,14 @@ class ResourceUtil {
             return String(number)
         }
     }
+    
+    public static func makeCurrency(amount: Double, _ hasSymbol: Bool = true) -> String {
+        let formattedAmount = String(amount).toCurrencyFormat()
+        
+        if hasSymbol {
+            return "৳\(formattedAmount)"
+        } else {
+            return formattedAmount
+        }
+    }
 }

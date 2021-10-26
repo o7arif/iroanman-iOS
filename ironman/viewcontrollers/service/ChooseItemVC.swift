@@ -342,6 +342,20 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource, ItemSelectio
         if let row = self.products.firstIndex(where: {$0.id == product.id}) {
             products[row].count = currentCount
         }
+        
+        calculatePrice()
+    }
+    
+    private func calculatePrice() {
+        var amount: Double = 0
+        
+        for product in products {
+            if product.count > 0 {
+                amount = amount + (Double(product.count) * product.currentPrice!)
+            }
+        }
+        
+        labelAmount.text = ResourceUtil.makeCurrency(amount: amount)
     }
     
 }

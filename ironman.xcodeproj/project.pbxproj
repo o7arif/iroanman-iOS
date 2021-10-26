@@ -25,6 +25,7 @@
 		802B6368269F8EE0002A996E /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B6367269F8EE0002A996E /* ServiceCVCell.swift */; };
 		8030620A26CD82570010360D /* HtmlViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8030620926CD82570010360D /* HtmlViewVC.swift */; };
 		8030621426CED05F0010360D /* OrderFeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8030621326CED05F0010360D /* OrderFeedbackVC.swift */; };
+		803166DE2728865400A55041 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803166DD2728865400A55041 /* String.swift */; };
 		80354D9326C97D7100BAACF3 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354D9226C97D7100BAACF3 /* ContactUsVC.swift */; };
 		80354D9526C9843A00BAACF3 /* NotesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354D9426C9843A00BAACF3 /* NotesTextView.swift */; };
 		80354D9726C9922C00BAACF3 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80354D9626C9922C00BAACF3 /* AboutUsVC.swift */; };
@@ -126,6 +127,7 @@
 		802B6367269F8EE0002A996E /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
 		8030620926CD82570010360D /* HtmlViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlViewVC.swift; sourceTree = "<group>"; };
 		8030621326CED05F0010360D /* OrderFeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFeedbackVC.swift; sourceTree = "<group>"; };
+		803166DD2728865400A55041 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		80354D9226C97D7100BAACF3 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		80354D9426C9843A00BAACF3 /* NotesTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTextView.swift; sourceTree = "<group>"; };
 		80354D9626C9922C00BAACF3 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				273EE13A26BB1AB700753E2A /* UIView.swift */,
 				80204D6D26F65FC800493104 /* Date.swift */,
 				802730482714ACE50036E219 /* UIImageView.swift */,
+				803166DD2728865400A55041 /* String.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				80FBE62E271B626C001C05E6 /* Product.swift in Sources */,
 				809D8B1D26B1C288004B3FA2 /* CompletedOrderSegmentVC.swift in Sources */,
 				80B6E40C2720982000C4C74B /* LoginData.swift in Sources */,
+				803166DE2728865400A55041 /* String.swift in Sources */,
 				80FBE632271B62AB001C05E6 /* ProductResponse.swift in Sources */,
 				809BA860269CCB96005B51F7 /* UIButton.swift in Sources */,
 				803D646B26B65F9B0020D223 /* LegacySegmentedControl.swift in Sources */,
