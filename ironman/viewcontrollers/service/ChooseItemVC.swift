@@ -8,6 +8,7 @@
 import UIKit
 import Segmentio
 import Alamofire
+import Toaster
 
 class ChooseItemVC: BaseVC {
     
@@ -189,11 +190,14 @@ class ChooseItemVC: BaseVC {
     }
     
     @objc private func checkoutTapped(_ sender: Any) {
-        print("Checkout tapped")
         let selectedProducts = getSelectedProducs()
-        let vc = MyCartVC()
-        vc.selectedProducts = selectedProducts
-        self.navigationController?.pushViewController(vc, animated: true)
+        if selectedProducts.count > 0 {
+            let vc = MyCartVC()
+            vc.selectedProducts = selectedProducts
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            Toast(text: "Choose product first").show()
+        }
     }
     
     private func getSelectedProducs() -> [Product] {
@@ -283,7 +287,7 @@ class ChooseItemVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "৳70.00"
+        label.text = "৳00.00"
         return label
     }()
     
