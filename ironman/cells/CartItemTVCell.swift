@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CartItemSelectionDelegate {
+    func countUpdated(product: Product, currentCount: Int)
+}
+
 class CartItemTVCell: UITableViewCell {
     
     static let identifier = "CartItemTVCell"
@@ -14,6 +18,8 @@ class CartItemTVCell: UITableViewCell {
     private let container = UIView()
     private let buttonContainer = UIView()
     private var count = 1
+    private var product: Product?
+    private var listener: CartItemSelectionDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,13 +48,6 @@ class CartItemTVCell: UITableViewCell {
             make.right.equalToSuperview().inset(50)
         }
         
-        container.addSubview(labelService)
-        labelService.snp.makeConstraints { make in
-            make.top.equalTo(labelName.snp.bottom).offset(2)
-            make.left.equalTo(labelName.snp.left)
-            make.bottom.equalToSuperview().inset(10)
-        }
-        
         container.addSubview(buttonContainer)
         buttonContainer.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(10)
@@ -61,6 +60,14 @@ class CartItemTVCell: UITableViewCell {
         labelPrice.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalTo(buttonContainer.snp.left).offset(-15)
+        }
+        
+        container.addSubview(labelService)
+        labelService.snp.makeConstraints { make in
+            make.top.equalTo(labelName.snp.bottom).offset(2)
+            make.left.equalTo(labelName.snp.left)
+            make.right.equalTo(buttonContainer.snp.left).offset(-15)
+            make.bottom.equalToSuperview().inset(10)
         }
         
         setupCounterView()
@@ -97,6 +104,28 @@ class CartItemTVCell: UITableViewCell {
     
     
     
+    // MARK: SETUP DATA
+    
+    func configure(with model: Product, listener: CartItemSelectionDelegate) {
+        self.product = model
+        self.listener = listener
+        self.count = model.count
+        labelName.text = model.name
+        labelService.text = model.service?.name ?? ""
+        let amount = model.currentPrice! * Double(model.count)
+        labelPrice.text = ResourceUtil.makeCurrency(amount: amount)
+        labelCount.text = ResourceUtil.numberToStringWithZero(number: count)
+        
+        if count > 1 {
+            ivMinus.image = UIImage(named: "ic_minus")
+        } else if count == 1 {
+            ivMinus.image = UIImage(named: "ic_delete")
+        }
+        
+    }
+    
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func plusTapped(_ sender: Any) {
@@ -106,6 +135,8 @@ class CartItemTVCell: UITableViewCell {
         }
         count += 1
         labelCount.text = ResourceUtil.numberToStringWithZero(number: count)
+        
+        listener?.countUpdated(product: product!, currentCount: count)
     }
     
     @objc private func minusTapped(_ sender: Any) {
@@ -121,6 +152,8 @@ class CartItemTVCell: UITableViewCell {
             count = 0
             // TODO: remove this item feom list
         }
+        
+        listener?.countUpdated(product: product!, currentCount: count)
     }
     
     

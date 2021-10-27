@@ -19,6 +19,7 @@ class MyCartVC: BaseVC {
         
         print("Selected Products: \(selectedProducts.count)")
         setupViews()
+        calculatePrice()
     }
     
     private func setupViews() {
@@ -653,14 +654,15 @@ class MyCartVC: BaseVC {
 
 
 
-extension MyCartVC: UITableViewDelegate, UITableViewDataSource {
+extension MyCartVC: UITableViewDelegate, UITableViewDataSource, CartItemSelectionDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return selectedProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartItemTVCell.identifier) as! CartItemTVCell
+        cell.configure(with: selectedProducts[indexPath.row], listener: self)
         cell.selectionStyle = .none
         return cell
     }
@@ -670,6 +672,31 @@ extension MyCartVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    func countUpdated(product: Product, currentCount: Int) {
+        if let row = self.selectedProducts.firstIndex(where: {$0.id == product.id}) {
+            if currentCount == 0 {
+                selectedProducts.remove(at: row)
+                tableView.reloadData()
+            } else {
+                selectedProducts[row].count = currentCount
+            }
+        }
+        
+        calculatePrice()
+    }
+    
+    private func calculatePrice() {
+        var amount: Double = 0
+        
+        for product in selectedProducts {
+            if product.count > 0 {
+                amount = amount + (Double(product.count) * product.currentPrice!)
+            }
+        }
+        
+        labelCheckoutAmount.text = ResourceUtil.makeCurrency(amount: amount)
     }
     
 }
