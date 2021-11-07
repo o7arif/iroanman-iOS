@@ -24,11 +24,13 @@ class ChooseItemVC: BaseVC {
         setupViews()
         if service != nil {
             labelHeaderTitle.text = service!.name
+            
+            fetchVariants(service!.id!)
+            fetchProducts(serviceId: service!.id!, variantId: nil)
         }
 //        setupSegmentControl()
         // note: everything is fine if i call above function from here, but not working properly if i call above function after getting data from api
-        fetchVariants()
-        fetchProducts(nil)
+//        fetchVariants()
     }
     
     private func setupViews() {
@@ -365,13 +367,17 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource, ItemSelectio
 // MARK: API CALLING
 
 extension ChooseItemVC {
-    private func fetchVariants() {
+    private func fetchVariants(_ serviceId: Int) {
         
         guard let url = URL(string: AppConst.BASE_URL + "/variants") else {
           return
         }
         
-        let request = AF.request(url)
+        let parameter = [
+            "service_id": serviceId
+        ] as [String: AnyObject]
+        
+        let request = AF.request(url, method: .get, parameters: parameter)
         
         request.responseDecodable(of: VariantResponse.self) { (response) in
             guard let variantResponse = response.value else {
@@ -398,13 +404,17 @@ extension ChooseItemVC {
     }
     
     
-    private func fetchProducts(_ serviceId: Int?) {
-        
+    private func fetchProducts(serviceId: Int?, variantId: Int?) {
         
         var urlString = AppConst.BASE_URL + "/products"
         
         if serviceId != nil {
             urlString.append(contentsOf: "?service_id=\(serviceId!)")
+            if variantId != nil {
+                urlString.append(contentsOf: "&variant_id=\(variantId!)")
+            }
+        } else if variantId != nil {
+            urlString.append(contentsOf: "?variant_id=\(variantId!)")
         }
         
         guard let url = URL(string: urlString) else {
