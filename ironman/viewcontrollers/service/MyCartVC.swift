@@ -686,7 +686,11 @@ extension MyCartVC: UITableViewDelegate, UITableViewDataSource, CartItemSelectio
             }
         }
         
-        calculatePrice()
+        if selectedProducts.count > 0 {
+            calculatePrice()
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     private func calculatePrice() {
