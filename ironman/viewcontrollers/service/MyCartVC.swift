@@ -14,6 +14,7 @@ class MyCartVC: BaseVC {
     private let scrollWrapper = UIView()
     private let minHeight = 510
     private let cellHeight = 76
+    private var deliveryCharge = 15.25
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -512,7 +513,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .right
         label.textColor = .textBlack
-        label.text = "৳85.00"
+        label.text = "৳00.00"
         return label
     }()
     
@@ -571,11 +572,11 @@ class MyCartVC: BaseVC {
     
     private let labelDiscountAmount: UILabel = {
         let label = UILabel()
-        label.font = OpenSans.bold.of(size: 14)
+        label.font = OpenSans.regular.of(size: 14)      // font weight will be changed during calculation
         label.numberOfLines = 1
         label.textAlignment = .right
-        label.textColor = .textRed
-        label.text = "-৳15.00"
+        label.textColor = .textBlack    // text color will be changed during calculation
+        label.text = "৳00.00"
         return label
     }()
     
@@ -596,7 +597,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .right
         label.textColor = .textBlack
-        label.text = "৳70.00"
+        label.text = "৳00.00"
         return label
     }()
     
@@ -631,7 +632,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "৳70.00"
+        label.text = "৳00.00"
         return label
     }()
     
@@ -702,7 +703,15 @@ extension MyCartVC: UITableViewDelegate, UITableViewDataSource, CartItemSelectio
             }
         }
         
-        labelCheckoutAmount.text = ResourceUtil.makeCurrency(amount: amount)
+        deliveryCharge = amount > 100 ? 0.0 : 15.25
+        
+        let amountWithDeliveryCharge = amount + deliveryCharge
+        
+        labelSubTotalAmount.text = ResourceUtil.makeCurrency(amount: amount)
+        labelDeliveryCostAmount.text = ResourceUtil.makeCurrency(amount: deliveryCharge)
+        
+        labelTotalAmount.text = ResourceUtil.makeCurrency(amount: amountWithDeliveryCharge)
+        labelCheckoutAmount.text = ResourceUtil.makeCurrency(amount: amountWithDeliveryCharge)
         
         scrollWrapper.snp.updateConstraints { make in
             make.height.equalTo(minHeight + (cellHeight * selectedProducts.count))
