@@ -12,6 +12,8 @@ class MyCartVC: BaseVC {
     var selectedProducts = [Product]()
     
     private let scrollWrapper = UIView()
+    private let minHeight = 510
+    private let cellHeight = 76
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +117,7 @@ class MyCartVC: BaseVC {
         // botom views
         
         let bottomView = UIView()
-        self.view.addSubview(bottomView)
+        container.addSubview(bottomView)
         bottomView.backgroundColor = .white
         bottomView.layer.cornerRadius = 10
         bottomView.layer.masksToBounds = true
@@ -154,7 +156,7 @@ class MyCartVC: BaseVC {
         
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
-        self.view.addSubview(scrollView)
+        container.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(viewHeaderBack.snp.bottom)
             make.bottom.equalTo(bottomView.snp.top)
@@ -165,7 +167,7 @@ class MyCartVC: BaseVC {
         scrollWrapper.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(820)
+            make.height.equalTo(minHeight + (cellHeight * selectedProducts.count))
         }
         
         let wrapperView = UIView()
@@ -177,7 +179,7 @@ class MyCartVC: BaseVC {
         wrapperView.addSubview(labelItems)
         labelItems.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
-            make.top.equalTo(viewHeaderBack.snp.bottom).offset(30)
+            make.top.equalToSuperview().inset(20)
         }
         
         wrapperView.addSubview(tableView)
@@ -697,6 +699,10 @@ extension MyCartVC: UITableViewDelegate, UITableViewDataSource, CartItemSelectio
         }
         
         labelCheckoutAmount.text = ResourceUtil.makeCurrency(amount: amount)
+        
+        scrollWrapper.snp.updateConstraints { make in
+            make.height.equalTo(minHeight + (cellHeight * selectedProducts.count))
+        }
     }
     
 }
