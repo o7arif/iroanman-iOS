@@ -13,6 +13,8 @@ class ShippingAndPaymentVC: BaseVC {
     private var addressDownPicker: SmartDownPicker?
     private var datePicker: UIDatePicker?
     private var blurEffectView: UIView!
+    private let pickerBack = UIView()
+    private var selectedDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +135,8 @@ class ShippingAndPaymentVC: BaseVC {
     
     private func showDatePicker() {
         datePicker = UIDatePicker()
-        datePicker?.date = Date()
+        datePicker?.date = selectedDate ?? Date()
+        datePicker?.datePickerMode = .date
         datePicker?.locale = .current
         datePicker?.preferredDatePickerStyle = .inline
         datePicker?.addTarget(self, action: #selector(dateSet), for: .valueChanged)
@@ -148,12 +151,67 @@ class ShippingAndPaymentVC: BaseVC {
         blurEffectView.frame = self.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(blurEffectView)
-        self.view.addSubview(datePicker)
-        datePicker.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+        
+        pickerBack.backgroundColor = .white
+        pickerBack.layer.masksToBounds = false
+        pickerBack.layer.shadowRadius = 2
+        pickerBack.layer.shadowOpacity = 0.2
+        pickerBack.layer.shadowColor = UIColor.gray.cgColor
+        pickerBack.layer.shadowOffset = CGSize(width: 0 , height:2)
+        self.view.addSubview(pickerBack)
+        pickerBack.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }
-        view.bringSubviewToFront(datePicker)
+        
+        let headerView = UIView()
+        headerView.backgroundColor = .primary
+        pickerBack.addSubview(headerView)
+        headerView.snp.makeConstraints { make in
+            make.left.top.right.equalToSuperview()
+        }
+        
+        let label = UILabel()
+        label.text = "Select Collection Date"
+        label.font = OpenSans.bold.of(size: AppConst.fontSize16)
+        label.textColor = .white
+        headerView.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(10)
+            make.top.right.bottom.equalToSuperview().inset(20)
+        }
+        
+        
+        
+        pickerBack.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom)
+            make.left.right.equalToSuperview()
+        }
+        
+        
+        
+        let footerView = UIView()
+        pickerBack.addSubview(footerView)
+        footerView.snp.makeConstraints { make in
+            make.top.equalTo(datePicker.snp.bottom)
+            make.left.bottom.right.equalToSuperview()
+        }
+        
+        let cancelLabel = UILabel()
+        cancelLabel.text = "CANCEL"
+        cancelLabel.font = OpenSans.bold.of(size: AppConst.fontSize14)
+        cancelLabel.textColor = .primary
+        cancelLabel.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cancelPikerTapped(_:)))
+        cancelLabel.addGestureRecognizer(tap)
+        footerView.addSubview(cancelLabel)
+        cancelLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.bottom.equalToSuperview().inset(20)
+        }
+        
+        view.bringSubviewToFront(pickerBack)
     }
     
     
@@ -172,10 +230,18 @@ class ShippingAndPaymentVC: BaseVC {
         showDatePicker()
     }
     
-    @objc func dateSet() {
-        viewDatePicker.date = datePicker!.date.stringShort()
+    @objc func cancelPikerTapped(_ sender: Any) {
         blurEffectView.removeFromSuperview()
         datePicker?.removeFromSuperview()
+        pickerBack.removeFromSuperview()
+    }
+    
+    @objc func dateSet() {
+        viewDatePicker.date = datePicker!.date.stringShort()
+        selectedDate = datePicker!.date
+        blurEffectView.removeFromSuperview()
+        datePicker?.removeFromSuperview()
+        pickerBack.removeFromSuperview()
     }
     
     
