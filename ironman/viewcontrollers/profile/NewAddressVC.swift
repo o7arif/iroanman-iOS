@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import Toaster
 
 class NewAddressVC: BaseVC {
     
@@ -161,7 +163,13 @@ class NewAddressVC: BaseVC {
     }
     
     @objc private func saveAddressTapped(_ sender: Any) {
-        print("save address tapped")
+        
+        if isValid() {
+            submitRequest()
+        } else {
+            print("not valid")
+        }
+        
     }
     
     
@@ -219,4 +227,51 @@ class NewAddressVC: BaseVC {
         button.addTarget(self, action: #selector(saveAddressTapped(_:)), for: .touchUpInside)
         return button
     }()
+}
+
+
+
+
+
+// MARK: DATA VALIDATION AND API CALLING
+
+extension NewAddressVC {
+    
+    private func isValid() -> Bool {
+        var valid = false
+        
+        let isNameValid = nameField?.isValid() ?? false
+        let isFlatValid = flatField?.isValid() ?? false
+        let isHouseValid = houseField?.isValid() ?? false
+        let isRoadValid = roadField?.isValid() ?? false
+        
+        if isNameValid && isFlatValid && isHouseValid && isRoadValid {
+            valid = true
+        }
+        
+        return valid
+    }
+    
+    
+    private func submitRequest() {
+        
+        let parameters: [String: Any] = [
+            "address_name": nameField?.textField.text ?? "",
+            "house_no": houseField?.textField.text ?? "",
+            "flat_no": flatField?.textField.text ?? "",
+            "road_no": roadField?.textField.text ?? ""
+        ]
+        
+        
+        Networking.instance.call(api: "/addresses", method: .post, parameters: parameters) { (responseModel) in
+            if responseModel.code == 200 {
+                print(responseModel.body)
+            } else {
+                print("errors")
+                //                self.handleErrors(responseModel)
+            }
+        }
+        
+        
+    }
 }
