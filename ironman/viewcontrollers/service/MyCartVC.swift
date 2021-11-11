@@ -699,7 +699,7 @@ extension MyCartVC: UITableViewDelegate, UITableViewDataSource, CartItemSelectio
         
         for product in selectedProducts {
             if product.count > 0 {
-                amount = amount + (Double(product.count) * product.currentPrice!)
+                amount = amount + (Double(product.count) * product.currentPrice)
             }
         }
         

@@ -225,44 +225,85 @@ extension SignupVC {
     
     
     private func submitRequest() {
-        
-        guard let url = URL(string: AppConst.BASE_URL + "/register") else {
-          return
-        }
-        
-        let parameters: [String: Any] = [
+     
+        let parameters = [
             "first_name": nameField?.textField.text ?? "",
             "mobile": phoneField?.textField.text ?? "",
             "password": passwordField?.textField.text ?? "",
             "password_confirmation": confirmPasswordField?.textField.text ?? ""
-        ]
+        ] as [String: Any]
         
-        let request = AF.request(url, method: .post, parameters: parameters)
-        
-        request.responseDecodable(of: LoginResponse.self) { (response) in
-            guard let registerResponse = response.value else {
-                print("Empty Response")
-                Toast(text: response.error?.localizedDescription ?? "Something went wrong. Please try again later.").show()
-                return
-            }
-            
-            guard let registerData = registerResponse.loginData else {
-                Toast(text: registerResponse.message ?? "Something went wrong. Please try again later").show()
-                print("Empty Register Data")
-                return
-            }
-            
-            guard registerData.access != nil else {
-                print("Empty Access")
-                Toast(text: "\(registerResponse.message ?? ""). Login now.", duration: Delay.long).show()
-                DispatchQueue.main.asyncAfter(deadline: .now() + Delay.long) {
-                    self.navigationController?.popViewController(animated: true)
+        Networking.instance.call(api: "register", method: .post, parameters: parameters) { (responseModel) in
+            if(responseModel.code == 200) {
+                guard let dictionary = responseModel.body["data"] as? NSDictionary else {
+                    print("Empty body")
+                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    return
                 }
-                return
+                
+                guard let message = responseModel.body["message"] as? String else {
+                    print("Empty message")
+                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    return
+                }
+               
+                guard let userDictionary = dictionary["user"] as? [String:Any] else {
+                    print("Empty user")
+                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    return
+                }
+                
+                guard let accessDictionary = dictionary["access"] as? [String:Any] else {
+                    print("Empty access")
+                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    return
+                }
+                
+                if let _ = accessDictionary["token"] {
+                    
+                    let userModel = User.init(fromDictionary: userDictionary)
+                    let access = Access.init(fromDictionary: accessDictionary)
+                    
+                    CacheData.instance.saveLoggedUser(user: userModel)
+                    CacheData.instance.saveAccess(access: access)
+                    
+                    Toast(text: message).show()
+                    
+                    // TODO: Goto OTP verfication
+                    
+                    ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+                } else {
+                    print("something wrong with bearer token")
+                }
+                
+            } else {
+                self.handleErrors(responseModel)
             }
-            
-            CacheData.instance.setLoggedIn(loginData: registerData)
-            ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+        }
+        
+    }
+    
+    
+    
+    private func handleErrors(_ responseModel: ResponseModel) {
+        if responseModel.code == 401 {
+            CacheData.instance.destroySession()
+            return
+        } else {
+            for errorModel in responseModel.errors ?? [] {
+                if errorModel.fieldName == "first_name" {
+                    self.nameField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "mobile" {
+                    self.phoneField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "password" {
+                    self.passwordField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "password_confirmation" {
+                    self.confirmPasswordField!.setCustomErrorMessage(message: errorModel.message)
+                }
+            }
+            if (responseModel.errors == nil || responseModel.errors?.count == 0) {
+                Toast(text: responseModel.message ?? "message_not_found").show()
+            }
         }
     }
 }

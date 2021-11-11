@@ -7,22 +7,15 @@
 
 import Foundation
 
-struct Access : Codable {
-    let authType : String?
-    let token : String?
-    let expiresAt : String?
+class Access {
+    var authType : String?
+    var token : String?
+    var expiresAt : String?
 
-    enum CodingKeys: String, CodingKey {
-        case authType = "auth_type"
-        case token = "token"
-        case expiresAt = "expires_at"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        authType = try values.decodeIfPresent(String.self, forKey: .authType)
-        token = try values.decodeIfPresent(String.self, forKey: .token)
-        expiresAt = try values.decodeIfPresent(String.self, forKey: .expiresAt)
+    init(fromDictionary dictionary: [String:Any]?) {
+        authType = dictionary?["auth_type"] as? String ?? ""
+        token = dictionary?["token"] as? String ?? ""
+        expiresAt = dictionary?["expires_at"] as? String ?? ""
     }
 
 }

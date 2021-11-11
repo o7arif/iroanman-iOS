@@ -13,19 +13,8 @@ class CacheData {
     
     private init() {}
     
-    func setLoggedIn(loginData: LoginData) {
-        if let user = loginData.user {
-            saveLoggedUser(user: user)
-        }
-        
-        if let access = loginData.access {
-            saveAccess(access: access)
-        }
-    }
-    
     func isLoggedIn() -> Bool {
-        let access = getAccess()
-        return access != nil
+        return !getToken().isEmpty
     }
     
     func destroySession() {
@@ -35,40 +24,37 @@ class CacheData {
     }
     
     func saveLoggedUser(user: User) {
-        guard let data = try? JSONEncoder().encode(user) else {
-            fatalError("unable encode as data")
+        do {
+            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: false)
+            UserDefaults.standard.set(encodedData, forKey: "user_data")
+            UserDefaults.standard.synchronize()
+        } catch {
+            print("")
         }
-        UserDefaults.standard.setValue(data, forKey: "logged_user")
-        UserDefaults.standard.synchronize()
     }
     
     func getLoggedUser() -> User? {
-        guard let data = UserDefaults.standard.data(forKey: "logged_user") else {
-          // write your code as per your requirement
-          return nil
+        guard let encodedData = UserDefaults.standard.object(forKey: "user_data") else {
+            return nil
         }
-        guard let user = try? JSONDecoder().decode(User.self, from: data) else {
-          fatalError("unable to decode this data")
+        do {
+            let user = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData as! Data) as? User
+            return user
+        } catch {
+            return nil
         }
-        return user
     }
     
     func saveAccess(access: Access) {
-        guard let data = try? JSONEncoder().encode(access) else {
-            fatalError("unable encode as data")
-        }
-        UserDefaults.standard.setValue(data, forKey: "access_token")
+        UserDefaults.standard.setValue(access.token, forKey: "access_token")
         UserDefaults.standard.synchronize()
     }
     
-    func getAccess() -> Access? {
-        guard let data = UserDefaults.standard.data(forKey: "access_token") else {
-          return nil
+    func getToken() -> String {
+        guard let token = UserDefaults.standard.string(forKey: "access_token") else {
+          return ""
         }
-        guard let access = try? JSONDecoder().decode(Access.self, from: data) else {
-          fatalError("unable to decode this data")
-        }
-        return access
+        return token
     }
     
 }

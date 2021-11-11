@@ -232,42 +232,37 @@ extension LoginVC {
     
     private func submitRequest() {
         
-        guard let url = URL(string: AppConst.BASE_URL + "/login") else {
-          return
-        }
-        
-        let parameters: [String: Any] = [
+        let parameters = [
             "contact": phoneField?.textField.text ?? "",
             "password": passwordField?.textField.text ?? ""
-        ]
+        ] as [String: Any]
         
-        let request = AF.request(url, method: .post, parameters: parameters)
-        
-        request.responseDecodable(of: LoginResponse.self) { (response) in
-            guard let loginResponse = response.value else {
-                print("Empty Response")
-                Toast(text: response.error?.localizedDescription ?? "Something went wrong. Please try again later.").show()
-                return
+        Networking.instance.call(api: "login", method: .post, parameters: parameters) { (responseModel) in
+            if (responseModel.code == 200) {
+                DispatchQueue.main.async() {
+                    if let dictionary = responseModel.body["data"] as? NSDictionary {
+                        
+                        let userDictionary = dictionary["user"] as? [String:Any]
+                        let user =  User(fromDictionary: userDictionary)
+                        
+                        let accessDictionary = dictionary["access"] as? [String:Any]
+                        let access = Access(fromDictionary: accessDictionary)
+                        
+                        CacheData.instance.saveLoggedUser(user: user)
+                        CacheData.instance.saveAccess(access: access)
+                        DispatchQueue.main.async {
+                            // TODO: CHECK OTP VERIFICATION AND REDIRECT TO OTP SCREEN IF NEEDED
+                            ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+                        }
+                        
+                    } else {
+                        print("login -> data parsing error from response")
+                    }
+                }
+            } else {
+                Toast(text: responseModel.message ?? "Something went wrong. Please try again later").show()
             }
-            
-            guard let loginData = loginResponse.loginData else {
-                Toast(text: loginResponse.message ?? "Something went wrong. Please try again later").show()
-                print("Empty Login Data")
-                return
-            }
-            
-//            guard let user = loginData.user else {
-//                print("Empty User")
-//                return
-//            }
-//
-//            guard let access = loginData.access else {
-//                print("Empty Access")
-//                return
-//            }
-            
-            CacheData.instance.setLoggedIn(loginData: loginData)
-            ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
         }
     }
+    
 }

@@ -25,8 +25,8 @@ class ChooseItemVC: BaseVC {
         if service != nil {
             labelHeaderTitle.text = service!.name
             
-            fetchVariants(service!.id!)
-            fetchProducts(serviceId: service!.id!, variantId: nil)
+            fetchVariants(service!.id)
+            fetchProducts(serviceId: service!.id, variantId: nil)
         }
 //        setupSegmentControl()
         // note: everything is fine if i call above function from here, but not working properly if i call above function after getting data from api
@@ -353,7 +353,7 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource, ItemSelectio
         
         for product in products {
             if product.count > 0 {
-                amount = amount + (Double(product.count) * product.currentPrice!)
+                amount = amount + (Double(product.count) * product.currentPrice)
             }
         }
         
@@ -368,91 +368,70 @@ extension ChooseItemVC: UITableViewDelegate, UITableViewDataSource, ItemSelectio
 
 extension ChooseItemVC {
     private func fetchVariants(_ serviceId: Int) {
-        
-        guard let url = URL(string: AppConst.BASE_URL + "/variants") else {
-          return
-        }
-        
+
         let parameter = [
             "service_id": serviceId
         ] as [String: AnyObject]
+
         
-        let request = AF.request(url, method: .get, parameters: parameter)
+        segmentItems.removeAll()
         
-        request.responseDecodable(of: VariantResponse.self) { (response) in
-            guard let variantResponse = response.value else {
-                print("Empty Response")
-                return
-            }
-            
-            guard let variantData = variantResponse.variantData else {
-                print("Empty Variant Data")
-                return
-            }
-            
-            guard let variants = variantData.variants else {
-                print("Empty Variants")
-                return
-            }
-            
-            self.segmentItems.removeAll()
-            self.segmentItems = variants
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.setupSegmentControl()
+        Networking.instance.call(api: "variants", method: .get, parameters: parameter) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["variants"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let variant = Variant.init(fromDictionary: dictionary[i])
+                    self.segmentItems.append(variant)
+                }
+                
+                DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.setupSegmentControl()
+                    }
+                }
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.setupSegmentControl()
+                }
             }
         }
+        
     }
     
     
     private func fetchProducts(serviceId: Int?, variantId: Int?) {
         
-        var urlString = AppConst.BASE_URL + "/products"
-        
-        if serviceId != nil {
-            urlString.append(contentsOf: "?service_id=\(serviceId!)")
-            if variantId != nil {
-                urlString.append(contentsOf: "&variant_id=\(variantId!)")
-            }
-        } else if variantId != nil {
-            urlString.append(contentsOf: "?variant_id=\(variantId!)")
-        }
-        
-        guard let url = URL(string: urlString) else {
-            clearAndReloadProducts()
-            return
-        }
-        
-        let request = AF.request(url)
-        
-        request.responseDecodable(of: ProductResponse.self) { (response) in
-            guard let productResponse = response.value else {
-                print("Empty Response")
-                self.clearAndReloadProducts()
-                return
-            }
-            
-            guard let productData = productResponse.productData else {
-                print("Empty Product Data")
-                self.clearAndReloadProducts()
-                return
-            }
-            
-            guard let products = productData.products else {
-                print("Empty Products")
-                self.clearAndReloadProducts()
-                return
-            }
-            
-            self.products.removeAll()
-            self.products = products
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-    
-    private func clearAndReloadProducts() {
         products.removeAll()
-        tableView.reloadData()
+        
+        Networking.instance.call(api: "products", method: .get, parameters: [:]) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["products"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let product = Product.init(fromDictionary: dictionary[i])
+                    self.products.append(product)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
 }

@@ -8,18 +8,17 @@
 import Foundation
 
 struct Variant : Codable {
-    let id : Int?
-    let name : String?
+    let id : Int
+    let name : String
     
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
+    init() {
+        id = 0
+        name = ""
     }
 
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        name = try values.decodeIfPresent(String.self, forKey: .name)
+    init(fromDictionary dictionary: [String:Any]?) {
+        id = dictionary?["id"] as? Int ?? 0
+        name = dictionary?["name"] as? String ?? ""
     }
 
 }

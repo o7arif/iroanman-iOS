@@ -111,8 +111,8 @@ class CartItemTVCell: UITableViewCell {
         self.listener = listener
         self.count = model.count
         labelName.text = model.name
-        labelService.text = model.service?.name ?? ""
-        let amount = model.currentPrice! * Double(model.count)
+        labelService.text = model.service.name
+        let amount = model.currentPrice * Double(model.count)
         labelPrice.text = ResourceUtil.makeCurrency(amount: amount)
         labelCount.text = ResourceUtil.numberToStringWithZero(number: count)
         

@@ -9,6 +9,7 @@ target 'ironman' do
   pod 'SnapKit'
   
   # networking & parsing
+  pod 'Alamofire', '~> 4.8.2'
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'

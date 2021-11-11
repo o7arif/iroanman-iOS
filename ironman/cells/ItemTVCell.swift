@@ -140,12 +140,12 @@ class ItemTVCell: UITableViewCell {
         self.count = model.count
         self.product = model
         self.listener = listener
-        ivItem.load(url: URL(string: model.imagePath ?? "")!)
+        ivItem.load(url: URL(string: model.imagePath )!)
         labelName.text = model.name
-        labelService.text = model.service?.name ?? ""
-        labelPricePrevious.text = "৳" + String(model.oldPrice ?? 0) + "/item"
-        labelPrice.text = "৳" + String(model.currentPrice ?? 0) + "/item"
-        labelDiscountPercent.text = String(model.discountPercentage ?? 0) + "%"
+        labelService.text = model.service.name
+        labelPricePrevious.text = "৳" + String(model.oldPrice) + "/item"
+        labelPrice.text = "৳" + String(model.currentPrice) + "/item"
+        labelDiscountPercent.text = String(model.discountPercentage) + "%"
     }
     
     

@@ -1,6 +1,6 @@
 PODS:
   - AdvancedPageControl (0.9.0)
-  - Alamofire (5.4.3)
+  - Alamofire (4.8.2)
   - Cosmos (23.0.0)
   - DropDown (2.3.13)
   - DynamicBlurView (4.1.0)
@@ -25,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - AdvancedPageControl
   - Alamofire
+  - Alamofire (~> 4.8.2)
   - Cosmos
   - DropDown
   - EasyTipView (~> 2.0.4)
@@ -68,7 +69,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AdvancedPageControl: 39e3b32b00b2d324c534f8e17cc6c5be9abe84b7
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
@@ -88,6 +89,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 296e6b83b2f26a7ebbbba52d86cd3024cd312ea2
+PODFILE CHECKSUM: 0f6e33c1849cfdaa695fd062a4d8215071f940d5
 
 COCOAPODS: 1.11.2

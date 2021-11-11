@@ -7,28 +7,45 @@
 
 import Foundation
 
-struct User : Codable {
-    let id : Int?
-    let name : String?
-    let email : String?
-    let mobile : String?
-    let profilePhoto : String?
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case email = "email"
-        case mobile = "mobile"
-        case profilePhoto = "profile_photo_path"
+@objc(User)
+class User : NSObject, NSCoding {
+    var id : Int
+    var name : String
+    var email : String
+    var mobile : String
+    var profilePhoto : String
+    
+    override init() {
+        self.id = 0
+        self.name = ""
+        self.email = ""
+        self.mobile = ""
+        self.profilePhoto = ""
     }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        name = try values.decodeIfPresent(String.self, forKey: .name)
-        email = try values.decodeIfPresent(String.self, forKey: .email)
-        mobile = try values.decodeIfPresent(String.self, forKey: .mobile)
-        profilePhoto = try values.decodeIfPresent(String.self, forKey: .profilePhoto)
+    
+    convenience init(fromDictionary dictionary: [String:Any]?) {
+        self.init()
+        id = dictionary?["id"] as? Int ?? 0
+        name = dictionary?["name"] as? String ?? ""
+        email = dictionary?["email"] as? String ?? ""
+        mobile = dictionary?["mobile"] as? String ?? ""
+        profilePhoto = dictionary?["profile_photo_path"] as? String ?? ""
+    }
+    
+    internal func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.email, forKey: "email")
+        aCoder.encode(self.mobile, forKey: "mobile")
+        aCoder.encode(self.profilePhoto, forKey: "profile_photo_path")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as? Int ?? 0
+        self.name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
+        self.email = aDecoder.decodeObject(forKey: "email") as? String ?? ""
+        self.mobile = aDecoder.decodeObject(forKey: "mobile") as? String ?? ""
+        self.profilePhoto = aDecoder.decodeObject(forKey: "profile_photo_path") as? String ?? ""
     }
 
 }

@@ -12,29 +12,33 @@ struct Networking {
     static let instance = Networking()
     
     func getHeaders() -> Any {
-        let bearerToken = CacheData.instance.getAccess()?.token ?? ""
+        let bearerToken = CacheData.instance.getToken()
         let HTTPHeaders = ["Accept": "application/json", "Authorization": "Bearer \(bearerToken)"] as [String:AnyObject]
         return HTTPHeaders
     }
     
     func call(api : String, method: HTTPMethod, parameters: [String:Any], encoding: ParameterEncoding? = URLEncoding.default, completion: @escaping (ResponseModel) -> ()) {
+       
+        print(parameters)
         
-        let manager = Alamofire.Session.default
+        let manager = Alamofire.SessionManager.default
+        manager.retrier = NetworkRequestRetrier()
         manager.session.configuration.timeoutIntervalForRequest = 10 //timeout
         manager.session.configuration.timeoutIntervalForResource = 10
         
-        let url = AppConst.BASE_URL + api
-        
-        manager.request(url, method: method, parameters: parameters as Parameters, encoding: encoding ?? URLEncoding.httpBody, headers: getHeaders() as? HTTPHeaders).responseJSON { response in
+        manager.request(AppConst.BASE_URL + api, method: method, parameters: parameters as Parameters, encoding: encoding ?? URLEncoding.httpBody, headers: getHeaders() as? HTTPHeaders).responseJSON { response in
             
-            DispatchQueue.main.async {
+            print("parameters:\(parameters)")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
                 
                 switch response.result {
-                case .success(let value):
+                case .success:
+                    print(response.result.value ?? "")
                     switch(response.response?.statusCode ?? 0) {
-                        
+                    
                     case 200..<300:
-                        completion(ResponseModel.init(code: 200, body: value as! NSDictionary))
+                        completion(ResponseModel.init(code: 200, body: response.result.value as! NSDictionary))
                         break;
                         
                     case 401:
@@ -43,12 +47,11 @@ struct Networking {
                             CacheData.instance.destroySession()
                             break
                         } else {
-                            let responseModel = ResponseModel.init(code: 401, body: value as! NSDictionary)
+                            let responseModel = ResponseModel.init(code: 401, body: response.result.value as! NSDictionary)
                             completion(responseModel)
                         }
-                        
                     default:
-                        let mainDictionary = value as! NSDictionary
+                        let mainDictionary = response.result.value as! NSDictionary
                         
                         var errors: [ErrorModel] = []
                         if let errorsDictionary = mainDictionary["errors"] as? [String: [String]] {
@@ -68,6 +71,8 @@ struct Networking {
                     }
                     break
                 case .failure(let error):
+                    let str = String(decoding: response.data!, as: UTF8.self)
+                    print(str)
                     print(error.localizedDescription)
                     completion(ResponseModel.init(code: response.response?.statusCode ?? 0, body: [:], message:error.localizedDescription))
                 }
@@ -81,10 +86,10 @@ struct Networking {
     
     func callButCancelPastRequest(api: String, parameters: [String: String], completion: @escaping (ResponseModel?) -> ()) {
         
-        let urlString = api
+        let urlString = AppConst.BASE_URL + api
         let safeURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        if (Networking.currentTask != nil && Networking.currentTask?.state == .running) {
+        if (Networking.currentTask != nil && Networking.currentTask?.state == .running){
             Networking.currentTask?.cancel()
         }
         
@@ -116,6 +121,7 @@ struct Networking {
                 return
             }
             
+            // Perform table updates on UI thread
             DispatchQueue.main.async {
                 Networking.currentTask = nil
                 completion(ResponseModel.init(code: 200, body: object!))
@@ -126,3 +132,51 @@ struct Networking {
     }
     
 }
+
+
+
+class NetworkRequestRetrier: RequestRetrier {
+    
+    // [Request url: Number of times retried]
+    private var retriedRequests: [String: Int] = [:]
+    
+    internal func should(_ manager: SessionManager,
+                         retry request: Request,
+                         with error: Error,
+                         completion: @escaping RequestRetryCompletion) {
+        
+        guard
+            request.task?.response == nil,
+            let url = request.request?.url?.absoluteString
+        else {
+            removeCachedUrlRequest(url: request.request?.url?.absoluteString)
+            completion(false, 0.0) // don't retry
+            return
+        }
+        
+        guard let retryCount = retriedRequests[url] else {
+            retriedRequests[url] = 1
+            completion(true, 1.0) // retry after 1 second
+            return
+        }
+        
+        if retryCount <= 3 {
+            retriedRequests[url] = retryCount + 1
+            completion(true, 1.0) // retry after 1 second
+        } else {
+            removeCachedUrlRequest(url: url)
+            completion(false, 0.0) // don't retry
+        }
+        
+    }
+    
+    private func removeCachedUrlRequest(url: String?) {
+        guard let url = url else {
+            return
+        }
+        retriedRequests.removeValue(forKey: url)
+    }
+}
+
+
+

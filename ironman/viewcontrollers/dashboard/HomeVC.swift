@@ -330,80 +330,60 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 extension HomeVC {
     private func fetchBanners() {
         
-        guard let url = URL(string: AppConst.BASE_URL + "/banners") else {
-            clearAndReloadBanner()
-          return
-        }
-        
-        let request = AF.request(url)
-        
-        request.responseDecodable(of: BannerResponse.self) { (response) in
-            guard let bannerResponse = response.value else {
-                print("Empty Response")
-                self.clearAndReloadBanner()
-                return
-            }
-            
-            guard let bannerData = bannerResponse.bannerData else {
-                print("Empty Banner Data")
-                self.clearAndReloadBanner()
-                return
-            }
-            
-            guard let banners = bannerData.banners else {
-                print("Empty Banners")
-                self.clearAndReloadBanner()
-                return
-            }
-            
-            self.banners.removeAll()
-            self.banners = banners
-            self.cvBanner.reloadData()
-        }
-    }
-    
-    private func clearAndReloadBanner() {
         banners.removeAll()
-        cvBanner.reloadData()
+        
+        Networking.instance.call(api: "banners", method: .get, parameters: [:]) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["banners"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let banner = Banner.init(fromDictionary: dictionary[i])
+                    self.banners.append(banner)
+                }
+                
+                DispatchQueue.main.async {
+                    self.cvBanner.reloadData()
+                }
+            } else {
+                self.cvBanner.reloadData()
+            }
+        }
+        
     }
     
     
     private func fetchServices() {
         
-        guard let url = URL(string: AppConst.BASE_URL + "/services") else {
-            clearAndReloadServices()
-          return
-        }
-        
-        let request = AF.request(url)
-        
-        request.responseDecodable(of: ServiceResponse.self) { (response) in
-            guard let serviceResponse = response.value else {
-                print("Empty Response")
-                self.clearAndReloadServices()
-                return
-            }
-            
-            guard let serviceData = serviceResponse.serviceData else {
-                print("Empty Service Data")
-                self.clearAndReloadServices()
-                return
-            }
-            
-            guard let services = serviceData.services else {
-                print("Empty Services")
-                self.clearAndReloadServices()
-                return
-            }
-            
-            self.services.removeAll()
-            self.services = services
-            self.cvService.reloadData()
-        }
-    }
-    
-    private func clearAndReloadServices() {
         services.removeAll()
-        cvService.reloadData()
+        
+        Networking.instance.call(api: "services", method: .get, parameters: [:]) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["services"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let service = Service.init(fromDictionary: dictionary[i])
+                    self.services.append(service)
+                }
+                
+                DispatchQueue.main.async {
+                    self.cvService.reloadData()
+                }
+            } else {
+                self.cvService.reloadData()
+            }
+        }
+        
     }
 }
