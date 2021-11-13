@@ -11,11 +11,17 @@ class ManageAddressVC: BaseVC {
     
     private let authRequiredContainer = UIView()
     
+    private var addresses = [Address]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        container.backgroundColor = .color(fromHexString: "FAFAFA")
+        container.backgroundColor = .backgroundColor
         
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchAddresses()
     }
     
     private func setupViews() {
@@ -252,13 +258,13 @@ class ManageAddressVC: BaseVC {
 extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource, AddressDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return addresses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressTVCell.identifier) as! AddressTVCell
         cell.selectionStyle = .none
-        cell.listener = self
+        cell.configure(with: addresses[indexPath.row], listener: self)
         return cell
     }
     
@@ -266,15 +272,53 @@ extension ManageAddressVC: UITableViewDelegate, UITableViewDataSource, AddressDe
         return UITableView.automaticDimension
     }
     
-    func addressEditTapped() {
+    func addressEditTapped(address: Address) {
         let vc = NewAddressVC()
-        vc.isForEdit = true
+        vc.address = address
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func addressDeleteTapped() {
+    func addressDeleteTapped(address: Address) {
         print("address delete tapped")
     }
     
 
+}
+
+
+
+
+// MARK: API CALLING
+
+extension ManageAddressVC {
+    
+    private func fetchAddresses() {
+        
+        addresses.removeAll()
+        
+        Networking.instance.call(api: "addresses", method: .get, parameters: [:]) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["addresses"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let address = Address.init(fromDictionary: dictionary[i])
+                    self.addresses.append(address)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
 }

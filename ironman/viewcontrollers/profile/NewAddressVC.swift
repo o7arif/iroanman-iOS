@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import Alamofire
 import Toaster
 
 class NewAddressVC: BaseVC {
     
-    var isForEdit: Bool = false
+    var address: Address?
     
     private var nameField: SmartTextField?
     private var areaDownPicker: SmartDownPicker?
@@ -26,6 +25,10 @@ class NewAddressVC: BaseVC {
         container.backgroundColor = .color(fromHexString: "FAFAFA")
         
         setupViews()
+        
+        if address != nil {
+            setAddressData()
+        }
     }
     
     private func setupViews() {
@@ -41,9 +44,6 @@ class NewAddressVC: BaseVC {
             make.bottom.equalToSuperview().inset(16)
         }
         
-        if isForEdit {
-            labelHeaderTitle.text = "Edit Address"
-        }
         viewHeaderBack.addSubview(labelHeaderTitle)
         labelHeaderTitle.snp.makeConstraints { make in
             make.bottom.equalTo(ivBack.snp.bottom)
@@ -156,6 +156,23 @@ class NewAddressVC: BaseVC {
     }
     
     
+    
+    
+    // MARK: SETUP DATA
+    
+    private func setAddressData() {
+        labelHeaderTitle.text = "Edit Address"
+        nameField?.textField.text = address?.addressName
+        flatField?.textField.text = address?.flatNo
+        houseField?.textField.text = address?.houseNo
+        roadField?.textField.text = address?.roadNo
+        blockField?.textField.text = address?.block
+        noteField.text = address?.addressLine
+    }
+    
+    
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
@@ -259,19 +276,58 @@ extension NewAddressVC {
             "address_name": nameField?.textField.text ?? "",
             "house_no": houseField?.textField.text ?? "",
             "flat_no": flatField?.textField.text ?? "",
-            "road_no": roadField?.textField.text ?? ""
+            "road_no": roadField?.textField.text ?? "",
+            "address_line": noteField.text ?? ""
         ]
         
         
-        Networking.instance.call(api: "/addresses", method: .post, parameters: parameters) { (responseModel) in
-            if responseModel.code == 200 {
-                print(responseModel.body)
-            } else {
-                print("errors")
-                //                self.handleErrors(responseModel)
+        
+        if address == nil {
+            // add new address
+            Networking.instance.call(api: "addresses", method: .post, parameters: parameters) { (responseModel) in
+                if responseModel.code == 200 {
+                    Toast(text: responseModel.message).show()
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.handleErrors(responseModel)
+                }
+            }
+        } else {
+            // update address
+            Networking.instance.call(api: "addresses/\(address!.id)", method: .post, parameters: parameters) { (responseModel) in
+                if responseModel.code == 200 {
+                    Toast(text: responseModel.message).show()
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.handleErrors(responseModel)
+                }
             }
         }
         
-        
     }
+    
+    
+    
+    private func handleErrors(_ responseModel: ResponseModel) {
+        if responseModel.code == 401 {
+            CacheData.instance.destroySession()
+            return
+        } else {
+            for errorModel in responseModel.errors ?? [] {
+                if errorModel.fieldName == "address_name" {
+                    self.nameField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "road_no" {
+                    self.roadField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "house_no" {
+                    self.houseField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "flat_no" {
+                    self.flatField!.setCustomErrorMessage(message: errorModel.message)
+                }
+            }
+            if (responseModel.errors == nil || responseModel.errors?.count == 0) {
+                Toast(text: responseModel.message ?? "message_not_found").show()
+            }
+        }
+    }
+    
 }

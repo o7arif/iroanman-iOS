@@ -8,15 +8,16 @@
 import UIKit
 
 protocol AddressDelegate {
-    func addressEditTapped()
-    func addressDeleteTapped()
+    func addressEditTapped(address: Address)
+    func addressDeleteTapped(address: Address)
 }
 
 class AddressTVCell: UITableViewCell {
     
     static let identifier = "AddressTVCell"
     
-    var listener: AddressDelegate?
+    private var listener: AddressDelegate?
+    private var address: Address?
     
     private let container = UIView()
     
@@ -91,14 +92,25 @@ class AddressTVCell: UITableViewCell {
     
     
     
+    // MARK: SETUP DATA
+    
+    func configure(with model: Address, listener: AddressDelegate) {
+        self.listener = listener
+        self.address = model
+        labelName.text = model.addressName
+        labelDetails.text = model.getAddressString()
+    }
+    
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func editTapped(_ sender: Any) {
-        listener?.addressEditTapped()
+        listener?.addressEditTapped(address: address!)
     }
     
     @objc private func deleteTapped(_ sender: Any) {
-        listener?.addressDeleteTapped()
+        listener?.addressDeleteTapped(address: address!)
     }
     
     
