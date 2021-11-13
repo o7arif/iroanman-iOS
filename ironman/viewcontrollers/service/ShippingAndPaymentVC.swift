@@ -139,6 +139,7 @@ class ShippingAndPaymentVC: BaseVC {
         datePicker?.datePickerMode = .date
         datePicker?.locale = .current
         datePicker?.preferredDatePickerStyle = .inline
+        datePicker?.minimumDate = Date()
         datePicker?.addTarget(self, action: #selector(dateSet), for: .valueChanged)
         addDatePickerToSubview()
     }
