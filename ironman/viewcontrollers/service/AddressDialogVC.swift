@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol AddressDialogDelegate {
+    func newAddressTapped()
+    func addressTapped(address: Address)
+}
+
 class AddressDialogVC: UIViewController {
+    
+    var listener: AddressDialogDelegate?
     
     private var addresses = [Address]()
     
@@ -73,8 +80,7 @@ class AddressDialogVC: UIViewController {
     // MARK: CLICK ACTIONS
     
     @objc private func addNewAddressTapped(_ sender: Any) {
-        print("clicked")
-        dismiss(animated: true, completion: nil)
+        listener?.newAddressTapped()
     }
     
     
@@ -160,7 +166,7 @@ extension AddressDialogVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(addresses[indexPath.row].addressName) clicked")
+        listener?.addressTapped(address: addresses[indexPath.row])
     }
     
 

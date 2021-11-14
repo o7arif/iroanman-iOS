@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Toaster
 
 class ShippingAndPaymentVC: BaseVC {
+    
+    var selectedProducts = [Product]()
     
     private let scrollWrapper = UIView()
     private var addressDownPicker: SmartDownPicker?
@@ -16,11 +19,18 @@ class ShippingAndPaymentVC: BaseVC {
     private let pickerBack = UIView()
     private var selectedDate: Date?
     
+    private var address: Address?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         container.backgroundColor = .color(fromHexString: "FAFAFA")
         
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        address = nil
+        addressDownPicker?.setTitle(title: "Select Address", id: "")
     }
     
     private func setupViews() {
@@ -118,7 +128,14 @@ class ShippingAndPaymentVC: BaseVC {
             make.top.equalTo(expectedTimeContainer.snp.bottom).offset(26)
         }
         
-        addressDownPicker = SmartDownPicker.init(placeholder: "Select Address", dataSource: .address, validationType: .required, shouldAddMargin: false, leftIcon: "ic_pin_small")
+        addressDownPicker = SmartDownPicker.init(placeholder: "Select Address", dataSource: .none, validationType: .optional, shouldAddMargin: false, leftIcon: "ic_pin_small")
+        let addressTap = UITapGestureRecognizer(target: self, action: #selector(addressTapped(_:)))
+        addressDownPicker?.isUserInteractionEnabled = true
+        addressDownPicker?.subviews.forEach { view in
+            view.isUserInteractionEnabled = false
+        }
+        addressDownPicker?.addGestureRecognizer(addressTap)
+        
         wrapperView.addSubview(addressDownPicker!)
         addressDownPicker!.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(30)
@@ -223,15 +240,18 @@ class ShippingAndPaymentVC: BaseVC {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc private func placeOrderTapped(_ sender: Any) {
-//        self.navigationController?.pushViewController(OrderConfirmationVC(), animated: true)
-        
-        // test
-        
+    @objc private func addressTapped(_ sender: Any) {
         let dialogVC = AddressDialogVC()
+        dialogVC.listener = self
         dialogVC.modalPresentationStyle = .popover
         dialogVC.modalTransitionStyle = .crossDissolve
         self.present(dialogVC, animated: true, completion: nil)
+    }
+    
+    @objc private func placeOrderTapped(_ sender: Any) {
+        if isAllValid() {
+            submitOrderRequest()
+        }
     }
     
     @objc private func dateViewTapped(_ sender: Any) {
@@ -364,5 +384,87 @@ class ShippingAndPaymentVC: BaseVC {
         label.text = "Address"
         return label
     }()
+    
+}
+
+
+
+
+extension ShippingAndPaymentVC: AddressDialogDelegate {
+    
+    func addressTapped(address: Address) {
+        self.address = address
+        addressDownPicker?.setTitle(title: address.addressName, id: String(address.id))
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func newAddressTapped() {
+        let vc = NewAddressVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+        dismiss(animated: true)
+    }
+
+    private func isAllValid() -> Bool {
+        
+        if selectedDate == nil {
+            Toast(text: "Please select collection date first").show()
+            return false
+        }
+
+        if address == nil {
+            Toast(text: "Please select address first").show()
+            return false
+        }
+        
+        return true
+
+    }
+    
+}
+
+
+
+
+extension ShippingAndPaymentVC {
+    
+    private func submitOrderRequest() {
+        
+        var parameters = [
+            "pick_at": datePicker!.date.serverDate(),
+            "address_id": address!.id
+        ] as [String: Any]
+        
+        
+        for i in 0 ..< selectedProducts.count {
+            parameters["products[\(i)][id]"] = selectedProducts[i].id
+            parameters["products[\(i)][quantity]"] = selectedProducts[i].count
+        }
+        
+        Networking.instance.call(api: "orders", method: .post, parameters: parameters) { (responseModel) in
+            if(responseModel.code == 200) {
+               
+                // success
+                
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(OrderConfirmationVC(), animated: true)
+                }
+                
+            } else {
+                self.handleErrors(responseModel)
+            }
+        }
+        
+    }
+    
+    
+    
+    private func handleErrors(_ responseModel: ResponseModel) {
+        if responseModel.code == 401 {
+            CacheData.instance.destroySession()
+            return
+        } else {
+            Toast(text: responseModel.message ?? "message_not_found").show()
+        }
+    }
     
 }

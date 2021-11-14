@@ -332,7 +332,9 @@ class MyCartVC: BaseVC {
     }
     
     @objc private func checkoutTapped(_ sender: Any) {
-        self.navigationController?.pushViewController(ShippingAndPaymentVC(), animated: true)
+        let vc = ShippingAndPaymentVC()
+        vc.selectedProducts = self.selectedProducts
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
