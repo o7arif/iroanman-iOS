@@ -9,10 +9,14 @@ import UIKit
 
 class OrderConfirmationVC: BaseVC {
     
+    var orderNo: String = ""
+    
     private let wrapperView = UIView()
     
     override func viewDidLoad() {
         setupViews()
+        
+        labelOrderNo.text = "Your Order ID #\(orderNo)"
     }
     
     private func setupViews() {
@@ -84,7 +88,7 @@ class OrderConfirmationVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .primary
-        label.text = "Your Order ID #123456"
+        label.text = ""
         return label
     }()
     

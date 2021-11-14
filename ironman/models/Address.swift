@@ -21,6 +21,22 @@ struct Address : Codable {
     var postCode: String
     var latitude: Double
     var longitude: Double
+    
+    init() {
+        id = 0
+        addressName = ""
+        roadNo = ""
+        houseNo = ""
+        flatNo = ""
+        block = ""
+        area =  ""
+        subDistrictId = 0
+        districtId = 0
+        addressLine = ""
+        postCode = ""
+        latitude = 0
+        longitude = 0
+    }
 
     init(fromDictionary dictionary: [String:Any]?) {
         id = dictionary?["id"] as? Int ?? 0
@@ -29,13 +45,13 @@ struct Address : Codable {
         houseNo = dictionary?["house_no"] as? String ?? ""
         flatNo = dictionary?["flat_no"] as? String ?? ""
         block = dictionary?["block"] as? String ?? ""
-        area =  dictionary?["area"] as? String ?? ""
-        subDistrictId =  dictionary?["sub_district_id"] as? Int ?? 0
-        districtId =  dictionary?["district_id"] as? Int ?? 0
-        addressLine =  dictionary?["address_line"] as? String ?? ""
-        postCode =  dictionary?["post_code"] as? String ?? ""
-        latitude =  dictionary?["latitude"] as? Double ?? 0
-        longitude =  dictionary?["longitude"] as? Double ?? 0
+        area = dictionary?["area"] as? String ?? ""
+        subDistrictId = dictionary?["sub_district_id"] as? Int ?? 0
+        districtId = dictionary?["district_id"] as? Int ?? 0
+        addressLine = dictionary?["address_line"] as? String ?? ""
+        postCode = dictionary?["post_code"] as? String ?? ""
+        latitude = dictionary?["latitude"] as? Double ?? 0
+        longitude = dictionary?["longitude"] as? Double ?? 0
     }
     
     

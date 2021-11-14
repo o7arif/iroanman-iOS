@@ -442,29 +442,28 @@ extension ShippingAndPaymentVC {
         
         Networking.instance.call(api: "orders", method: .post, parameters: parameters) { (responseModel) in
             if(responseModel.code == 200) {
-               
-                // success
+                
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["order"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                let order = Order.init(fromDictionary: dictionary)
                 
                 DispatchQueue.main.async {
-                    self.navigationController?.pushViewController(OrderConfirmationVC(), animated: true)
+                    let vc = OrderConfirmationVC()
+                    vc.orderNo = order.orderCode
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
             } else {
-                self.handleErrors(responseModel)
+                Toast(text: responseModel.message ?? "Something went wrong. Try again later.").show()
             }
         }
         
-    }
-    
-    
-    
-    private func handleErrors(_ responseModel: ResponseModel) {
-        if responseModel.code == 401 {
-            CacheData.instance.destroySession()
-            return
-        } else {
-            Toast(text: responseModel.message ?? "message_not_found").show()
-        }
     }
     
 }

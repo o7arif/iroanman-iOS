@@ -46,13 +46,15 @@ class MyCartVC: BaseVC {
             make.left.right.equalToSuperview()
         }
         
-//        if CacheData.instance.isLoggedIn() {
-//            emptyListMessage()
-//        } else {
-//            authentionRequiredMessage()
-//        }
-        
-        cartWithItemsUI()
+        if CacheData.instance.isLoggedIn() {
+            if selectedProducts.count > 0 {
+                cartWithItemsUI()
+            } else {
+                emptyListMessage()
+            }
+        } else {
+            authentionRequiredMessage()
+        }
     }
     
     
