@@ -17,6 +17,8 @@ public extension UIColor {
     static let textRed: UIColor = .color(fromHexString: "FF4141")
     static let segmentColor: UIColor = .color(fromHexString: "1DC1FF")
     static let backgroundColor: UIColor = .color(fromHexString: "FAFAFA")
+    static let borderColor: UIColor = .color(fromHexString: "F1F8FF")
+    
     
     static func color(fromHexString: String, alpha:CGFloat? = 1.0) -> UIColor {
         // Convert hex string to an integer

@@ -224,7 +224,14 @@ class ShippingAndPaymentVC: BaseVC {
     }
     
     @objc private func placeOrderTapped(_ sender: Any) {
-        self.navigationController?.pushViewController(OrderConfirmationVC(), animated: true)
+//        self.navigationController?.pushViewController(OrderConfirmationVC(), animated: true)
+        
+        // test
+        
+        let dialogVC = AddressDialogVC()
+        dialogVC.modalPresentationStyle = .popover
+        dialogVC.modalTransitionStyle = .crossDissolve
+        self.present(dialogVC, animated: true, completion: nil)
     }
     
     @objc private func dateViewTapped(_ sender: Any) {
