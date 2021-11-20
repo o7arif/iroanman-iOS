@@ -7,9 +7,24 @@
 
 import UIKit
 
+protocol SearchItemDelegate {
+    func onSearchItemChanges(products: [Product])
+}
+
 class SearchItemVC: BaseVC {
     
     private var searchKey: String = ""
+    
+    private var completeProducts = [Product]()
+    private var products = [Product]()
+    private var listener: SearchItemDelegate?
+    
+    func configure(with products: [Product], listener: SearchItemDelegate) {
+        self.completeProducts = products
+        self.products = products
+        self.listener = listener
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +88,7 @@ class SearchItemVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
+        listener?.onSearchItemChanges(products: completeProducts)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -83,6 +99,14 @@ class SearchItemVC: BaseVC {
     @objc private func onSearchTextChanged(_ sender: Any) {
         print("search keyword: \(searchField.text ?? "")")
         searchKey = searchField.text ?? ""
+        
+        products.removeAll()
+        if searchKey.isEmpty {
+            products = completeProducts
+        } else {
+            products = completeProducts.filter { $0.name.lowercased().contains(searchKey.lowercased()) }
+        }
+        tableView.reloadData()
     }
     
     
@@ -112,6 +136,7 @@ class SearchItemVC: BaseVC {
         let textField = UITextField()
         textField.placeholder = "Search items"
         textField.backgroundColor = .clear
+        textField.textColor = .white
         textField.keyboardType = .default
         textField.returnKeyType = .search
         textField.autocorrectionType = .default
@@ -142,14 +167,15 @@ class SearchItemVC: BaseVC {
 }
 
 
-extension SearchItemVC: UITableViewDelegate, UITableViewDataSource {
+extension SearchItemVC: UITableViewDelegate, UITableViewDataSource, ItemSelectionDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTVCell.identifier) as! ItemTVCell
+        cell.configure(with: products[indexPath.row], listener: self)
         cell.selectionStyle = .none
         return cell
     }
@@ -159,6 +185,16 @@ extension SearchItemVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    func countUpdated(product: Product, currentCount: Int) {
+        if let row = self.products.firstIndex(where: {$0.id == product.id}) {
+            products[row].count = currentCount
+        }
+        
+        if let row = self.completeProducts.firstIndex(where: {$0.id == product.id}) {
+            completeProducts[row].count = currentCount
+        }
     }
     
 }

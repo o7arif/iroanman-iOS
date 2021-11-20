@@ -36,11 +36,6 @@ class ItemTVCell: UITableViewCell {
         self.contentView.addSubview(container)
         container.backgroundColor = .white
         container.layer.cornerRadius = 15
-//        container.layer.shadowColor =  UIColor.color(fromHexString: "EEEEEE").cgColor
-//        container.layer.shadowOffset = CGSize(width: 1, height: 2)
-//        container.layer.shadowOpacity = 0.4
-//        container.layer.shadowRadius = 15
-//        container.layer.masksToBounds = false
         container.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
             make.bottom.equalToSuperview().inset(10)
@@ -146,6 +141,23 @@ class ItemTVCell: UITableViewCell {
         labelPricePrevious.text = "৳" + String(model.oldPrice) + "/item"
         labelPrice.text = "৳" + String(model.currentPrice) + "/item"
         labelDiscountPercent.text = String(model.discountPercentage) + "%"
+        
+        if count >= 1 {
+            buttonContainer.removeSubviews()
+            setupCounterView()
+            
+            labelCount.text = ResourceUtil.numberToStringWithZero(number: count)
+        } else {
+            // set add item button
+            buttonContainer.removeSubviews()
+            setupAddItemButton()
+        }
+        
+        if count > 1 {
+            ivMinus.image = UIImage(named: "ic_minus")
+        } else if count == 1 {
+            ivMinus.image = UIImage(named: "ic_delete")
+        }
     }
     
     

@@ -10,7 +10,7 @@ import Segmentio
 import Alamofire
 import Toaster
 
-class ChooseItemVC: BaseVC {
+class ChooseItemVC: BaseVC, SearchItemDelegate {
     
     var service: Service?
     private var sc = Segmentio()
@@ -171,8 +171,18 @@ class ChooseItemVC: BaseVC {
         
         sc.valueDidChange = { segmentio, segmentIndex in
             print("\(self.segmentItems[segmentIndex]) clicked")
+            let variant = self.segmentItems[segmentIndex]
+            self.fetchProducts(serviceId: self.service?.id, variantId: variant.id)
         }
         
+    }
+    
+    
+    
+    func onSearchItemChanges(products: [Product]) {
+        self.products = products
+        calculatePrice()
+        tableView.reloadData()
     }
     
     
@@ -183,8 +193,9 @@ class ChooseItemVC: BaseVC {
     }
     
     @objc private func searchTapped(_ sender: Any) {
-        print("Search tapped")
-        self.navigationController?.pushViewController(SearchItemVC(), animated: true)
+        let vc = SearchItemVC()
+        vc.configure(with: products, listener: self)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func cartTapped(_ sender: Any) {
@@ -410,7 +421,17 @@ extension ChooseItemVC {
         
         products.removeAll()
         
-        Networking.instance.call(api: "products", method: .get, parameters: [:]) { (responseModel) in
+        var params = [:] as [String: Any]
+        
+        if serviceId != nil {
+            params["service_id"] = serviceId
+        }
+        
+        if variantId != nil {
+            params["variant_id"] = variantId
+        }
+        
+        Networking.instance.call(api: "products", method: .get, parameters: params) { (responseModel) in
             if responseModel.code == 200 {
                 guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
                     return
