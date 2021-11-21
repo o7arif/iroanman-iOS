@@ -52,6 +52,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         profileContainer.addSubview(ivProfile)
         ivProfile.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
+            make.height.width.equalTo(44)
         }
         
         profileContainer.addSubview(ivCart)
@@ -179,7 +180,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         imageView.layer.shadowOffset = CGSize(width: 1, height: 2)
         imageView.layer.shadowOpacity = 0.4
         imageView.layer.shadowRadius = 10
-        imageView.layer.masksToBounds = false
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
