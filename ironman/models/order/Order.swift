@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Order : Codable {
+struct Order {
     let id : Int
     let orderCode : String
-//    let customer : Customer
+    let customer : Customer
     let discount : String
     let amount : Double
     let orderStatus : String
@@ -24,6 +24,13 @@ struct Order : Codable {
     init(fromDictionary dictionary: [String:Any]?) {
         id = dictionary?["id"] as? Int ?? 0
         orderCode = dictionary?["order_code"] as? String ?? ""
+        
+        if let customerData = dictionary?["customer"] as? [String : Any] {
+            customer = Customer(fromDictionary: customerData)
+        } else {
+            customer = Customer()
+        }
+        
         discount = dictionary?["discount"] as? String ?? ""
         amount = dictionary?["amount"] as? Double ?? 0
         orderStatus = dictionary?["order_status"] as? String ?? ""
