@@ -130,7 +130,7 @@ class ProfileVC: UIViewController {
     
     private func setupUserData(user: User) {
         labelName.text = user.name
-        if let url = URL(string: user.profilePhoto ?? "") {
+        if let url = URL(string: user.profilePhoto) {
             ivProfile.load(url: url)
         }
     }
@@ -191,7 +191,8 @@ class ProfileVC: UIViewController {
         imageView.layer.shadowOffset = CGSize(width: 1, height: 2)
         imageView.layer.shadowOpacity = 0.4
         imageView.layer.shadowRadius = 20
-        imageView.layer.masksToBounds = false
+        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = false
         return imageView
     }()
     

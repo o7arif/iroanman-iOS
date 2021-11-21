@@ -49,7 +49,8 @@ class BannerCVCell: UICollectionViewCell {
     private let ivPromotion: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 15
-        imageView.layer.masksToBounds = false
+        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = false
         imageView.image = UIImage(named: "img_promotion")
         imageView.contentMode = .scaleAspectFit
         imageView.layer.shadowColor = UIColor.color(fromHexString: "D5D7D8").cgColor
