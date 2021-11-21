@@ -24,6 +24,11 @@ class HomeVC: UIViewController & ServiceTapListener {
         fetchServices()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupLoggedUserData()
+    }
+    
     private func setupViews() {
         self.view.addSubview(container)
         container.backgroundColor = .color(fromHexString: "FAFAFA")
@@ -120,10 +125,35 @@ class HomeVC: UIViewController & ServiceTapListener {
     
     
     
-    // MARK: CLICK ACTIONS
+    
+    // MARK: SETUP DATA
+    
+    private func setupLoggedUserData() {
+        guard let user = CacheData.instance.getLoggedUser() else {
+            labelName.text = "Guest User"
+            labelAddress.attributedText = ResourceUtil.makeUnderlineAndColoredText(string: "Tap here to Login", startIndex: "Tap here to ".count, length: "Login".count, color: .blue)
+            return
+        }
+        
+        labelName.text = user.name
+        labelAddress.text = "Unknown address"
+        ivProfile.load(url: URL(string: user.profilePhoto)!)
+    }
+    
+    
+    
+    
+    // MARK: TAP ACTIONS
     
     @objc private func cartTapped(_ sender: Any) {
         self.navigationController?.pushViewController(MyCartVC(), animated: true)
+    }
+    
+    @objc private func loginTapped(_ sender: Any) {
+        if CacheData.instance.isLoggedIn() {
+            return
+        }
+        self.navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
     
@@ -159,17 +189,20 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "John Doe"
+        label.text = "Guest User"
         return label
     }()
     
-    private let labelAddress: UILabel = {
+    private lazy var labelAddress: UILabel = {
         let label = UILabel()
         label.font = OpenSans.regular.of(size: 12)
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Dhaka, Bangladesh"
+        label.text = ""
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(loginTapped(_:)))
+        label.addGestureRecognizer(tap)
         return label
     }()
     

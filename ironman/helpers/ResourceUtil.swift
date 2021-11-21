@@ -5,7 +5,7 @@
 //  Created by Md Nazmul Haque Arif on 8/29/21.
 //
 
-import Foundation
+import UIKit
 
 class ResourceUtil {
     
@@ -26,4 +26,12 @@ class ResourceUtil {
             return formattedAmount
         }
     }
+    
+    public static func makeUnderlineAndColoredText(string: String, startIndex: Int, length: Int, color: UIColor) -> NSAttributedString {
+        let underlineAttributedString = NSMutableAttributedString(string: string)
+        underlineAttributedString.addAttribute(.underlineStyle, value: 1, range: NSRange(location: startIndex, length: length))
+        underlineAttributedString.addAttribute(.foregroundColor, value: color, range: NSRange(location: startIndex, length: length))
+        return underlineAttributedString
+    }
+    
 }
