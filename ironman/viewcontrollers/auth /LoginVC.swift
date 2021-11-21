@@ -15,6 +15,7 @@ class LoginVC: BaseVC {
     
     var phoneField : SmartTextField?
     var passwordField : SmartTextField?
+    var isFromLogout = false
 
     
     override func viewDidLoad() {
@@ -92,7 +93,11 @@ class LoginVC: BaseVC {
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if isFromLogout {
+            ElNavigato.instance.replaceWIndowByViewController(viewController: WelcomeVC())
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc private func signupTapped(_ sender: Any) {

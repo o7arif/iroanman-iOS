@@ -18,7 +18,7 @@ class CacheData {
     }
     
     func destroySession() {
-        UserDefaults.standard.set(nil, forKey: "user")
+        UserDefaults.standard.set(nil, forKey: "user_data")
         UserDefaults.standard.set(nil, forKey: "access_token")
         UserDefaults.standard.synchronize()
     }

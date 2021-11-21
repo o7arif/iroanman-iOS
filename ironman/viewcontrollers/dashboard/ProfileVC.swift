@@ -18,6 +18,8 @@ class ProfileVC: UIViewController {
         setupViews()
         guard let user = CacheData.instance.getLoggedUser() else {
             print("user is empty")
+            labelName.text = "Guest User"
+            labelAddress.text = ""
             return
         }
         setupUserData(user: user)
@@ -226,7 +228,7 @@ class ProfileVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Unknown"
+        label.text = "Guest User"
         return label
     }()
     
@@ -236,7 +238,7 @@ class ProfileVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textGrey
-        label.text = "Unknown address"
+        label.text = ""
         return label
     }()
     
@@ -319,7 +321,9 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             break
         case MenuEnum.LOGOUT.rawValue:
             CacheData.instance.destroySession()
-            ElNavigato.instance.replaceWIndowByViewController(viewController: LoginVC())
+            let vc = LoginVC()
+            vc.isFromLogout = true
+            ElNavigato.instance.replaceWIndowByViewController(viewController: vc)
             break
         default:
             print("default clicked")
