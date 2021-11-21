@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol OrderDelegate {
+    func onOrderTapped(isCompleted: Bool, order: Order)
+}
+
 class MyOrderVC: UIViewController {
     
     private let container = UIView()
@@ -78,11 +82,13 @@ class MyOrderVC: UIViewController {
 //        addChild(ongoingVC)
 //        addChild(completedVC)
         
+        ongoingVC.listener = self
         segmentContainer.addSubview(ongoingVC.view)
         ongoingVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
+        completedVC.listener = self
         segmentContainer.addSubview(completedVC.view)
         completedVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -133,4 +139,16 @@ class MyOrderVC: UIViewController {
         label.text = "My Order"
         return label
     }()
+}
+
+
+extension MyOrderVC: OrderDelegate {
+    
+    func onOrderTapped(isCompleted: Bool, order: Order) {
+        let vc = OrderDetailsVC()
+        vc.isCompleted = isCompleted
+        vc.order = order
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

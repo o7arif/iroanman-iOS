@@ -9,6 +9,8 @@ import UIKit
 
 class CompletedOrderSegmentVC: UIViewController {
     
+    var listener: OrderDelegate?
+    
     private let container = UIView()
     private let emptyListContainer = UIView()
     private var orders = [Order]()
@@ -26,8 +28,14 @@ class CompletedOrderSegmentVC: UIViewController {
             make.edges.equalToSuperview()
         }
         
-//        emptyListMessage()
-        setupCompletedOrderView()
+        container.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(OrderTVCell.self, forCellReuseIdentifier: OrderTVCell.identifier)
+        tableView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
+        }
     }
     
     
@@ -51,22 +59,6 @@ class CompletedOrderSegmentVC: UIViewController {
             make.top.equalTo(ivBox.snp.bottom).offset(24)
             make.left.right.bottom.equalToSuperview()
         }
-    }
-    
-    
-    // MARK: COMPLETED ORDER VIEW
-    
-    private func setupCompletedOrderView() {
-        
-        container.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(OrderTVCell.self, forCellReuseIdentifier: OrderTVCell.identifier)
-        tableView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.right.equalToSuperview().inset(20)
-        }
-        
     }
     
     
@@ -149,6 +141,10 @@ extension CompletedOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView()
         headerView.backgroundColor = .clear
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listener?.onOrderTapped(isCompleted: true, order: orders[indexPath.section])
     }
     
 }

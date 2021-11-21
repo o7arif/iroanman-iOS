@@ -9,6 +9,8 @@ import UIKit
 
 class OnGoingOrderSegmentVC: UIViewController {
     
+    var listener: OrderDelegate?
+    
     private let container = UIView()
     private let emptyListContainer = UIView()
     private var orders = [Order]()
@@ -26,8 +28,14 @@ class OnGoingOrderSegmentVC: UIViewController {
             make.edges.equalToSuperview()
         }
         
-//        emptyListMessage()
-        setupOngoingOrderView()
+        container.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(OrderTVCell.self, forCellReuseIdentifier: OrderTVCell.identifier)
+        tableView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
+        }
     }
     
     
@@ -53,22 +61,6 @@ class OnGoingOrderSegmentVC: UIViewController {
         }
     }
     
-    
-    // MARK: ONGOING ORDER VIEW
-    
-    private func setupOngoingOrderView() {
-        
-        container.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(OrderTVCell.self, forCellReuseIdentifier: OrderTVCell.identifier)
-        tableView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.right.equalToSuperview().inset(20)
-        }
-        
-        
-    }
     
     
     
@@ -140,6 +132,10 @@ extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView()
         headerView.backgroundColor = .clear
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listener?.onOrderTapped(isCompleted: false, order: orders[indexPath.section])
     }
     
 }
