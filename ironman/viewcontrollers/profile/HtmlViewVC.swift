@@ -27,6 +27,7 @@ class HtmlViewVC: BaseVC {
     }
     
     private func setupViews() {
+        container.backgroundColor = .white
         container.addSubview(viewHeaderBack)
         viewHeaderBack.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
@@ -50,9 +51,9 @@ class HtmlViewVC: BaseVC {
         container.addSubview(webView)
         webView.backgroundColor = .clear
         webView.snp.makeConstraints { make in
-            make.top.equalTo(viewHeaderBack.snp.bottom).offset(30)
-            make.left.right.equalToSuperview().inset(20)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(viewHeaderBack.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
         webView.scrollView.showsHorizontalScrollIndicator = false
         webView.scrollView.showsVerticalScrollIndicator = false

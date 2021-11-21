@@ -83,6 +83,7 @@ class FakeDataHelper {
         <style>
         body {
             background-color: #EFEFEF;
+            padding: 20px 20px 20px 20px;
         }
         container {
             background-color: #EFEFEF;
@@ -113,6 +114,7 @@ class FakeDataHelper {
         <style>
         body {
             background-color: #EFEFEF;
+            padding: 20px 20px 20px 20px;
         }
         div.container {
             background-color: #EFEFEF;

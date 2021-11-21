@@ -16,6 +16,7 @@ class AboutUsVC: BaseVC {
     }
     
     private func setupViews() {
+        container.backgroundColor = .color(fromHexString: "FAFAFA")
         container.addSubview(viewHeaderBack)
         viewHeaderBack.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
