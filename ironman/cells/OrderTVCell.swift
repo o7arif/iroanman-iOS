@@ -54,7 +54,8 @@ class OrderTVCell: UITableViewCell {
     // MARK: SETUP DATA
     
     func configure(with model: Order) {
-        
+        labelOrderId.text = "Order ID #\(model.id)"
+        labelAmount.text = "Amount: " + ResourceUtil.makeCurrency(amount: model.amount)
     }
     
     
@@ -75,7 +76,7 @@ class OrderTVCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Order ID #123456"
+        label.text = ""
         return label
     }()
     
@@ -85,7 +86,7 @@ class OrderTVCell: UITableViewCell {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Amount: ৳70.00"
+        label.text = ""
         return label
     }()
     

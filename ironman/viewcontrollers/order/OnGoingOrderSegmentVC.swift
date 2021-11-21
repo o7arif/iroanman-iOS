@@ -15,6 +15,7 @@ class OnGoingOrderSegmentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        fetchPendingOrders()
     }
     
     private func setupViews() {
@@ -110,7 +111,7 @@ class OnGoingOrderSegmentVC: UIViewController {
 extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return orders.count
     }
     
     // There is just one row in every section
@@ -120,7 +121,7 @@ extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTVCell.identifier) as! OrderTVCell
-        //        cell.configure(with: orders[indexPath.section])
+        cell.configure(with: orders[indexPath.section])
         cell.selectionStyle = .none
         return cell
     }
@@ -140,5 +141,50 @@ extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
         headerView.backgroundColor = .clear
         return headerView
     }
+    
+}
+
+
+
+
+
+// MARK: API CALLING
+
+extension OnGoingOrderSegmentVC {
+    
+    private func fetchPendingOrders() {
+        
+        orders.removeAll()
+        
+        let params = [
+            "status": "pending"
+        ] as [String: Any]
+        
+        Networking.instance.call(api: "orders", method: .get, parameters: params) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["orders"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let order = Order.init(fromDictionary: dictionary[i])
+                    self.orders.append(order)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
+    
     
 }
