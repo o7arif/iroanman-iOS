@@ -10,16 +10,18 @@ import UIKit
 class CompletedOrderSegmentVC: UIViewController {
     
     private let container = UIView()
-    private let lvDash = LineView()
-    private let orderSteps = FakeDataHelper.getCompletedOrderSteps()
+    private let emptyListContainer = UIView()
+    private var orders = [Order]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupViews()
+        fetchCompletedOrders()
     }
     
     private func setupViews() {
         self.view.addSubview(container)
-        container.backgroundColor = .color(fromHexString: "F2F2F2")
+        container.backgroundColor = .backgroundColor
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -33,7 +35,6 @@ class CompletedOrderSegmentVC: UIViewController {
     // MARK: EMPTY ORDER LIST
     
     private func emptyListMessage() {
-        let emptyListContainer = UIView()
         container.addSubview(emptyListContainer)
         emptyListContainer.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -56,70 +57,15 @@ class CompletedOrderSegmentVC: UIViewController {
     // MARK: COMPLETED ORDER VIEW
     
     private func setupCompletedOrderView() {
-        container.addSubview(cardView)
-        cardView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(20)
-            make.top.equalToSuperview().inset(30)
-        }
         
-        cardView.addSubview(labelOrderId)
-        labelOrderId.snp.makeConstraints { make in
-            make.left.top.equalToSuperview().inset(20)
-        }
-        
-        cardView.addSubview(labelAmount)
-        labelAmount.snp.makeConstraints { make in
-            make.top.equalTo(labelOrderId.snp.bottom).offset(5)
-            make.left.equalToSuperview().inset(20)
-        }
-        
-        cardView.addSubview(labelDeliveryMethod)
-        labelDeliveryMethod.snp.makeConstraints { make in
-            make.top.equalTo(labelAmount.snp.bottom)
-            make.left.equalToSuperview().inset(20)
-        }
-        
-        
-        
-        cardView.addSubview(btnFeedback)
-        btnFeedback.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(10)
-            make.top.equalToSuperview().inset(20)
-            make.height.equalTo(36)
-            make.width.equalTo(130)
-        }
-        
-        cardView.addSubview(lvDash)
-        lvDash.config.color = .color(fromHexString: "F2F2F2")
-        lvDash.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(10)
-            make.top.equalTo(labelDeliveryMethod.snp.bottom).offset(20)
-        }
-        
-        cardView.addSubview(viewBallLeft)
-        viewBallLeft.snp.makeConstraints { make in
-            make.centerY.equalTo(lvDash.snp.bottom)
-            make.centerX.equalTo(cardView.snp.left)
-            make.height.width.equalTo(20)
-        }
-        
-        cardView.addSubview(viewBallRight)
-        viewBallRight.snp.makeConstraints { make in
-            make.centerY.equalTo(lvDash.snp.bottom)
-            make.centerX.equalTo(cardView.snp.right)
-            make.height.width.equalTo(20)
-        }
-        
-        cardView.addSubview(tableView)
+        container.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(OrderStepTVCell.self, forCellReuseIdentifier: OrderStepTVCell.identifier)
+        tableView.register(OrderTVCell.self, forCellReuseIdentifier: OrderTVCell.identifier)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(viewBallLeft.snp.bottom).offset(16)
-            make.left.right.bottom.equalToSuperview().inset(20)
-            make.height.equalTo(300)
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
         }
-        
         
     }
     
@@ -155,14 +101,6 @@ class CompletedOrderSegmentVC: UIViewController {
     
     // completed order
     
-    private let cardView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 15
-        return view
-    }()
-    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
@@ -172,109 +110,97 @@ class CompletedOrderSegmentVC: UIViewController {
         return tableView
     }()
     
-    private let labelOrderId: UILabel = {
-        let label = UILabel()
-        label.font = OpenSans.bold.of(size: 14)
-        label.numberOfLines = 1
-        label.textAlignment = .left
-        label.textColor = .textBlack
-        label.text = "Order ID #123456"
-        return label
-    }()
-    
-    private let labelAmount: UILabel = {
-        let label = UILabel()
-        label.font = OpenSans.regular.of(size: 14)
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .textBlack
-        label.text = "Amount: ৳70.00"
-        return label
-    }()
-    
-    private let viewBallLeft: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
-        view.backgroundColor = .color(fromHexString: "EFEFEF")
-       return view
-    }()
-    
-    private let viewBallRight: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
-        view.backgroundColor = .color(fromHexString: "EFEFEF")
-       return view
-    }()
-    
-    private let labelDeliveryMethod: UILabel = {
-        let label = UILabel()
-        label.font = OpenSans.regular.of(size: 14)
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .textBlack
-        label.text = "Cash on Delivery"
-        return label
-    }()
-    
-    private let btnFeedback: UIButton = {
-        let button = UIButton()
-        button.setTitle("Feedback", for: .normal)
-        button.isUserInteractionEnabled = true
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .primary
-        button.titleLabel?.font = OpenSans.bold.of(size: 15)
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 15
-        button.layer.shadowColor = UIColor.color(fromHexString: "808082").cgColor
-        button.layer.shadowOffset = CGSize(width: 1, height: 2)
-        button.layer.shadowOpacity = 0.4
-        button.layer.shadowRadius = 10
-        button.layer.masksToBounds = false
-        
-        // click action
-        button.addTarget(self, action: #selector(feedbackTapped(_:)), for: .touchUpInside)
-        return button
-    }()
-
-    
 }
 
 
 
 
+// MARK: TABLE VIEW CONFIGURATION
+
 extension CompletedOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return orders.count
+    }
+    
+    // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderSteps.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OrderStepTVCell.identifier) as! OrderStepTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: OrderTVCell.identifier) as! OrderTVCell
+        cell.configure(with: orders[indexPath.section])
         cell.selectionStyle = .none
-        
-        var nextStep: OrderStep?
-        
-        let nextIndex = indexPath.row + 1
-        if nextIndex < orderSteps.count {
-            nextStep = orderSteps[nextIndex]
-        }
-        
-        let currentStep = orderSteps[indexPath.row]
-        
-        var isLastCompletedStep = false
-        if currentStep.isCompleted {
-            if nextStep?.isCompleted == false {
-                isLastCompletedStep = true
-            }
-        }
-        
-        cell.configure(with: currentStep, isLastStep: nextStep == nil, isLastCompletedStep: isLastCompletedStep)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
 }
+
+
+
+
+
+// MARK: API CALLING
+
+extension CompletedOrderSegmentVC {
+    
+    private func fetchCompletedOrders() {
+        
+        orders.removeAll()
+        
+        let params = [
+            "status": "completed"
+        ] as [String: Any]
+        
+        Networking.instance.call(api: "orders", method: .get, parameters: params) { (responseModel) in
+            if responseModel.code == 200 {
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["orders"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                for i in 0..<dictionary.count {
+                    let order = Order.init(fromDictionary: dictionary[i])
+                    self.orders.append(order)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                self.tableView.reloadData()
+            }
+            
+            if self.orders.count == 0 {
+                self.emptyListMessage()
+            } else {
+                self.emptyListContainer.removeFromSuperview()
+            }
+        }
+        
+    }
+    
+    
+    
+}
+

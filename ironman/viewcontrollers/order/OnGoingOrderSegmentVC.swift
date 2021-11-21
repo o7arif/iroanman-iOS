@@ -10,6 +10,7 @@ import UIKit
 class OnGoingOrderSegmentVC: UIViewController {
     
     private let container = UIView()
+    private let emptyListContainer = UIView()
     private var orders = [Order]()
     
     override func viewDidLoad() {
@@ -34,7 +35,6 @@ class OnGoingOrderSegmentVC: UIViewController {
     // MARK: EMPTY ORDER LIST
     
     private func emptyListMessage() {
-        let emptyListContainer = UIView()
         container.addSubview(emptyListContainer)
         emptyListContainer.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -180,6 +180,12 @@ extension OnGoingOrderSegmentVC {
                 }
             } else {
                 self.tableView.reloadData()
+            }
+            
+            if self.orders.count == 0 {
+                self.emptyListMessage()
+            } else {
+                self.emptyListContainer.removeFromSuperview()
             }
         }
         
