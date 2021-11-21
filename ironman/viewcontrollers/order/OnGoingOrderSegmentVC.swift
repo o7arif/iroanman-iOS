@@ -10,16 +10,16 @@ import UIKit
 class OnGoingOrderSegmentVC: UIViewController {
     
     private let container = UIView()
-    private let lvDash = LineView()
-    private let orderSteps = FakeDataHelper.getOngoingOrderSteps()
+    private var orders = [Order]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupViews()
     }
     
     private func setupViews() {
         self.view.addSubview(container)
-        container.backgroundColor = .color(fromHexString: "F2F2F2")
+        container.backgroundColor = .backgroundColor
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -56,58 +56,14 @@ class OnGoingOrderSegmentVC: UIViewController {
     // MARK: ONGOING ORDER VIEW
     
     private func setupOngoingOrderView() {
-        container.addSubview(cardView)
-        cardView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(20)
-            make.top.equalToSuperview().inset(30)
-        }
         
-        cardView.addSubview(labelOrderId)
-        labelOrderId.snp.makeConstraints { make in
-            make.left.top.equalToSuperview().inset(20)
-        }
-        
-        cardView.addSubview(labelAmount)
-        labelAmount.snp.makeConstraints { make in
-            make.top.equalTo(labelOrderId.snp.bottom).offset(5)
-            make.left.equalToSuperview().inset(20)
-        }
-        
-        cardView.addSubview(labelDeliveryMethod)
-        labelDeliveryMethod.snp.makeConstraints { make in
-            make.top.equalTo(labelAmount.snp.bottom)
-            make.left.equalToSuperview().inset(20)
-        }
-        
-        cardView.addSubview(lvDash)
-        lvDash.config.color = .color(fromHexString: "F2F2F2")
-        lvDash.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(10)
-            make.top.equalTo(labelDeliveryMethod.snp.bottom).offset(20)
-        }
-        
-        cardView.addSubview(viewBallLeft)
-        viewBallLeft.snp.makeConstraints { make in
-            make.centerY.equalTo(lvDash.snp.bottom)
-            make.centerX.equalTo(cardView.snp.left)
-            make.height.width.equalTo(20)
-        }
-        
-        cardView.addSubview(viewBallRight)
-        viewBallRight.snp.makeConstraints { make in
-            make.centerY.equalTo(lvDash.snp.bottom)
-            make.centerX.equalTo(cardView.snp.right)
-            make.height.width.equalTo(20)
-        }
-        
-        cardView.addSubview(tableView)
+        container.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(OrderStepTVCell.self, forCellReuseIdentifier: OrderStepTVCell.identifier)
+        tableView.register(OrderTVCell.self, forCellReuseIdentifier: OrderTVCell.identifier)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(viewBallLeft.snp.bottom).offset(16)
-            make.left.right.bottom.equalToSuperview().inset(20)
-            make.height.equalTo(300)
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
         }
         
         
@@ -137,69 +93,14 @@ class OnGoingOrderSegmentVC: UIViewController {
     
     // ongoing order
     
-    private let cardView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 15
-        return view
-    }()
-    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
-    
-    private let labelOrderId: UILabel = {
-        let label = UILabel()
-        label.font = OpenSans.bold.of(size: 14)
-        label.numberOfLines = 1
-        label.textAlignment = .left
-        label.textColor = .textBlack
-        label.text = "Order ID #123456"
-        return label
-    }()
-    
-    private let labelAmount: UILabel = {
-        let label = UILabel()
-        label.font = OpenSans.regular.of(size: 14)
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .textBlack
-        label.text = "Amount: ৳70.00"
-        return label
-    }()
-    
-    private let viewBallLeft: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
-        view.backgroundColor = .color(fromHexString: "EFEFEF")
-       return view
-    }()
-    
-    private let viewBallRight: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        view.layer.masksToBounds = true
-        view.backgroundColor = .color(fromHexString: "EFEFEF")
-       return view
-    }()
-    
-    private let labelDeliveryMethod: UILabel = {
-        let label = UILabel()
-        label.font = OpenSans.regular.of(size: 14)
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .textBlack
-        label.text = "Cash on Delivery"
-        return label
-    }()
-
     
 }
 
@@ -208,35 +109,36 @@ class OnGoingOrderSegmentVC: UIViewController {
 
 extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderSteps.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OrderStepTVCell.identifier) as! OrderStepTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: OrderTVCell.identifier) as! OrderTVCell
+        //        cell.configure(with: orders[indexPath.section])
         cell.selectionStyle = .none
-        
-        var nextStep: OrderStep?
-        
-        let nextIndex = indexPath.row + 1
-        if nextIndex < orderSteps.count {
-            nextStep = orderSteps[nextIndex]
-        }
-        
-        let currentStep = orderSteps[indexPath.row]
-        
-        var isLastCompletedStep = false
-        if currentStep.isCompleted {
-            if nextStep?.isCompleted == false {
-                isLastCompletedStep = true
-            }
-        }
-        
-        cell.configure(with: currentStep, isLastStep: nextStep == nil, isLastCompletedStep: isLastCompletedStep)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
 }
