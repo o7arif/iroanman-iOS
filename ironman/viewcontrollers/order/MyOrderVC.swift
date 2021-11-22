@@ -9,6 +9,7 @@ import UIKit
 
 protocol OrderDelegate {
     func onOrderTapped(isCompleted: Bool, order: Order)
+    func onFeedbackTapped(order: Order)
 }
 
 class MyOrderVC: UIViewController {
@@ -149,6 +150,11 @@ extension MyOrderVC: OrderDelegate {
         vc.isCompleted = isCompleted
         vc.order = order
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func onFeedbackTapped(order: Order) {
+        let vc = OrderFeedbackVC()
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

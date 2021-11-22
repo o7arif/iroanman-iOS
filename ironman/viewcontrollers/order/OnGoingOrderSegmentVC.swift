@@ -113,7 +113,7 @@ extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTVCell.identifier) as! OrderTVCell
-        cell.configure(with: orders[indexPath.section])
+        cell.configure(with: orders[indexPath.section], isCompleted: false)
         cell.selectionStyle = .none
         return cell
     }
@@ -134,9 +134,9 @@ extension OnGoingOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        listener?.onOrderTapped(isCompleted: false, order: orders[indexPath.section])
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        listener?.onOrderTapped(isCompleted: false, order: orders[indexPath.section])
+//    }
     
 }
 

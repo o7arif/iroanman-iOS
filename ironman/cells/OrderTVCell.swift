@@ -11,6 +11,9 @@ class OrderTVCell: UITableViewCell {
     
     static let identifier = "OrderTVCell"
     
+    private var order: Order?
+    private var listener: OrderDelegate?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -47,16 +50,45 @@ class OrderTVCell: UITableViewCell {
             make.bottom.equalToSuperview().inset(12)
         }
         
+        cardView.addSubview(btnFeedback)
+        btnFeedback.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(12)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(36)
+            make.width.equalTo(130)
+        }
+        
     }
     
     
     
     // MARK: SETUP DATA
     
-    func configure(with model: Order) {
+    func configure(with model: Order, isCompleted: Bool, _ listener: OrderDelegate? = nil) {
+        
+        self.order = model
+        self.listener = listener
+        
+        if isCompleted {
+            btnFeedback.isHidden = false
+        } else {
+            btnFeedback.isHidden = true
+        }
+        
         labelOrderId.text = "Order ID #\(model.id)"
         labelAmount.text = "Amount: " + ResourceUtil.makeCurrency(amount: model.amount)
     }
+    
+    
+    
+    
+    
+    // MARK: TAP ACTIONS
+    
+    @objc private func feedbackTapped(_ sender: Any) {
+        listener?.onFeedbackTapped(order: order!)
+    }
+    
     
     
     
@@ -98,6 +130,26 @@ class OrderTVCell: UITableViewCell {
         label.textColor = .textBlack
         label.text = "Cash on Delivery"
         return label
+    }()
+    
+    private let btnFeedback: UIButton = {
+        let button = UIButton()
+        button.setTitle("Feedback", for: .normal)
+        button.isUserInteractionEnabled = true
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .primary
+        button.titleLabel?.font = OpenSans.bold.of(size: 15)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 15
+        button.layer.shadowColor = UIColor.color(fromHexString: "808082").cgColor
+        button.layer.shadowOffset = CGSize(width: 1, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 10
+        button.layer.masksToBounds = false
+        
+        // click action
+        button.addTarget(self, action: #selector(feedbackTapped(_:)), for: .touchUpInside)
+        return button
     }()
     
 }
