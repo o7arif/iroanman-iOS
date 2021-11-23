@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toaster
 
 class EditProfileVC: BaseVC {
     
@@ -15,11 +16,16 @@ class EditProfileVC: BaseVC {
     private var phoneField : SmartTextField?
     private var altPhoneField : SmartTextField?
     
+    private var imagePicker: ImagePicker!
+    private var tempImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         container.backgroundColor = .color(fromHexString: "FAFAFA")
+        imagePicker = ImagePicker(presentationController: self, delegate: self)
         
         setupViews()
+        setupData()
     }
     
     private func setupViews() {
@@ -100,14 +106,30 @@ class EditProfileVC: BaseVC {
     }
     
     
+    // MARK: SETUP DATA
+    
+    private func setupData() {
+        guard let user = CacheData.instance.getLoggedUser() else {
+            return
+        }
+        
+        ivProfile.load(url: URL(string: user.profilePhoto)!)
+        
+        nameField?.textField.text = user.name
+        emailField?.textField.text = user.email
+        phoneField?.textField.text = user.mobile
+        altPhoneField?.textField.text = user.alternativePhone
+    }
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc private func cameraTapped(_ sender: Any) {
-        print("camera tapped")
+    @objc private func cameraTapped(_ sender: UIView) {
+        imagePicker.present(from: sender)
     }
     
     @objc private func updateProfileTapped(_ sender: Any) {
@@ -162,7 +184,7 @@ class EditProfileVC: BaseVC {
         imageView.layer.shadowOpacity = 0.4
         imageView.layer.shadowRadius = 20
         imageView.layer.masksToBounds = true
-        imageView.clipsToBounds = false
+//        imageView.clipsToBounds = false
         return imageView
     }()
     
@@ -205,5 +227,70 @@ class EditProfileVC: BaseVC {
         button.addTarget(self, action: #selector(updateProfileTapped(_:)), for: .touchUpInside)
         return button
     }()
+    
+}
+
+
+
+
+// MARK: IMAGE PICKER
+
+extension EditProfileVC: ImagePickerDelegate {
+    
+    // image picker selected photo listener
+    func didSelect(image: UIImage?) {
+        if image == nil {
+            self.tempImage = nil
+            return
+        }
+        
+        let tempImage = image!.resized(to: CGSize(width: 512, height: 512))
+        self.tempImage = tempImage
+        
+        ivProfile.image = tempImage
+    }
+    
+}
+
+
+
+
+
+// MARK: API CALLING
+
+extension EditProfileVC {
+    
+    private func updateProfile(_ model: User) {
+        let params = generateParams(model)
+        
+        var imgData:[Data] = []
+        if tempImage != nil  {
+            
+            guard let data = tempImage?.jpegData(compressionQuality: 100) else {
+                Toast(text: "Something went wrong during Photo fetching from gallery").show()
+                return
+            }
+            
+            imgData.append(data)
+        }
+        
+        Networking.instance.callMutipartMultipleFilesWithParameters(api: "/users", method: .post, imageDatas: imgData, dataKey: "profile_photo", parameters: params) { (responseModel) in
+            if responseModel?.code == 200 {
+                if let dictionary = responseModel?.body["data"] as? Dictionary<String, AnyObject> {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    Toast(text: "Something went wrong. Please try again later.").show()
+                }
+            } else {
+                Toast(text: "Something went wrong. Please try again later.").show()
+            }
+        }
+        
+    }
+    
+    
+    private func generateParams(_ model: User) -> [String:Any] {
+        return [:]
+    }
     
 }

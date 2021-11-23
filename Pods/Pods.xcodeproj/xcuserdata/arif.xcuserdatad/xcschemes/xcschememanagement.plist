@@ -88,6 +88,20 @@
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
+		<key>SPPermissions-SPPermissions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
+		<key>SPPermissions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 		<key>Segmentio-Segmentio.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -114,42 +128,42 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>18</integer>
 		</dict>
 		<key>SwiftPopup.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>19</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>20</integer>
 		</dict>
 		<key>SwiftyPickerPopover.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>21</integer>
 		</dict>
 		<key>Toaster.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>22</integer>
 		</dict>
 		<key>UITextView+Placeholder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>23</integer>
 		</dict>
 		<key>lottie-ios.xcscheme</key>
 		<dict>

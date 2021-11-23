@@ -55,6 +55,10 @@ target 'ironman' do
   
   # toast message
   pod 'Toaster'
+  
+  # permissions
+  pod 'SPPermissions/Camera', '~> 6.6.5'
+  pod 'SPPermissions/PhotoLibrary', '~> 6.6.5'
 
   
 end

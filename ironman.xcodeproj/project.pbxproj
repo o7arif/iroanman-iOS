@@ -18,6 +18,9 @@
 		8010E9CE274A9C9B00C7FCA9 /* OrderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010E9CD274A9C9B00C7FCA9 /* OrderTVCell.swift */; };
 		8010E9D0274AD10100C7FCA9 /* OrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010E9CF274AD10100C7FCA9 /* OrderDetailsVC.swift */; };
 		8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017149426C0448C00FD9CE7 /* CacheData.swift */; };
+		8018A715274D7D180032E93B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018A714274D7D180032E93B /* ImagePicker.swift */; };
+		8018A717274D7D5E0032E93B /* SmartPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018A716274D7D5E0032E93B /* SmartPermission.swift */; };
+		8018A719274D7FAB0032E93B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018A718274D7FAB0032E93B /* UIImage.swift */; };
 		80204D6E26F65FC800493104 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80204D6D26F65FC800493104 /* Date.swift */; };
 		80273042271492A00036E219 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273041271492A00036E219 /* Banner.swift */; };
 		802730492714ACE50036E219 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802730482714ACE50036E219 /* UIImageView.swift */; };
@@ -119,6 +122,9 @@
 		8010E9CD274A9C9B00C7FCA9 /* OrderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTVCell.swift; sourceTree = "<group>"; };
 		8010E9CF274AD10100C7FCA9 /* OrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsVC.swift; sourceTree = "<group>"; };
 		8017149426C0448C00FD9CE7 /* CacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheData.swift; sourceTree = "<group>"; };
+		8018A714274D7D180032E93B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8018A716274D7D5E0032E93B /* SmartPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPermission.swift; sourceTree = "<group>"; };
+		8018A718274D7FAB0032E93B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		80204D6D26F65FC800493104 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		80273041271492A00036E219 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		802730482714ACE50036E219 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -277,6 +283,8 @@
 				273EE13526BB076900753E2A /* SmartTextField.swift */,
 				80F0541326BDA55200149164 /* GMFTabViewItem.swift */,
 				803CE01326C7E794007807E0 /* SmartDownPicker.swift */,
+				8018A714274D7D180032E93B /* ImagePicker.swift */,
+				8018A716274D7D5E0032E93B /* SmartPermission.swift */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 				80204D6D26F65FC800493104 /* Date.swift */,
 				802730482714ACE50036E219 /* UIImageView.swift */,
 				803166DD2728865400A55041 /* String.swift */,
+				8018A718274D7FAB0032E93B /* UIImage.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 				80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */,
 				80FBE620271B455D001C05E6 /* Service.swift in Sources */,
 				808FEC2E26D813510097DA61 /* ChooseItemVC.swift in Sources */,
+				8018A719274D7FAB0032E93B /* UIImage.swift in Sources */,
 				80AD6AA726C2FAA700B23CCB /* MenuTVCell.swift in Sources */,
 				8081046E269B4652008B5E4C /* SplashVC.swift in Sources */,
 				809BA85E269CB4D9005B51F7 /* WelcomeCVCell.swift in Sources */,
@@ -742,6 +752,7 @@
 				80354D9726C9922C00BAACF3 /* AboutUsVC.swift in Sources */,
 				80D658F326DACD6A00800275 /* ResourceUtil.swift in Sources */,
 				80D3773226BFECB600FD3D01 /* CongratulationVC.swift in Sources */,
+				8018A717274D7D5E0032E93B /* SmartPermission.swift in Sources */,
 				80AD6AA526C2F33700B23CCB /* LineView.swift in Sources */,
 				809BA859269CA7CF005B51F7 /* FontUtil.swift in Sources */,
 				802B6366269F8169002A996E /* BannerCVCell.swift in Sources */,
@@ -777,6 +788,7 @@
 				80273042271492A00036E219 /* Banner.swift in Sources */,
 				273EE13626BB076900753E2A /* SmartTextField.swift in Sources */,
 				80D3773026BFE86C00FD3D01 /* ProfilePhotoUploadVC.swift in Sources */,
+				8018A715274D7D180032E93B /* ImagePicker.swift in Sources */,
 				273EE13B26BB1AB700753E2A /* UIView.swift in Sources */,
 				804E30982740470F00EC0447 /* AddressDialogVC.swift in Sources */,
 				800EBB6826C5AB580052CAA3 /* EditProfileVC.swift in Sources */,

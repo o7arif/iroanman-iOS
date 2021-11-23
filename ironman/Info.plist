@@ -76,9 +76,15 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-          <true/>
-    </dict>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>For taking pictures</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>For capturing and uploading profile picture</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>For uploading profile picture</string>
 </dict>
 </plist>

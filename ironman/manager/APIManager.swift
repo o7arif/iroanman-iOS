@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import Toaster
 
 struct Networking {
     
@@ -14,6 +15,13 @@ struct Networking {
     func getHeaders() -> Any {
         let bearerToken = CacheData.instance.getToken()
         let HTTPHeaders = ["Accept": "application/json", "Authorization": "Bearer \(bearerToken)"] as [String:AnyObject]
+        return HTTPHeaders
+    }
+    
+    func getMultipartHeaders() -> Any {
+        let bearerToken = CacheData.instance.getToken()
+        let HTTPHeaders = ["Accept": "application/json", "Content-type": "multipart/form-data",
+                           "Authorization": "Bearer \(bearerToken)","Content-Disposition": "form-data"] as [String:AnyObject]
         return HTTPHeaders
     }
     
@@ -76,6 +84,100 @@ struct Networking {
                     print(error.localizedDescription)
                     completion(ResponseModel.init(code: response.response?.statusCode ?? 0, body: [:], message:error.localizedDescription))
                 }
+            }
+        }
+    }
+    
+    
+    
+    func callMutipartMultipleFilesWithParameters(api: String, method: HTTPMethod, imageDatas: [Data], dataKey: String, parameters: [String:Any], completion: @escaping (ResponseModel?) -> ()) {
+        let url = AppConst.BASE_URL + api
+        let headers: HTTPHeaders = getMultipartHeaders() as! HTTPHeaders
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            
+            for (key, value) in parameters {
+                if let temp = value as? String {
+                    multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? Int {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? Float {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? Double {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? NSArray {
+                    temp.forEach({ element in
+                        let keyObj = key + "[]"
+                        if let string = element as? String {
+                            multipartFormData.append(string.data(using: .utf8)!, withName: keyObj)
+                        } else if let num = element as? Int {
+                            let value = "\(num)"
+                            multipartFormData.append(value.data(using: .utf8)!, withName: keyObj)
+                        } else if let num = element as? Float {
+                            let value = "\(num)"
+                            multipartFormData.append(value.data(using: .utf8)!, withName: keyObj)
+                        } else if let num = element as? Double {
+                            let value = "\(num)"
+                            multipartFormData.append(value.data(using: .utf8)!, withName: keyObj)
+                        }
+                    })
+                }
+            }
+            
+            for data in imageDatas {
+                multipartFormData.append(data, withName: dataKey, fileName: String(Int(Date().timeIntervalSince1970)) + String(Int.random(in: 0..<1000)) + ".jpeg", mimeType: "image/jpeg")
+            }
+            
+        }, usingThreshold: UInt64.init(), to: url, method: method, headers: headers) { (result) in
+            switch result{
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print(response)
+                    switch(response.response?.statusCode ?? 0) {
+                    
+                    case 200..<300:
+                        completion(ResponseModel.init(code: 200, body: response.result.value as! NSDictionary))
+                        break;
+                        
+                    case 401:
+                        if (api != "/login" && api != "/password/reset" && api != "/otp/verify") {
+                            CacheData.instance.destroySession()
+                            break
+                        } else {
+                            let responseModel = ResponseModel.init(code: 401, body: response.result.value as! NSDictionary)
+                            completion(responseModel)
+                        }
+                        
+                    default:
+                        let mainDictionary = response.result.value as! NSDictionary
+                        
+                        var errors: [ErrorModel] = []
+                        if let errorsDictionary = mainDictionary["errors"] as? [String: [String]] {
+                            for (key, value) in errorsDictionary {
+                                print(key, value[0])
+                                let errorModel = ErrorModel.init(fieldName: key, message: value[0])
+                                errors.append(errorModel)
+                            }
+                        }
+                        
+                        var message = mainDictionary["message"] as? String
+                        if message == nil || message!.isEmpty {
+                            message = mainDictionary["exception"] as? String
+                        }
+                        completion(ResponseModel.init(code: response.response?.statusCode ?? 0, body: mainDictionary, message: message, errors: errors))
+                        break;
+                    }
+                    //                    completion(ResponseModel.init(code: 200, body: response.result.value as! NSDictionary))
+                }
+                break
+            case .failure(let error):
+                print(error)
+                Toast(text: "Something went wrong. Please try again later").show()
+                completion(ResponseModel.init(code: 0, body: [:], message: "Something went wrong. Please try again later"))
             }
         }
     }
