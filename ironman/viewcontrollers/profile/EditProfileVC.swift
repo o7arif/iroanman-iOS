@@ -83,7 +83,7 @@ class EditProfileVC: BaseVC {
             make.top.equalTo(genderDownPicker!.snp.bottom)
         }
         
-        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .mobile, validationType: .required, shouldAddMargin: true)
+        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .name, validationType: .required, shouldAddMargin: true)
         container.addSubview(phoneField!)
         phoneField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -118,7 +118,15 @@ class EditProfileVC: BaseVC {
         nameField?.textField.text = user.name
         emailField?.textField.text = user.email
         phoneField?.textField.text = user.mobile
+        phoneField?.textField.isEnabled = false
         altPhoneField?.textField.text = user.alternativePhone
+        
+        let gender: String = user.gender
+        if !gender.isEmpty {
+            let index = genderDownPicker?.getIndex(item: gender) ?? -1
+            genderDownPicker?.setIndex(i: index)
+            genderDownPicker?.setTitle(title: gender)
+        }
     }
     
     
@@ -133,7 +141,11 @@ class EditProfileVC: BaseVC {
     }
     
     @objc private func updateProfileTapped(_ sender: Any) {
-        print("update profile tapped")
+        
+        if isValid() {
+            updateProfile()
+        }
+        
     }
     
     
@@ -184,7 +196,7 @@ class EditProfileVC: BaseVC {
         imageView.layer.shadowOpacity = 0.4
         imageView.layer.shadowRadius = 20
         imageView.layer.masksToBounds = true
-//        imageView.clipsToBounds = false
+        //        imageView.clipsToBounds = false
         return imageView
     }()
     
@@ -260,8 +272,35 @@ extension EditProfileVC: ImagePickerDelegate {
 
 extension EditProfileVC {
     
-    private func updateProfile(_ model: User) {
-        let params = generateParams(model)
+    private func isValid() -> Bool {
+        
+        let isNameValid = nameField?.isValid() ?? false
+        let isPhoneValid = phoneField?.isValid() ?? false
+        let isGenderValid = genderDownPicker?.isValid() ?? false
+        
+        if !isNameValid || !isPhoneValid || !isGenderValid {
+            return false
+        }
+        
+        if emailField?.textField.text?.count ?? 0 > 0 {
+            let isEmailValid = emailField?.isValid() ?? false
+            if !isEmailValid {
+                return false
+            }
+        }
+        
+        if altPhoneField?.textField.text?.count ?? 0 > 0 {
+            let isAltPhoneValid = altPhoneField?.isValid() ?? false
+            if !isAltPhoneValid {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    private func updateProfile() {
+        let params = generateParams()
         
         var imgData:[Data] = []
         if tempImage != nil  {
@@ -274,23 +313,66 @@ extension EditProfileVC {
             imgData.append(data)
         }
         
-        Networking.instance.callMutipartMultipleFilesWithParameters(api: "/users", method: .post, imageDatas: imgData, dataKey: "profile_photo", parameters: params) { (responseModel) in
+        Networking.instance.callMutipartMultipleFilesWithParameters(api: "users/update", method: .post, imageDatas: imgData, dataKey: "profile_photo", parameters: params) { (responseModel) in
             if responseModel?.code == 200 {
                 if let dictionary = responseModel?.body["data"] as? Dictionary<String, AnyObject> {
+                    Toast(text: responseModel?.body["message"] as? String ?? "Profile update successful").show()
+                    
+                    if let userDictionary = dictionary["user"] as? [String:Any] {
+                        let userModel = User.init(fromDictionary: userDictionary)
+                        CacheData.instance.saveLoggedUser(user: userModel)
+                    }
+                    
                     self.navigationController?.popViewController(animated: true)
                 } else {
                     Toast(text: "Something went wrong. Please try again later.").show()
                 }
             } else {
-                Toast(text: "Something went wrong. Please try again later.").show()
+                self.handleErrors(responseModel)
             }
         }
         
     }
     
     
-    private func generateParams(_ model: User) -> [String:Any] {
-        return [:]
+    private func generateParams() -> [String:Any] {
+        let params = [
+            "first_name": nameField?.textField.text ?? "",
+            "gender": genderDownPicker?.getTitle() ?? "",
+            "email": emailField?.textField.text ?? "",
+            "alternative_phone": altPhoneField?.textField.text ?? ""
+        ] as [String:Any]
+        return params
+    }
+    
+    
+    private func handleErrors(_ responseModel: ResponseModel?) {
+        if responseModel == nil {
+            Toast(text: "Something went wrong. Please try again later.").show()
+            return
+        }
+        
+        if responseModel!.code == 401 {
+            CacheData.instance.destroySession()
+            return
+        } else {
+            for errorModel in responseModel!.errors ?? [] {
+                if errorModel.fieldName == "first_name" {
+                    self.nameField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "mobile" {
+                    self.phoneField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "email" {
+                    self.emailField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "alternative_phone" {
+                    self.altPhoneField!.setCustomErrorMessage(message: errorModel.message)
+                } else if errorModel.fieldName == "gender" {
+                    self.genderDownPicker!.setCustomErrorMessage(message: errorModel.message)
+                }
+            }
+            if (responseModel!.errors == nil || responseModel!.errors?.count == 0) {
+                Toast(text: responseModel!.message ?? "message_not_found").show()
+            }
+        }
     }
     
 }

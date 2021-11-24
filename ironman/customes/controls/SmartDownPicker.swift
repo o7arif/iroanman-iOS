@@ -298,6 +298,11 @@ class SmartDownPicker: UIView{
         print(self.ids[i] + "," + self.texts[i])
     }
     
+    func getIndex(item : String) -> Int {
+        let index = self.texts.firstIndex(of: item)
+        return index ?? -1
+    }
+    
     func getId () -> String {
         //validation
         if self.ids.count == 0 {return ""}
