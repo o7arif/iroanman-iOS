@@ -110,7 +110,6 @@ class SignupVC: BaseVC {
     }
     
     @objc private func signupTapped(_ sender: Any) {
-//        self.navigationController?.pushViewController(ProfilePhotoUploadVC(), animated: true)
         if isValid() {
             submitRequest()
         }
@@ -270,8 +269,11 @@ extension SignupVC {
                     Toast(text: message).show()
                     
                     // TODO: Goto OTP verfication
-                    
-                    ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
+                    let vc = OtpVerifyVC()
+                    vc.otpSource = .signup
+                    vc.number = userModel.mobile
+                    self.navigationController?.pushViewController(vc, animated: true)
+//                    ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
                 } else {
                     print("something wrong with bearer token")
                 }

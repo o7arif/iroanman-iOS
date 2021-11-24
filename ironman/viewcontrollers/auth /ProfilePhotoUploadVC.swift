@@ -87,6 +87,7 @@ class ProfilePhotoUploadVC: BaseVC {
     }
     
     @objc private func confirmTapped(_ sender: Any) {
+        submitRequest()
     }
     
     
@@ -227,9 +228,10 @@ extension ProfilePhotoUploadVC {
         Networking.instance.callMultipart(api: "users/profile-photo/update", parameterName: "profile_photo", myData: data) { (responseModel) in
             if(responseModel?.code == 200){
                 let data = responseModel?.body["data"] as? NSDictionary ?? [:]
-                let src = data["src"] as? String
-                if let user = CacheData.instance.getLoggedUser() {
-                    user.profilePhoto = src ?? ""
+                
+                let userDictionary = data["user"] as? [String:Any]
+                let user = User.init(fromDictionary: userDictionary)
+                if user.id != 0 {
                     CacheData.instance.saveLoggedUser(user: user)
                 }
                 self.gotoNextView()

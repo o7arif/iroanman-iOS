@@ -9,6 +9,8 @@ import UIKit
 
 class NewPasswordVC: BaseVC {
     
+    var token: String?
+    
     private let wrapperView = UIView()
     
     var passwordField : SmartTextField?

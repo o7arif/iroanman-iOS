@@ -29,13 +29,6 @@ class OtpVerifyVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        if otpSource == .forgot {
-            
-        } else {
-            let user = CacheData.instance.getLoggedUser()
-            number = user?.mobile ?? ""
-            getOTP(contact: number)
-        }
     }
     
     private func setupViews() {
@@ -95,7 +88,12 @@ class OtpVerifyVC: BaseVC {
     }
     
     @objc private func submitTapped(_ sender: Any) {
-        print("confirm tapped")
+        
+        guard let enteredOtp = Int(OTPField.text) else {
+            return
+        }
+        
+        verifyOTP(contact: number, otpCode: enteredOtp)
     }
     
     
@@ -208,7 +206,7 @@ class OtpVerifyVC: BaseVC {
 
 extension OtpVerifyVC {
     
-    private func getOTP(contact: String) {
+    private func resendOtp(contact: String) {
         let api = "resend/otp"
         
         Networking.instance.call(api: api, method: .post, parameters: ["contact": contact] as [String:AnyObject]) { [weak self] (responseModel) in
@@ -270,8 +268,9 @@ extension OtpVerifyVC {
                     case .forgot:
                         let dictionary = responseModel.body["data"] as? NSDictionary ?? [:]
                         
-                        if let token = dictionary["token"] as? String{
+                        if let token = dictionary["token"] as? String {
                             let vc = NewPasswordVC()
+                            vc.token = token
                             self?.navigationController?.pushViewController(vc, animated: true)
                         } else {
                             print("where is our token to reset password")

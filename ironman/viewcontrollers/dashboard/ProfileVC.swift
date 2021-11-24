@@ -192,7 +192,7 @@ class ProfileVC: UIViewController {
         imageView.layer.shadowOpacity = 0.4
         imageView.layer.shadowRadius = 20
         imageView.layer.masksToBounds = true
-        imageView.clipsToBounds = false
+        imageView.clipsToBounds = true
         return imageView
     }()
     
