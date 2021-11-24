@@ -90,6 +90,37 @@ struct Networking {
     
     
     
+    
+    func callMultipart(api : String, parameterName: String, myData: Data?, completion: @escaping (ResponseModel?) -> ()) {
+        
+        let url = AppConst.BASE_URL + api
+        let headers: HTTPHeaders = getMultipartHeaders() as! HTTPHeaders
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            
+            if let data = myData{
+                multipartFormData.append(data, withName: parameterName, fileName: "image", mimeType: "image/*")
+            }
+            
+        }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
+            switch result{
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print(response)
+                    completion(ResponseModel.init(code: 200, body: response.result.value as! NSDictionary))
+                }
+                break
+            case .failure(let error):
+                print(error)
+                Toast(text: "Something went wrong").show()
+                completion(ResponseModel.init(code: 0, body: [:], message: "Something went wrong"))
+            }
+        }
+    }
+    
+    
+    
+    
     func callMutipartMultipleFilesWithParameters(api: String, method: HTTPMethod, imageDatas: [Data], dataKey: String, parameters: [String:Any], completion: @escaping (ResponseModel?) -> ()) {
         let url = AppConst.BASE_URL + api
         let headers: HTTPHeaders = getMultipartHeaders() as! HTTPHeaders

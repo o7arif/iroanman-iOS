@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import Toaster
 
 class ProfilePhotoUploadVC: BaseVC {
     
     private let wrapperView = UIView()
     
+    private var imagePicker: ImagePicker!
+    private var tempImage: UIImage?
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker = ImagePicker(presentationController: self, delegate: self)
         setupViews()
     }
     
@@ -50,6 +56,7 @@ class ProfilePhotoUploadVC: BaseVC {
         wrapperView.addSubview(ivUserProfile)
         ivUserProfile.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
+            make.height.width.equalTo(100)
         }
         
         wrapperView.addSubview(ivCamera)
@@ -75,12 +82,11 @@ class ProfilePhotoUploadVC: BaseVC {
         ElNavigato.instance.replaceWIndowByViewController(viewController: TabNavigationVC())
     }
     
-    @objc private func cameraTapped(_ sender: Any) {
-        print("camera tapped")
+    @objc private func cameraTapped(_ sender: UIView) {
+        imagePicker.present(from: sender)
     }
     
     @objc private func confirmTapped(_ sender: Any) {
-        self.navigationController?.pushViewController(CongratulationVC(), animated: true)
     }
     
     
@@ -174,4 +180,61 @@ class ProfilePhotoUploadVC: BaseVC {
         button.addTarget(self, action: #selector(confirmTapped(_:)), for: .touchUpInside)
         return button
     }()
+}
+
+
+
+
+
+// MARK: IMAGE PICKER DELEGATE
+
+extension ProfilePhotoUploadVC: ImagePickerDelegate {
+    // image picker selected photo listener
+    func didSelect(image: UIImage?) {
+        if image == nil {
+            return
+        }
+        
+        let tempImage = image!.resized(to: CGSize(width: 512, height: 512))
+        self.tempImage = tempImage
+        self.ivUserProfile.image = tempImage
+    }
+    
+    private func gotoNextView() {
+        self.navigationController?.pushViewController(CongratulationVC(), animated: true)
+    }
+}
+
+
+
+
+
+// MARK: API CALLING
+
+extension ProfilePhotoUploadVC {
+    
+    private func submitRequest() {
+        if tempImage == nil {
+            Toast(text: "Select photo first").show()
+            return
+        }
+        
+        guard let data = tempImage?.jpegData(compressionQuality: 1.0) else {
+            Toast(text: "Something went wrong during Photo fetching from gallery").show()
+            return
+        }
+        
+        Networking.instance.callMultipart(api: "users/profile-photo/update", parameterName: "profile_photo", myData: data) { (responseModel) in
+            if(responseModel?.code == 200){
+                let data = responseModel?.body["data"] as? NSDictionary ?? [:]
+                let src = data["src"] as? String
+                if let user = CacheData.instance.getLoggedUser() {
+                    user.profilePhoto = src ?? ""
+                    CacheData.instance.saveLoggedUser(user: user)
+                }
+                self.gotoNextView()
+            }
+        }
+    }
+    
 }
