@@ -103,6 +103,9 @@
 		80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541526BDA8A600149164 /* TabNavigationVC.swift */; };
 		80F0541826BDA96100149164 /* DeviceInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541726BDA96100149164 /* DeviceInfoHelper.swift */; };
 		80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0541926BDAD5300149164 /* ProfileVC.swift */; };
+		80FB3FAE274EBD5800AB5126 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB3FAD274EBD5800AB5126 /* Setting.swift */; };
+		80FB3FB0274EBEA300AB5126 /* OtpVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB3FAF274EBEA300AB5126 /* OtpVerifyVC.swift */; };
+		80FB3FB2274EC21F00AB5126 /* SmartOtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FB3FB1274EC21F00AB5126 /* SmartOtpView.swift */; };
 		80FBE620271B455D001C05E6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBE61F271B455D001C05E6 /* Service.swift */; };
 		80FBE627271B4EB9001C05E6 /* Variant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBE626271B4EB9001C05E6 /* Variant.swift */; };
 		80FBE62E271B626C001C05E6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FBE62D271B626C001C05E6 /* Product.swift */; };
@@ -209,6 +212,9 @@
 		80F0541526BDA8A600149164 /* TabNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationVC.swift; sourceTree = "<group>"; };
 		80F0541726BDA96100149164 /* DeviceInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoHelper.swift; sourceTree = "<group>"; };
 		80F0541926BDAD5300149164 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		80FB3FAD274EBD5800AB5126 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		80FB3FAF274EBEA300AB5126 /* OtpVerifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVerifyVC.swift; sourceTree = "<group>"; };
+		80FB3FB1274EC21F00AB5126 /* SmartOtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartOtpView.swift; sourceTree = "<group>"; };
 		80FBE61F271B455D001C05E6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		80FBE626271B4EB9001C05E6 /* Variant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variant.swift; sourceTree = "<group>"; };
 		80FBE62D271B626C001C05E6 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -254,6 +260,7 @@
 				80D3772D26BFE69800FD3D01 /* NewPasswordVC.swift */,
 				80D3772F26BFE86C00FD3D01 /* ProfilePhotoUploadVC.swift */,
 				80D3773126BFECB600FD3D01 /* CongratulationVC.swift */,
+				80FB3FAF274EBEA300AB5126 /* OtpVerifyVC.swift */,
 			);
 			path = "auth ";
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 				803CE01326C7E794007807E0 /* SmartDownPicker.swift */,
 				8018A714274D7D180032E93B /* ImagePicker.swift */,
 				8018A716274D7D5E0032E93B /* SmartPermission.swift */,
+				80FB3FB1274EC21F00AB5126 /* SmartOtpView.swift */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 				80B67E7826EA8C8F001C6FC6 /* OrderStep.swift */,
 				80A12E62273B03D5007131CE /* ResponseModel.swift */,
 				80A12E64273B0405007131CE /* ErrorModel.swift */,
+				80FB3FAD274EBD5800AB5126 /* Setting.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -719,6 +728,7 @@
 				80BF134B26F3B75700089D2E /* ShippingAndPaymentVC.swift in Sources */,
 				8017149526C0448C00FD9CE7 /* CacheData.swift in Sources */,
 				80F0541626BDA8A600149164 /* TabNavigationVC.swift in Sources */,
+				80FB3FB0274EBEA300AB5126 /* OtpVerifyVC.swift in Sources */,
 				80FBE620271B455D001C05E6 /* Service.swift in Sources */,
 				808FEC2E26D813510097DA61 /* ChooseItemVC.swift in Sources */,
 				8018A719274D7FAB0032E93B /* UIImage.swift in Sources */,
@@ -740,6 +750,7 @@
 				8080E79A26B06E6F00818768 /* NotificationVC.swift in Sources */,
 				803CE01426C7E794007807E0 /* SmartDownPicker.swift in Sources */,
 				80D3772A26BFE1D500FD3D01 /* SignupVC.swift in Sources */,
+				80FB3FB2274EC21F00AB5126 /* SmartOtpView.swift in Sources */,
 				809BA84E269C8DCE005B51F7 /* UIWindow.swift in Sources */,
 				80204D6E26F65FC800493104 /* Date.swift in Sources */,
 				273EE13926BB098000753E2A /* AppConst.swift in Sources */,
@@ -769,6 +780,7 @@
 				80A90B1B2741797000A65625 /* Order.swift in Sources */,
 				80A12E61273B01DF007131CE /* APIManager.swift in Sources */,
 				809BA855269C94EE005B51F7 /* NavigationController.swift in Sources */,
+				80FB3FAE274EBD5800AB5126 /* Setting.swift in Sources */,
 				80D3772E26BFE69800FD3D01 /* NewPasswordVC.swift in Sources */,
 				80F0541A26BDAD5300149164 /* ProfileVC.swift in Sources */,
 				803CE01C26C81294007807E0 /* OrderConfirmationVC.swift in Sources */,
