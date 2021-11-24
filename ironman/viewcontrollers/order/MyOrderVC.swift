@@ -154,6 +154,7 @@ extension MyOrderVC: OrderDelegate {
     
     func onFeedbackTapped(order: Order) {
         let vc = OrderFeedbackVC()
+        vc.orderId = order.id
         self.present(vc, animated: true, completion: nil)
     }
     

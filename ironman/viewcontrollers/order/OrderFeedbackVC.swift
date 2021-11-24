@@ -7,11 +7,13 @@
 
 import UIKit
 import Cosmos
+import Toaster
 
 class OrderFeedbackVC: UIViewController {
     
-    private var tvComment = NotesTextView()
+    var orderId = -1
     
+    private var tvComment = NotesTextView()
     private let container = UIView()
     
     override func viewDidLoad() {
@@ -74,8 +76,8 @@ class OrderFeedbackVC: UIViewController {
     // MARK: CLICK ACTIONS
     
     @objc private func submitTapped(_ sender: Any) {
-        print("submit tapped")
-        dismiss(animated: true, completion: nil)
+        submitRequest()
+//        dismiss(animated: true, completion: nil)
     }
     
     
@@ -134,5 +136,33 @@ class OrderFeedbackVC: UIViewController {
         button.addTarget(self, action: #selector(submitTapped(_:)), for: .touchUpInside)
         return button
     }()
+    
+}
+
+
+
+
+// MARK: API CALLING
+
+extension OrderFeedbackVC {
+    
+    private func submitRequest() {
+        let params = [
+            "order_id": orderId,
+            "rating": ratingView.rating,
+            "content": tvComment.text ?? ""
+        ] as [String:Any]
+        
+        Networking.instance.call(api: "ratings", method: .post, parameters: params) { (responseModel) in
+            if responseModel.code == 200 {
+                Toast(text: "Thanks for your feedback").show()
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+    }
     
 }
