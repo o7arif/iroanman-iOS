@@ -29,6 +29,13 @@ class OtpVerifyVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        //start timer
+        self.countTimer = Timer.scheduledTimer(timeInterval: 1 ,
+                                               target: self,
+                                               selector: #selector(self.changeTitle),
+                                               userInfo: nil,
+                                               repeats: true)
     }
     
     private func setupViews() {
@@ -71,6 +78,26 @@ class OtpVerifyVC: BaseVC {
             make.height.equalTo(50)
         }
         
+        let resendCodeView = UIView()
+        container.addSubview(resendCodeView)
+        resendCodeView.snp.makeConstraints { make in
+            make.top.equalTo(OTPField.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(40)
+        }
+
+        resendCodeView.addSubview(labelOtpWillSendIn)
+        labelOtpWillSendIn.text = "Resend code in xx sec"
+        labelOtpWillSendIn.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        resendCodeView.addSubview(labelResend)
+        labelResend.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        labelResend.isHidden = true
+        
         container.addSubview(btnSubmit)
         btnSubmit.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(30)
@@ -87,6 +114,22 @@ class OtpVerifyVC: BaseVC {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @objc private func changeTitle() {
+        if counter != 0 {
+            labelOtpWillSendIn.text = "Resend code in \(counter)s"
+            counter -= 1
+        } else {
+            countTimer.invalidate()
+            labelResend.isHidden = false
+            labelOtpWillSendIn.isHidden = true
+        }
+        
+    }
+    
+    @objc private func resentOtpTapped(_ sender: Any) {
+        resendOtp(contact: number)
+    }
+    
     @objc private func submitTapped(_ sender: Any) {
         
         guard let enteredOtp = Int(OTPField.text) else {
@@ -95,6 +138,31 @@ class OtpVerifyVC: BaseVC {
         
         verifyOTP(contact: number, otpCode: enteredOtp)
     }
+    
+    
+    
+    
+    // MARK: TIMER SETUP AND FUNCTIONALITY
+    
+    private func initResendCodeTimer() {
+        labelResend.isHidden = true
+        pulse()
+        bidTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(pulse), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func pulse() {
+        countDown -= 1
+        if (countDown >= 0) {
+            labelOtpWillSendIn.text = "Re-send code in 00:\(String(format: "%02d", countDown))"
+            labelOtpWillSendIn.addCharacterSpacing(kernValue: 0.8)
+        } else if (countDown == -1) {
+            bidTimer?.invalidate()
+            countDown = 60
+            labelResend.isHidden = false
+        }
+    }
+    
+    
     
     
     // MARK: ATTRIBUTE INITIALIZATION
@@ -173,6 +241,9 @@ class OtpVerifyVC: BaseVC {
         label.textAlignment = .right
         label.textColor = .color(fromHexString: "FF4141")
         label.text = "Resend"
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(resentOtpTapped(_:)))
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -214,6 +285,7 @@ extension OtpVerifyVC {
                 DispatchQueue.main.async() {
                     if let message = responseModel.body["message"] as? String{
                         Toast(text: message).show()
+                        self?.initResendCodeTimer()
                     }
                     if let dictionary = responseModel.body["data"] as? NSDictionary {
                         print("Q#_: get otp -> data dictionary = \(dictionary)")
