@@ -82,7 +82,7 @@ class OtpVerifyVC: BaseVC {
         container.addSubview(resendCodeView)
         resendCodeView.snp.makeConstraints { make in
             make.top.equalTo(OTPField.snp.bottom).offset(20)
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(40)
             make.height.equalTo(40)
         }
 
@@ -234,7 +234,7 @@ class OtpVerifyVC: BaseVC {
         return label
     }()
     
-    private let labelResend: UILabel = {
+    private lazy var labelResend: UILabel = {
         let label = UILabel()
         label.font = OpenSans.bold.of(size: 14)
         label.numberOfLines = 1

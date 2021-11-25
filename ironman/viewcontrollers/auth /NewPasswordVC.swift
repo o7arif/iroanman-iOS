@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toaster
 
 class NewPasswordVC: BaseVC {
     
@@ -83,8 +84,9 @@ class NewPasswordVC: BaseVC {
     }
     
     @objc private func confirmTapped(_ sender: Any) {
-        // TODO: clear all viewcontroller except welcome vc from stack and then redirect to login vc
-        self.navigationController?.pushViewController(LoginVC(), animated: true)
+        if isValid() {
+            submitRequest()
+        }
     }
     
     
@@ -153,4 +155,68 @@ class NewPasswordVC: BaseVC {
         button.addTarget(self, action: #selector(confirmTapped(_:)), for: .touchUpInside)
         return button
     }()
+}
+
+
+
+
+// MARK: VALIDATION & API CALLING
+
+extension NewPasswordVC {
+    
+    private func isValid() -> Bool {
+        let isPasswordValid = passwordField?.isValid() ?? false
+        
+        if !isPasswordValid {
+            return false
+        }
+        
+        let password = passwordField?.textField.text ?? ""
+        let confirmPassword = confirmPasswordField?.textField.text ?? ""
+        
+        if password != confirmPassword {
+            confirmPasswordField?.setCustomErrorMessage(message: "Password did not match")
+            return false
+        }
+        
+        return true
+    }
+    
+    private func submitRequest() {
+        let api = "reset-password"
+        
+        let params = [
+            "token": token ?? "",
+            "password": passwordField?.textField.text ?? "",
+            "password_confirmation": confirmPasswordField?.textField.text ?? ""
+        ] as [String: Any]
+        
+        Networking.instance.call(api: api, method: .post, parameters: params) { [weak self] (responseModel) in
+            if (responseModel.code == 200) {
+                let message = responseModel.body["message"] as? String
+                DispatchQueue.main.async() {
+                    let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                        switch action.style {
+                        case .default:
+                            let vc = LoginVC()
+                            self?.navigationController?.pushViewController(vc, animated: true)
+                        case .cancel:
+                            break
+                        case .destructive:
+                            break
+                        @unknown default:
+                            break
+                        }
+                    }))
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                if let message = responseModel.body["message"] as? String {
+                    Toast(text: message).show()
+                }
+            }
+        }
+    }
+    
 }

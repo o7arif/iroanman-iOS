@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ForgotPasswordVC: BaseVC {
     
@@ -73,7 +74,9 @@ class ForgotPasswordVC: BaseVC {
     }
     
     @objc private func sendOtpTapped(_ sender: Any) {
-        self.navigationController?.pushViewController(NewPasswordVC(), animated: true)
+        if isValid() {
+            forgotPassword(contact: phoneField?.textField.text ?? "")
+        }
     }
     
     
@@ -142,4 +145,40 @@ class ForgotPasswordVC: BaseVC {
         button.addTarget(self, action: #selector(sendOtpTapped(_:)), for: .touchUpInside)
         return button
     }()
+}
+
+
+
+
+// MARK: VALIDATION & API CALLING
+
+extension ForgotPasswordVC {
+    
+    private func isValid() -> Bool {
+        let isPhoneValid = phoneField?.isValid() ?? false
+        if isPhoneValid {
+            return true
+        }
+        return false
+    }
+    
+    private func forgotPassword(contact: String) {
+        let api = "forgot-password"
+        
+        Networking.instance.call(api: api, method: .post, parameters: ["mobile": contact] as [String:AnyObject]) { [weak self] (responseModel) in
+            if (responseModel.code == 200) {
+                DispatchQueue.main.async() {
+                    let vc = OtpVerifyVC()
+                    vc.otpSource = .forgot
+                    vc.number = contact
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else {
+                if let message = responseModel.body["message"] as? String {
+                    Toast(text: message).show()
+                }
+            }
+        }
+    }
+    
 }
