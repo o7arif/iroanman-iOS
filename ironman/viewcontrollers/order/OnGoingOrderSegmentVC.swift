@@ -18,6 +18,10 @@ class OnGoingOrderSegmentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchPendingOrders()
     }
     
