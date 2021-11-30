@@ -205,7 +205,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
     @objc private func checkoutTapped(_ sender: Any) {
         let selectedProducts = getSelectedProducs()
         if selectedProducts.count > 0 {
-            let vc = MyCartVC()
+            let vc = ShippingAndPaymentVC()
             vc.selectedProducts = selectedProducts
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

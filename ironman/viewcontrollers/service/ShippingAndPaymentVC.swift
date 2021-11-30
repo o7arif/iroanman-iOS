@@ -250,7 +250,11 @@ class ShippingAndPaymentVC: BaseVC {
     
     @objc private func placeOrderTapped(_ sender: Any) {
         if isAllValid() {
-            submitOrderRequest()
+            let vc = MyCartVC()
+            vc.selectedProducts = selectedProducts
+            vc.address = address
+            vc.date = datePicker!.date.serverDate()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -418,52 +422,6 @@ extension ShippingAndPaymentVC: AddressDialogDelegate {
         
         return true
 
-    }
-    
-}
-
-
-
-
-extension ShippingAndPaymentVC {
-    
-    private func submitOrderRequest() {
-        
-        var parameters = [
-            "pick_at": datePicker!.date.serverDate(),
-            "address_id": address!.id
-        ] as [String: Any]
-        
-        
-        for i in 0 ..< selectedProducts.count {
-            parameters["products[\(i)][id]"] = selectedProducts[i].id
-            parameters["products[\(i)][quantity]"] = selectedProducts[i].count
-        }
-        
-        Networking.instance.call(api: "orders", method: .post, parameters: parameters) { (responseModel) in
-            if(responseModel.code == 200) {
-                
-                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
-                    return
-                }
-                
-                guard let dictionary = dataDictionary["order"] as? Dictionary<String, Any> else {
-                    return
-                }
-                
-                let order = Order.init(fromDictionary: dictionary)
-                
-                DispatchQueue.main.async {
-                    let vc = OrderConfirmationVC()
-                    vc.orderNo = order.orderCode
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                
-            } else {
-                Toast(text: responseModel.message ?? "Something went wrong. Try again later.").show()
-            }
-        }
-        
     }
     
 }

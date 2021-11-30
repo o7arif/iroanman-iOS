@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import Toaster
 
 class MyCartVC: BaseVC {
     
     var selectedProducts = [Product]()
+    var address: Address?
+    var date: String = ""
     
     private let scrollWrapper = UIView()
-    private let minHeight = 510
+    private let minHeight = 638
     private let cellHeight = 76
     private var deliveryCharge = 15.25
     
@@ -23,6 +26,7 @@ class MyCartVC: BaseVC {
         print("Selected Products: \(selectedProducts.count)")
         setupViews()
         calculatePrice()
+        setupData()
     }
     
     private func setupViews() {
@@ -179,10 +183,61 @@ class MyCartVC: BaseVC {
             make.edges.equalToSuperview()
         }
         
+        
+        // address
+        
+        let pickView = UIView()
+        wrapperView.addSubview(pickView)
+        pickView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
+            make.top.equalToSuperview().inset(20)
+        }
+        
+        
+        pickView.addSubview(labelPickFrom)
+        labelPickFrom.snp.makeConstraints { make in
+            make.left.top.equalToSuperview()
+        }
+        
+        let addressView = UIView()
+        addressView.layer.borderColor = UIColor.textGrey.cgColor
+        addressView.layer.borderWidth = 1
+        addressView.layer.cornerRadius = 10
+        pickView.addSubview(addressView)
+        addressView.snp.makeConstraints { make in
+            make.top.equalTo(labelPickFrom.snp.bottom).offset(20)
+            make.left.right.bottom.equalToSuperview()
+        }
+        
+        addressView.addSubview(ivAddressPin)
+        ivAddressPin.snp.makeConstraints { make in
+            make.left.top.bottom.equalToSuperview()
+        }
+        
+        addressView.addSubview(labelAddressName)
+        labelAddressName.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.left.equalToSuperview().inset(100)
+            make.right.equalToSuperview().inset(50)
+        }
+        
+        addressView.addSubview(labelAddressDetails)
+        labelAddressDetails.snp.makeConstraints { make in
+            make.top.equalTo(labelAddressName.snp.bottom).offset(4)
+            make.left.equalToSuperview().inset(100)
+            make.right.equalToSuperview().inset(50)
+            make.bottom.equalToSuperview().inset(10)
+        }
+        
+        
+        
+        
+        // items
+        
         wrapperView.addSubview(labelItems)
         labelItems.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
-            make.top.equalToSuperview().inset(20)
+            make.top.equalTo(pickView.snp.bottom).offset(20)
         }
         
         wrapperView.addSubview(tableView)
@@ -319,6 +374,14 @@ class MyCartVC: BaseVC {
     }
     
     
+    
+    
+    private func setupData() {
+        labelAddressName.text = address?.addressName
+        labelAddressDetails.text = address?.getAddressString()
+    }
+    
+    
     // MARK: CLICK ACTIONS
     
     @objc private func backTapped(_ sender: Any) {
@@ -334,9 +397,9 @@ class MyCartVC: BaseVC {
     }
     
     @objc private func checkoutTapped(_ sender: Any) {
-        let vc = ShippingAndPaymentVC()
-        vc.selectedProducts = self.selectedProducts
-        self.navigationController?.pushViewController(vc, animated: true)
+        if selectedProducts.count > 0 {
+            submitOrderRequest()
+        }
     }
     
     
@@ -428,6 +491,43 @@ class MyCartVC: BaseVC {
     
     
     // cart with items
+    
+    private let labelPickFrom: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 20)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Pick from"
+        return label
+    }()
+    
+    private lazy var ivAddressPin: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "ic_address_card")
+        return imageView
+    }()
+    
+    private let labelAddressName: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.bold.of(size: 18)
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Home"
+        return label
+    }()
+    
+    private let labelAddressDetails: UILabel = {
+        let label = UILabel()
+        label.font = OpenSans.regular.of(size: 14)
+        label.numberOfLines = 2
+        label.textAlignment = .left
+        label.textColor = .textBlack
+        label.text = "Kollyanpur, Mizan Tower, 5/3"
+        return label
+    }()
     
     private let labelItems: UILabel = {
         let label = UILabel()
@@ -723,4 +823,51 @@ extension MyCartVC: UITableViewDelegate, UITableViewDataSource, CartItemSelectio
     }
     
 }
+
+
+
+
+extension MyCartVC {
+    
+    private func submitOrderRequest() {
+        
+        var parameters = [
+            "pick_at": date,
+            "address_id": address!.id
+        ] as [String: Any]
+        
+        
+        for i in 0 ..< selectedProducts.count {
+            parameters["products[\(i)][id]"] = selectedProducts[i].id
+            parameters["products[\(i)][quantity]"] = selectedProducts[i].count
+        }
+        
+        Networking.instance.call(api: "orders", method: .post, parameters: parameters) { (responseModel) in
+            if(responseModel.code == 200) {
+                
+                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                guard let dictionary = dataDictionary["order"] as? Dictionary<String, Any> else {
+                    return
+                }
+                
+                let order = Order.init(fromDictionary: dictionary)
+                
+                DispatchQueue.main.async {
+                    let vc = OrderConfirmationVC()
+                    vc.orderNo = order.orderCode
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            } else {
+                Toast(text: responseModel.message ?? "Something went wrong. Try again later.").show()
+            }
+        }
+        
+    }
+    
+}
+
 
