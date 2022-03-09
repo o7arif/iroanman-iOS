@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  ironman
+
+  Created by Md Nazmul Haque Arif on 3/9/22.
+  
+*/
+
+// label
+"label.getStuffWashed" = "স্টাফ ধুয়ে নিন";
+"label.premiumWashing" = "প্রিমিয়াম ওয়াশিং";
+"label.dryCleaning" = "শুকনো ভাবে পরিষ্কার করা";
+
+// hint
+
+// placeholder
+
+// button
+"button.letsGetStarted" = "চল শুরু করি";
+
+// message
+"message.readyToMakeYourLifeEasier" = "লন্ড্রি পরিষেবা দিয়ে আপনার জীবন সহজ করতে প্রস্তুত?";

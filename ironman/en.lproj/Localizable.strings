@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  ironman
+
+  Created by Md Nazmul Haque Arif on 3/9/22.
+  
+*/
+
+// label
+"label.getStuffWashed" = "Get Stuff Washed";
+"label.premiumWashing" = "Premium Washing";
+"label.dryCleaning" = "Dry Cleaning";
+
+// hint
+
+// placeholder
+
+// button
+"button.letsGetStarted" = "Let's Get Started";
+
+// message
+"message.readyToMakeYourLifeEasier" = "Ready to Make Your Life Easier with Laundry Service?";

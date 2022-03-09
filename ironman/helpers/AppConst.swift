@@ -14,6 +14,7 @@ struct AppConst {
     
     //MARK: UAT SERVER URL
     static let BASE_URL = "http://ironmanadmin.razinsoft.com/api/"
+    static let BASE_URL_IMAGE = "http://ironmanadmin.razinsoft.com/api"
 
 
 
