@@ -13,7 +13,6 @@ import Alamofire
 class HomeVC: UIViewController & ServiceTapListener {
     
     private let container = UIView()
-    private var pageControl: AdvancedPageControlView = AdvancedPageControlView(frame: .zero)
     
     private var banners = [Banner]()
     private var services = [Service]()
@@ -89,29 +88,11 @@ class HomeVC: UIViewController & ServiceTapListener {
             make.left.right.equalToSuperview()
             make.height.equalTo(175)
         }
-        
-        
-        // page indicator
-        pageControl.drawer = ThinWormDrawer(numberOfPages: 5,
-                                            space: 16.0,
-                                            indicatorColor: .primary,
-                                            dotsColor: .primary,
-                                            isBordered: false,
-                                            borderWidth: 0.0,
-                                            indicatorBorderColor: .clear,
-                                            indicatorBorderWidth: 0.0)
-        container.addSubview(pageControl)
-        pageControl.snp.makeConstraints { make in
-            make.top.equalTo(cvBanner.snp.bottom)
-            make.left.right.equalToSuperview()
-        }
 
-        
         // services
-        
         container.addSubview(labelService)
         labelService.snp.makeConstraints { make in
-            make.top.equalTo(pageControl.snp.bottom).offset(50)
+            make.top.equalTo(cvBanner.snp.bottom).offset(50)
             make.left.right.equalToSuperview().inset(20)
         }
         
@@ -329,13 +310,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         return UICollectionViewCell()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        
-        pageControl.setPageOffset(offSet / width)
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == cvBanner {
             handleBannerTap()

@@ -13,7 +13,7 @@ import Toaster
 class ChooseItemVC: BaseVC, SearchItemDelegate {
     
     var service: Service?
-    private var sc = Segmentio()
+    private var variantTab = Segmentio()
     private var segmentItems = [Variant]()
     private var products = [Product]()
     
@@ -76,8 +76,8 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
             make.right.equalTo(searchCartContainer.snp.left)
         }
         
-        container.addSubview(sc)
-        sc.snp.makeConstraints { make in
+        container.addSubview(variantTab)
+        variantTab.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom)
             make.height.equalTo(45)
@@ -126,7 +126,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         tableView.delegate = self
         tableView.register(ItemTVCell.self, forCellReuseIdentifier: ItemTVCell.identifier)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(sc.snp.bottom).offset(20)
+            make.top.equalTo(variantTab.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(20)
             make.bottom.equalTo(bottomView.snp.top).offset(-20)
         }
@@ -146,34 +146,39 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         // segment states
         let scStates = SegmentioStates(
             defaultState: SegmentioState(
-                backgroundColor: .clear,
+                backgroundColor: .white,
                 titleFont: OpenSans.regular.of(size: AppConst.fontSize14),
                 titleTextColor: .textGrey
             ),
             selectedState: SegmentioState(
                 backgroundColor: .segmentColor,
                 titleFont: OpenSans.bold.of(size: AppConst.fontSize14),
-                titleTextColor: .segmentColor   // this should be white
+                titleTextColor: .white   // this should be white
             ),
             highlightedState: SegmentioState(
                 backgroundColor: .segmentColor,
                 titleFont: OpenSans.bold.of(size: AppConst.fontSize14),
                 titleTextColor: .white
             )
+            
+
         )
         
         
         // segment options
         let scOptions = SegmentioOptions(backgroundColor: .white, segmentPosition: .dynamic, scrollEnabled: true, indicatorOptions: indicatorOptions, horizontalSeparatorOptions: nil, verticalSeparatorOptions: nil, imageContentMode: .scaleAspectFit, labelTextAlignment: .center, labelTextNumberOfLines: 1, segmentStates: scStates, animationDuration: .zero)
         
-        sc.setup(content: scItems, style: .onlyLabel, options: scOptions)
-        sc.selectedSegmentioIndex = 0
+        variantTab.setup(content: scItems, style: .onlyLabel, options: scOptions)
+//        variantTab.selectedSegmentioIndex = 0
         
-        sc.valueDidChange = { segmentio, segmentIndex in
+        variantTab.valueDidChange = { segmentio, segmentIndex in
             print("\(self.segmentItems[segmentIndex]) clicked")
             let variant = self.segmentItems[segmentIndex]
             self.fetchProducts(serviceId: self.service?.id, variantId: variant.id)
         }
+        
+        variantTab.selectedSegmentioIndex = 0
+
         
     }
     

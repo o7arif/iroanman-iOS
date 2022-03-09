@@ -37,7 +37,7 @@ class ServiceCVCell: UICollectionViewCell {
         ivService.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
             make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(80)
+            make.height.equalTo(100)
         }
         
         cardView.addSubview(labelService)
