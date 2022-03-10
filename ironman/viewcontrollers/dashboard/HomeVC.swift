@@ -62,14 +62,12 @@ class HomeVC: UIViewController & ServiceTapListener {
         profileContainer.addSubview(labelName)
         labelName.snp.makeConstraints { make in
             make.left.equalTo(ivProfile.snp.right).offset(20)
-            //            make.right.equalTo(ivCart.snp.left).offset(-20)
             make.top.equalToSuperview()
         }
         
         profileContainer.addSubview(labelAddress)
         labelAddress.snp.makeConstraints { make in
             make.left.equalTo(ivProfile.snp.right).offset(20)
-            //            make.right.equalTo(ivCart.snp.left).offset(-20)
             make.bottom.equalToSuperview()
         }
         
@@ -112,13 +110,13 @@ class HomeVC: UIViewController & ServiceTapListener {
     
     private func setupLoggedUserData() {
         guard let user = CacheData.instance.getLoggedUser() else {
-            labelName.text = "Guest User"
-            labelAddress.attributedText = ResourceUtil.makeUnderlineAndColoredText(string: "Tap here to Login", startIndex: "Tap here to ".count, length: "Login".count, color: .blue)
+            labelName.text = L10n.Label.guestUser
+            labelAddress.attributedText = ResourceUtil.makeUnderlineAndColoredText(string: L10n.Button.tapHereToLogin, startIndex: "Tap here to ".count, length: "Login".count, color: .blue)
             return
         }
         
         labelName.text = user.name
-        labelAddress.text = "Unknown address"
+        labelAddress.text = L10n.Label.unknownAddress
         ivProfile.load(url: URL(string: user.profilePhoto)!)
     }
     
@@ -171,7 +169,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Guest User"
+        label.text = L10n.Label.guestUser
         return label
     }()
     
@@ -211,7 +209,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Promotions"
+        label.text = L10n.Label.promotions
         return label
     }()
     
@@ -246,7 +244,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Our Services"
+        label.text = L10n.Label.ourServices
         return label
     }()
     

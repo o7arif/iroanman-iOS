@@ -10,13 +10,25 @@
 "label.getStuffWashed" = "Get Stuff Washed";
 "label.premiumWashing" = "Premium Washing";
 "label.dryCleaning" = "Dry Cleaning";
+"label.guestUser" = "Guest User";
+"label.login" = "Login";
+"label.unknownAddress" = "Unknown address";
+"label.promotions" = "Promotions";
+"label.ourServices" = "Our Services";
+"label.emergencyService" = "Emergency Service";
+
 
 // hint
 
+
 // placeholder
+
 
 // button
 "button.letsGetStarted" = "Let's Get Started";
+"button.tapHereToLogin" = "Tap here to Login";
+"button.getService" = "Get Service";
+
 
 // message
 "message.readyToMakeYourLifeEasier" = "Ready to Make Your Life Easier with Laundry Service?";

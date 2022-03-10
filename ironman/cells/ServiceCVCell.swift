@@ -63,7 +63,7 @@ class ServiceCVCell: UICollectionViewCell {
         item = model
         labelService.text = model.name
         // uncomment later
-        ivService.load(url: URL(string: model.imagePath ?? "")!)
+        ivService.load(url: URL(string: model.imagePath)!)
     }
     
     
@@ -95,7 +95,7 @@ class ServiceCVCell: UICollectionViewCell {
         let label = UILabel()
         label.font = OpenSans.bold.of(size: 12)
         label.numberOfLines = 0
-        label.text = "Emergency Service"
+        label.text = L10n.Label.emergencyService
         label.textAlignment = .center
         label.textColor = .textBlack
         return label
@@ -103,7 +103,7 @@ class ServiceCVCell: UICollectionViewCell {
     
     private let btnGetService: UIView = {
         let button = UIButton()
-        button.setTitle("Get Service", for: .normal)
+        button.setTitle(L10n.Button.getService, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
