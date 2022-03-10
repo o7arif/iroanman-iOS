@@ -10,7 +10,7 @@ import SnapKit
 import AdvancedPageControl
 import Alamofire
 
-class HomeVC: UIViewController & ServiceTapListener {
+class HomeVC: UIViewController /*& ServiceTapListener*/ {
     
     private let container = UIView()
     
@@ -98,7 +98,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         cvService.snp.makeConstraints { make in
             make.top.equalTo(labelService.snp.bottom).offset(15)
             make.left.right.equalToSuperview()
-            make.height.equalTo(165)
+            make.height.equalTo(245)
         }
         
     }
@@ -252,7 +252,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        layout.itemSize = CGSize(width: 100, height: 160)
+        layout.itemSize = CGSize(width: 150, height: 240)
         layout.minimumLineSpacing = 20
         
         
@@ -298,7 +298,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
-            cell.listener = self
+//            cell.listener = self
             if services.count > indexPath.row {
                 cell.configure(with: services[indexPath.row])
             }
@@ -312,6 +312,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == cvBanner {
             handleBannerTap()
+        } else if collectionView == cvService {
+            let service = services[indexPath.row]
+            serviceTapped(item: service)
         }
     }
     
@@ -320,7 +323,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
     }
     
-    func serviceTapped(item: Service) {
+    private func serviceTapped(item: Service) {
         let vc = ChooseItemVC()
         vc.service = item
         self.navigationController?.pushViewController(vc, animated: true)
