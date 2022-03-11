@@ -16,6 +16,10 @@
 "label.promotions" = "প্রচার";
 "label.ourServices" = "আমাদের সেবাসমূহ";
 "label.emergencyService" = "জরুরী সেবা";
+"label.home" = "হোম";
+"label.myOrder" = "আমার অর্ডার";
+"label.notification" = "নোটিফিকেশন";
+"label.profile" = "প্রোফাইল";
 
 
 // hint

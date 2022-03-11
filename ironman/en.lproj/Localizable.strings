@@ -16,6 +16,10 @@
 "label.promotions" = "Promotions";
 "label.ourServices" = "Our Services";
 "label.emergencyService" = "Emergency Service";
+"label.home" = "Home";
+"label.myOrder" = "My Order";
+"label.notification" = "Notification";
+"label.profile" = "Profile";
 
 
 // hint

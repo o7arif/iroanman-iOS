@@ -19,6 +19,10 @@ class L10n {
         static let promotions = NSLocalizedString("label.promotions", comment: "Promotions")
         static let ourServices = NSLocalizedString("label.ourServices", comment: "Our Services")
         static let emergencyService = NSLocalizedString("label.emergencyService", comment: "Emergency Service")
+        static let home = NSLocalizedString("label.home", comment: "Home")
+        static let myOrder = NSLocalizedString("label.myOrder", comment: "My Order")
+        static let notification = NSLocalizedString("label.notification", comment: "Notification")
+        static let profile = NSLocalizedString("label.profile", comment: "Profile")
     }
     
     

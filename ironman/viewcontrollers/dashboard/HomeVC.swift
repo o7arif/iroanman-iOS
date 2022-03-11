@@ -10,7 +10,7 @@ import SnapKit
 import AdvancedPageControl
 import Alamofire
 
-class HomeVC: UIViewController /*& ServiceTapListener*/ {
+class HomeVC: UIViewController {
     
     private let container = UIView()
     
@@ -298,7 +298,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
-//            cell.listener = self
             if services.count > indexPath.row {
                 cell.configure(with: services[indexPath.row])
             }
