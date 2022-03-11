@@ -25,6 +25,8 @@ class L10n {
         static let profile = NSLocalizedString("label.profile", comment: "Profile")
         static let notifications = NSLocalizedString("label.notifications", comment: "Notifications")
         static let yourNotificationIsEmpty = NSLocalizedString("label.yourNotificationIsEmpty", comment: "Your notification is Empty")
+        static let onGoing = NSLocalizedString("label.onGoing", comment: "On Going")
+        static let completed = NSLocalizedString("label.completed", comment: "Completed")
     }
     
     

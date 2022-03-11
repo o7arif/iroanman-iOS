@@ -22,6 +22,8 @@
 "label.profile" = "Profile";
 "label.notifications" = "Notifications";
 "label.yourNotificationIsEmpty" = "Your notification is Empty";
+"label.onGoing" = "On Going";
+"label.completed" = "Completed";
 
 
 // hint

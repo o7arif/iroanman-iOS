@@ -22,6 +22,8 @@
 "label.profile" = "প্রোফাইল";
 "label.notifications" = "নোটিফিকেশন";
 "label.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
+"label.onGoing" = "চলমান";
+"label.completed" = "সম্পন্ন";
 
 
 // hint
