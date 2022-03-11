@@ -20,6 +20,8 @@
 "label.myOrder" = "My Order";
 "label.notification" = "Notification";
 "label.profile" = "Profile";
+"label.notifications" = "Notifications";
+"label.yourNotificationIsEmpty" = "Your notification is Empty";
 
 
 // hint

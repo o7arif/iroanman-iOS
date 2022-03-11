@@ -23,6 +23,8 @@ class L10n {
         static let myOrder = NSLocalizedString("label.myOrder", comment: "My Order")
         static let notification = NSLocalizedString("label.notification", comment: "Notification")
         static let profile = NSLocalizedString("label.profile", comment: "Profile")
+        static let notifications = NSLocalizedString("label.notifications", comment: "Notifications")
+        static let yourNotificationIsEmpty = NSLocalizedString("label.yourNotificationIsEmpty", comment: "Your notification is Empty")
     }
     
     

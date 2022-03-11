@@ -20,6 +20,8 @@
 "label.myOrder" = "আমার অর্ডার";
 "label.notification" = "নোটিফিকেশন";
 "label.profile" = "প্রোফাইল";
+"label.notifications" = "নোটিফিকেশন";
+"label.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
 
 
 // hint
