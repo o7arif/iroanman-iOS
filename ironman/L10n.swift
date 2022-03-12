@@ -39,9 +39,9 @@ class L10n {
     
     
     class Placeholder {
-        static let writeUsYourValuableComments = NSLocalizedString("label.writeUsYourValuableComments", comment: "Write us your valuable comments....")
-        static let enterPhoneNumber = NSLocalizedString("label.enterPhoneNumber", comment: "Enter Phone Number")
-        static let enterYourPassword = NSLocalizedString("label.enterYourPassword", comment: "Enter your password")
+        static let writeUsYourValuableComments = NSLocalizedString("placeholder.writeUsYourValuableComments", comment: "Write us your valuable comments....")
+        static let enterPhoneNumber = NSLocalizedString("placeholder.enterPhoneNumber", comment: "Enter Phone Number")
+        static let enterYourPassword = NSLocalizedString("placeholder.enterYourPassword", comment: "Enter your password")
     }
     
     
