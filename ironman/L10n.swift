@@ -60,11 +60,11 @@ class L10n {
         static let yourNotificationIsEmpty = NSLocalizedString("message.yourNotificationIsEmpty", comment: "Your notification is Empty")
         static let yourOrderListIsEmpty = NSLocalizedString("message.yourOrderListIsEmpty", comment: "Your order list is Empty")
         static let yourOrderHasBeenConfirmed = NSLocalizedString("message.yourOrderHasBeenConfirmed", comment: "Your order has been Confirmed")
-        static let yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience = NSLocalizedString("button.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience", comment: "Your feedback will help us to improve the Laundry Service Experience.")
-        static let thanksForYourFeedback = NSLocalizedString("button.thanksForYourFeedback", comment: "Thanks for your feedback")
-        static let somethingWentWrongPleaseTryAgainLater = NSLocalizedString("button.somethingWentWrongPleaseTryAgainLater", comment: "Something went wrong. Please try again later.")
-        static let pleaseLoginToGetOurService = NSLocalizedString("button.pleaseLoginToGetOurService", comment: "Please login to get our Service")
-        static let dontHaveAnAccountSignUp = NSLocalizedString("button.dontHaveAnAccountSignUp", comment: "Don't have an Account? Sign up")
+        static let yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience = NSLocalizedString("message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience", comment: "Your feedback will help us to improve the Laundry Service Experience.")
+        static let thanksForYourFeedback = NSLocalizedString("message.thanksForYourFeedback", comment: "Thanks for your feedback")
+        static let somethingWentWrongPleaseTryAgainLater = NSLocalizedString("message.somethingWentWrongPleaseTryAgainLater", comment: "Something went wrong. Please try again later.")
+        static let pleaseLoginToGetOurService = NSLocalizedString("message.pleaseLoginToGetOurService", comment: "Please login to get our Service")
+        static let dontHaveAnAccountSignUp = NSLocalizedString("message.dontHaveAnAccountSignUp", comment: "Don't have an Account? Sign up")
     }
     
     
