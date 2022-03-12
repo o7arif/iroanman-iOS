@@ -39,8 +39,8 @@
 
 // placeholder
 "placeholder.writeUsYourValuableComments" = "Write us your valuable comments....";
-"placeholder.enterPhoneNumber" = "Enter Phone Number"
-"placeholder.enterYourPassword" = "Enter your password"
+"placeholder.enterPhoneNumber" = "Enter Phone Number";
+"placeholder.enterYourPassword" = "Enter your password";
 
 
 // button
@@ -49,7 +49,7 @@
 "button.getService" = "Get Service";
 "button.seeMyOrder" = "See My Order";
 "button.submit" = "Submit";
-"button.forgotPassword" = "Forgot password?"
+"button.forgotPassword" = "Forgot password?";
 
 
 // message
@@ -60,8 +60,8 @@
 "message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience" = "Your feedback will help us to improve the Laundry Service Experience.";
 "message.thanksForYourFeedback" = "Thanks for your feedback";
 "message.somethingWentWrongPleaseTryAgainLater" = "Something went wrong. Please try again later.";
-"message.pleaseLoginToGetOurService" = "Please login to get our Service"
-"message.dontHaveAnAccountSignUp" = "Don't have an Account? Sign up"
+"message.pleaseLoginToGetOurService" = "Please login to get our Service";
+"message.dontHaveAnAccountSignUp" = "Don't have an Account? Sign up";
 
 
 // formatted
