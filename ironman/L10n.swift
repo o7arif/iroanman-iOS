@@ -39,6 +39,7 @@ class L10n {
         static let letsGetStarted = NSLocalizedString("button.letsGetStarted", comment: "Let`s Get Started")
         static let tapHereToLogin = NSLocalizedString("button.tapHereToLogin", comment: "Tap here to Login")
         static let getService = NSLocalizedString("button.getService", comment: "Get Service")
+        static let seeMyOrder = NSLocalizedString("button.seeMyOrder", comment: "See My Order")
     }
     
     
@@ -46,6 +47,14 @@ class L10n {
         static let readyToMakeYourLifeEasier = NSLocalizedString("message.readyToMakeYourLifeEasier", comment: "Ready to Make Your Life Easier with Laundry Service?")
         static let yourNotificationIsEmpty = NSLocalizedString("message.yourNotificationIsEmpty", comment: "Your notification is Empty")
         static let yourOrderListIsEmpty = NSLocalizedString("message.yourOrderListIsEmpty", comment: "Your order list is Empty")
+        static let yourOrderHasBeenConfirmed = NSLocalizedString("message.yourOrderHasBeenConfirmed", comment: "Your order has been Confirmed")
+    }
+    
+    
+    class Formatted {
+        static func yourOrderIdNo(orderId: String) -> String {
+            return NSLocalizedString("fmt.yourOrderIdNo", comment: "Your Order ID No #") + orderId
+        }
     }
     
 }

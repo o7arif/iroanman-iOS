@@ -41,9 +41,15 @@
 "button.letsGetStarted" = "চল শুরু করি";
 "button.tapHereToLogin" = "লগইন করতে এখানে চাপুন";
 "button.getService" = "সেবা নিন";
+"button.seeMyOrder" = "আমার অর্ডার দেখুন";
 
 
 // message
 "message.readyToMakeYourLifeEasier" = "লন্ড্রি পরিষেবা দিয়ে আপনার জীবন সহজ করতে প্রস্তুত?";
 "message.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
 "message.yourOrderListIsEmpty" = "আপনার অর্ডার লিষ্ট খালি";
+"message.yourOrderHasBeenConfirmed" = "আপনার অর্ডার নিশ্চিত করা হয়েছে";
+
+
+// formatted
+"fmt.yourOrderIdNo" = "আপনার অর্ডার আইডি #";

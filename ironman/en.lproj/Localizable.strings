@@ -41,9 +41,15 @@
 "button.letsGetStarted" = "Let's Get Started";
 "button.tapHereToLogin" = "Tap here to Login";
 "button.getService" = "Get Service";
+"button.seeMyOrder" = "See My Order";
 
 
 // message
 "message.readyToMakeYourLifeEasier" = "Ready to Make Your Life Easier with Laundry Service?";
 "message.yourNotificationIsEmpty" = "Your notification is Empty";
 "message.yourOrderListIsEmpty" = "Your order list is Empty.";
+"message.yourOrderHasBeenConfirmed" = "Your order has been Confirmed";
+
+
+// formatted
+"fmt.yourOrderIdNo" = "Your Order ID #";

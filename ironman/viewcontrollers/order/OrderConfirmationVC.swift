@@ -16,7 +16,7 @@ class OrderConfirmationVC: BaseVC {
     override func viewDidLoad() {
         setupViews()
         
-        labelOrderNo.text = "Your Order ID #\(orderNo)"
+        labelOrderNo.text = L10n.Formatted.yourOrderIdNo(orderId: orderNo)
     }
     
     private func setupViews() {
@@ -78,7 +78,7 @@ class OrderConfirmationVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Your order has been Confirmed"
+        label.text = L10n.Message.yourOrderHasBeenConfirmed
         return label
     }()
     
@@ -94,7 +94,7 @@ class OrderConfirmationVC: BaseVC {
     
     private let btnSeeMyOrder: UIView = {
         let button = UIButton()
-        button.setTitle("See My Order", for: .normal)
+        button.setTitle(L10n.Button.seeMyOrder, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
