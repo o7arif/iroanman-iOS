@@ -72,6 +72,20 @@
 "message.AlreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
 
 
+// error
+"error.invalidEmailAddress" = "অবৈধ ইমেইল ঠিকানা";
+"error.atLeast6CharacterLong" = "কমপক্ষে 6 অক্ষর হতে হবে";
+"error.invalidMobileNumber" = "অবৈধ মোবাইল নম্বর";
+"error.invalidNumber" = "অবৈধ নম্বর";
+"error.notDefined" = "সংজ্ঞায়িত নয়";
+"error.pleaseEnterCorrectInformation" = "সঠিক তথ্য লিখুন";
+"error.toolTipCustomStringShouldntBeEmptyHere" = "টুলটিপ কাস্টম স্ট্রিং এখানে খালি থাকা উচিত নয়";
+
+
 // formatted
 "fmt.yourOrderId%@" = "আপনার অর্ডার আইডি #%@";
 "fmt.orderId%@" = "অর্ডার আইডি #%@";
+"fmt.isEmpty" = "%@ খালি";
+"fmt.mustBeBetweenTo" = "Must be between: %@ to %@";
+"fmt.mustBeDigits" = "Must be %@ digits";
+"fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";

@@ -271,36 +271,36 @@ open class SmartTextField: UIView {
     func getToolTipString() -> String{
         if toolTipDataSource == .predefined {
             if textField.text?.count == 0{
-                return "\(caption!) is empty"
+                return L10n.Formatted.isEmpty(field: caption ?? "")
             }else{
                 if (dataType == DataType.email){
-                    return "Invalid email address"
+                    return L10n.Error.invalidEmailAddress
                 }else if (dataType == DataType.password){
 //                    return "At least 8 character long and should contain 1 of each - number, upper and lower case"
-                    return "At least 6 character long"
+                    return L10n.Error.atLeast6CharacterLong
                 }else if (dataType == DataType.mobile){
-                    return "Invalid mobile number"
+                    return L10n.Error.invalidMobileNumber
                 }else if ((dataType == DataType.number || dataType == DataType.currency) && (extendedValidationType == ExtendedValidationType.none || extendedValidationType == nil)){
-                    return "Invalid number"
+                    return L10n.Error.invalidNumber
                 }else if extendedValidationType != ExtendedValidationType.none{
                     if (extendedValidationType == ExtendedValidationType.inBetweenRange){
-                        return "Must be between: \(extendedValidationStart ?? 0) to \(extendedValidationEnd ?? 0)"
+                        return L10n.Formatted.mustBeBetweenTo(arg1: extendedValidationStart ?? 0, arg2: extendedValidationEnd ?? 0)
                     }else if (extendedValidationType == ExtendedValidationType.inBetweenLength){
                         if (extendedValidationStart == extendedValidationEnd){
-                            return "Must be \(extendedValidationStart ?? 0) digits"
+                            return L10n.Formatted.mustBeDigits(arg: extendedValidationStart ?? 0)
                         }else{
-                            return "Must be between \(extendedValidationStart ?? 0) - \(extendedValidationEnd ?? 0) digits"
+                            return L10n.Formatted.mustBeBetweenDigits(arg1: extendedValidationStart ?? 0, arg2: extendedValidationEnd ?? 0)
                         }
                     }
                     else{
-                        return "TT: not defined"
+                        return L10n.Error.notDefined
                     }
                 }else {
-                    return "Please enter correct information"
+                    return L10n.Error.pleaseEnterCorrectInformation
                 }
             }
         } else {
-            return toolTipCustomString ?? "toolTipCustomString shouldn't be empty here"
+            return toolTipCustomString ?? L10n.Error.toolTipCustomStringShouldntBeEmptyHere
         }
     }
     

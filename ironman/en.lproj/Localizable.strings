@@ -71,6 +71,20 @@
 "message.AlreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
 
 
+// error
+"error.invalidEmailAddress" = "Invalid email address";
+"error.atLeast6CharacterLong" = "At least 6 character long";
+"error.invalidMobileNumber" = "Invalid mobile number";
+"error.invalidNumber" = "Invalid number";
+"error.notDefined" = "TT: not defined";
+"error.pleaseEnterCorrectInformation" = "Please enter correct information";
+"error.toolTipCustomStringShouldntBeEmptyHere" = "toolTipCustomString shouldn't be empty here";
+
+
 // formatted
 "fmt.yourOrderId%@" = "Your Order ID #%@";
 "fmt.orderId%@" = "Order ID #123456";
+"fmt.isEmpty" = "%@ is empty";
+"fmt.mustBeBetweenTo" = "Must be between: %@ to %@";
+"fmt.mustBeDigits" = "Must be %@ digits";
+"fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";

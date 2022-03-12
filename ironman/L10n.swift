@@ -75,12 +75,35 @@ class L10n {
     }
     
     
+    class Error {
+        static let invalidEmailAddress = NSLocalizedString("error.invalidEmailAddress", comment: "Invalid email address")
+        static let atLeast6CharacterLong = NSLocalizedString("error.atLeast6CharacterLong", comment: "")
+        static let invalidMobileNumber = NSLocalizedString("error.invalidMobileNumber", comment: "")
+        static let invalidNumber = NSLocalizedString("error.invalidNumber", comment: "")
+        static let notDefined = NSLocalizedString("error.notDefined", comment: "")
+        static let pleaseEnterCorrectInformation = NSLocalizedString("error.pleaseEnterCorrectInformation", comment: "")
+        static let toolTipCustomStringShouldntBeEmptyHere = NSLocalizedString("error.toolTipCustomStringShouldntBeEmptyHere", comment: "")
+    }
+    
+    
     class Formatted {
         static func yourOrderIdNo(orderId: String) -> String {
             return String(format: NSLocalizedString("fmt.yourOrderId%@", comment: "Your Order ID No #"), orderId)
         }
         static func orderIdNo(orderId: String) -> String {
             return String(format: NSLocalizedString("fmt.orderId%@", comment: "Order ID #"), orderId)
+        }
+        static func isEmpty(field: String) -> String {
+            return String(format: NSLocalizedString("fmt.isEmpty", comment: "%@ is empty"), field)
+        }
+        static func mustBeBetweenTo(arg1: Int, arg2: Int) -> String {
+            return String(format: NSLocalizedString("fmt.mustBeBetweenTo", comment: "Must be between: %@ to %@"), arg1, arg2)
+        }
+        static func mustBeDigits(arg: Int) -> String {
+            return String(format: NSLocalizedString("fmt.mustBeDigits", comment: "Must be %@ digits"), arg)
+        }
+        static func mustBeBetweenDigits(arg1: Int, arg2: Int) -> String {
+            return String(format: NSLocalizedString("fmt.mustBeBetweenDigits", comment: "Must be between %@ - %@ digits"), arg1, arg2)
         }
     }
     
