@@ -34,6 +34,7 @@
 "label.cashOnDelivery" = "ক্যাশ অন ডেলিভারি";
 "label.SignUp" = "সাইন আপ";
 "label.unknownError" = "অজানা ত্রুটি!";
+"label.recoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার";
 
 
 // hint
@@ -56,6 +57,7 @@
 "button.seeMyOrder" = "আমার অর্ডার দেখুন";
 "button.submit" = "সাবমিট";
 "button.forgotPassword" = "পাসওয়ার্ড ভুলে গেছেন?";
+"button.sendOTP" = "ওটিপি কোড পাঠান";
 
 
 // message
@@ -69,7 +71,8 @@
 "message.pleaseLoginToGetOurService" = "আমাদের পরিষেবা পেতে লগইন করুন";
 "message.dontHaveAnAccountSignUp" = "অ্যাকাউন্ট নেই? সাইন-আপ করুন";
 "message.pleaseRegisterToGetOurService" = "আমাদের পরিষেবা পেতে অনুগ্রহ করে রেজিষ্টার করুন";
-"message.AlreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
+"message.alreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
+"message.enterPhoneNumberToRecoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার করতে ফোন নম্বর লিখুন";
 
 
 // error

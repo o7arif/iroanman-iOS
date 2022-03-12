@@ -34,6 +34,7 @@
 "label.cashOnDelivery" = "Cash on Delivery";
 "label.SignUp" = "Sign up";
 "label.unknownError" = "Unknown error!";
+"label.recoverPassword" = "Recover Password";
 
 
 // hint
@@ -55,6 +56,7 @@
 "button.seeMyOrder" = "See My Order";
 "button.submit" = "Submit";
 "button.forgotPassword" = "Forgot password?";
+"button.sendOTP" = "Send OTP";
 
 
 // message
@@ -68,7 +70,8 @@
 "message.pleaseLoginToGetOurService" = "Please login to get our Service";
 "message.dontHaveAnAccountSignUp" = "Don't have an Account? Sign up";
 "message.pleaseRegisterToGetOurService" = "Please Register to get our Service";
-"message.AlreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
+"message.alreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
+"message.enterPhoneNumberToRecoverPassword" = "Enter phone number to recover Password";
 
 
 // error

@@ -188,7 +188,7 @@ class SignupVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = L10n.Message.AlreadyHaveAnAccountLoginNow
+        label.text = L10n.Message.alreadyHaveAnAccountLoginNow
         
         label.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(loginTapped(_:)))

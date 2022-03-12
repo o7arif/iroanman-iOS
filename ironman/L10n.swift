@@ -37,6 +37,7 @@ class L10n {
         static let cashOnDelivery = NSLocalizedString("label.cashOnDelivery", comment: "Cash on Delivery")
         static let SignUp = NSLocalizedString("label.SignUp", comment: "Sign up")
         static let unknownError = NSLocalizedString("label.unknownError", comment: "Unknown error!")
+        static let recoverPassword = NSLocalizedString("label.recoverPassword", comment: "Recover Password")
     }
     
     
@@ -57,6 +58,7 @@ class L10n {
         static let seeMyOrder = NSLocalizedString("button.seeMyOrder", comment: "See My Order")
         static let submit = NSLocalizedString("button.submit", comment: "Submit")
         static let forgotPassword = NSLocalizedString("button.forgotPassword", comment: "Forgot password?")
+        static let sendOTP = NSLocalizedString("button.sendOTP", comment: "Send OTP")
     }
     
     
@@ -71,7 +73,8 @@ class L10n {
         static let pleaseLoginToGetOurService = NSLocalizedString("message.pleaseLoginToGetOurService", comment: "Please login to get our Service")
         static let dontHaveAnAccountSignUp = NSLocalizedString("message.dontHaveAnAccountSignUp", comment: "Don't have an Account? Sign up")
         static let pleaseRegisterToGetOurService = NSLocalizedString("message.pleaseRegisterToGetOurService", comment: "Please Register to get our Service")
-        static let AlreadyHaveAnAccountLoginNow = NSLocalizedString("message.AlreadyHaveAnAccountLoginNow", comment: "Already have an Account? Login Now")
+        static let alreadyHaveAnAccountLoginNow = NSLocalizedString("message.alreadyHaveAnAccountLoginNow", comment: "Already have an Account? Login Now")
+        static let enterPhoneNumberToRecoverPassword = NSLocalizedString("message.enterPhoneNumberToRecoverPassword", comment: "Enter phone number to recover Password")
     }
     
     
