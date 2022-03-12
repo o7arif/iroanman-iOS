@@ -32,6 +32,12 @@ class L10n {
         static let contactUs = NSLocalizedString("label.contactUs", comment: "Contact us")
         static let about = NSLocalizedString("label.about", comment: "About")
         static let logOut = NSLocalizedString("label.logOut", comment: "Log out")
+        static let howWasLaundryService = NSLocalizedString("label.howWasLaundryService", comment: "How was Laundry Service?")
+    }
+    
+    
+    class Placeholder {
+        static let writeUsYourValuableComments = NSLocalizedString("label.writeUsYourValuableComments", comment: "Write us your valuable comments....")
     }
     
     
@@ -40,6 +46,7 @@ class L10n {
         static let tapHereToLogin = NSLocalizedString("button.tapHereToLogin", comment: "Tap here to Login")
         static let getService = NSLocalizedString("button.getService", comment: "Get Service")
         static let seeMyOrder = NSLocalizedString("button.seeMyOrder", comment: "See My Order")
+        static let submit = NSLocalizedString("button.submit", comment: "Submit")
     }
     
     
@@ -48,6 +55,9 @@ class L10n {
         static let yourNotificationIsEmpty = NSLocalizedString("message.yourNotificationIsEmpty", comment: "Your notification is Empty")
         static let yourOrderListIsEmpty = NSLocalizedString("message.yourOrderListIsEmpty", comment: "Your order list is Empty")
         static let yourOrderHasBeenConfirmed = NSLocalizedString("message.yourOrderHasBeenConfirmed", comment: "Your order has been Confirmed")
+        static let yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience = NSLocalizedString("button.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience", comment: "Your feedback will help us to improve the Laundry Service Experience.")
+        static let thanksForYourFeedback = NSLocalizedString("button.thanksForYourFeedback", comment: "Thanks for your feedback")
+        static let somethingWentWrongPleaseTryAgainLater = NSLocalizedString("button.somethingWentWrongPleaseTryAgainLater", comment: "Something went wrong. Please try again later.")
     }
     
     

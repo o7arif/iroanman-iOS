@@ -29,12 +29,14 @@
 "label.contactUs" = "আমাদের সাথে যোগাযোগ";
 "label.about" = "আমাদের সম্পর্কে";
 "label.logOut" = "লগ আউট";
+"label.howWasLaundryService" = "লন্ড্রি সার্ভিস কেমন ছিল?";
 
 
 // hint
 
 
 // placeholder
+"placeholder.writeUsYourValuableComments" = "আপনার মূল্যবান মতামত আমাদের লিখুন...";
 
 
 // button
@@ -42,6 +44,7 @@
 "button.tapHereToLogin" = "লগইন করতে এখানে চাপুন";
 "button.getService" = "সেবা নিন";
 "button.seeMyOrder" = "আমার অর্ডার দেখুন";
+"button.submit" = "সাবমিট";
 
 
 // message
@@ -49,6 +52,9 @@
 "message.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
 "message.yourOrderListIsEmpty" = "আপনার অর্ডার লিষ্ট খালি";
 "message.yourOrderHasBeenConfirmed" = "আপনার অর্ডার নিশ্চিত করা হয়েছে";
+"message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience" = "আপনার প্রতিক্রিয়া আমাদের লন্ড্রি পরিষেবা অভিজ্ঞতা উন্নত করতে সাহায্য করবে";
+"message.thanksForYourFeedback" = "আপনার প্রতিক্রিয়ার জন্য ধন্যবাদ";
+"message.somethingWentWrongPleaseTryAgainLater" = "কিছু ভুল হয়েছে. পরে আবার চেষ্টা করুন.";
 
 
 // formatted

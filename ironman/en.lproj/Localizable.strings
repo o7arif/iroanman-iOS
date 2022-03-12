@@ -29,12 +29,14 @@
 "label.contactUs" = "Contact us";
 "label.about" = "About";
 "label.logOut" = "Log out";
+"label.howWasLaundryService" = "How was Laundry Service?";
 
 
 // hint
 
 
 // placeholder
+"placeholder.writeUsYourValuableComments" = "Write us your valuable comments....";
 
 
 // button
@@ -42,6 +44,7 @@
 "button.tapHereToLogin" = "Tap here to Login";
 "button.getService" = "Get Service";
 "button.seeMyOrder" = "See My Order";
+"button.submit" = "Submit";
 
 
 // message
@@ -49,6 +52,9 @@
 "message.yourNotificationIsEmpty" = "Your notification is Empty";
 "message.yourOrderListIsEmpty" = "Your order list is Empty.";
 "message.yourOrderHasBeenConfirmed" = "Your order has been Confirmed";
+"message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience" = "Your feedback will help us to improve the Laundry Service Experience.";
+"message.thanksForYourFeedback" = "Thanks for your feedback";
+"message.somethingWentWrongPleaseTryAgainLater" = "Something went wrong. Please try again later.";
 
 
 // formatted

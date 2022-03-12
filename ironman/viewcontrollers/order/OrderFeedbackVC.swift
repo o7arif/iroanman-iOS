@@ -55,7 +55,7 @@ class OrderFeedbackVC: UIViewController {
         }
         
         // comment
-        tvComment.placeholder = "Write us your valuable comments...."
+        tvComment.placeholder = L10n.Placeholder.writeUsYourValuableComments
         container.addSubview(tvComment)
         tvComment.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
@@ -96,7 +96,7 @@ class OrderFeedbackVC: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "How was Laundry Service?"
+        label.text = L10n.Label.howWasLaundryService
         return label
     }()
     
@@ -106,7 +106,7 @@ class OrderFeedbackVC: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Your feedback will help us to improve the Laundry Service Experience."
+        label.text = L10n.Message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience
         return label
     }()
     
@@ -123,7 +123,7 @@ class OrderFeedbackVC: UIViewController {
     
     private let btnSubmit: UIButton = {
         let button = UIButton()
-        button.setTitle("Submit", for: .normal)
+        button.setTitle(L10n.Button.submit, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -155,10 +155,10 @@ extension OrderFeedbackVC {
         
         Networking.instance.call(api: "ratings", method: .post, parameters: params) { (responseModel) in
             if responseModel.code == 200 {
-                Toast(text: "Thanks for your feedback").show()
+                Toast(text: L10n.Message.thanksForYourFeedback).show()
                 self.dismiss(animated: true, completion: nil)
             } else {
-                Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
                 self.dismiss(animated: true, completion: nil)
             }
         }
