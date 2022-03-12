@@ -109,7 +109,7 @@ class ProfilePhotoUploadVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Skip"
+        label.text = L10n.Label.skip
         
         // click event
         label.isUserInteractionEnabled = true
@@ -125,7 +125,7 @@ class ProfilePhotoUploadVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Do you want add your profile photo?"
+        label.text = L10n.Label.doYouWantAddYourProfilePhoto
         return label
     }()
     
@@ -135,7 +135,7 @@ class ProfilePhotoUploadVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Please add your photo/Capture."
+        label.text = L10n.Label.pleaseAddYourPhotoCapture
         return label
     }()
     
@@ -163,7 +163,7 @@ class ProfilePhotoUploadVC: BaseVC {
     
     private let btnConfirm: UIView = {
         let button = UIButton()
-        button.setTitle("Confirm", for: .normal)
+        button.setTitle(L10n.Button.confirm, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -216,12 +216,12 @@ extension ProfilePhotoUploadVC {
     
     private func submitRequest() {
         if tempImage == nil {
-            Toast(text: "Select photo first").show()
+            Toast(text: L10n.Label.selectPhotoFirst).show()
             return
         }
         
         guard let data = tempImage?.jpegData(compressionQuality: 1.0) else {
-            Toast(text: "Something went wrong during Photo fetching from gallery").show()
+            Toast(text: L10n.Message.somethingWentWrongDuringPhotoFetchingFromGallery).show()
             return
         }
         

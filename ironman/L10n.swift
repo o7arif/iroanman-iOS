@@ -41,6 +41,10 @@ class L10n {
         static let createYourNewPassword = NSLocalizedString("label.createYourNewPassword", comment: "Create your new password")
         static let alert = NSLocalizedString("label.alert", comment: "Alert")
         static let ok = NSLocalizedString("label.ok", comment: "Ok")
+        static let skip = NSLocalizedString("label.skip", comment: "Skip")
+        static let doYouWantAddYourProfilePhoto = NSLocalizedString("label.doYouWantAddYourProfilePhoto", comment: "Do you want add your profile photo?")
+        static let pleaseAddYourPhotoCapture = NSLocalizedString("label.pleaseAddYourPhotoCapture", comment: "Please add your photo/Capture.")
+        static let selectPhotoFirst = NSLocalizedString("label.selectPhotoFirst", comment: "Select photo first")
     }
     
     
@@ -81,6 +85,7 @@ class L10n {
         static let pleaseRegisterToGetOurService = NSLocalizedString("message.pleaseRegisterToGetOurService", comment: "Please Register to get our Service")
         static let alreadyHaveAnAccountLoginNow = NSLocalizedString("message.alreadyHaveAnAccountLoginNow", comment: "Already have an Account? Login Now")
         static let enterPhoneNumberToRecoverPassword = NSLocalizedString("message.enterPhoneNumberToRecoverPassword", comment: "Enter phone number to recover Password")
+        static let somethingWentWrongDuringPhotoFetchingFromGallery = NSLocalizedString("message.somethingWentWrongDuringPhotoFetchingFromGallery", comment: "Something went wrong during Photo fetching from gallery")
     }
     
     

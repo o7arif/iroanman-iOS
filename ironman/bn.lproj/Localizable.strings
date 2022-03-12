@@ -38,6 +38,10 @@
 "label.createYourNewPassword" = "আপনার নতুন পাসওয়ার্ড তৈরি করুন";
 "label.alert" = "সতর্কতা";
 "label.ok" = "ওকে";
+"label.skip" = "এড়িয়ে যান";
+"label.doYouWantAddYourProfilePhoto" = "আপনি কি আপনার প্রোফাইল ফটো যোগ করতে চান?";
+"label.pleaseAddYourPhotoCapture" = "আপনার ছবি যোগ করুন";
+"label.selectPhotoFirst" = "প্রথমে ছবি নির্বাচন করুন";
 
 
 // hint
@@ -79,6 +83,7 @@
 "message.pleaseRegisterToGetOurService" = "আমাদের পরিষেবা পেতে অনুগ্রহ করে রেজিষ্টার করুন";
 "message.alreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
 "message.enterPhoneNumberToRecoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার করতে ফোন নম্বর লিখুন";
+"message.somethingWentWrongDuringPhotoFetchingFromGallery" = "গ্যালারি থেকে ফটো নেয়া সম্ভব হয়নি";
 
 
 // error

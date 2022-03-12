@@ -38,6 +38,10 @@
 "label.createYourNewPassword" = "Create your new password";
 "label.alert" = "Alert";
 "label.ok" = "Ok";
+"label.skip" = "Skip";
+"label.doYouWantAddYourProfilePhoto" = "Do you want add your profile photo?";
+"label.pleaseAddYourPhotoCapture" = "Please add your photo/Capture.";
+"label.selectPhotoFirst" = "Select photo first";
 
 
 // hint
@@ -78,6 +82,7 @@
 "message.pleaseRegisterToGetOurService" = "Please Register to get our Service";
 "message.alreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
 "message.enterPhoneNumberToRecoverPassword" = "Enter phone number to recover Password";
+"message.somethingWentWrongDuringPhotoFetchingFromGallery" = "Something went wrong during Photo fetching from gallery";
 
 
 // error
