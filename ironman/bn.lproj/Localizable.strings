@@ -43,6 +43,7 @@
 "label.pleaseAddYourPhotoCapture" = "আপনার ছবি যোগ করুন";
 "label.selectPhotoFirst" = "প্রথমে ছবি নির্বাচন করুন";
 "label.congratulations" = "অভিনন্দন!";
+"label.otpVerification" = "ওটিপি যাচাইকরণ";
 
 
 // hint
@@ -70,6 +71,7 @@
 "button.sendOTP" = "ওটিপি কোড পাঠান";
 "button.confirm" = "নিশ্চিত করুন";
 "button.finish" = "শেষ করুন";
+"button.resend" = "পুনরায় পাঠান";
 
 
 // message
@@ -87,6 +89,7 @@
 "message.enterPhoneNumberToRecoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার করতে ফোন নম্বর লিখুন";
 "message.somethingWentWrongDuringPhotoFetchingFromGallery" = "গ্যালারি থেকে ফটো নেয়া সম্ভব হয়নি";
 "message.youHaveSuccessfullySignedUpOnLaundryService" = "আপনি সফলভাবে লন্ড্রি পরিষেবাতে সাইন আপ করেছেন";
+"message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "আমরা এইমাত্র আপনার ফোনে আপনাকে ওটিপি কোড পাঠিয়েছি। সেই ওটিপি কোডটি লিখুন।";
 
 
 // error
@@ -104,6 +107,7 @@
 "fmt.yourOrderId%@" = "আপনার অর্ডার আইডি #%@";
 "fmt.orderId%@" = "অর্ডার আইডি #%@";
 "fmt.isEmpty" = "%@ খালি";
-"fmt.mustBeBetweenTo" = "Must be between: %@ to %@";
-"fmt.mustBeDigits" = "Must be %@ digits";
-"fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";
+"fmt.mustBeBetweenTo" = "%@ থেকে %@ এর মধ্যে হতে হবে";
+"fmt.mustBeDigits" = "%@ সংখ্যা হতে হবে";
+"fmt.mustBeBetweenDigits" = "%@ - %@ সংখ্যার মধ্যে হতে হবে";
+"fmt.resendCodeIn" = "%@ সেকেন্ড পর পুনরায় পাঠাতে পারবেন";

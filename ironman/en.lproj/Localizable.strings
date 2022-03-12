@@ -43,6 +43,7 @@
 "label.pleaseAddYourPhotoCapture" = "Please add your photo/Capture.";
 "label.selectPhotoFirst" = "Select photo first";
 "label.congratulations" = "Congratulations!";
+"label.otpVerification" = "OTP Verification";
 
 
 // hint
@@ -69,6 +70,7 @@
 "button.sendOTP" = "Send OTP";
 "button.confirm" = "Confirm";
 "button.finish" = "Finish";
+"button.resend" = "Resend";
 
 
 // message
@@ -86,6 +88,7 @@
 "message.enterPhoneNumberToRecoverPassword" = "Enter phone number to recover Password";
 "message.somethingWentWrongDuringPhotoFetchingFromGallery" = "Something went wrong during Photo fetching from gallery";
 "message.youHaveSuccessfullySignedUpOnLaundryService" = "You have successfully Signed up on Laundry Service";
+"message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "Enter the verification code we just sent you OTP on your Phone.";
 
 
 // error
@@ -106,3 +109,4 @@
 "fmt.mustBeBetweenTo" = "Must be between: %@ to %@";
 "fmt.mustBeDigits" = "Must be %@ digits";
 "fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";
+"fmt.resendCodeIn" = "Resend code in %@ seconds";

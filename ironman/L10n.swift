@@ -46,6 +46,7 @@ class L10n {
         static let pleaseAddYourPhotoCapture = NSLocalizedString("label.pleaseAddYourPhotoCapture", comment: "Please add your photo/Capture.")
         static let selectPhotoFirst = NSLocalizedString("label.selectPhotoFirst", comment: "Select photo first")
         static let congratulations = NSLocalizedString("label.congratulations", comment: "Congratulations!")
+        static let otpVerification = NSLocalizedString("label.otpVerification", comment: "OTP Verification")
     }
     
     
@@ -71,6 +72,7 @@ class L10n {
         static let sendOTP = NSLocalizedString("button.sendOTP", comment: "Send OTP")
         static let confirm = NSLocalizedString("button.confirm", comment: "Confirm")
         static let finish = NSLocalizedString("button.finish", comment: "Finish")
+        static let resend = NSLocalizedString("button.resend", comment: "Resend")
     }
     
     
@@ -89,6 +91,7 @@ class L10n {
         static let enterPhoneNumberToRecoverPassword = NSLocalizedString("message.enterPhoneNumberToRecoverPassword", comment: "Enter phone number to recover Password")
         static let somethingWentWrongDuringPhotoFetchingFromGallery = NSLocalizedString("message.somethingWentWrongDuringPhotoFetchingFromGallery", comment: "Something went wrong during Photo fetching from gallery")
         static let youHaveSuccessfullySignedUpOnLaundryService = NSLocalizedString("message.youHaveSuccessfullySignedUpOnLaundryService", comment: "You have successfully Signed up on Laundry Service")
+        static let enterTheVerificationCodeWeJustSentYouOtpOnYourPhone = NSLocalizedString("message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone", comment: "Enter the verification code we just sent you OTP on your Phone")
     }
     
     
@@ -122,6 +125,9 @@ class L10n {
         }
         static func mustBeBetweenDigits(arg1: Int, arg2: Int) -> String {
             return String(format: NSLocalizedString("fmt.mustBeBetweenDigits", comment: "Must be between %@ - %@ digits"), arg1, arg2)
+        }
+        static func resendCodeIn(arg: String) -> String {
+            return String(format: NSLocalizedString("fmt.resendCodeIn", comment: "Resend code in %@ seconds"), arg)
         }
     }
     
