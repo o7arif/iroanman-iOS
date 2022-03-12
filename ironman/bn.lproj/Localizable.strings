@@ -72,6 +72,8 @@
 "button.confirm" = "নিশ্চিত করুন";
 "button.finish" = "শেষ করুন";
 "button.resend" = "পুনরায় পাঠান";
+"button.signIn" = "সাইন ইন";
+"button.addNewAddress" = "নতুন ঠিকানা যোগ করুন";
 
 
 // message
@@ -90,6 +92,8 @@
 "message.somethingWentWrongDuringPhotoFetchingFromGallery" = "গ্যালারি থেকে ফটো নেয়া সম্ভব হয়নি";
 "message.youHaveSuccessfullySignedUpOnLaundryService" = "আপনি সফলভাবে লন্ড্রি পরিষেবাতে সাইন আপ করেছেন";
 "message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "আমরা এইমাত্র আপনার ফোনে আপনাকে ওটিপি কোড পাঠিয়েছি। সেই ওটিপি কোডটি লিখুন।";
+"message.youAreNotSignedInPleaseSignInFirst" = "আপনার লগইন করা নাই!\nঅনুগ্রহ করে প্রথমে লগইন করুন৷";
+"message.yourAddressListIsEmpty" = "আপনার ঠিকানা তালিকা খালি!";
 
 
 // error

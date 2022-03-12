@@ -73,6 +73,8 @@ class L10n {
         static let confirm = NSLocalizedString("button.confirm", comment: "Confirm")
         static let finish = NSLocalizedString("button.finish", comment: "Finish")
         static let resend = NSLocalizedString("button.resend", comment: "Resend")
+        static let signIn = NSLocalizedString("button.signIn", comment: "Sign in")
+        static let addNewAddress = NSLocalizedString("button.addNewAddress", comment: "Add New Address")
     }
     
     
@@ -92,6 +94,8 @@ class L10n {
         static let somethingWentWrongDuringPhotoFetchingFromGallery = NSLocalizedString("message.somethingWentWrongDuringPhotoFetchingFromGallery", comment: "Something went wrong during Photo fetching from gallery")
         static let youHaveSuccessfullySignedUpOnLaundryService = NSLocalizedString("message.youHaveSuccessfullySignedUpOnLaundryService", comment: "You have successfully Signed up on Laundry Service")
         static let enterTheVerificationCodeWeJustSentYouOtpOnYourPhone = NSLocalizedString("message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone", comment: "Enter the verification code we just sent you OTP on your Phone")
+        static let youAreNotSignedInPleaseSignInFirst = NSLocalizedString("message.youAreNotSignedInPleaseSignInFirst", comment: "You are not signed in!\nPlease sign in first.")
+        static let yourAddressListIsEmpty = NSLocalizedString("message.yourAddressListIsEmpty", comment: "Your address list is empty!")
     }
     
     

@@ -71,6 +71,8 @@
 "button.confirm" = "Confirm";
 "button.finish" = "Finish";
 "button.resend" = "Resend";
+"button.signIn" = "Sign in";
+"button.addNewAddress" = "Add New Address";
 
 
 // message
@@ -89,6 +91,8 @@
 "message.somethingWentWrongDuringPhotoFetchingFromGallery" = "Something went wrong during Photo fetching from gallery";
 "message.youHaveSuccessfullySignedUpOnLaundryService" = "You have successfully Signed up on Laundry Service";
 "message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "Enter the verification code we just sent you OTP on your Phone.";
+"message.youAreNotSignedInPleaseSignInFirst" = "You are not signed in!\nPlease sign in first.";
+"message.yourAddressListIsEmpty" = "Your address list is empty!";
 
 
 // error

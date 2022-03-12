@@ -169,7 +169,7 @@ class ManageAddressVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Manage Address"
+        label.text = L10n.Label.manageAddress
         return label
     }()
     
@@ -186,7 +186,7 @@ class ManageAddressVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "You are not signed in!\nPlease sign in first."
+        label.text = L10n.Message.youAreNotSignedInPleaseSignInFirst
         return label
     }()
     
@@ -196,13 +196,13 @@ class ManageAddressVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "You address list is empty!"
+        label.text = L10n.Message.yourAddressListIsEmpty
         return label
     }()
     
     private let btnSignIn: UIButton = {
         let button = UIButton()
-        button.setTitle("Sign in", for: .normal)
+        button.setTitle(L10n.Button.signIn, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -223,7 +223,7 @@ class ManageAddressVC: BaseVC {
     
     private let btnAddAddress: UIButton = {
         let button = UIButton()
-        button.setTitle("Add New Address", for: .normal)
+        button.setTitle(L10n.Button.addNewAddress, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -312,8 +312,15 @@ extension ManageAddressVC {
                 }
                 
                 DispatchQueue.main.async {
+                    if self.addresses.count == 0 {
+                        self.authRequiredContainer.removeFromSuperview()
+                        self.emptyListMessage()
+                    }
                     self.tableView.reloadData()
                 }
+            } else if (responseModel.code == 401) {
+                self.authentionRequiredMessage()
+                self.tableView.reloadData()
             } else {
                 self.tableView.reloadData()
             }
