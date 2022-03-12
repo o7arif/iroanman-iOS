@@ -18,7 +18,7 @@ class ProfileVC: UIViewController {
         setupViews()
         guard let user = CacheData.instance.getLoggedUser() else {
             print("user is empty")
-            labelName.text = "Guest User"
+            labelName.text = L10n.Label.guestUser
             labelAddress.text = ""
             return
         }
@@ -166,7 +166,7 @@ class ProfileVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Profile"
+        label.text = L10n.Label.profile
         return label
     }()
     
@@ -213,7 +213,7 @@ class ProfileVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .right
         label.textColor = .color(fromHexString: "00C2CB")
-        label.text = "Login"
+        label.text = L10n.Label.login
         
         // click actions
         label.isUserInteractionEnabled = true
@@ -229,7 +229,7 @@ class ProfileVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Guest User"
+        label.text = L10n.Label.guestUser
         return label
     }()
     
@@ -278,7 +278,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menu = menus[indexPath.row]
-        if menu.name == MenuEnum.LOGOUT.rawValue {
+        if menu.type == MenuEnum.LOGOUT {
             let cell = tableView.dequeueReusableCell(withIdentifier: MenuLogoutTVCell.identifier) as! MenuLogoutTVCell
             cell.selectionStyle = .none
             cell.configure(with: menu)
@@ -300,34 +300,31 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func handleTableItemClick(_ menu: Menu) {
-        switch menu.name {
-        case MenuEnum.MANAGE_ADDRESS.rawValue:
+        switch menu.type {
+        case MenuEnum.MANAGE_ADDRESS:
             self.navigationController?.pushViewController(ManageAddressVC(), animated: true)
             break
-        case MenuEnum.PRIVACY_POLICY.rawValue:
+        case MenuEnum.PRIVACY_POLICY:
             let vc = HtmlViewVC()
             vc.htmlType = .PRIVACY_POLICY
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case MenuEnum.TERMS_OF_SERVICE.rawValue:
+        case MenuEnum.TERMS_OF_SERVICE:
             let vc = HtmlViewVC()
             vc.htmlType = .TERMS_OF_SERVICE
             self.navigationController?.pushViewController(vc, animated: true)
             break
-        case MenuEnum.CONTACT.rawValue:
+        case MenuEnum.CONTACT:
             self.navigationController?.pushViewController(ContactUsVC(), animated: true)
             break
-        case MenuEnum.ABOUT.rawValue:
+        case MenuEnum.ABOUT:
             self.navigationController?.pushViewController(AboutUsVC(), animated: true)
             break
-        case MenuEnum.LOGOUT.rawValue:
+        case MenuEnum.LOGOUT:
             CacheData.instance.destroySession()
             let vc = LoginVC()
             vc.isFromLogout = true
             ElNavigato.instance.replaceWIndowByViewController(viewController: vc)
-            break
-        default:
-            print("default clicked")
             break
         }
     }

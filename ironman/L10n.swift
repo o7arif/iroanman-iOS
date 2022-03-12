@@ -27,6 +27,12 @@ class L10n {
         static let yourNotificationIsEmpty = NSLocalizedString("label.yourNotificationIsEmpty", comment: "Your notification is Empty")
         static let onGoing = NSLocalizedString("label.onGoing", comment: "On Going")
         static let completed = NSLocalizedString("label.completed", comment: "Completed")
+        static let manageAddress = NSLocalizedString("label.manageAddress", comment: "Manage Address")
+        static let privacyPolicy = NSLocalizedString("label.privacyPolicy", comment: "Privacy Policy")
+        static let termsOfService = NSLocalizedString("label.termsOfService", comment: "Terms of Service")
+        static let contactUs = NSLocalizedString("label.contactUs", comment: "Contact us")
+        static let about = NSLocalizedString("label.about", comment: "About")
+        static let logOut = NSLocalizedString("label.logOut", comment: "Log out")
     }
     
     

@@ -24,6 +24,12 @@
 "label.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
 "label.onGoing" = "চলমান";
 "label.completed" = "সম্পন্ন";
+"label.manageAddress" = "ঠিকানা পরিবর্তন";
+"label.privacyPolicy" = "গোপনীয়তা নীতি";
+"label.termsOfService" = "সেবা পাবার শর্ত";
+"label.contactUs" = "আমাদের সাথে যোগাযোগ";
+"label.about" = "আমাদের সম্পর্কে";
+"label.logOut" = "লগ আউট";
 
 
 // hint

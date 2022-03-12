@@ -24,6 +24,12 @@
 "label.yourNotificationIsEmpty" = "Your notification is Empty";
 "label.onGoing" = "On Going";
 "label.completed" = "Completed";
+"label.manageAddress" = "Manage Address";
+"label.privacyPolicy" = "Privacy Policy";
+"label.termsOfService" = "Terms of Service";
+"label.contactUs" = "Contact us";
+"label.about" = "About";
+"label.logOut" = "Log out";
 
 
 // hint
