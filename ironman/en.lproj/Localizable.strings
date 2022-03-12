@@ -52,4 +52,4 @@
 
 
 // formatted
-"fmt.yourOrderIdNo" = "Your Order ID #";
+"fmt.yourOrderIdNo%@" = "Your Order ID #%@";

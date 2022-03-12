@@ -53,7 +53,7 @@ class L10n {
     
     class Formatted {
         static func yourOrderIdNo(orderId: String) -> String {
-            return NSLocalizedString("fmt.yourOrderIdNo", comment: "Your Order ID No #") + orderId
+            return String(format: NSLocalizedString("fmt.yourOrderIdNo%@", comment: "Your Order ID No #"), orderId)
         }
     }
     
