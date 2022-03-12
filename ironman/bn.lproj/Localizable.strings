@@ -42,6 +42,7 @@
 "label.doYouWantAddYourProfilePhoto" = "আপনি কি আপনার প্রোফাইল ফটো যোগ করতে চান?";
 "label.pleaseAddYourPhotoCapture" = "আপনার ছবি যোগ করুন";
 "label.selectPhotoFirst" = "প্রথমে ছবি নির্বাচন করুন";
+"label.congratulations" = "অভিনন্দন!";
 
 
 // hint
@@ -68,6 +69,7 @@
 "button.forgotPassword" = "পাসওয়ার্ড ভুলে গেছেন?";
 "button.sendOTP" = "ওটিপি কোড পাঠান";
 "button.confirm" = "নিশ্চিত করুন";
+"button.finish" = "শেষ করুন";
 
 
 // message
@@ -84,6 +86,7 @@
 "message.alreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
 "message.enterPhoneNumberToRecoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার করতে ফোন নম্বর লিখুন";
 "message.somethingWentWrongDuringPhotoFetchingFromGallery" = "গ্যালারি থেকে ফটো নেয়া সম্ভব হয়নি";
+"message.youHaveSuccessfullySignedUpOnLaundryService" = "আপনি সফলভাবে লন্ড্রি পরিষেবাতে সাইন আপ করেছেন";
 
 
 // error

@@ -45,6 +45,7 @@ class L10n {
         static let doYouWantAddYourProfilePhoto = NSLocalizedString("label.doYouWantAddYourProfilePhoto", comment: "Do you want add your profile photo?")
         static let pleaseAddYourPhotoCapture = NSLocalizedString("label.pleaseAddYourPhotoCapture", comment: "Please add your photo/Capture.")
         static let selectPhotoFirst = NSLocalizedString("label.selectPhotoFirst", comment: "Select photo first")
+        static let congratulations = NSLocalizedString("label.congratulations", comment: "Congratulations!")
     }
     
     
@@ -69,6 +70,7 @@ class L10n {
         static let forgotPassword = NSLocalizedString("button.forgotPassword", comment: "Forgot password?")
         static let sendOTP = NSLocalizedString("button.sendOTP", comment: "Send OTP")
         static let confirm = NSLocalizedString("button.confirm", comment: "Confirm")
+        static let finish = NSLocalizedString("button.finish", comment: "Finish")
     }
     
     
@@ -86,6 +88,7 @@ class L10n {
         static let alreadyHaveAnAccountLoginNow = NSLocalizedString("message.alreadyHaveAnAccountLoginNow", comment: "Already have an Account? Login Now")
         static let enterPhoneNumberToRecoverPassword = NSLocalizedString("message.enterPhoneNumberToRecoverPassword", comment: "Enter phone number to recover Password")
         static let somethingWentWrongDuringPhotoFetchingFromGallery = NSLocalizedString("message.somethingWentWrongDuringPhotoFetchingFromGallery", comment: "Something went wrong during Photo fetching from gallery")
+        static let youHaveSuccessfullySignedUpOnLaundryService = NSLocalizedString("message.youHaveSuccessfullySignedUpOnLaundryService", comment: "You have successfully Signed up on Laundry Service")
     }
     
     

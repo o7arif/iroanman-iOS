@@ -42,6 +42,7 @@
 "label.doYouWantAddYourProfilePhoto" = "Do you want add your profile photo?";
 "label.pleaseAddYourPhotoCapture" = "Please add your photo/Capture.";
 "label.selectPhotoFirst" = "Select photo first";
+"label.congratulations" = "Congratulations!";
 
 
 // hint
@@ -67,6 +68,7 @@
 "button.forgotPassword" = "Forgot password?";
 "button.sendOTP" = "Send OTP";
 "button.confirm" = "Confirm";
+"button.finish" = "Finish";
 
 
 // message
@@ -83,6 +85,7 @@
 "message.alreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
 "message.enterPhoneNumberToRecoverPassword" = "Enter phone number to recover Password";
 "message.somethingWentWrongDuringPhotoFetchingFromGallery" = "Something went wrong during Photo fetching from gallery";
+"message.youHaveSuccessfullySignedUpOnLaundryService" = "You have successfully Signed up on Laundry Service";
 
 
 // error

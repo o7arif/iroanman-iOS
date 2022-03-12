@@ -75,7 +75,7 @@ class CongratulationVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Congratulations!"
+        label.text = L10n.Label.congratulations
         return label
     }()
     
@@ -85,13 +85,13 @@ class CongratulationVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "You have successfully Signed up on Laundry Service"
+        label.text = L10n.Message.youHaveSuccessfullySignedUpOnLaundryService
         return label
     }()
     
     private let btnFinish: UIView = {
         let button = UIButton()
-        button.setTitle("Finish", for: .normal)
+        button.setTitle(L10n.Button.finish, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
