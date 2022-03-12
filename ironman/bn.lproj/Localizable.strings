@@ -39,6 +39,8 @@
 
 // placeholder
 "placeholder.writeUsYourValuableComments" = "আপনার মূল্যবান মতামত আমাদের লিখুন...";
+"placeholder.enterPhoneNumber" = "ফোন নম্বর লিখুন"
+"placeholder.enterYourPassword" = "আপনার পাসওয়ার্ড লিখুন"
 
 
 // button
@@ -47,6 +49,7 @@
 "button.getService" = "সেবা নিন";
 "button.seeMyOrder" = "আমার অর্ডার দেখুন";
 "button.submit" = "সাবমিট";
+"button.forgotPassword" = "পাসওয়ার্ড ভুলে গেছেন?"
 
 
 // message
@@ -57,6 +60,8 @@
 "message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience" = "আপনার প্রতিক্রিয়া আমাদের লন্ড্রি পরিষেবা অভিজ্ঞতা উন্নত করতে সাহায্য করবে";
 "message.thanksForYourFeedback" = "আপনার প্রতিক্রিয়ার জন্য ধন্যবাদ";
 "message.somethingWentWrongPleaseTryAgainLater" = "কিছু ভুল হয়েছে. পরে আবার চেষ্টা করুন.";
+"message.pleaseLoginToGetOurService" = "আমাদের পরিষেবা পেতে লগইন করুন"
+"message.dontHaveAnAccountSignUp" = "অ্যাকাউন্ট নেই? সাইন-আপ করুন"
 
 
 // formatted

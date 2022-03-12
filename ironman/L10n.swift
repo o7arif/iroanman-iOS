@@ -40,6 +40,8 @@ class L10n {
     
     class Placeholder {
         static let writeUsYourValuableComments = NSLocalizedString("label.writeUsYourValuableComments", comment: "Write us your valuable comments....")
+        static let enterPhoneNumber = NSLocalizedString("label.enterPhoneNumber", comment: "Enter Phone Number")
+        static let enterYourPassword = NSLocalizedString("label.enterYourPassword", comment: "Enter your password")
     }
     
     
@@ -49,6 +51,7 @@ class L10n {
         static let getService = NSLocalizedString("button.getService", comment: "Get Service")
         static let seeMyOrder = NSLocalizedString("button.seeMyOrder", comment: "See My Order")
         static let submit = NSLocalizedString("button.submit", comment: "Submit")
+        static let forgotPassword = NSLocalizedString("button.forgotPassword", comment: "Forgot password?")
     }
     
     
@@ -60,6 +63,8 @@ class L10n {
         static let yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience = NSLocalizedString("button.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience", comment: "Your feedback will help us to improve the Laundry Service Experience.")
         static let thanksForYourFeedback = NSLocalizedString("button.thanksForYourFeedback", comment: "Thanks for your feedback")
         static let somethingWentWrongPleaseTryAgainLater = NSLocalizedString("button.somethingWentWrongPleaseTryAgainLater", comment: "Something went wrong. Please try again later.")
+        static let pleaseLoginToGetOurService = NSLocalizedString("button.pleaseLoginToGetOurService", comment: "Please login to get our Service")
+        static let dontHaveAnAccountSignUp = NSLocalizedString("button.dontHaveAnAccountSignUp", comment: "Don't have an Account? Sign up")
     }
     
     
