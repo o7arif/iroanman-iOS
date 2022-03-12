@@ -38,6 +38,9 @@ class L10n {
         static let SignUp = NSLocalizedString("label.SignUp", comment: "Sign up")
         static let unknownError = NSLocalizedString("label.unknownError", comment: "Unknown error!")
         static let recoverPassword = NSLocalizedString("label.recoverPassword", comment: "Recover Password")
+        static let createYourNewPassword = NSLocalizedString("label.createYourNewPassword", comment: "Create your new password")
+        static let alert = NSLocalizedString("label.alert", comment: "Alert")
+        static let ok = NSLocalizedString("label.ok", comment: "Ok")
     }
     
     
@@ -48,6 +51,8 @@ class L10n {
         static let yourName = NSLocalizedString("placeholder.yourName", comment: "Your Name")
         static let createPassword = NSLocalizedString("placeholder.createPassword", comment: "Create password")
         static let confirmPassword = NSLocalizedString("placeholder.confirmPassword", comment: "Confirm password")
+        static let createNewPassword = NSLocalizedString("placeholder.createNewPassword", comment: "Create new password")
+        static let confirmNewPassword = NSLocalizedString("placeholder.confirmNewPassword", comment: "Confirm new password")
     }
     
     
@@ -59,6 +64,7 @@ class L10n {
         static let submit = NSLocalizedString("button.submit", comment: "Submit")
         static let forgotPassword = NSLocalizedString("button.forgotPassword", comment: "Forgot password?")
         static let sendOTP = NSLocalizedString("button.sendOTP", comment: "Send OTP")
+        static let confirm = NSLocalizedString("button.confirm", comment: "Confirm")
     }
     
     
@@ -80,12 +86,13 @@ class L10n {
     
     class Error {
         static let invalidEmailAddress = NSLocalizedString("error.invalidEmailAddress", comment: "Invalid email address")
-        static let atLeast6CharacterLong = NSLocalizedString("error.atLeast6CharacterLong", comment: "")
-        static let invalidMobileNumber = NSLocalizedString("error.invalidMobileNumber", comment: "")
-        static let invalidNumber = NSLocalizedString("error.invalidNumber", comment: "")
-        static let notDefined = NSLocalizedString("error.notDefined", comment: "")
-        static let pleaseEnterCorrectInformation = NSLocalizedString("error.pleaseEnterCorrectInformation", comment: "")
-        static let toolTipCustomStringShouldntBeEmptyHere = NSLocalizedString("error.toolTipCustomStringShouldntBeEmptyHere", comment: "")
+        static let atLeast6CharacterLong = NSLocalizedString("error.atLeast6CharacterLong", comment: "At least 6 character long")
+        static let invalidMobileNumber = NSLocalizedString("error.invalidMobileNumber", comment: "Invalid mobile number")
+        static let invalidNumber = NSLocalizedString("error.invalidNumber", comment: "Invalid number")
+        static let notDefined = NSLocalizedString("error.notDefined", comment: "TT: not defined")
+        static let pleaseEnterCorrectInformation = NSLocalizedString("error.pleaseEnterCorrectInformation", comment: "Please enter correct information")
+        static let toolTipCustomStringShouldntBeEmptyHere = NSLocalizedString("error.toolTipCustomStringShouldntBeEmptyHere", comment: "toolTipCustomString shouldn't be empty here")
+        static let passwordDidNotMatch = NSLocalizedString("error.passwordDidNotMatch", comment: "Password did not match")
     }
     
     

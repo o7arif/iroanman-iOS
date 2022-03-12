@@ -35,6 +35,9 @@
 "label.SignUp" = "সাইন আপ";
 "label.unknownError" = "অজানা ত্রুটি!";
 "label.recoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার";
+"label.createYourNewPassword" = "আপনার নতুন পাসওয়ার্ড তৈরি করুন";
+"label.alert" = "সতর্কতা";
+"label.ok" = "ওকে";
 
 
 // hint
@@ -48,6 +51,8 @@
 "placeholder.enterPhoneNumber" = "ফোন নম্বর লিখুন";
 "placeholder.createPassword" = "নতুন পাসওয়ার্ড লিখুন";
 "placeholder.confirmPassword" = "পাসওয়ার্ডটি পুনরায় লিখুন";
+"placeholder.createNewPassword" = "নতুন পাসওয়ার্ড লিখুন";
+"placeholder.confirmNewPassword" = "নতুন পাসওয়ার্ড নিশ্চিত করুন";
 
 
 // button
@@ -58,6 +63,7 @@
 "button.submit" = "সাবমিট";
 "button.forgotPassword" = "পাসওয়ার্ড ভুলে গেছেন?";
 "button.sendOTP" = "ওটিপি কোড পাঠান";
+"button.confirm" = "নিশ্চিত করুন";
 
 
 // message
@@ -83,6 +89,7 @@
 "error.notDefined" = "সংজ্ঞায়িত নয়";
 "error.pleaseEnterCorrectInformation" = "সঠিক তথ্য লিখুন";
 "error.toolTipCustomStringShouldntBeEmptyHere" = "টুলটিপ কাস্টম স্ট্রিং এখানে খালি থাকা উচিত নয়";
+"error.passwordDidNotMatch" = "পাসওয়ার্ড মেলেনি";
 
 
 // formatted
