@@ -32,6 +32,8 @@
 "label.howWasLaundryService" = "লন্ড্রি সার্ভিস কেমন ছিল?";
 "label.orderDetails" = "অর্ডার ডিটেইলস";
 "label.cashOnDelivery" = "ক্যাশ অন ডেলিভারি";
+"label.SignUp" = "সাইন আপ";
+"label.unknownError" = "অজানা ত্রুটি!";
 
 
 // hint
@@ -41,6 +43,10 @@
 "placeholder.writeUsYourValuableComments" = "আপনার মূল্যবান মতামত আমাদের লিখুন...";
 "placeholder.enterPhoneNumber" = "ফোন নম্বর লিখুন";
 "placeholder.enterYourPassword" = "আপনার পাসওয়ার্ড লিখুন";
+"placeholder.yourName" = "আপনার নাম";
+"placeholder.enterPhoneNumber" = "ফোন নম্বর লিখুন";
+"placeholder.createPassword" = "নতুন পাসওয়ার্ড লিখুন";
+"placeholder.confirmPassword" = "পাসওয়ার্ডটি পুনরায় লিখুন";
 
 
 // button
@@ -62,6 +68,8 @@
 "message.somethingWentWrongPleaseTryAgainLater" = "কিছু ভুল হয়েছে. পরে আবার চেষ্টা করুন.";
 "message.pleaseLoginToGetOurService" = "আমাদের পরিষেবা পেতে লগইন করুন";
 "message.dontHaveAnAccountSignUp" = "অ্যাকাউন্ট নেই? সাইন-আপ করুন";
+"message.pleaseRegisterToGetOurService" = "আমাদের পরিষেবা পেতে অনুগ্রহ করে রেজিষ্টার করুন";
+"message.AlreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
 
 
 // formatted

@@ -32,6 +32,8 @@
 "label.howWasLaundryService" = "How was Laundry Service?";
 "label.orderDetails" = "Order Details";
 "label.cashOnDelivery" = "Cash on Delivery";
+"label.SignUp" = "Sign up";
+"label.unknownError" = "Unknown error!";
 
 
 // hint
@@ -41,6 +43,9 @@
 "placeholder.writeUsYourValuableComments" = "Write us your valuable comments....";
 "placeholder.enterPhoneNumber" = "Enter Phone Number";
 "placeholder.enterYourPassword" = "Enter your password";
+"placeholder.yourName" = "Your Name";
+"placeholder.createPassword" = "Create password";
+"placeholder.confirmPassword" = "Confirm password";
 
 
 // button
@@ -62,6 +67,8 @@
 "message.somethingWentWrongPleaseTryAgainLater" = "Something went wrong. Please try again later.";
 "message.pleaseLoginToGetOurService" = "Please login to get our Service";
 "message.dontHaveAnAccountSignUp" = "Don't have an Account? Sign up";
+"message.pleaseRegisterToGetOurService" = "Please Register to get our Service";
+"message.AlreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
 
 
 // formatted

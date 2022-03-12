@@ -35,6 +35,8 @@ class L10n {
         static let howWasLaundryService = NSLocalizedString("label.howWasLaundryService", comment: "How was Laundry Service?")
         static let orderDetails = NSLocalizedString("label.orderDetails", comment: "Order Details")
         static let cashOnDelivery = NSLocalizedString("label.cashOnDelivery", comment: "Cash on Delivery")
+        static let SignUp = NSLocalizedString("label.SignUp", comment: "Sign up")
+        static let unknownError = NSLocalizedString("label.unknownError", comment: "Unknown error!")
     }
     
     
@@ -42,6 +44,9 @@ class L10n {
         static let writeUsYourValuableComments = NSLocalizedString("placeholder.writeUsYourValuableComments", comment: "Write us your valuable comments....")
         static let enterPhoneNumber = NSLocalizedString("placeholder.enterPhoneNumber", comment: "Enter Phone Number")
         static let enterYourPassword = NSLocalizedString("placeholder.enterYourPassword", comment: "Enter your password")
+        static let yourName = NSLocalizedString("placeholder.yourName", comment: "Your Name")
+        static let createPassword = NSLocalizedString("placeholder.createPassword", comment: "Create password")
+        static let confirmPassword = NSLocalizedString("placeholder.confirmPassword", comment: "Confirm password")
     }
     
     
@@ -65,6 +70,8 @@ class L10n {
         static let somethingWentWrongPleaseTryAgainLater = NSLocalizedString("message.somethingWentWrongPleaseTryAgainLater", comment: "Something went wrong. Please try again later.")
         static let pleaseLoginToGetOurService = NSLocalizedString("message.pleaseLoginToGetOurService", comment: "Please login to get our Service")
         static let dontHaveAnAccountSignUp = NSLocalizedString("message.dontHaveAnAccountSignUp", comment: "Don't have an Account? Sign up")
+        static let pleaseRegisterToGetOurService = NSLocalizedString("message.pleaseRegisterToGetOurService", comment: "Please Register to get our Service")
+        static let AlreadyHaveAnAccountLoginNow = NSLocalizedString("message.AlreadyHaveAnAccountLoginNow", comment: "Already have an Account? Login Now")
     }
     
     
