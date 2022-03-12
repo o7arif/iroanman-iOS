@@ -83,7 +83,7 @@ class OnGoingOrderSegmentVC: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Your order list is Empty."
+        label.text = L10n.Message.yourOrderListIsEmpty
         return label
     }()
     

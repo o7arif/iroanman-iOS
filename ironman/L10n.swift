@@ -24,7 +24,6 @@ class L10n {
         static let notification = NSLocalizedString("label.notification", comment: "Notification")
         static let profile = NSLocalizedString("label.profile", comment: "Profile")
         static let notifications = NSLocalizedString("label.notifications", comment: "Notifications")
-        static let yourNotificationIsEmpty = NSLocalizedString("label.yourNotificationIsEmpty", comment: "Your notification is Empty")
         static let onGoing = NSLocalizedString("label.onGoing", comment: "On Going")
         static let completed = NSLocalizedString("label.completed", comment: "Completed")
         static let manageAddress = NSLocalizedString("label.manageAddress", comment: "Manage Address")
@@ -45,6 +44,8 @@ class L10n {
     
     class Message {
         static let readyToMakeYourLifeEasier = NSLocalizedString("message.readyToMakeYourLifeEasier", comment: "Ready to Make Your Life Easier with Laundry Service?")
+        static let yourNotificationIsEmpty = NSLocalizedString("message.yourNotificationIsEmpty", comment: "Your notification is Empty")
+        static let yourOrderListIsEmpty = NSLocalizedString("message.yourOrderListIsEmpty", comment: "Your order list is Empty")
     }
     
 }

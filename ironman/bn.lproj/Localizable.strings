@@ -21,7 +21,6 @@
 "label.notification" = "নোটিফিকেশন";
 "label.profile" = "প্রোফাইল";
 "label.notifications" = "নোটিফিকেশন";
-"label.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
 "label.onGoing" = "চলমান";
 "label.completed" = "সম্পন্ন";
 "label.manageAddress" = "ঠিকানা পরিবর্তন";
@@ -46,3 +45,5 @@
 
 // message
 "message.readyToMakeYourLifeEasier" = "লন্ড্রি পরিষেবা দিয়ে আপনার জীবন সহজ করতে প্রস্তুত?";
+"message.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
+"message.yourOrderListIsEmpty" = "আপনার অর্ডার লিষ্ট খালি";

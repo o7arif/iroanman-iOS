@@ -21,7 +21,6 @@
 "label.notification" = "Notification";
 "label.profile" = "Profile";
 "label.notifications" = "Notifications";
-"label.yourNotificationIsEmpty" = "Your notification is Empty";
 "label.onGoing" = "On Going";
 "label.completed" = "Completed";
 "label.manageAddress" = "Manage Address";
@@ -46,3 +45,5 @@
 
 // message
 "message.readyToMakeYourLifeEasier" = "Ready to Make Your Life Easier with Laundry Service?";
+"message.yourNotificationIsEmpty" = "Your notification is Empty";
+"message.yourOrderListIsEmpty" = "Your order list is Empty.";
