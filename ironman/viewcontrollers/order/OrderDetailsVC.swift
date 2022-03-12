@@ -143,7 +143,7 @@ class OrderDetailsVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Order Details"
+        label.text = L10n.Label.orderDetails
         return label
     }()
     
@@ -206,7 +206,7 @@ class OrderDetailsVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Cash on Delivery"
+        label.text = L10n.Label.cashOnDelivery
         return label
     }()
     

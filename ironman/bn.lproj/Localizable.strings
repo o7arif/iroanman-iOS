@@ -30,6 +30,8 @@
 "label.about" = "আমাদের সম্পর্কে";
 "label.logOut" = "লগ আউট";
 "label.howWasLaundryService" = "লন্ড্রি সার্ভিস কেমন ছিল?";
+"label.orderDetails" = "অর্ডার ডিটেইলস";
+"label.cashOnDelivery" = "ক্যাশ অন ডেলিভারি";
 
 
 // hint
@@ -58,4 +60,5 @@
 
 
 // formatted
-"fmt.yourOrderIdNo%@" = "আপনার অর্ডার আইডি #%@";
+"fmt.yourOrderId%@" = "আপনার অর্ডার আইডি #%@";
+"fmt.orderId%@" = "অর্ডার আইডি #%@";

@@ -33,6 +33,8 @@ class L10n {
         static let about = NSLocalizedString("label.about", comment: "About")
         static let logOut = NSLocalizedString("label.logOut", comment: "Log out")
         static let howWasLaundryService = NSLocalizedString("label.howWasLaundryService", comment: "How was Laundry Service?")
+        static let orderDetails = NSLocalizedString("label.orderDetails", comment: "Order Details")
+        static let cashOnDelivery = NSLocalizedString("label.cashOnDelivery", comment: "Cash on Delivery")
     }
     
     
@@ -63,7 +65,10 @@ class L10n {
     
     class Formatted {
         static func yourOrderIdNo(orderId: String) -> String {
-            return String(format: NSLocalizedString("fmt.yourOrderIdNo%@", comment: "Your Order ID No #"), orderId)
+            return String(format: NSLocalizedString("fmt.yourOrderId%@", comment: "Your Order ID No #"), orderId)
+        }
+        static func orderIdNo(orderId: String) -> String {
+            return String(format: NSLocalizedString("fmt.orderId%@", comment: "Order ID #"), orderId)
         }
     }
     

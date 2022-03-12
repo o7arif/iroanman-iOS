@@ -30,6 +30,8 @@
 "label.about" = "About";
 "label.logOut" = "Log out";
 "label.howWasLaundryService" = "How was Laundry Service?";
+"label.orderDetails" = "Order Details";
+"label.cashOnDelivery" = "Cash on Delivery";
 
 
 // hint
@@ -58,4 +60,5 @@
 
 
 // formatted
-"fmt.yourOrderIdNo%@" = "Your Order ID #%@";
+"fmt.yourOrderId%@" = "Your Order ID #%@";
+"fmt.orderId%@" = "Order ID #123456";
