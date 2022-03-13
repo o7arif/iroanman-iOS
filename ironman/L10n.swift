@@ -66,6 +66,7 @@ class L10n {
         static let subTotal = NSLocalizedString("label.subTotal", comment: "")
         static let deliveryCost = NSLocalizedString("label.deliveryCost", comment: "")
         static let discount = NSLocalizedString("label.discount", comment: "")
+        static let searchItems = NSLocalizedString("label.searchItems", comment: "")
     }
     
     

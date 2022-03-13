@@ -63,6 +63,7 @@
 "label.subTotal" = "সর্বমোট";
 "label.deliveryCost" = "ডেলিভারি খরচ";
 "label.discount" = "ছাড়";
+"label.searchItems" = "আইটেম অনুসন্ধান";
 
 
 // hint

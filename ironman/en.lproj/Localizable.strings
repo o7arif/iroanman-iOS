@@ -63,6 +63,7 @@
 "label.subTotal" = "Sub total";
 "label.deliveryCost" = "Delivery Cost";
 "label.discount" = "Discount";
+"label.searchItems" = "Search items";
 
 
 // hint

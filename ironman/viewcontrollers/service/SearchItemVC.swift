@@ -134,7 +134,7 @@ class SearchItemVC: BaseVC {
     
     private let searchField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Search items"
+        textField.placeholder = L10n.Label.searchItems
         textField.backgroundColor = .clear
         textField.textColor = .white
         textField.keyboardType = .default
