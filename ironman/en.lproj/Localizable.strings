@@ -47,6 +47,13 @@
 "label.editProfile" = "Edit Profile";
 "label.updateProfile" = "Update Profile";
 "label.editAddress" = "Edit Address";
+"label.aboutUs" = "About Us";
+"label.whoWeAre" = "Who we are?";
+"label.whatWeDo" = "What we do?";
+"label.howWeWork" = "How we work?";
+"label.wePickupYourClothes" = "We pickup your clothes";
+"label.weCleanYourClothes" = "We clean your clothes";
+"label.weDeliverCleanAndFoldedClothes" = "We deliver clean and folded clothes";
 
 
 // hint
@@ -90,6 +97,7 @@
 "button.addNewAddress" = "Add New Address";
 "button.saveAddress" = "Save Address";
 "button.send" = "Send";
+"button.close" = "Close";
 
 
 // message

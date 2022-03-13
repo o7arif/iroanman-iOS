@@ -47,6 +47,13 @@
 "label.editProfile" = "প্রোফাইল এডিট";
 "label.updateProfile" = "প্রোফাইল আপডেট";
 "label.editAddress" = "ঠিকানা এডিট";
+"label.aboutUs" = "আমাদের সম্পর্কে";
+"label.whoWeAre" = "আমরা কারা?";
+"label.whatWeDo" = "আমরা কি করি?";
+"label.howWeWork" = "আমরা কিভাবে কাজ করি?";
+"label.wePickupYourClothes" = "আমরা আপনার জামাকাপড় পিক করি";
+"label.weCleanYourClothes" = "আমরা আপনার জামাকাপড় পরিষ্কার করি";
+"label.weDeliverCleanAndFoldedClothes" = "আমরা আপনার পরিষ্কার এবং ভাঁজ করা কাপড় সরবরাহ করি";
 
 
 // hint
@@ -90,6 +97,7 @@
 "button.addNewAddress" = "নতুন ঠিকানা যোগ করুন";
 "button.saveAddress" = "ঠিকানা সংরক্ষণ করুন";
 "button.send" = "পাঠান";
+"button.close" = "বন্ধ";
 
 
 // message

@@ -50,6 +50,13 @@ class L10n {
         static let editProfile = NSLocalizedString("label.editProfile", comment: "Edit Profile")
         static let updateProfile = NSLocalizedString("label.updateProfile", comment: "Update Profile")
         static let editAddress = NSLocalizedString("label.editAddress", comment: "Edit Address")
+        static let aboutUs = NSLocalizedString("label.aboutUs", comment: "")
+        static let whoWeAre = NSLocalizedString("label.whoWeAre", comment: "")
+        static let whatWeDo = NSLocalizedString("label.whatWeDo", comment: "")
+        static let howWeWork = NSLocalizedString("label.howWeWork", comment: "")
+        static let wePickupYourClothes = NSLocalizedString("label.wePickupYourClothes", comment: "")
+        static let weCleanYourClothes = NSLocalizedString("label.weCleanYourClothes", comment: "")
+        static let weDeliverCleanAndFoldedClothes = NSLocalizedString("label.weDeliverCleanAndFoldedClothes", comment: "")
     }
     
     
@@ -92,6 +99,7 @@ class L10n {
         static let addNewAddress = NSLocalizedString("button.addNewAddress", comment: "Add New Address")
         static let saveAddress = NSLocalizedString("button.saveAddress", comment: "Save Address")
         static let send = NSLocalizedString("button.send", comment: "Send")
+        static let close = NSLocalizedString("button.close", comment: "Close")
     }
     
     
