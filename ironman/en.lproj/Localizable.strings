@@ -54,6 +54,7 @@
 "label.wePickupYourClothes" = "We pickup your clothes";
 "label.weCleanYourClothes" = "We clean your clothes";
 "label.weDeliverCleanAndFoldedClothes" = "We deliver clean and folded clothes";
+"label.total" = "Total";
 
 
 // hint
@@ -98,6 +99,7 @@
 "button.saveAddress" = "Save Address";
 "button.send" = "Send";
 "button.close" = "Close";
+"button.checkout" = "Checkout";
 
 
 // message
@@ -119,6 +121,7 @@
 "message.youAreNotSignedInPleaseSignInFirst" = "You are not signed in!\nPlease sign in first.";
 "message.yourAddressListIsEmpty" = "Your address list is empty!";
 "message.profileUpdateSuccessful" = "Profile update successful";
+"message.chooseProductFirst" = "Choose product first";
 
 
 // error

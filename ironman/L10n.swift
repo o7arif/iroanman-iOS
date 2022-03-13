@@ -57,6 +57,7 @@ class L10n {
         static let wePickupYourClothes = NSLocalizedString("label.wePickupYourClothes", comment: "")
         static let weCleanYourClothes = NSLocalizedString("label.weCleanYourClothes", comment: "")
         static let weDeliverCleanAndFoldedClothes = NSLocalizedString("label.weDeliverCleanAndFoldedClothes", comment: "")
+        static let total = NSLocalizedString("label.total", comment: "")
     }
     
     
@@ -100,6 +101,7 @@ class L10n {
         static let saveAddress = NSLocalizedString("button.saveAddress", comment: "Save Address")
         static let send = NSLocalizedString("button.send", comment: "Send")
         static let close = NSLocalizedString("button.close", comment: "Close")
+        static let checkout = NSLocalizedString("button.checkout", comment: "")
     }
     
     
@@ -122,6 +124,7 @@ class L10n {
         static let youAreNotSignedInPleaseSignInFirst = NSLocalizedString("message.youAreNotSignedInPleaseSignInFirst", comment: "You are not signed in!\nPlease sign in first.")
         static let yourAddressListIsEmpty = NSLocalizedString("message.yourAddressListIsEmpty", comment: "Your address list is empty!")
         static let profileUpdateSuccessful = NSLocalizedString("message.profileUpdateSuccessful", comment: "Profile update successful")
+        static let chooseProductFirst = NSLocalizedString("message.chooseProductFirst", comment: "")
     }
     
     

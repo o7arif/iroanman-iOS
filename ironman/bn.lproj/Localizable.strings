@@ -54,6 +54,7 @@
 "label.wePickupYourClothes" = "আমরা আপনার জামাকাপড় পিক করি";
 "label.weCleanYourClothes" = "আমরা আপনার জামাকাপড় পরিষ্কার করি";
 "label.weDeliverCleanAndFoldedClothes" = "আমরা আপনার পরিষ্কার এবং ভাঁজ করা কাপড় সরবরাহ করি";
+"label.total" = "মোট";
 
 
 // hint
@@ -98,6 +99,7 @@
 "button.saveAddress" = "ঠিকানা সংরক্ষণ করুন";
 "button.send" = "পাঠান";
 "button.close" = "বন্ধ";
+"button.checkout" = "চেকআউট";
 
 
 // message
@@ -119,6 +121,7 @@
 "message.youAreNotSignedInPleaseSignInFirst" = "আপনার লগইন করা নাই!\nঅনুগ্রহ করে প্রথমে লগইন করুন৷";
 "message.yourAddressListIsEmpty" = "আপনার ঠিকানা তালিকা খালি!";
 "message.profileUpdateSuccessful" = "প্রোফাইল আপডেট সফল হয়েছে";
+"message.chooseProductFirst" = "প্রথমে পণ্য নির্বাচন করুন";
 
 
 // error

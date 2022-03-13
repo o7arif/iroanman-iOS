@@ -214,7 +214,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
             vc.selectedProducts = selectedProducts
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            Toast(text: "Choose product first").show()
+            Toast(text: L10n.Message.chooseProductFirst).show()
         }
     }
     
@@ -285,7 +285,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Service name"
+        label.text = ""
         return label
     }()
     
@@ -295,7 +295,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Total"
+        label.text = L10n.Label.total
         return label
     }()
     
@@ -320,7 +320,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
     
     private let btnCheckout: UIButton = {
         let button = UIButton()
-        button.setTitle("Checkout", for: .normal)
+        button.setTitle(L10n.Button.checkout, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
