@@ -72,6 +72,7 @@
 "placeholder.road" = "Road";
 "placeholder.additionalNote" = "Additional Note";
 "placeholder.editAddress" = "Edit Address";
+"placeholder.writeAMessage" = "Write a message";
 
 
 // button
@@ -88,6 +89,7 @@
 "button.signIn" = "Sign in";
 "button.addNewAddress" = "Add New Address";
 "button.saveAddress" = "Save Address";
+"button.send" = "Send";
 
 
 // message
@@ -131,3 +133,8 @@
 "fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";
 "fmt.resendCodeIn" = "Resend code in %@ seconds";
 "fmt.pleaseChoose" = "Please Choose %@";
+
+
+// static data
+"static.officeAddress" = "9/2 Ring Road, Shamoly , Dhaka-1207 Bangladesh";
+"static.officePhone" = "+880 1689 37 19 47\n+880 1703 99 89 03";

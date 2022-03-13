@@ -72,6 +72,7 @@
 "placeholder.block" = "ব্লক";
 "placeholder.road" = "রাস্তা";
 "placeholder.additionalNote" = "অতিরিক্ত নোট";
+"placeholder.writeAMessage" = "একটা বার্তা লিখুন";
 
 
 // button
@@ -88,6 +89,7 @@
 "button.signIn" = "সাইন ইন";
 "button.addNewAddress" = "নতুন ঠিকানা যোগ করুন";
 "button.saveAddress" = "ঠিকানা সংরক্ষণ করুন";
+"button.send" = "পাঠান";
 
 
 // message
@@ -131,3 +133,8 @@
 "fmt.mustBeBetweenDigits" = "%@ - %@ সংখ্যার মধ্যে হতে হবে";
 "fmt.resendCodeIn" = "%@ সেকেন্ড পর পুনরায় পাঠাতে পারবেন";
 "fmt.pleaseChoose" = "%@ নির্বাচন করুন";
+
+
+// static data
+"static.officeAddress" = "৯/২ রিং রোড, শামলী, ঢাকা-১২০৭ বাংলাদেশ";
+"static.officePhone" = "+৮৮০ ১৬৮৯ ৩৭ ১৯ ৪৭\n+৮৮০ ১৭০৩ ৯৯ ৮৯ ০৩";

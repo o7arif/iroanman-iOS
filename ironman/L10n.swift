@@ -73,6 +73,7 @@ class L10n {
         static let road = NSLocalizedString("placeholder.road", comment: "Road")
         static let additionalNote = NSLocalizedString("placeholder.additionalNote", comment: "Additional Note")
         static let editAddress = NSLocalizedString("placeholder.editAddress", comment: "Edit Address")
+        static let writeAMessage = NSLocalizedString("placeholder.writeAMessage", comment: "Write a Message")
     }
     
     
@@ -90,6 +91,7 @@ class L10n {
         static let signIn = NSLocalizedString("button.signIn", comment: "Sign in")
         static let addNewAddress = NSLocalizedString("button.addNewAddress", comment: "Add New Address")
         static let saveAddress = NSLocalizedString("button.saveAddress", comment: "Save Address")
+        static let send = NSLocalizedString("button.send", comment: "Send")
     }
     
     
@@ -152,6 +154,12 @@ class L10n {
         static func pleaseChoose(arg: String) -> String {
             return String(format: NSLocalizedString("fmt.pleaseChoose", comment: "Please Choose %@"), arg)
         }
+    }
+    
+    
+    class Static {
+        static let officeAddress = NSLocalizedString("static.officeAddress", comment: "9/2 Ring Road, Shamoly , Dhaka-1207 Bangladesh")
+        static let officePhone = NSLocalizedString("static.officePhone", comment: "+880 1689 37 19 47\n+880 1703 99 89 03")
     }
     
 }
