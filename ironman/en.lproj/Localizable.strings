@@ -64,6 +64,14 @@
 "label.deliveryCost" = "Delivery Cost";
 "label.discount" = "Discount";
 "label.searchItems" = "Search items";
+"label.selectAddress" = "Select Address";
+"label.selectDate" = "Select Date";
+"label.selectCollectionDate" = "Select Collection Date";
+"label.cancel" = "Cancel";
+"label.shippingPayment" = "Shipping & Payment";
+"label.shippingSchedule" = "Shipping Schedule";
+"label.collectionDate" = "Collection Date";
+"label.address" = "Address";
 
 
 // hint
@@ -111,6 +119,7 @@
 "button.close" = "Close";
 "button.checkout" = "Checkout";
 "button.apply" = "Apply";
+"button.placeOrder" = "Place Order";
 
 
 // message
@@ -135,6 +144,8 @@
 "message.chooseProductFirst" = "Choose product first";
 "message.yourCartIsEmpty" = "Your Cart is Empty";
 "message.ifYouOrderOver100TKYouWillGetFreeDelivery" = "*If you order over 100TK, you will get Free Delivery";
+"message.pleaseSelectCollectionDateFirst" = "Please select collection date first";
+"message.pleaseSelectAddressFirst" = "Please select address first";
 
 
 // error
@@ -158,6 +169,7 @@
 "fmt.resendCodeIn" = "Resend code in %@ seconds";
 "fmt.pleaseChoose" = "Please Choose %@";
 "fmt.percentVat" = "%@%% VAT";
+"fmt.weWillCollectYourProductBetweenTo" = "We will collect your product between %@ to %@";
 
 
 // static data

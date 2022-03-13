@@ -30,7 +30,7 @@ class ShippingAndPaymentVC: BaseVC {
     
     override func viewDidAppear(_ animated: Bool) {
         address = nil
-        addressDownPicker?.setTitle(title: "Select Address", id: "")
+        addressDownPicker?.setTitle(title: L10n.Label.selectAddress, id: "")
     }
     
     private func setupViews() {
@@ -97,7 +97,7 @@ class ShippingAndPaymentVC: BaseVC {
             make.left.right.equalToSuperview().inset(20)
             make.top.equalTo(labelCollectionDate.snp.bottom).offset(10)
         }
-        viewDatePicker.date = "Select Date"
+        viewDatePicker.date = L10n.Label.selectDate
         viewDatePicker.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dateViewTapped))
         viewDatePicker.addGestureRecognizer(tap)
@@ -128,7 +128,7 @@ class ShippingAndPaymentVC: BaseVC {
             make.top.equalTo(expectedTimeContainer.snp.bottom).offset(26)
         }
         
-        addressDownPicker = SmartDownPicker.init(placeholder: "Select Address", dataSource: .none, validationType: .optional, shouldAddMargin: false, leftIcon: "ic_pin_small")
+        addressDownPicker = SmartDownPicker.init(placeholder: L10n.Label.selectAddress, dataSource: .none, validationType: .optional, shouldAddMargin: false, leftIcon: "ic_pin_small")
         let addressTap = UITapGestureRecognizer(target: self, action: #selector(addressTapped(_:)))
         addressDownPicker?.isUserInteractionEnabled = true
         addressDownPicker?.subviews.forEach { view in
@@ -190,7 +190,7 @@ class ShippingAndPaymentVC: BaseVC {
         }
         
         let label = UILabel()
-        label.text = "Select Collection Date"
+        label.text = L10n.Label.selectCollectionDate
         label.font = OpenSans.bold.of(size: AppConst.fontSize16)
         label.textColor = .white
         headerView.addSubview(label)
@@ -217,7 +217,7 @@ class ShippingAndPaymentVC: BaseVC {
         }
         
         let cancelLabel = UILabel()
-        cancelLabel.text = "CANCEL"
+        cancelLabel.text = L10n.Label.cancel
         cancelLabel.font = OpenSans.bold.of(size: AppConst.fontSize14)
         cancelLabel.textColor = .primary
         cancelLabel.isUserInteractionEnabled = true
@@ -308,13 +308,13 @@ class ShippingAndPaymentVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Shipping & Payment"
+        label.text = L10n.Label.shippingPayment
         return label
     }()
     
     private let btnPlaceOrder: UIButton = {
         let button = UIButton()
-        button.setTitle("Place Order", for: .normal)
+        button.setTitle(L10n.Button.placeOrder, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -338,7 +338,7 @@ class ShippingAndPaymentVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Shipping Schedule"
+        label.text = L10n.Label.shippingSchedule
         return label
     }()
     
@@ -348,7 +348,7 @@ class ShippingAndPaymentVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textGrey
-        label.text = "Collection Date"
+        label.text = L10n.Label.collectionDate
         return label
     }()
     
@@ -375,7 +375,7 @@ class ShippingAndPaymentVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textGrey
-        label.text = "We will collect your product between 03:00 PM to 07:00 PM"
+        label.text = L10n.Formatted.weWillCollectYourProductBetweenTo(arg1: "03:00", arg2: "07:00 PM")
         return label
     }()
     
@@ -385,7 +385,7 @@ class ShippingAndPaymentVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Address"
+        label.text = L10n.Label.address
         return label
     }()
     
@@ -411,12 +411,12 @@ extension ShippingAndPaymentVC: AddressDialogDelegate {
     private func isAllValid() -> Bool {
         
         if selectedDate == nil {
-            Toast(text: "Please select collection date first").show()
+            Toast(text: L10n.Message.pleaseSelectCollectionDateFirst).show()
             return false
         }
 
         if address == nil {
-            Toast(text: "Please select address first").show()
+            Toast(text: L10n.Message.pleaseSelectAddressFirst).show()
             return false
         }
         

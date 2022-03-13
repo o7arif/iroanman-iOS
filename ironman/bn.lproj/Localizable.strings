@@ -64,6 +64,14 @@
 "label.deliveryCost" = "ডেলিভারি খরচ";
 "label.discount" = "ছাড়";
 "label.searchItems" = "আইটেম অনুসন্ধান";
+"label.selectAddress" = "ঠিকানা নির্বাচন করুন";
+"label.selectDate" = "তারিখ নির্বাচন করুন";
+"label.selectCollectionDate" = "সংগ্রহের তারিখ নির্বাচন করুন";
+"label.cancel" = "বাতিল";
+"label.shippingPayment" = "শিপিং এবং পেমেন্ট";
+"label.shippingSchedule" = "পাঠানোর সময়সূচী";
+"label.collectionDate" = "সংগ্রহ তারিখ";
+"label.address" = "ঠিকানা";
 
 
 // hint
@@ -111,6 +119,7 @@
 "button.close" = "বন্ধ";
 "button.checkout" = "চেকআউট";
 "button.apply" = "প্রয়োগ";
+"button.placeOrder" = "অর্ডার করুন";
 
 
 // message
@@ -135,6 +144,8 @@
 "message.chooseProductFirst" = "প্রথমে পণ্য নির্বাচন করুন";
 "message.yourCartIsEmpty" = "আপনার কার্ট খালি";
 "message.ifYouOrderOver100TKYouWillGetFreeDelivery" = "*আপনি যদি ১০০ টাকার বেশি অর্ডার করেন তবে আপনি ফ্রি ডেলিভারি পাবেন";
+"message.pleaseSelectCollectionDateFirst" = "অনুগ্রহ করে প্রথমে সংগ্রহের তারিখ নির্বাচন করুন";
+"message.pleaseSelectAddressFirst" = "অনুগ্রহ করে প্রথমে ঠিকানা নির্বাচন করুন";
 
 
 // error
@@ -158,6 +169,7 @@
 "fmt.resendCodeIn" = "%@ সেকেন্ড পর পুনরায় পাঠাতে পারবেন";
 "fmt.pleaseChoose" = "%@ নির্বাচন করুন";
 "fmt.percentVat" = "%@%% ভ্যাট";
+"fmt.weWillCollectYourProductBetweenTo" = "আমরা %@ থেকে %@ এর মধ্যে আপনার পণ্য সংগ্রহ করব";
 
 
 // static data

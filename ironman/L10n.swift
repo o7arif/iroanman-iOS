@@ -67,6 +67,14 @@ class L10n {
         static let deliveryCost = NSLocalizedString("label.deliveryCost", comment: "")
         static let discount = NSLocalizedString("label.discount", comment: "")
         static let searchItems = NSLocalizedString("label.searchItems", comment: "")
+        static let selectAddress = NSLocalizedString("label.selectAddress", comment: "")
+        static let selectDate = NSLocalizedString("label.selectDate", comment: "")
+        static let selectCollectionDate = NSLocalizedString("label.selectCollectionDate", comment: "")
+        static let cancel = NSLocalizedString("label.cancel", comment: "")
+        static let shippingPayment = NSLocalizedString("label.shippingPayment", comment: "")
+        static let shippingSchedule = NSLocalizedString("label.shippingSchedule", comment: "")
+        static let collectionDate = NSLocalizedString("label.collectionDate", comment: "")
+        static let address = NSLocalizedString("label.address", comment: "")
     }
     
     
@@ -113,6 +121,7 @@ class L10n {
         static let close = NSLocalizedString("button.close", comment: "Close")
         static let checkout = NSLocalizedString("button.checkout", comment: "")
         static let apply = NSLocalizedString("button.apply", comment: "")
+        static let placeOrder = NSLocalizedString("button.placeOrder", comment: "")
     }
     
     
@@ -138,6 +147,8 @@ class L10n {
         static let chooseProductFirst = NSLocalizedString("message.chooseProductFirst", comment: "")
         static let yourCartIsEmpty = NSLocalizedString("message.yourCartIsEmpty", comment: "")
         static let ifYouOrderOver100TKYouWillGetFreeDelivery = NSLocalizedString("message.ifYouOrderOver100TKYouWillGetFreeDelivery", comment: "")
+        static let pleaseSelectCollectionDateFirst = NSLocalizedString("message.pleaseSelectCollectionDateFirst", comment: "")
+        static let pleaseSelectAddressFirst = NSLocalizedString("message.pleaseSelectAddressFirst", comment: "")
     }
     
     
@@ -180,6 +191,9 @@ class L10n {
         }
         static func percentVat(arg: String) -> String {
             return String(format: NSLocalizedString("fmt.percentVat", comment: ""), arg)
+        }
+        static func weWillCollectYourProductBetweenTo(arg1: String, arg2: String) -> String {
+            return String(format: NSLocalizedString("fmt.weWillCollectYourProductBetweenTo", comment: ""), arg1, arg2)
         }
     }
     
