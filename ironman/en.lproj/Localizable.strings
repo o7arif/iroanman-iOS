@@ -44,6 +44,8 @@
 "label.selectPhotoFirst" = "Select photo first";
 "label.congratulations" = "Congratulations!";
 "label.otpVerification" = "OTP Verification";
+"label.editProfile" = "Edit Profile";
+"label.updateProfile" = "Update Profile";
 
 
 // hint
@@ -58,6 +60,9 @@
 "placeholder.confirmPassword" = "Confirm password";
 "placeholder.createNewPassword" = "Create new password";
 "placeholder.confirmNewPassword" = "Confirm new password";
+"placeholder.yourGender" = "Your Gender";
+"placeholder.emailAddressOptional" = "Email Address (Optional)";
+"placeholder.alternativePhoneOptional" = "Alternative Phone (Optional)";
 
 
 // button
@@ -93,6 +98,7 @@
 "message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "Enter the verification code we just sent you OTP on your Phone.";
 "message.youAreNotSignedInPleaseSignInFirst" = "You are not signed in!\nPlease sign in first.";
 "message.yourAddressListIsEmpty" = "Your address list is empty!";
+"message.profileUpdateSuccessful" = "Profile update successful";
 
 
 // error
@@ -114,3 +120,4 @@
 "fmt.mustBeDigits" = "Must be %@ digits";
 "fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";
 "fmt.resendCodeIn" = "Resend code in %@ seconds";
+"fmt.pleaseChoose" = "Please Choose %@";

@@ -62,35 +62,35 @@ class EditProfileVC: BaseVC {
             make.height.width.equalTo(26)
         }
         
-        nameField = SmartTextField.init(placeholder: "Your Name", dataType: .name, validationType: .required, shouldAddMargin: true)
+        nameField = SmartTextField.init(placeholder: L10n.Placeholder.yourName, dataType: .name, validationType: .required, shouldAddMargin: true)
         container.addSubview(nameField!)
         nameField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(ivProfile.snp.bottom).offset(35)
         }
         
-        genderDownPicker = SmartDownPicker.init(placeholder: "Your Gender", dataSource: .gender, validationType: .required, shouldAddMargin: true)
+        genderDownPicker = SmartDownPicker.init(placeholder: L10n.Placeholder.yourGender, dataSource: .gender, validationType: .required, shouldAddMargin: true)
         container.addSubview(genderDownPicker!)
         genderDownPicker!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(nameField!.snp.bottom)
         }
         
-        emailField = SmartTextField.init(placeholder: "Email Address (Optional)", dataType: .email, validationType: .optional, shouldAddMargin: true)
+        emailField = SmartTextField.init(placeholder: L10n.Placeholder.emailAddressOptional, dataType: .email, validationType: .optional, shouldAddMargin: true)
         container.addSubview(emailField!)
         emailField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(genderDownPicker!.snp.bottom)
         }
         
-        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .name, validationType: .required, shouldAddMargin: true)
+        phoneField = SmartTextField.init(placeholder: L10n.Placeholder.enterPhoneNumber, dataType: .name, validationType: .required, shouldAddMargin: true)
         container.addSubview(phoneField!)
         phoneField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(emailField!.snp.bottom)
         }
         
-        altPhoneField = SmartTextField.init(placeholder: "Alternative Phone (Optional)", dataType: .mobile, validationType: .optional, shouldAddMargin: true)
+        altPhoneField = SmartTextField.init(placeholder: L10n.Placeholder.alternativePhoneOptional, dataType: .mobile, validationType: .optional, shouldAddMargin: true)
         container.addSubview(altPhoneField!)
         altPhoneField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -179,7 +179,7 @@ class EditProfileVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Edit Profile"
+        label.text = L10n.Label.editProfile
         return label
     }()
     
@@ -221,7 +221,7 @@ class EditProfileVC: BaseVC {
     
     private let btnUpdateProfile: UIButton = {
         let button = UIButton()
-        button.setTitle("Update Profile", for: .normal)
+        button.setTitle(L10n.Label.updateProfile, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -306,7 +306,7 @@ extension EditProfileVC {
         if tempImage != nil  {
             
             guard let data = tempImage?.jpegData(compressionQuality: 100) else {
-                Toast(text: "Something went wrong during Photo fetching from gallery").show()
+                Toast(text: L10n.Message.somethingWentWrongDuringPhotoFetchingFromGallery).show()
                 return
             }
             
@@ -316,7 +316,7 @@ extension EditProfileVC {
         Networking.instance.callMutipartMultipleFilesWithParameters(api: "users/update", method: .post, imageDatas: imgData, dataKey: "profile_photo", parameters: params) { (responseModel) in
             if responseModel?.code == 200 {
                 if let dictionary = responseModel?.body["data"] as? Dictionary<String, AnyObject> {
-                    Toast(text: responseModel?.body["message"] as? String ?? "Profile update successful").show()
+                    Toast(text: responseModel?.body["message"] as? String ?? L10n.Message.profileUpdateSuccessful).show()
                     
                     if let userDictionary = dictionary["user"] as? [String:Any] {
                         let userModel = User.init(fromDictionary: userDictionary)
@@ -325,7 +325,7 @@ extension EditProfileVC {
                     
                     self.navigationController?.popViewController(animated: true)
                 } else {
-                    Toast(text: "Something went wrong. Please try again later.").show()
+                    Toast(text: L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
                 }
             } else {
                 self.handleErrors(responseModel)
@@ -348,7 +348,7 @@ extension EditProfileVC {
     
     private func handleErrors(_ responseModel: ResponseModel?) {
         if responseModel == nil {
-            Toast(text: "Something went wrong. Please try again later.").show()
+            Toast(text: L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
             return
         }
         
@@ -370,7 +370,7 @@ extension EditProfileVC {
                 }
             }
             if (responseModel!.errors == nil || responseModel!.errors?.count == 0) {
-                Toast(text: responseModel!.message ?? "message_not_found").show()
+                Toast(text: responseModel!.message ?? L10n.Label.unknownError).show()
             }
         }
     }

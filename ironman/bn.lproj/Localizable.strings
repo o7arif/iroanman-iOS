@@ -44,6 +44,8 @@
 "label.selectPhotoFirst" = "প্রথমে ছবি নির্বাচন করুন";
 "label.congratulations" = "অভিনন্দন!";
 "label.otpVerification" = "ওটিপি যাচাইকরণ";
+"label.editProfile" = "প্রোফাইল এডিট";
+"label.updateProfile" = "প্রোফাইল আপডেট";
 
 
 // hint
@@ -59,6 +61,9 @@
 "placeholder.confirmPassword" = "পাসওয়ার্ডটি পুনরায় লিখুন";
 "placeholder.createNewPassword" = "নতুন পাসওয়ার্ড লিখুন";
 "placeholder.confirmNewPassword" = "নতুন পাসওয়ার্ড নিশ্চিত করুন";
+"placeholder.yourGender" = "আপনার লিঙ্গ";
+"placeholder.emailAddressOptional" = "ইমেল ঠিকানা (ঐচ্ছিক)";
+"placeholder.alternativePhoneOptional" = "বিকল্প ফোন (ঐচ্ছিক)";
 
 
 // button
@@ -94,6 +99,7 @@
 "message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "আমরা এইমাত্র আপনার ফোনে আপনাকে ওটিপি কোড পাঠিয়েছি। সেই ওটিপি কোডটি লিখুন।";
 "message.youAreNotSignedInPleaseSignInFirst" = "আপনার লগইন করা নাই!\nঅনুগ্রহ করে প্রথমে লগইন করুন৷";
 "message.yourAddressListIsEmpty" = "আপনার ঠিকানা তালিকা খালি!";
+"message.profileUpdateSuccessful" = "প্রোফাইল আপডেট সফল হয়েছে";
 
 
 // error
@@ -115,3 +121,4 @@
 "fmt.mustBeDigits" = "%@ সংখ্যা হতে হবে";
 "fmt.mustBeBetweenDigits" = "%@ - %@ সংখ্যার মধ্যে হতে হবে";
 "fmt.resendCodeIn" = "%@ সেকেন্ড পর পুনরায় পাঠাতে পারবেন";
+"fmt.pleaseChoose" = "%@ নির্বাচন করুন";

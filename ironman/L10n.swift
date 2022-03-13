@@ -47,6 +47,8 @@ class L10n {
         static let selectPhotoFirst = NSLocalizedString("label.selectPhotoFirst", comment: "Select photo first")
         static let congratulations = NSLocalizedString("label.congratulations", comment: "Congratulations!")
         static let otpVerification = NSLocalizedString("label.otpVerification", comment: "OTP Verification")
+        static let editProfile = NSLocalizedString("label.editProfile", comment: "Edit Profile")
+        static let updateProfile = NSLocalizedString("label.updateProfile", comment: "Update Profile")
     }
     
     
@@ -59,6 +61,9 @@ class L10n {
         static let confirmPassword = NSLocalizedString("placeholder.confirmPassword", comment: "Confirm password")
         static let createNewPassword = NSLocalizedString("placeholder.createNewPassword", comment: "Create new password")
         static let confirmNewPassword = NSLocalizedString("placeholder.confirmNewPassword", comment: "Confirm new password")
+        static let yourGender = NSLocalizedString("placeholder.yourGender", comment: "Your Gender")
+        static let emailAddressOptional = NSLocalizedString("placeholder.emailAddressOptional", comment: "Email Address (Optional)")
+        static let alternativePhoneOptional = NSLocalizedString("placeholder.alternativePhoneOptional", comment: "Alternative Phone (Optional)")
     }
     
     
@@ -96,6 +101,7 @@ class L10n {
         static let enterTheVerificationCodeWeJustSentYouOtpOnYourPhone = NSLocalizedString("message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone", comment: "Enter the verification code we just sent you OTP on your Phone")
         static let youAreNotSignedInPleaseSignInFirst = NSLocalizedString("message.youAreNotSignedInPleaseSignInFirst", comment: "You are not signed in!\nPlease sign in first.")
         static let yourAddressListIsEmpty = NSLocalizedString("message.yourAddressListIsEmpty", comment: "Your address list is empty!")
+        static let profileUpdateSuccessful = NSLocalizedString("message.profileUpdateSuccessful", comment: "Profile update successful")
     }
     
     
@@ -132,6 +138,9 @@ class L10n {
         }
         static func resendCodeIn(arg: String) -> String {
             return String(format: NSLocalizedString("fmt.resendCodeIn", comment: "Resend code in %@ seconds"), arg)
+        }
+        static func pleaseChoose(arg: String) -> String {
+            return String(format: NSLocalizedString("fmt.pleaseChoose", comment: "Please Choose %@"), arg)
         }
     }
     

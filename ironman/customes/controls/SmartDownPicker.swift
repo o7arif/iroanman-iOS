@@ -239,9 +239,9 @@ class SmartDownPicker: UIView{
     
     func getToolTipString() -> String {
         if toolTipDataSource == .predefined {
-            return "\("Please Choose") \(placeholder?.lowercased() ?? "")"
+            return L10n.Formatted.pleaseChoose(arg: placeholder?.lowercased() ?? "")
         } else {
-            return toolTipCustomString ?? "toolTipCustomString shouldn't be empty here"
+            return toolTipCustomString ?? L10n.Error.toolTipCustomStringShouldntBeEmptyHere
         }
     }
     
