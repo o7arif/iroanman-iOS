@@ -58,6 +58,14 @@ class L10n {
         static let weCleanYourClothes = NSLocalizedString("label.weCleanYourClothes", comment: "")
         static let weDeliverCleanAndFoldedClothes = NSLocalizedString("label.weDeliverCleanAndFoldedClothes", comment: "")
         static let total = NSLocalizedString("label.total", comment: "")
+        static let myCart = NSLocalizedString("label.myCart", comment: "")
+        static let pickFrom = NSLocalizedString("label.pickFrom", comment: "")
+        static let items = NSLocalizedString("label.items", comment: "")
+        static let couponCode = NSLocalizedString("label.couponCode", comment: "")
+        static let orderSummary = NSLocalizedString("label.orderSummary", comment: "")
+        static let subTotal = NSLocalizedString("label.subTotal", comment: "")
+        static let deliveryCost = NSLocalizedString("label.deliveryCost", comment: "")
+        static let discount = NSLocalizedString("label.discount", comment: "")
     }
     
     
@@ -82,6 +90,7 @@ class L10n {
         static let additionalNote = NSLocalizedString("placeholder.additionalNote", comment: "Additional Note")
         static let editAddress = NSLocalizedString("placeholder.editAddress", comment: "Edit Address")
         static let writeAMessage = NSLocalizedString("placeholder.writeAMessage", comment: "Write a Message")
+        static let enterCouponCodeHere = NSLocalizedString("placeholder.enterCouponCodeHere", comment: "")
     }
     
     
@@ -102,6 +111,7 @@ class L10n {
         static let send = NSLocalizedString("button.send", comment: "Send")
         static let close = NSLocalizedString("button.close", comment: "Close")
         static let checkout = NSLocalizedString("button.checkout", comment: "")
+        static let apply = NSLocalizedString("button.apply", comment: "")
     }
     
     
@@ -125,6 +135,8 @@ class L10n {
         static let yourAddressListIsEmpty = NSLocalizedString("message.yourAddressListIsEmpty", comment: "Your address list is empty!")
         static let profileUpdateSuccessful = NSLocalizedString("message.profileUpdateSuccessful", comment: "Profile update successful")
         static let chooseProductFirst = NSLocalizedString("message.chooseProductFirst", comment: "")
+        static let yourCartIsEmpty = NSLocalizedString("message.yourCartIsEmpty", comment: "")
+        static let ifYouOrderOver100TKYouWillGetFreeDelivery = NSLocalizedString("message.ifYouOrderOver100TKYouWillGetFreeDelivery", comment: "")
     }
     
     
@@ -164,6 +176,9 @@ class L10n {
         }
         static func pleaseChoose(arg: String) -> String {
             return String(format: NSLocalizedString("fmt.pleaseChoose", comment: "Please Choose %@"), arg)
+        }
+        static func percentVat(arg: String) -> String {
+            return String(format: NSLocalizedString("fmt.percentVat", comment: ""), arg)
         }
     }
     

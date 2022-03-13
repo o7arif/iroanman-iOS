@@ -55,6 +55,14 @@
 "label.weCleanYourClothes" = "We clean your clothes";
 "label.weDeliverCleanAndFoldedClothes" = "We deliver clean and folded clothes";
 "label.total" = "Total";
+"label.myCart" = "My Cart";
+"label.pickFrom" = "Pick from";
+"label.items" = "Items";
+"label.couponCode" = "Coupon Code";
+"label.orderSummary" = "Order Summary";
+"label.subTotal" = "Sub total";
+"label.deliveryCost" = "Delivery Cost";
+"label.discount" = "Discount";
 
 
 // hint
@@ -81,6 +89,7 @@
 "placeholder.additionalNote" = "Additional Note";
 "placeholder.editAddress" = "Edit Address";
 "placeholder.writeAMessage" = "Write a message";
+"placeholder.enterCouponCodeHere" = "Enter coupon code here";
 
 
 // button
@@ -100,6 +109,7 @@
 "button.send" = "Send";
 "button.close" = "Close";
 "button.checkout" = "Checkout";
+"button.apply" = "Apply";
 
 
 // message
@@ -122,6 +132,8 @@
 "message.yourAddressListIsEmpty" = "Your address list is empty!";
 "message.profileUpdateSuccessful" = "Profile update successful";
 "message.chooseProductFirst" = "Choose product first";
+"message.yourCartIsEmpty" = "Your Cart is Empty";
+"message.ifYouOrderOver100TKYouWillGetFreeDelivery" = "*If you order over 100TK, you will get Free Delivery";
 
 
 // error
@@ -144,6 +156,7 @@
 "fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";
 "fmt.resendCodeIn" = "Resend code in %@ seconds";
 "fmt.pleaseChoose" = "Please Choose %@";
+"fmt.percentVat" = "%@%% VAT";
 
 
 // static data

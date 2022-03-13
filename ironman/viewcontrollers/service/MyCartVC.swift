@@ -434,7 +434,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "My Cart"
+        label.text = L10n.Label.myCart
         return label
     }()
     
@@ -451,13 +451,13 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "You are not signed in!\nPlease sign in first."
+        label.text = L10n.Message.youAreNotSignedInPleaseSignInFirst
         return label
     }()
     
     private let btnSignIn: UIView = {
         let button = UIButton()
-        button.setTitle("Sign in", for: .normal)
+        button.setTitle(L10n.Button.signIn, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -485,7 +485,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Your Cart is Empty."
+        label.text = L10n.Message.yourCartIsEmpty
         return label
     }()
     
@@ -498,7 +498,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Pick from"
+        label.text = L10n.Label.pickFrom
         return label
     }()
     
@@ -515,7 +515,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Home"
+        label.text = L10n.Label.home
         return label
     }()
     
@@ -525,7 +525,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 2
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Kollyanpur, Mizan Tower, 5/3"
+        label.text = ""
         return label
     }()
     
@@ -535,7 +535,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Items"
+        label.text = L10n.Label.items
         return label
     }()
     
@@ -554,13 +554,13 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Coupon Code"
+        label.text = L10n.Label.couponCode
         return label
     }()
     
     private let couponField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter coupon code here"
+        textField.placeholder = L10n.Placeholder.enterCouponCodeHere
         textField.backgroundColor = .clear
         textField.keyboardType = .default
         textField.returnKeyType = .search
@@ -576,7 +576,7 @@ class MyCartVC: BaseVC {
     
     private let btnApply: UIButton = {
         let button = UIButton()
-        button.setTitle("Apply", for: .normal)
+        button.setTitle(L10n.Button.apply, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.primary.withAlphaComponent(0.5), for: .normal)
         button.backgroundColor = .primary.withAlphaComponent(0.08)
@@ -596,7 +596,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Order Summary"
+        label.text = L10n.Label.orderSummary
         return label
     }()
     
@@ -607,7 +607,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Sub total"
+        label.text = L10n.Label.subTotal
         return label
     }()
     
@@ -628,7 +628,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "0% VAT"
+        label.text = L10n.Formatted.percentVat(arg: "0")
         return label
     }()
     
@@ -649,7 +649,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Delivery Cost"
+        label.text = L10n.Label.deliveryCost
         return label
     }()
     
@@ -670,7 +670,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Discount"
+        label.text = L10n.Label.discount
         return label
     }()
     
@@ -691,7 +691,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Total"
+        label.text = L10n.Label.total
         return label
     }()
     
@@ -713,7 +713,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .primary
-        label.text = "*If you order over 100TK, you will get Free Delivery"
+        label.text = L10n.Message.ifYouOrderOver100TKYouWillGetFreeDelivery
         return label
     }()
     
@@ -726,7 +726,7 @@ class MyCartVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Total"
+        label.text = L10n.Label.total
         return label
     }()
     
@@ -742,7 +742,7 @@ class MyCartVC: BaseVC {
     
     private let btnCheckout: UIButton = {
         let button = UIButton()
-        button.setTitle("Checkout", for: .normal)
+        button.setTitle(L10n.Button.checkout, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -862,7 +862,7 @@ extension MyCartVC {
                 }
                 
             } else {
-                Toast(text: responseModel.message ?? "Something went wrong. Try again later.").show()
+                Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
             }
         }
         

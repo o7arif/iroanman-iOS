@@ -55,6 +55,14 @@
 "label.weCleanYourClothes" = "আমরা আপনার জামাকাপড় পরিষ্কার করি";
 "label.weDeliverCleanAndFoldedClothes" = "আমরা আপনার পরিষ্কার এবং ভাঁজ করা কাপড় সরবরাহ করি";
 "label.total" = "মোট";
+"label.myCart" = "আমার কার্ট";
+"label.pickFrom" = "বাছাই করুন";
+"label.items" = "আইটেম";
+"label.couponCode" = "কুপন কোড";
+"label.orderSummary" = "অর্ডার সারাংশ";
+"label.subTotal" = "সর্বমোট";
+"label.deliveryCost" = "ডেলিভারি খরচ";
+"label.discount" = "ছাড়";
 
 
 // hint
@@ -81,6 +89,7 @@
 "placeholder.road" = "রাস্তা";
 "placeholder.additionalNote" = "অতিরিক্ত নোট";
 "placeholder.writeAMessage" = "একটা বার্তা লিখুন";
+"placeholder.enterCouponCodeHere" = "এখানে কুপন কোড লিখুন";
 
 
 // button
@@ -100,6 +109,7 @@
 "button.send" = "পাঠান";
 "button.close" = "বন্ধ";
 "button.checkout" = "চেকআউট";
+"button.apply" = "প্রয়োগ";
 
 
 // message
@@ -122,6 +132,8 @@
 "message.yourAddressListIsEmpty" = "আপনার ঠিকানা তালিকা খালি!";
 "message.profileUpdateSuccessful" = "প্রোফাইল আপডেট সফল হয়েছে";
 "message.chooseProductFirst" = "প্রথমে পণ্য নির্বাচন করুন";
+"message.yourCartIsEmpty" = "আপনার কার্ট খালি";
+"message.ifYouOrderOver100TKYouWillGetFreeDelivery" = "*আপনি যদি ১০০ টাকার বেশি অর্ডার করেন তবে আপনি ফ্রি ডেলিভারি পাবেন";
 
 
 // error
@@ -144,6 +156,7 @@
 "fmt.mustBeBetweenDigits" = "%@ - %@ সংখ্যার মধ্যে হতে হবে";
 "fmt.resendCodeIn" = "%@ সেকেন্ড পর পুনরায় পাঠাতে পারবেন";
 "fmt.pleaseChoose" = "%@ নির্বাচন করুন";
+"fmt.percentVat" = "%@%% ভ্যাট";
 
 
 // static data
