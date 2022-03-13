@@ -46,6 +46,7 @@
 "label.otpVerification" = "ওটিপি যাচাইকরণ";
 "label.editProfile" = "প্রোফাইল এডিট";
 "label.updateProfile" = "প্রোফাইল আপডেট";
+"label.editAddress" = "ঠিকানা এডিট";
 
 
 // hint
@@ -64,6 +65,13 @@
 "placeholder.yourGender" = "আপনার লিঙ্গ";
 "placeholder.emailAddressOptional" = "ইমেল ঠিকানা (ঐচ্ছিক)";
 "placeholder.alternativePhoneOptional" = "বিকল্প ফোন (ঐচ্ছিক)";
+"placeholder.addressNameExOfficeHomeEtc" = "ঠিকানা (উদাঃ অফিস/বাড়ি/ইত্যাদি)";
+"placeholder.areaExBashundhara" = "এলাকা (উদাঃ বসুন্ধরা)";
+"placeholder.flat" = "ফ্ল্যাট";
+"placeholder.house" = "গৃহ";
+"placeholder.block" = "ব্লক";
+"placeholder.road" = "রাস্তা";
+"placeholder.additionalNote" = "অতিরিক্ত নোট";
 
 
 // button
@@ -79,6 +87,7 @@
 "button.resend" = "পুনরায় পাঠান";
 "button.signIn" = "সাইন ইন";
 "button.addNewAddress" = "নতুন ঠিকানা যোগ করুন";
+"button.saveAddress" = "ঠিকানা সংরক্ষণ করুন";
 
 
 // message

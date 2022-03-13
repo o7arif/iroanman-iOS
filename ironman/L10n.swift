@@ -49,6 +49,7 @@ class L10n {
         static let otpVerification = NSLocalizedString("label.otpVerification", comment: "OTP Verification")
         static let editProfile = NSLocalizedString("label.editProfile", comment: "Edit Profile")
         static let updateProfile = NSLocalizedString("label.updateProfile", comment: "Update Profile")
+        static let editAddress = NSLocalizedString("label.editAddress", comment: "Edit Address")
     }
     
     
@@ -64,6 +65,14 @@ class L10n {
         static let yourGender = NSLocalizedString("placeholder.yourGender", comment: "Your Gender")
         static let emailAddressOptional = NSLocalizedString("placeholder.emailAddressOptional", comment: "Email Address (Optional)")
         static let alternativePhoneOptional = NSLocalizedString("placeholder.alternativePhoneOptional", comment: "Alternative Phone (Optional)")
+        static let addressNameExOfficeHomeEtc = NSLocalizedString("placeholder.addressNameExOfficeHomeEtc", comment: "Address Name (Ex. Office/Home/etc)")
+        static let areaExBashundhara = NSLocalizedString("placeholder.areaExBashundhara", comment: "Area (Ex. Bashundhara)")
+        static let flat = NSLocalizedString("placeholder.flat", comment: "Flat")
+        static let house = NSLocalizedString("placeholder.house", comment: "House")
+        static let block = NSLocalizedString("placeholder.block", comment: "Block")
+        static let road = NSLocalizedString("placeholder.road", comment: "Road")
+        static let additionalNote = NSLocalizedString("placeholder.additionalNote", comment: "Additional Note")
+        static let editAddress = NSLocalizedString("placeholder.editAddress", comment: "Edit Address")
     }
     
     
@@ -80,6 +89,7 @@ class L10n {
         static let resend = NSLocalizedString("button.resend", comment: "Resend")
         static let signIn = NSLocalizedString("button.signIn", comment: "Sign in")
         static let addNewAddress = NSLocalizedString("button.addNewAddress", comment: "Add New Address")
+        static let saveAddress = NSLocalizedString("button.saveAddress", comment: "Save Address")
     }
     
     

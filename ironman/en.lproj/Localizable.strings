@@ -46,6 +46,7 @@
 "label.otpVerification" = "OTP Verification";
 "label.editProfile" = "Edit Profile";
 "label.updateProfile" = "Update Profile";
+"label.editAddress" = "Edit Address";
 
 
 // hint
@@ -63,6 +64,14 @@
 "placeholder.yourGender" = "Your Gender";
 "placeholder.emailAddressOptional" = "Email Address (Optional)";
 "placeholder.alternativePhoneOptional" = "Alternative Phone (Optional)";
+"placeholder.addressNameExOfficeHomeEtc" = "Address Name (Ex. Office/Home/etc)";
+"placeholder.areaExBashundhara" = "Area (Ex. Bashundhara)";
+"placeholder.flat" = "Flat";
+"placeholder.house" = "House";
+"placeholder.block" = "Block";
+"placeholder.road" = "Road";
+"placeholder.additionalNote" = "Additional Note";
+"placeholder.editAddress" = "Edit Address";
 
 
 // button
@@ -78,6 +87,7 @@
 "button.resend" = "Resend";
 "button.signIn" = "Sign in";
 "button.addNewAddress" = "Add New Address";
+"button.saveAddress" = "Save Address";
 
 
 // message
