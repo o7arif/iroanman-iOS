@@ -72,8 +72,8 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         labelHeaderTitle.snp.makeConstraints { make in
             make.bottom.equalTo(ivBack.snp.bottom)
             make.top.equalTo(ivBack.snp.top)
-            make.left.equalTo(ivBack.snp.right).offset(24)
-            make.right.equalTo(searchCartContainer.snp.left)
+            make.left.equalToSuperview().inset(64)
+            make.right.equalToSuperview().inset(132)
         }
         
         container.addSubview(variantTab)
@@ -214,7 +214,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
             vc.selectedProducts = selectedProducts
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            Toast(text: "Choose product first").show()
+            Toast(text: L10n.Message.chooseProductFirst).show()
         }
     }
     
@@ -283,9 +283,9 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         let label = UILabel()
         label.font = OpenSans.semiBold.of(size: 20)     // should be Poppins Semibold 20
         label.numberOfLines = 1
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.textColor = .white
-        label.text = "Service name"
+        label.text = ""
         return label
     }()
     
@@ -295,7 +295,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Total"
+        label.text = L10n.Label.total
         return label
     }()
     
@@ -320,7 +320,7 @@ class ChooseItemVC: BaseVC, SearchItemDelegate {
     
     private let btnCheckout: UIButton = {
         let button = UIButton()
-        button.setTitle("Checkout", for: .normal)
+        button.setTitle(L10n.Button.checkout, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

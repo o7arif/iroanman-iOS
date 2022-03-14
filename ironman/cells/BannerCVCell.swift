@@ -40,7 +40,12 @@ class BannerCVCell: UICollectionViewCell {
     
     func configure(with model: Banner) {
         // will uncomment later
-        ivPromotion.load(url: URL(string: model.imagePath ?? "")!)
+        let urlPath: String = model.imagePath
+        if !urlPath.isEmpty {
+            let url = AppConst.BASE_URL_IMAGE + urlPath
+            print("image url: \(url)")
+            ivPromotion.load(url: URL(string: url)!)
+        }
     }
     
     

@@ -53,6 +53,8 @@ struct Networking {
                         if (api != "/login" && api != "/password/reset" && api != "/otp/verify") {
                             print("login korao")
                             CacheData.instance.destroySession()
+                            let responseModel = ResponseModel.init(code: 401, body: response.result.value as! NSDictionary)
+                            completion(responseModel)
                             break
                         } else {
                             let responseModel = ResponseModel.init(code: 401, body: response.result.value as! NSDictionary)

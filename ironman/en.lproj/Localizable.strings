@@ -1,0 +1,177 @@
+/* 
+  Localizable.strings
+  ironman
+
+  Created by Md Nazmul Haque Arif on 3/9/22.
+  
+*/
+
+// label
+"label.getStuffWashed" = "Get Stuff Washed";
+"label.premiumWashing" = "Premium Washing";
+"label.dryCleaning" = "Dry Cleaning";
+"label.guestUser" = "Guest User";
+"label.login" = "Login";
+"label.unknownAddress" = "Unknown address";
+"label.promotions" = "Promotions";
+"label.ourServices" = "Our Services";
+"label.emergencyService" = "Emergency Service";
+"label.home" = "Home";
+"label.myOrder" = "My Order";
+"label.notification" = "Notification";
+"label.profile" = "Profile";
+"label.notifications" = "Notifications";
+"label.onGoing" = "On Going";
+"label.completed" = "Completed";
+"label.manageAddress" = "Manage Address";
+"label.privacyPolicy" = "Privacy Policy";
+"label.termsOfService" = "Terms of Service";
+"label.contactUs" = "Contact us";
+"label.about" = "About";
+"label.logOut" = "Log out";
+"label.howWasLaundryService" = "How was Laundry Service?";
+"label.orderDetails" = "Order Details";
+"label.cashOnDelivery" = "Cash on Delivery";
+"label.SignUp" = "Sign up";
+"label.unknownError" = "Unknown error!";
+"label.recoverPassword" = "Recover Password";
+"label.createYourNewPassword" = "Create your new password";
+"label.alert" = "Alert";
+"label.ok" = "Ok";
+"label.skip" = "Skip";
+"label.doYouWantAddYourProfilePhoto" = "Do you want add your profile photo?";
+"label.pleaseAddYourPhotoCapture" = "Please add your photo/Capture.";
+"label.selectPhotoFirst" = "Select photo first";
+"label.congratulations" = "Congratulations!";
+"label.otpVerification" = "OTP Verification";
+"label.editProfile" = "Edit Profile";
+"label.updateProfile" = "Update Profile";
+"label.editAddress" = "Edit Address";
+"label.aboutUs" = "About Us";
+"label.whoWeAre" = "Who we are?";
+"label.whatWeDo" = "What we do?";
+"label.howWeWork" = "How we work?";
+"label.wePickupYourClothes" = "We pickup your clothes";
+"label.weCleanYourClothes" = "We clean your clothes";
+"label.weDeliverCleanAndFoldedClothes" = "We deliver clean and folded clothes";
+"label.total" = "Total";
+"label.myCart" = "My Cart";
+"label.pickFrom" = "Pick from";
+"label.items" = "Items";
+"label.couponCode" = "Coupon Code";
+"label.orderSummary" = "Order Summary";
+"label.subTotal" = "Sub total";
+"label.deliveryCost" = "Delivery Cost";
+"label.discount" = "Discount";
+"label.searchItems" = "Search items";
+"label.selectAddress" = "Select Address";
+"label.selectDate" = "Select Date";
+"label.selectCollectionDate" = "Select Collection Date";
+"label.cancel" = "Cancel";
+"label.shippingPayment" = "Shipping & Payment";
+"label.shippingSchedule" = "Shipping Schedule";
+"label.collectionDate" = "Collection Date";
+"label.address" = "Address";
+
+
+// hint
+
+
+// placeholder
+"placeholder.writeUsYourValuableComments" = "Write us your valuable comments....";
+"placeholder.enterPhoneNumber" = "Enter Phone Number";
+"placeholder.enterYourPassword" = "Enter your password";
+"placeholder.yourName" = "Your Name";
+"placeholder.createPassword" = "Create password";
+"placeholder.confirmPassword" = "Confirm password";
+"placeholder.createNewPassword" = "Create new password";
+"placeholder.confirmNewPassword" = "Confirm new password";
+"placeholder.yourGender" = "Your Gender";
+"placeholder.emailAddressOptional" = "Email Address (Optional)";
+"placeholder.alternativePhoneOptional" = "Alternative Phone (Optional)";
+"placeholder.addressNameExOfficeHomeEtc" = "Address Name (Ex. Office/Home/etc)";
+"placeholder.areaExBashundhara" = "Area (Ex. Bashundhara)";
+"placeholder.flat" = "Flat";
+"placeholder.house" = "House";
+"placeholder.block" = "Block";
+"placeholder.road" = "Road";
+"placeholder.additionalNote" = "Additional Note";
+"placeholder.editAddress" = "Edit Address";
+"placeholder.writeAMessage" = "Write a message";
+"placeholder.enterCouponCodeHere" = "Enter coupon code here";
+
+
+// button
+"button.letsGetStarted" = "Let's Get Started";
+"button.tapHereToLogin" = "Tap here to Login";
+"button.getService" = "Get Service";
+"button.seeMyOrder" = "See My Order";
+"button.submit" = "Submit";
+"button.forgotPassword" = "Forgot password?";
+"button.sendOTP" = "Send OTP";
+"button.confirm" = "Confirm";
+"button.finish" = "Finish";
+"button.resend" = "Resend";
+"button.signIn" = "Sign in";
+"button.addNewAddress" = "Add New Address";
+"button.saveAddress" = "Save Address";
+"button.send" = "Send";
+"button.close" = "Close";
+"button.checkout" = "Checkout";
+"button.apply" = "Apply";
+"button.placeOrder" = "Place Order";
+
+
+// message
+"message.readyToMakeYourLifeEasier" = "Ready to Make Your Life Easier with Laundry Service?";
+"message.yourNotificationIsEmpty" = "Your notification is Empty";
+"message.yourOrderListIsEmpty" = "Your order list is Empty.";
+"message.yourOrderHasBeenConfirmed" = "Your order has been Confirmed";
+"message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience" = "Your feedback will help us to improve the Laundry Service Experience.";
+"message.thanksForYourFeedback" = "Thanks for your feedback";
+"message.somethingWentWrongPleaseTryAgainLater" = "Something went wrong. Please try again later.";
+"message.pleaseLoginToGetOurService" = "Please login to get our Service";
+"message.dontHaveAnAccountSignUp" = "Don't have an Account? Sign up";
+"message.pleaseRegisterToGetOurService" = "Please Register to get our Service";
+"message.alreadyHaveAnAccountLoginNow" = "Already have an Account? Login Now";
+"message.enterPhoneNumberToRecoverPassword" = "Enter phone number to recover Password";
+"message.somethingWentWrongDuringPhotoFetchingFromGallery" = "Something went wrong during Photo fetching from gallery";
+"message.youHaveSuccessfullySignedUpOnLaundryService" = "You have successfully Signed up on Laundry Service";
+"message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "Enter the verification code we just sent you OTP on your Phone.";
+"message.youAreNotSignedInPleaseSignInFirst" = "You are not signed in!\nPlease sign in first.";
+"message.yourAddressListIsEmpty" = "Your address list is empty!";
+"message.profileUpdateSuccessful" = "Profile update successful";
+"message.chooseProductFirst" = "Choose product first";
+"message.yourCartIsEmpty" = "Your Cart is Empty";
+"message.ifYouOrderOver100TKYouWillGetFreeDelivery" = "*If you order over 100TK, you will get Free Delivery";
+"message.pleaseSelectCollectionDateFirst" = "Please select collection date first";
+"message.pleaseSelectAddressFirst" = "Please select address first";
+
+
+// error
+"error.invalidEmailAddress" = "Invalid email address";
+"error.atLeast6CharacterLong" = "At least 6 character long";
+"error.invalidMobileNumber" = "Invalid mobile number";
+"error.invalidNumber" = "Invalid number";
+"error.notDefined" = "TT: not defined";
+"error.pleaseEnterCorrectInformation" = "Please enter correct information";
+"error.toolTipCustomStringShouldntBeEmptyHere" = "toolTipCustomString shouldn't be empty here";
+"error.passwordDidNotMatch" = "Password did not match";
+
+
+// formatted
+"fmt.yourOrderId%@" = "Your Order ID #%@";
+"fmt.orderId%@" = "Order ID #123456";
+"fmt.isEmpty" = "%@ is empty";
+"fmt.mustBeBetweenTo" = "Must be between: %@ to %@";
+"fmt.mustBeDigits" = "Must be %@ digits";
+"fmt.mustBeBetweenDigits" = "Must be between %@ - %@ digits";
+"fmt.resendCodeIn" = "Resend code in %@ seconds";
+"fmt.pleaseChoose" = "Please Choose %@";
+"fmt.percentVat" = "%@%% VAT";
+"fmt.weWillCollectYourProductBetweenTo" = "We will collect your product between %@ to %@";
+
+
+// static data
+"static.officeAddress" = "9/2 Ring Road, Shamoly , Dhaka-1207 Bangladesh";
+"static.officePhone" = "+880 1689 37 19 47\n+880 1703 99 89 03";

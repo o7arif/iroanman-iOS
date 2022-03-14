@@ -76,7 +76,7 @@ class ContactUsVC: BaseVC {
         }
         
         // message
-        tvMessage.placeholder = "Write a message"
+        tvMessage.placeholder = L10n.Placeholder.writeAMessage
         cardView.addSubview(tvMessage)
         tvMessage.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
@@ -135,7 +135,7 @@ class ContactUsVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Contact Us"
+        label.text = L10n.Label.contactUs
         return label
     }()
     
@@ -168,7 +168,7 @@ class ContactUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "9/2 Ring Road, Shamoly , Dhaka-1207 Bangladesh"
+        label.text = L10n.Static.officeAddress
         return label
     }()
     
@@ -185,13 +185,13 @@ class ContactUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "+880 1689 37 19 47\n+880 1703 99 89 03"
+        label.text = L10n.Static.officePhone
         return label
     }()
     
     private let btnSend: UIButton = {
         let button = UIButton()
-        button.setTitle("Send", for: .normal)
+        button.setTitle(L10n.Button.send, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

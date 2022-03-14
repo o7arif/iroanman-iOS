@@ -1,0 +1,177 @@
+/* 
+  Localizable.strings
+  ironman
+
+  Created by Md Nazmul Haque Arif on 3/9/22.
+  
+*/
+
+// label
+"label.getStuffWashed" = "স্টাফ ধুয়ে নিন";
+"label.premiumWashing" = "প্রিমিয়াম ওয়াশিং";
+"label.dryCleaning" = "শুকনো ভাবে পরিষ্কার করা";
+"label.guestUser" = "অতিথি ব্যবহারকারী";
+"label.login" = "লগইন";
+"label.unknownAddress" = "অজানা ঠিকানা";
+"label.promotions" = "প্রচার";
+"label.ourServices" = "আমাদের সেবাসমূহ";
+"label.emergencyService" = "জরুরী সেবা";
+"label.home" = "হোম";
+"label.myOrder" = "আমার অর্ডার";
+"label.notification" = "নোটিফিকেশন";
+"label.profile" = "প্রোফাইল";
+"label.notifications" = "নোটিফিকেশন";
+"label.onGoing" = "চলমান";
+"label.completed" = "সম্পন্ন";
+"label.manageAddress" = "ঠিকানা পরিবর্তন";
+"label.privacyPolicy" = "গোপনীয়তা নীতি";
+"label.termsOfService" = "সেবা পাবার শর্ত";
+"label.contactUs" = "আমাদের সাথে যোগাযোগ";
+"label.about" = "আমাদের সম্পর্কে";
+"label.logOut" = "লগ আউট";
+"label.howWasLaundryService" = "লন্ড্রি সার্ভিস কেমন ছিল?";
+"label.orderDetails" = "অর্ডার ডিটেইলস";
+"label.cashOnDelivery" = "ক্যাশ অন ডেলিভারি";
+"label.SignUp" = "সাইন আপ";
+"label.unknownError" = "অজানা ত্রুটি!";
+"label.recoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার";
+"label.createYourNewPassword" = "আপনার নতুন পাসওয়ার্ড তৈরি করুন";
+"label.alert" = "সতর্কতা";
+"label.ok" = "ওকে";
+"label.skip" = "এড়িয়ে যান";
+"label.doYouWantAddYourProfilePhoto" = "আপনি কি আপনার প্রোফাইল ফটো যোগ করতে চান?";
+"label.pleaseAddYourPhotoCapture" = "আপনার ছবি যোগ করুন";
+"label.selectPhotoFirst" = "প্রথমে ছবি নির্বাচন করুন";
+"label.congratulations" = "অভিনন্দন!";
+"label.otpVerification" = "ওটিপি যাচাইকরণ";
+"label.editProfile" = "প্রোফাইল এডিট";
+"label.updateProfile" = "প্রোফাইল আপডেট";
+"label.editAddress" = "ঠিকানা এডিট";
+"label.aboutUs" = "আমাদের সম্পর্কে";
+"label.whoWeAre" = "আমরা কারা?";
+"label.whatWeDo" = "আমরা কি করি?";
+"label.howWeWork" = "আমরা কিভাবে কাজ করি?";
+"label.wePickupYourClothes" = "আমরা আপনার জামাকাপড় পিক করি";
+"label.weCleanYourClothes" = "আমরা আপনার জামাকাপড় পরিষ্কার করি";
+"label.weDeliverCleanAndFoldedClothes" = "আমরা আপনার পরিষ্কার এবং ভাঁজ করা কাপড় সরবরাহ করি";
+"label.total" = "মোট";
+"label.myCart" = "আমার কার্ট";
+"label.pickFrom" = "বাছাই করুন";
+"label.items" = "আইটেম";
+"label.couponCode" = "কুপন কোড";
+"label.orderSummary" = "অর্ডার সারাংশ";
+"label.subTotal" = "সর্বমোট";
+"label.deliveryCost" = "ডেলিভারি খরচ";
+"label.discount" = "ছাড়";
+"label.searchItems" = "আইটেম অনুসন্ধান";
+"label.selectAddress" = "ঠিকানা নির্বাচন করুন";
+"label.selectDate" = "তারিখ নির্বাচন করুন";
+"label.selectCollectionDate" = "সংগ্রহের তারিখ নির্বাচন করুন";
+"label.cancel" = "বাতিল";
+"label.shippingPayment" = "শিপিং এবং পেমেন্ট";
+"label.shippingSchedule" = "পাঠানোর সময়সূচী";
+"label.collectionDate" = "সংগ্রহ তারিখ";
+"label.address" = "ঠিকানা";
+
+
+// hint
+
+
+// placeholder
+"placeholder.writeUsYourValuableComments" = "আপনার মূল্যবান মতামত আমাদের লিখুন...";
+"placeholder.enterPhoneNumber" = "ফোন নম্বর লিখুন";
+"placeholder.enterYourPassword" = "আপনার পাসওয়ার্ড লিখুন";
+"placeholder.yourName" = "আপনার নাম";
+"placeholder.enterPhoneNumber" = "ফোন নম্বর লিখুন";
+"placeholder.createPassword" = "নতুন পাসওয়ার্ড লিখুন";
+"placeholder.confirmPassword" = "পাসওয়ার্ডটি পুনরায় লিখুন";
+"placeholder.createNewPassword" = "নতুন পাসওয়ার্ড লিখুন";
+"placeholder.confirmNewPassword" = "নতুন পাসওয়ার্ড নিশ্চিত করুন";
+"placeholder.yourGender" = "আপনার লিঙ্গ";
+"placeholder.emailAddressOptional" = "ইমেল ঠিকানা (ঐচ্ছিক)";
+"placeholder.alternativePhoneOptional" = "বিকল্প ফোন (ঐচ্ছিক)";
+"placeholder.addressNameExOfficeHomeEtc" = "ঠিকানা (উদাঃ অফিস/বাড়ি/ইত্যাদি)";
+"placeholder.areaExBashundhara" = "এলাকা (উদাঃ বসুন্ধরা)";
+"placeholder.flat" = "ফ্ল্যাট";
+"placeholder.house" = "গৃহ";
+"placeholder.block" = "ব্লক";
+"placeholder.road" = "রাস্তা";
+"placeholder.additionalNote" = "অতিরিক্ত নোট";
+"placeholder.writeAMessage" = "একটা বার্তা লিখুন";
+"placeholder.enterCouponCodeHere" = "এখানে কুপন কোড লিখুন";
+
+
+// button
+"button.letsGetStarted" = "চল শুরু করি";
+"button.tapHereToLogin" = "লগইন করতে এখানে চাপুন";
+"button.getService" = "সেবা নিন";
+"button.seeMyOrder" = "আমার অর্ডার দেখুন";
+"button.submit" = "সাবমিট";
+"button.forgotPassword" = "পাসওয়ার্ড ভুলে গেছেন?";
+"button.sendOTP" = "ওটিপি কোড পাঠান";
+"button.confirm" = "নিশ্চিত করুন";
+"button.finish" = "শেষ করুন";
+"button.resend" = "পুনরায় পাঠান";
+"button.signIn" = "সাইন ইন";
+"button.addNewAddress" = "নতুন ঠিকানা যোগ করুন";
+"button.saveAddress" = "ঠিকানা সংরক্ষণ করুন";
+"button.send" = "পাঠান";
+"button.close" = "বন্ধ";
+"button.checkout" = "চেকআউট";
+"button.apply" = "প্রয়োগ";
+"button.placeOrder" = "অর্ডার করুন";
+
+
+// message
+"message.readyToMakeYourLifeEasier" = "লন্ড্রি পরিষেবা দিয়ে আপনার জীবন সহজ করতে প্রস্তুত?";
+"message.yourNotificationIsEmpty" = "কোন নোটিফিকেশন নাই";
+"message.yourOrderListIsEmpty" = "আপনার অর্ডার লিষ্ট খালি";
+"message.yourOrderHasBeenConfirmed" = "আপনার অর্ডার নিশ্চিত করা হয়েছে";
+"message.yourFeedbackWillHelpUsToImproveTheLaundryServiceExperience" = "আপনার প্রতিক্রিয়া আমাদের লন্ড্রি পরিষেবা অভিজ্ঞতা উন্নত করতে সাহায্য করবে";
+"message.thanksForYourFeedback" = "আপনার প্রতিক্রিয়ার জন্য ধন্যবাদ";
+"message.somethingWentWrongPleaseTryAgainLater" = "কিছু ভুল হয়েছে. পরে আবার চেষ্টা করুন.";
+"message.pleaseLoginToGetOurService" = "আমাদের পরিষেবা পেতে লগইন করুন";
+"message.dontHaveAnAccountSignUp" = "অ্যাকাউন্ট নেই? সাইন-আপ করুন";
+"message.pleaseRegisterToGetOurService" = "আমাদের পরিষেবা পেতে অনুগ্রহ করে রেজিষ্টার করুন";
+"message.alreadyHaveAnAccountLoginNow" = "ইতিমধ্যে একটি একাউন্ট আছে? লগ ইন করুন";
+"message.enterPhoneNumberToRecoverPassword" = "পাসওয়ার্ড পুনরুদ্ধার করতে ফোন নম্বর লিখুন";
+"message.somethingWentWrongDuringPhotoFetchingFromGallery" = "গ্যালারি থেকে ফটো নেয়া সম্ভব হয়নি";
+"message.youHaveSuccessfullySignedUpOnLaundryService" = "আপনি সফলভাবে লন্ড্রি পরিষেবাতে সাইন আপ করেছেন";
+"message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone" = "আমরা এইমাত্র আপনার ফোনে আপনাকে ওটিপি কোড পাঠিয়েছি। সেই ওটিপি কোডটি লিখুন।";
+"message.youAreNotSignedInPleaseSignInFirst" = "আপনার লগইন করা নাই!\nঅনুগ্রহ করে প্রথমে লগইন করুন৷";
+"message.yourAddressListIsEmpty" = "আপনার ঠিকানা তালিকা খালি!";
+"message.profileUpdateSuccessful" = "প্রোফাইল আপডেট সফল হয়েছে";
+"message.chooseProductFirst" = "প্রথমে পণ্য নির্বাচন করুন";
+"message.yourCartIsEmpty" = "আপনার কার্ট খালি";
+"message.ifYouOrderOver100TKYouWillGetFreeDelivery" = "*আপনি যদি ১০০ টাকার বেশি অর্ডার করেন তবে আপনি ফ্রি ডেলিভারি পাবেন";
+"message.pleaseSelectCollectionDateFirst" = "অনুগ্রহ করে প্রথমে সংগ্রহের তারিখ নির্বাচন করুন";
+"message.pleaseSelectAddressFirst" = "অনুগ্রহ করে প্রথমে ঠিকানা নির্বাচন করুন";
+
+
+// error
+"error.invalidEmailAddress" = "অবৈধ ইমেইল ঠিকানা";
+"error.atLeast6CharacterLong" = "কমপক্ষে 6 অক্ষর হতে হবে";
+"error.invalidMobileNumber" = "অবৈধ মোবাইল নম্বর";
+"error.invalidNumber" = "অবৈধ নম্বর";
+"error.notDefined" = "সংজ্ঞায়িত নয়";
+"error.pleaseEnterCorrectInformation" = "সঠিক তথ্য লিখুন";
+"error.toolTipCustomStringShouldntBeEmptyHere" = "টুলটিপ কাস্টম স্ট্রিং এখানে খালি থাকা উচিত নয়";
+"error.passwordDidNotMatch" = "পাসওয়ার্ড মেলেনি";
+
+
+// formatted
+"fmt.yourOrderId%@" = "আপনার অর্ডার আইডি #%@";
+"fmt.orderId%@" = "অর্ডার আইডি #%@";
+"fmt.isEmpty" = "%@ খালি";
+"fmt.mustBeBetweenTo" = "%@ থেকে %@ এর মধ্যে হতে হবে";
+"fmt.mustBeDigits" = "%@ সংখ্যা হতে হবে";
+"fmt.mustBeBetweenDigits" = "%@ - %@ সংখ্যার মধ্যে হতে হবে";
+"fmt.resendCodeIn" = "%@ সেকেন্ড পর পুনরায় পাঠাতে পারবেন";
+"fmt.pleaseChoose" = "%@ নির্বাচন করুন";
+"fmt.percentVat" = "%@%% ভ্যাট";
+"fmt.weWillCollectYourProductBetweenTo" = "আমরা %@ থেকে %@ এর মধ্যে আপনার পণ্য সংগ্রহ করব";
+
+
+// static data
+"static.officeAddress" = "৯/২ রিং রোড, শামলী, ঢাকা-১২০৭ বাংলাদেশ";
+"static.officePhone" = "+৮৮০ ১৬৮৯ ৩৭ ১৯ ৪৭\n+৮৮০ ১৭০৩ ৯৯ ৮৯ ০৩";

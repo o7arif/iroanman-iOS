@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum MenuEnum: String {
-    case MANAGE_ADDRESS = "Manage Address"
-    case PRIVACY_POLICY = "Privacy Policy"
-    case TERMS_OF_SERVICE = "Terms of Service"
-    case CONTACT = "Contact us"
-    case ABOUT = "About"
-    case LOGOUT = "Log out"
+public enum MenuEnum {
+    case MANAGE_ADDRESS
+    case PRIVACY_POLICY
+    case TERMS_OF_SERVICE
+    case CONTACT
+    case ABOUT
+    case LOGOUT
 }

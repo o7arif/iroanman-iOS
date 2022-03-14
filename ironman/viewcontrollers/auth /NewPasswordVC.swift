@@ -53,14 +53,14 @@ class NewPasswordVC: BaseVC {
             make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
         }
         
-        passwordField = SmartTextField.init(placeholder: "Create new assword", dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
+        passwordField = SmartTextField.init(placeholder: L10n.Placeholder.createNewPassword, dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
         wrapperView.addSubview(passwordField!)
         passwordField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom).offset(69)
         }
         
-        confirmPasswordField = SmartTextField.init(placeholder: "Confirm new password", dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
+        confirmPasswordField = SmartTextField.init(placeholder: L10n.Placeholder.confirmNewPassword, dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
         wrapperView.addSubview(confirmPasswordField!)
         confirmPasswordField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -121,7 +121,7 @@ class NewPasswordVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Create Password"
+        label.text = L10n.Placeholder.createPassword
         return label
     }()
     
@@ -131,13 +131,13 @@ class NewPasswordVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Create your new password"
+        label.text = L10n.Label.createYourNewPassword
         return label
     }()
     
     private let btnConfirm: UIView = {
         let button = UIButton()
-        button.setTitle("Confirm", for: .normal)
+        button.setTitle(L10n.Button.confirm, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -175,7 +175,7 @@ extension NewPasswordVC {
         let confirmPassword = confirmPasswordField?.textField.text ?? ""
         
         if password != confirmPassword {
-            confirmPasswordField?.setCustomErrorMessage(message: "Password did not match")
+            confirmPasswordField?.setCustomErrorMessage(message: L10n.Message.enterPhoneNumberToRecoverPassword)
             return false
         }
         
@@ -195,8 +195,8 @@ extension NewPasswordVC {
             if (responseModel.code == 200) {
                 let message = responseModel.body["message"] as? String
                 DispatchQueue.main.async() {
-                    let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                    let alert = UIAlertController(title: L10n.Label.alert, message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.Label.ok, style: .default, handler: { action in
                         switch action.style {
                         case .default:
                             let vc = LoginVC()

@@ -54,14 +54,14 @@ class LoginVC: BaseVC {
             make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
         }
         
-        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
+        phoneField = SmartTextField.init(placeholder: L10n.Placeholder.enterPhoneNumber, dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
         wrapperView.addSubview(phoneField!)
         phoneField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom).offset(35)
         }
         
-        passwordField = SmartTextField.init(placeholder: "Enter your password", dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
+        passwordField = SmartTextField.init(placeholder: L10n.Placeholder.enterYourPassword, dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
         wrapperView.addSubview(passwordField!)
         passwordField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -146,7 +146,7 @@ class LoginVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Login"
+        label.text = L10n.Label.login
         return label
     }()
     
@@ -156,7 +156,7 @@ class LoginVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Please login to get our Service"
+        label.text = L10n.Message.pleaseLoginToGetOurService
         return label
     }()
     
@@ -166,7 +166,7 @@ class LoginVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Forgot password?"
+        label.text = L10n.Button.forgotPassword
         
         label.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordTapped(_:)))
@@ -177,7 +177,7 @@ class LoginVC: BaseVC {
     
     private let btnLogin: UIView = {
         let button = UIButton()
-        button.setTitle("Login", for: .normal)
+        button.setTitle(L10n.Label.login, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -202,7 +202,7 @@ class LoginVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Don't have an Account? Sign up"
+        label.text = L10n.Message.dontHaveAnAccountSignUp
         
         label.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(signupTapped(_:)))
@@ -265,7 +265,7 @@ extension LoginVC {
                     }
                 }
             } else {
-                Toast(text: responseModel.message ?? "Something went wrong. Please try again later").show()
+                Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
             }
         }
     }

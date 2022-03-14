@@ -9,8 +9,8 @@ import UIKit
 import WebKit
 
 enum HtmlType: String {
-    case PRIVACY_POLICY = "Privacy Policy"
-    case TERMS_OF_SERVICE = "Terms of Service"
+    case PRIVACY_POLICY
+    case TERMS_OF_SERVICE
 }
 
 class HtmlViewVC: BaseVC {
@@ -40,7 +40,7 @@ class HtmlViewVC: BaseVC {
             make.bottom.equalToSuperview().inset(16)
         }
         
-        labelHeaderTitle.text = htmlType?.rawValue ?? ""
+        labelHeaderTitle.text = htmlType == .PRIVACY_POLICY ? L10n.Label.privacyPolicy : L10n.Label.termsOfService
         viewHeaderBack.addSubview(labelHeaderTitle)
         labelHeaderTitle.snp.makeConstraints { make in
             make.bottom.equalTo(ivBack.snp.bottom)
@@ -123,7 +123,7 @@ class HtmlViewVC: BaseVC {
     
     private let btnClose: UIButton = {
         let button = UIButton()
-        button.setTitle("Close", for: .normal)
+        button.setTitle(L10n.Button.close, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

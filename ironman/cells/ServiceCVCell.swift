@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol ServiceTapListener {
-    func serviceTapped(item: Service)
-}
+//protocol ServiceTapListener {
+//    func serviceTapped(item: Service)
+//}
 
 class ServiceCVCell: UICollectionViewCell {
     
     static let identifier = "ServiceCVCell"
-    var listener: ServiceTapListener?
+//    var listener: ServiceTapListener?
     private var item: Service?
     
     override init(frame: CGRect) {
@@ -37,7 +37,7 @@ class ServiceCVCell: UICollectionViewCell {
         ivService.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
             make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(100)
+            make.height.equalTo(120)
         }
         
         cardView.addSubview(labelService)
@@ -51,7 +51,7 @@ class ServiceCVCell: UICollectionViewCell {
             make.top.equalTo(labelService.snp.bottom).offset(4)
             make.left.right.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(10)
-            make.height.equalTo(20)
+            make.height.equalTo(30)
         }
         
     }
@@ -63,7 +63,7 @@ class ServiceCVCell: UICollectionViewCell {
         item = model
         labelService.text = model.name
         // uncomment later
-        ivService.load(url: URL(string: model.imagePath ?? "")!)
+        ivService.load(url: URL(string: model.imagePath)!)
     }
     
     
@@ -94,8 +94,8 @@ class ServiceCVCell: UICollectionViewCell {
     private let labelService: UILabel = {
         let label = UILabel()
         label.font = OpenSans.bold.of(size: 12)
-        label.numberOfLines = 0
-        label.text = "Emergency Service"
+        label.numberOfLines = 3
+        label.text = L10n.Label.emergencyService
         label.textAlignment = .center
         label.textColor = .textBlack
         return label
@@ -103,11 +103,11 @@ class ServiceCVCell: UICollectionViewCell {
     
     private let btnGetService: UIView = {
         let button = UIButton()
-        button.setTitle("Get Service", for: .normal)
-        button.isUserInteractionEnabled = true
+        button.setTitle(L10n.Button.getService, for: .normal)
+        button.isUserInteractionEnabled = false
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
-        button.titleLabel?.font = OpenSans.bold.of(size: 8)
+        button.titleLabel?.font = OpenSans.bold.of(size: 10)
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -118,7 +118,7 @@ class ServiceCVCell: UICollectionViewCell {
         button.layer.masksToBounds = false
         
         // click action
-        button.addTarget(self, action: #selector(getServiceTapped), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(getServiceTapped), for: .touchUpInside)
         return button
     }()
 }
@@ -126,14 +126,14 @@ class ServiceCVCell: UICollectionViewCell {
 
 // MARK: TAP ACTIONS
 
-extension ServiceCVCell {
-    
-    @objc private func getServiceTapped() {
-        if item != nil {
-            listener?.serviceTapped(item: item!)
-        } else {
-            print("Get Service Tapped but item nil")
-        }
-    }
-    
-}
+//extension ServiceCVCell {
+//    
+//    @objc private func getServiceTapped() {
+//        if item != nil {
+//            listener?.serviceTapped(item: item!)
+//        } else {
+//            print("Get Service Tapped but item nil")
+//        }
+//    }
+//
+//}

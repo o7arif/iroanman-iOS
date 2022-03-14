@@ -50,7 +50,7 @@ class ForgotPasswordVC: BaseVC {
             make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
         }
         
-        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
+        phoneField = SmartTextField.init(placeholder: L10n.Placeholder.enterPhoneNumber, dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
         wrapperView.addSubview(phoneField!)
         phoneField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -111,7 +111,7 @@ class ForgotPasswordVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Recover Password"
+        label.text = L10n.Label.recoverPassword
         return label
     }()
     
@@ -121,13 +121,13 @@ class ForgotPasswordVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Enter phone number to recover Password"
+        label.text = L10n.Message.enterPhoneNumberToRecoverPassword
         return label
     }()
     
     private let btnSendOtp: UIView = {
         let button = UIButton()
-        button.setTitle("Send OTP", for: .normal)
+        button.setTitle(L10n.Button.sendOTP, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

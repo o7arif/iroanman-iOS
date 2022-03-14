@@ -89,7 +89,7 @@ class TabNavigationVC: UIViewController {
         }
         
         //MARK:TAB ITEM: home
-        tabHome = GMFTabViewItem.init(icon: "ic_order_deactive", title: "Home") {
+        tabHome = GMFTabViewItem.init(icon: "ic_order_deactive", title: L10n.Label.home) {
             self.didPressTab(selectedIndex: 0)
         }
         tabHome?.isHiddenAction = false
@@ -100,7 +100,7 @@ class TabNavigationVC: UIViewController {
         }
         
         //MARK:TAB ITEM: my order
-        tabOrder = GMFTabViewItem.init(icon: "ic_order_deactive", title: "My Order") {
+        tabOrder = GMFTabViewItem.init(icon: "ic_order_deactive", title: L10n.Label.myOrder) {
             self.didPressTab(selectedIndex: 1)
         }
         transactionView.addSubview(tabOrder!)
@@ -111,7 +111,7 @@ class TabNavigationVC: UIViewController {
         }
         
         //MARK:TAB ITEM: profile
-        tabProfile = GMFTabViewItem.init(icon: "ic_profile_deactive", title: "Profile") {
+        tabProfile = GMFTabViewItem.init(icon: "ic_profile_deactive", title: L10n.Label.profile) {
             self.didPressTab(selectedIndex: 3)
         }
         transactionView.addSubview(tabProfile!)
@@ -122,7 +122,7 @@ class TabNavigationVC: UIViewController {
         }
        
         //MARK: TAB ITEM: notification
-        tabNotifcation = GMFTabViewItem.init(icon: "ic_notification_deactive", title: "Notification") {
+        tabNotifcation = GMFTabViewItem.init(icon: "ic_notification_deactive", title: L10n.Label.notification) {
             self.didPressTab(selectedIndex: 2)
         }
         transactionView.addSubview(tabNotifcation!)

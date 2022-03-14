@@ -138,7 +138,7 @@ class AddressDialogVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .primary
-        label.text = "Add new Address"
+        label.text = L10n.Button.addNewAddress
         return label
     }()
 }

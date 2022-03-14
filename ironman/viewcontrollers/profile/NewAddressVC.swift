@@ -51,14 +51,14 @@ class NewAddressVC: BaseVC {
             make.left.right.equalToSuperview()
         }
         
-        nameField = SmartTextField.init(placeholder: "Address Name (Ex. Office/Home/etc)", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_address_home")
+        nameField = SmartTextField.init(placeholder: L10n.Placeholder.addressNameExOfficeHomeEtc, dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_address_home")
         container.addSubview(nameField!)
         nameField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom).offset(35)
         }
         
-        areaDownPicker = SmartDownPicker.init(placeholder: "Area (Ex. Bashundhara)", dataSource: .area, validationType: .required, shouldAddMargin: true, leftIcon: "ic_map_pin")
+        areaDownPicker = SmartDownPicker.init(placeholder: L10n.Placeholder.areaExBashundhara, dataSource: .area, validationType: .required, shouldAddMargin: true, leftIcon: "ic_map_pin")
         container.addSubview(areaDownPicker!)
         areaDownPicker!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -97,7 +97,7 @@ class NewAddressVC: BaseVC {
         }
         
         // flat
-        flatField = SmartTextField.init(placeholder: "Flat", dataType: .name, validationType: .required, shouldAddMargin: false)
+        flatField = SmartTextField.init(placeholder: L10n.Placeholder.flat, dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(flatField!)
         flatField!.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(4)
@@ -107,7 +107,7 @@ class NewAddressVC: BaseVC {
         }
         
         // house
-        houseField = SmartTextField.init(placeholder: "House", dataType: .name, validationType: .required, shouldAddMargin: false)
+        houseField = SmartTextField.init(placeholder: L10n.Placeholder.house, dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(houseField!)
         houseField!.snp.makeConstraints { make in
             make.left.equalTo(line25.snp.right)
@@ -117,7 +117,7 @@ class NewAddressVC: BaseVC {
         }
         
         // block
-        blockField = SmartTextField.init(placeholder: "Block", dataType: .name, validationType: .required, shouldAddMargin: false)
+        blockField = SmartTextField.init(placeholder: L10n.Placeholder.block, dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(blockField!)
         blockField!.snp.makeConstraints { make in
             make.left.equalTo(line50.snp.right).offset(6)
@@ -127,7 +127,7 @@ class NewAddressVC: BaseVC {
         }
         
         // block
-        roadField = SmartTextField.init(placeholder: "Road", dataType: .name, validationType: .required, shouldAddMargin: false)
+        roadField = SmartTextField.init(placeholder: L10n.Placeholder.road, dataType: .name, validationType: .required, shouldAddMargin: false)
         flatToRoadContainer.addSubview(roadField!)
         roadField!.snp.makeConstraints { make in
             make.left.equalTo(line75.snp.right).offset(12)
@@ -137,7 +137,7 @@ class NewAddressVC: BaseVC {
         }
         
         // additional note
-        noteField.placeholder = "Additional Note"
+        noteField.placeholder = L10n.Placeholder.additionalNote
         noteField.backgroundColor = .white
         noteField.font = OpenSans.regular.of(size: AppConst.fontSize14)
         container.addSubview(noteField)
@@ -161,7 +161,7 @@ class NewAddressVC: BaseVC {
     // MARK: SETUP DATA
     
     private func setAddressData() {
-        labelHeaderTitle.text = "Edit Address"
+        labelHeaderTitle.text = L10n.Label.editAddress
         nameField?.textField.text = address?.addressName
         flatField?.textField.text = address?.flatNo
         houseField?.textField.text = address?.houseNo
@@ -220,13 +220,13 @@ class NewAddressVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Add New Address"
+        label.text = L10n.Button.addNewAddress
         return label
     }()
     
     private let btnSaveAddress: UIButton = {
         let button = UIButton()
-        button.setTitle("Save Address", for: .normal)
+        button.setTitle(L10n.Button.saveAddress, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -325,7 +325,7 @@ extension NewAddressVC {
                 }
             }
             if (responseModel.errors == nil || responseModel.errors?.count == 0) {
-                Toast(text: responseModel.message ?? "message_not_found").show()
+                Toast(text: responseModel.message ?? L10n.Label.unknownError).show()
             }
         }
     }

@@ -10,7 +10,7 @@ import SnapKit
 import AdvancedPageControl
 import Alamofire
 
-class HomeVC: UIViewController & ServiceTapListener {
+class HomeVC: UIViewController {
     
     private let container = UIView()
     
@@ -62,14 +62,12 @@ class HomeVC: UIViewController & ServiceTapListener {
         profileContainer.addSubview(labelName)
         labelName.snp.makeConstraints { make in
             make.left.equalTo(ivProfile.snp.right).offset(20)
-            //            make.right.equalTo(ivCart.snp.left).offset(-20)
             make.top.equalToSuperview()
         }
         
         profileContainer.addSubview(labelAddress)
         labelAddress.snp.makeConstraints { make in
             make.left.equalTo(ivProfile.snp.right).offset(20)
-            //            make.right.equalTo(ivCart.snp.left).offset(-20)
             make.bottom.equalToSuperview()
         }
         
@@ -100,7 +98,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         cvService.snp.makeConstraints { make in
             make.top.equalTo(labelService.snp.bottom).offset(15)
             make.left.right.equalToSuperview()
-            make.height.equalTo(165)
+            make.height.equalTo(245)
         }
         
     }
@@ -112,13 +110,13 @@ class HomeVC: UIViewController & ServiceTapListener {
     
     private func setupLoggedUserData() {
         guard let user = CacheData.instance.getLoggedUser() else {
-            labelName.text = "Guest User"
-            labelAddress.attributedText = ResourceUtil.makeUnderlineAndColoredText(string: "Tap here to Login", startIndex: "Tap here to ".count, length: "Login".count, color: .blue)
+            labelName.text = L10n.Label.guestUser
+            labelAddress.attributedText = ResourceUtil.makeUnderlineAndColoredText(string: L10n.Button.tapHereToLogin, startIndex: "Tap here to ".count, length: "Login".count, color: .blue)
             return
         }
         
         labelName.text = user.name
-        labelAddress.text = "Unknown address"
+        labelAddress.text = L10n.Label.unknownAddress
         ivProfile.load(url: URL(string: user.profilePhoto)!)
     }
     
@@ -171,7 +169,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Guest User"
+        label.text = L10n.Label.guestUser
         return label
     }()
     
@@ -211,7 +209,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Promotions"
+        label.text = L10n.Label.promotions
         return label
     }()
     
@@ -246,7 +244,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .textBlack
-        label.text = "Our Services"
+        label.text = L10n.Label.ourServices
         return label
     }()
     
@@ -254,7 +252,7 @@ class HomeVC: UIViewController & ServiceTapListener {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        layout.itemSize = CGSize(width: 100, height: 160)
+        layout.itemSize = CGSize(width: 150, height: 240)
         layout.minimumLineSpacing = 20
         
         
@@ -300,7 +298,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else if collectionView == cvService {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
-            cell.listener = self
             if services.count > indexPath.row {
                 cell.configure(with: services[indexPath.row])
             }
@@ -314,6 +311,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == cvBanner {
             handleBannerTap()
+        } else if collectionView == cvService {
+            let service = services[indexPath.row]
+            serviceTapped(item: service)
         }
     }
     
@@ -322,7 +322,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
     }
     
-    func serviceTapped(item: Service) {
+    private func serviceTapped(item: Service) {
         let vc = ChooseItemVC()
         vc.service = item
         self.navigationController?.pushViewController(vc, animated: true)

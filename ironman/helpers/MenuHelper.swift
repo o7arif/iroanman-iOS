@@ -12,18 +12,18 @@ class MenuHelper {
     static func getMenus(_ isLogged: Bool = false) -> [Menu] {
         var menus: [Menu] = []
         
-        menus.append(Menu(name: MenuEnum.MANAGE_ADDRESS.rawValue, icon: UIImage(named: "ic_menu_address")!))
+        menus.append(Menu(name: L10n.Label.manageAddress, icon: UIImage(named: "ic_menu_address")!, type: MenuEnum.MANAGE_ADDRESS))
         
-        menus.append(Menu(name: MenuEnum.PRIVACY_POLICY.rawValue, icon: UIImage(named: "ic_menu_privacy_policy")!))
+        menus.append(Menu(name: L10n.Label.privacyPolicy, icon: UIImage(named: "ic_menu_privacy_policy")!, type: MenuEnum.PRIVACY_POLICY))
         
-        menus.append(Menu(name: MenuEnum.TERMS_OF_SERVICE.rawValue, icon: UIImage(named: "ic_menu_terms_service")!))
+        menus.append(Menu(name: L10n.Label.termsOfService, icon: UIImage(named: "ic_menu_terms_service")!, type: MenuEnum.TERMS_OF_SERVICE))
         
-        menus.append(Menu(name: MenuEnum.CONTACT.rawValue, icon: UIImage(named: "ic_menu_contact")!))
+        menus.append(Menu(name: L10n.Label.contactUs, icon: UIImage(named: "ic_menu_contact")!, type: MenuEnum.CONTACT))
         
-        menus.append(Menu(name: MenuEnum.ABOUT.rawValue, icon: UIImage(named: "ic_menu_about")!))
+        menus.append(Menu(name: L10n.Label.about, icon: UIImage(named: "ic_menu_about")!, type: MenuEnum.ABOUT))
         
         if isLogged {
-            menus.append(Menu(name: MenuEnum.LOGOUT.rawValue, icon: UIImage(named: "ic_menu_logout")!))
+            menus.append(Menu(name: L10n.Label.logOut, icon: UIImage(named: "ic_menu_logout")!, type: MenuEnum.LOGOUT))
         }
         
         return menus

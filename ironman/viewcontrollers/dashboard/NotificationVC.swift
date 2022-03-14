@@ -77,7 +77,7 @@ class NotificationVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "Notifications"
+        label.text = L10n.Label.notifications
         return label
     }()
     
@@ -94,7 +94,7 @@ class NotificationVC: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Your notification is Empty"
+        label.text = L10n.Message.yourNotificationIsEmpty
         return label
     }()
 }

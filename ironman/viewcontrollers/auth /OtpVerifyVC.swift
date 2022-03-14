@@ -87,7 +87,7 @@ class OtpVerifyVC: BaseVC {
         }
 
         resendCodeView.addSubview(labelOtpWillSendIn)
-        labelOtpWillSendIn.text = "Resend code in xx sec"
+        labelOtpWillSendIn.text = L10n.Formatted.resendCodeIn(arg: "")
         labelOtpWillSendIn.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -116,7 +116,7 @@ class OtpVerifyVC: BaseVC {
     
     @objc private func changeTitle() {
         if counter != 0 {
-            labelOtpWillSendIn.text = "Resend code in \(counter)s"
+            labelOtpWillSendIn.text = L10n.Formatted.resendCodeIn(arg: "\(counter)")
             counter -= 1
         } else {
             countTimer.invalidate()
@@ -145,20 +145,21 @@ class OtpVerifyVC: BaseVC {
     // MARK: TIMER SETUP AND FUNCTIONALITY
     
     private func initResendCodeTimer() {
-        labelResend.isHidden = true
-        pulse()
         bidTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(pulse), userInfo: nil, repeats: true)
+        labelResend.isHidden = true
+        labelOtpWillSendIn.isHidden = false
     }
     
     @objc private func pulse() {
         countDown -= 1
         if (countDown >= 0) {
-            labelOtpWillSendIn.text = "Re-send code in 00:\(String(format: "%02d", countDown))"
+            labelOtpWillSendIn.text = L10n.Formatted.resendCodeIn(arg: "\(countDown)")
             labelOtpWillSendIn.addCharacterSpacing(kernValue: 0.8)
         } else if (countDown == -1) {
             bidTimer?.invalidate()
             countDown = 60
             labelResend.isHidden = false
+            labelOtpWillSendIn.isHidden = true
         }
     }
     
@@ -195,7 +196,7 @@ class OtpVerifyVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "OTP Verification"
+        label.text = L10n.Label.otpVerification
         return label
     }()
     
@@ -205,7 +206,7 @@ class OtpVerifyVC: BaseVC {
         label.numberOfLines = 2
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Enter the verification code we just sent you OTP on your Phone."
+        label.text = L10n.Message.enterTheVerificationCodeWeJustSentYouOtpOnYourPhone
         return label
     }()
     
@@ -230,7 +231,7 @@ class OtpVerifyVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .black
-        label.text = "OTP will send within 00 : 30"
+        label.text = ""
         return label
     }()
     
@@ -240,7 +241,7 @@ class OtpVerifyVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .right
         label.textColor = .color(fromHexString: "FF4141")
-        label.text = "Resend"
+        label.text = L10n.Button.resend
         label.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(resentOtpTapped(_:)))
         label.addGestureRecognizer(tap)
@@ -249,7 +250,7 @@ class OtpVerifyVC: BaseVC {
     
     private let btnSubmit: UIView = {
         let button = UIButton()
-        button.setTitle("Submit", for: .normal)
+        button.setTitle(L10n.Button.submit, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

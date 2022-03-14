@@ -164,7 +164,7 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "About Us"
+        label.text = L10n.Label.aboutUs
         return label
     }()
     
@@ -181,7 +181,7 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlackDark
-        label.text = "Who we are?"
+        label.text = L10n.Label.whoWeAre
         return label
     }()
     
@@ -201,7 +201,7 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlackDark
-        label.text = "What we do?"
+        label.text = L10n.Label.whatWeDo
         return label
     }()
     
@@ -221,7 +221,7 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlackDark
-        label.text = "How we work?"
+        label.text = L10n.Label.howWeWork
         return label
     }()
     
@@ -252,7 +252,7 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlackLight
-        label.text = "We pickup your clothes"
+        label.text = L10n.Label.wePickupYourClothes
         return label
     }()
     
@@ -262,7 +262,7 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlackLight
-        label.text = "We clean your clothes"
+        label.text = L10n.Label.weCleanYourClothes
         return label
     }()
     
@@ -272,14 +272,14 @@ class AboutUsVC: BaseVC {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .textBlackLight
-        label.text = "We deliver clean and folded clothes"
+        label.text = L10n.Label.weDeliverCleanAndFoldedClothes
         return label
     }()
     
     
     private let btnClose: UIButton = {
         let button = UIButton()
-        button.setTitle("Close", for: .normal)
+        button.setTitle(L10n.Button.close, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary

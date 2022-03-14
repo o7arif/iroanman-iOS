@@ -10,4 +10,5 @@ import UIKit
 struct Menu {
     var name: String
     var icon: UIImage
+    var type: MenuEnum
 }

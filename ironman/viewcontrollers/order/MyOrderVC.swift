@@ -55,8 +55,8 @@ class MyOrderVC: UIViewController {
     private func setupSegmentControl() {
         segmentControl.removeAllSegments()
         
-        segmentControl.insertSegment(withTitle: "On Going", at: 0, animated: false)
-        segmentControl.insertSegment(withTitle: "Completed", at: 1, animated: false)
+        segmentControl.insertSegment(withTitle: L10n.Label.onGoing, at: 0, animated: false)
+        segmentControl.insertSegment(withTitle: L10n.Label.completed, at: 1, animated: false)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.tintColorDidChange()
         
@@ -137,7 +137,7 @@ class MyOrderVC: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white
-        label.text = "My Order"
+        label.text = L10n.Label.myOrder
         return label
     }()
 }

@@ -76,9 +76,9 @@ class WelcomeVC: BaseVC {
     }
     
     private func setupData() {
-        welcomeAssets.append(WelcomeAssest(title: "Get Stuff Washed", image: UIImage(named: "img_welcome")!))
-        welcomeAssets.append(WelcomeAssest(title: "Premium Washing", image: UIImage(named: "img_welcome")!))
-        welcomeAssets.append(WelcomeAssest(title: "Dry Cleaning", image: UIImage(named: "img_welcome")!))
+        welcomeAssets.append(WelcomeAssest(title: L10n.Label.getStuffWashed, image: UIImage(named: "img_welcome")!))
+        welcomeAssets.append(WelcomeAssest(title: L10n.Label.premiumWashing, image: UIImage(named: "img_welcome")!))
+        welcomeAssets.append(WelcomeAssest(title: L10n.Label.dryCleaning, image: UIImage(named: "img_welcome")!))
     }
     
     
@@ -116,7 +116,7 @@ class WelcomeVC: BaseVC {
     private let label: UILabel = {
         let label = UILabel()
         label.font = OpenSans.regular.of(size: 14)
-        label.text = "Ready to Make Your Life Easier with Laundry Service?"
+        label.text = L10n.Message.readyToMakeYourLifeEasier
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .white
@@ -125,7 +125,7 @@ class WelcomeVC: BaseVC {
     
     private lazy var button: UIButton = {
         let button = UIButton()
-        button.setTitle("Let`s Get Started", for: .normal)
+        button.setTitle(L10n.Button.letsGetStarted, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.primary, for: .normal)
         button.backgroundColor = .white

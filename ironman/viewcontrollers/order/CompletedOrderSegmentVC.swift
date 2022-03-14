@@ -90,7 +90,7 @@ class CompletedOrderSegmentVC: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Your order list is Empty."
+        label.text = L10n.Message.yourOrderListIsEmpty
         return label
     }()
     
@@ -147,9 +147,9 @@ extension CompletedOrderSegmentVC: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        listener?.onOrderTapped(isCompleted: true, order: orders[indexPath.section])
-//    }
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        listener?.onOrderTapped(isCompleted: true, order: orders[indexPath.section])
+    //    }
     
 }
 
@@ -171,36 +171,33 @@ extension CompletedOrderSegmentVC {
         
         Networking.instance.call(api: "orders", method: .get, parameters: params) { (responseModel) in
             if responseModel.code == 200 {
-                guard let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> else {
-                    return
-                }
-                
-                guard let dictionary = dataDictionary["orders"] as? Array<Dictionary<String, Any>> else {
-                    return
-                }
-                
-                for i in 0..<dictionary.count {
-                    let order = Order.init(fromDictionary: dictionary[i])
-                    self.orders.append(order)
-                }
-                
-                DispatchQueue.main.async {
+                if let dataDictionary = responseModel.body["data"] as? Dictionary<String, Any> {
+                    if let dictionary = dataDictionary["orders"] as? Array<Dictionary<String, Any>> {
+                        
+                        for i in 0..<dictionary.count {
+                            let order = Order.init(fromDictionary: dictionary[i])
+                            self.orders.append(order)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        self.tableView.reloadData()
+                    }
+                } else {
                     self.tableView.reloadData()
                 }
-            } else {
-                self.tableView.reloadData()
+                
+                if self.orders.count == 0 {
+                    self.emptyListMessage()
+                } else {
+                    self.emptyListContainer.removeFromSuperview()
+                }
             }
             
-            if self.orders.count == 0 {
-                self.emptyListMessage()
-            } else {
-                self.emptyListContainer.removeFromSuperview()
-            }
         }
         
     }
     
-    
-    
 }
-

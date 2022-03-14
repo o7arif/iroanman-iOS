@@ -55,28 +55,28 @@ class SignupVC: BaseVC {
             make.top.equalTo(labelHeaderTitle.snp.bottom).offset(5)
         }
         
-        nameField = SmartTextField.init(placeholder: "Your Name", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_person")
+        nameField = SmartTextField.init(placeholder: L10n.Placeholder.yourName, dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_person")
         wrapperView.addSubview(nameField!)
         nameField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(viewHeaderBack.snp.bottom).offset(35)
         }
         
-        phoneField = SmartTextField.init(placeholder: "Enter Phone Number", dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
+        phoneField = SmartTextField.init(placeholder: L10n.Placeholder.enterPhoneNumber, dataType: .name, validationType: .required, shouldAddMargin: true, leftIcon: "ic_phone")
         wrapperView.addSubview(phoneField!)
         phoneField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(nameField!.snp.bottom)
         }
         
-        passwordField = SmartTextField.init(placeholder: "Create password", dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
+        passwordField = SmartTextField.init(placeholder: L10n.Placeholder.createPassword, dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
         wrapperView.addSubview(passwordField!)
         passwordField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(phoneField!.snp.bottom)
         }
         
-        confirmPasswordField = SmartTextField.init(placeholder: "Confirm password", dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
+        confirmPasswordField = SmartTextField.init(placeholder: L10n.Placeholder.confirmPassword, dataType: .password, validationType: .required, shouldAddMargin: true, leftIcon: "ic_lock")
         wrapperView.addSubview(confirmPasswordField!)
         confirmPasswordField!.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -147,7 +147,7 @@ class SignupVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Sign up"
+        label.text = L10n.Label.SignUp
         return label
     }()
     
@@ -157,13 +157,13 @@ class SignupVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "Please Register to get our Service"
+        label.text = L10n.Message.pleaseRegisterToGetOurService
         return label
     }()
     
     private let btnSignup: UIView = {
         let button = UIButton()
-        button.setTitle("Sign up", for: .normal)
+        button.setTitle(L10n.Label.SignUp, for: .normal)
         button.isUserInteractionEnabled = true
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
@@ -188,7 +188,7 @@ class SignupVC: BaseVC {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .textBlack
-        label.text = "Already have an Account? Login Now"
+        label.text = L10n.Message.alreadyHaveAnAccountLoginNow
         
         label.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(loginTapped(_:)))
@@ -236,25 +236,25 @@ extension SignupVC {
             if(responseModel.code == 200) {
                 guard let dictionary = responseModel.body["data"] as? NSDictionary else {
                     print("Empty body")
-                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
                     return
                 }
                 
                 guard let message = responseModel.body["message"] as? String else {
                     print("Empty message")
-                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
                     return
                 }
                
                 guard let userDictionary = dictionary["user"] as? [String:Any] else {
                     print("Empty user")
-                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
                     return
                 }
                 
                 guard let accessDictionary = dictionary["access"] as? [String:Any] else {
                     print("Empty access")
-                    Toast(text: responseModel.message ?? "Something went wrong. Please try again later.").show()
+                    Toast(text: responseModel.message ?? L10n.Message.somethingWentWrongPleaseTryAgainLater).show()
                     return
                 }
                 
@@ -304,7 +304,7 @@ extension SignupVC {
                 }
             }
             if (responseModel.errors == nil || responseModel.errors?.count == 0) {
-                Toast(text: responseModel.message ?? "message_not_found").show()
+                Toast(text: responseModel.message ?? L10n.Label.unknownError).show()
             }
         }
     }
